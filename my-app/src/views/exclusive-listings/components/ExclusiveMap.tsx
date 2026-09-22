@@ -1,0 +1,97 @@
+'use client';
+
+import { Compass, MapPin } from 'lucide-react';
+import type { ExclusiveListing } from '@/mocks/exclusiveData';
+import { formatMoney } from '@/views/exclusive-listings/utils';
+
+interface ExclusiveMapProps {
+  listings: ExclusiveListing[];
+  activeId: string | null;
+  onActiveChange: (id: string | null) => void;
+}
+
+export default function ExclusiveMap({ listings, activeId, onActiveChange }: ExclusiveMapProps) {
+  const active = listings.find((listing) => listing.id === activeId) ?? null;
+
+  return (
+    <div className="relative h-[300px] w-full overflow-hidden rounded-[26px] border border-background-300 bg-background-100 md:h-[380px]">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-70"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(0deg, rgba(0,0,0,0.035) 0 1px, transparent 1px 44px), repeating-linear-gradient(90deg, rgba(0,0,0,0.035) 0 1px, transparent 1px 44px)',
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-background-300"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-background-300"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-full border border-background-300 bg-background-50 text-foreground-500"
+        aria-hidden="true"
+      >
+        <Compass className="h-5 w-5" />
+      </div>
+
+      <span className="absolute left-6 top-6 rounded-full border border-background-300 bg-background-50/90 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground-600 backdrop-blur">
+        DMV Metro Map
+      </span>
+
+      {listings.map((listing) => {
+        const isActive = listing.id === activeId;
+        return (
+          <button
+            key={listing.id}
+            type="button"
+            onMouseEnter={() => onActiveChange(listing.id)}
+            onMouseLeave={() => onActiveChange(null)}
+            onClick={() => onActiveChange(listing.id)}
+            aria-label={`${listing.address}, ${listing.city} — ${formatMoney(listing.price)}`}
+            aria-pressed={isActive}
+            className="absolute -translate-x-1/2 -translate-y-1/2"
+            style={{ left: `${listing.x}%`, top: `${listing.y}%` }}
+          >
+            <span
+              className={`flex items-center gap-1.5 whitespace-nowrap rounded-full border px-3 py-1.5 text-[11px] font-semibold transition-all duration-300 ${
+                isActive
+                  ? 'border-primary-500 bg-primary-500 text-background-50'
+                  : 'border-background-300 bg-background-50/95 text-foreground-800 hover:border-foreground-400 hover:text-foreground-950'
+              }`}
+            >
+              <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
+              {formatMoney(listing.price)}
+            </span>
+          </button>
+        );
+      })}
+
+      {listings.length === 0 ? (
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <p className="max-w-sm rounded-2xl border border-background-300 bg-background-50/95 px-6 py-5 text-center text-[13px] leading-relaxed text-foreground-600 backdrop-blur">
+            To view listings, please zoom further into your desired area or add a location to the search bar.
+          </p>
+        </div>
+      ) : null}
+
+      {active ? (
+        <div className="absolute bottom-5 left-5 right-5 flex items-center gap-4 overflow-hidden rounded-2xl border border-background-300 bg-background-50/96 p-3 backdrop-blur md:right-auto md:w-[340px]">
+          <div className="h-16 w-16 shrink-0 overflow-hidden rounded-xl">
+            <img src={active.image} alt={active.address} className="h-full w-full object-cover object-top" />
+          </div>
+          <div className="min-w-0">
+            <p className="font-heading text-[19px] leading-none text-foreground-950">{formatMoney(active.price)}</p>
+            <p className="mt-1.5 truncate text-[12px] text-foreground-600">{active.address}</p>
+            <p className="text-[11px] uppercase tracking-[0.14em] text-foreground-400">
+              {active.city}, {active.state} · {active.beds} bd · {active.baths} ba
+            </p>
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
+}
