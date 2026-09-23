@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, Mail, Phone } from 'lucide-react';
+import { ChevronDown, Phone } from 'lucide-react';
 import { brand, navLinks } from '@/mocks/homeData';
 import SidebarDrawer from '@/views/home-v2/components/SidebarDrawer';
 
@@ -15,16 +15,15 @@ interface SiteNavbarProps {
 }
 
 /**
- * Site masthead.
+ * Site masthead — a solid ink bar, at every scroll position.
  *
- * Three stacked bands that behave as one object:
- *   1. a utility rail carrying the licensing line and direct contact details,
- *      which folds away the moment the page starts to move,
- *   2. the main bar — wordmark, centred navigation, actions,
- *   3. a hairline that doubles as a reading-progress indicator.
+ * It does not go transparent over the hero. That matters for the wordmark:
+ * the logo asset is coral-and-white built for dark grounds, so a permanently
+ * dark bar is the only state where it can show its real colours instead of
+ * being flattened to a silhouette with a brightness filter.
  *
- * Over a hero the whole thing is transparent and reversed out in white; once
- * scrolled it settles onto the cream canvas with a hairline and a soft shadow.
+ * Scrolling adds a shadow and a reading-progress hairline along the bottom
+ * edge; nothing else moves, so the bar never reflows the page under it.
  */
 export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNavbarProps) {
   const pathname = usePathname();
@@ -38,7 +37,7 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
     const onScroll = () => {
       const y = window.scrollY;
       const travel = document.documentElement.scrollHeight - window.innerHeight;
-      setScrolled(y > 80);
+      setScrolled(y > 40);
       setProgress(travel > 0 ? Math.min(y / travel, 1) : 0);
     };
     onScroll();
@@ -72,7 +71,6 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
     };
   }, [openMenu, closeMenu]);
 
-  const light = !scrolled;
   const logoIsHash = homeHref.startsWith('#');
   const resolve = (href: string) => (href.startsWith('#') ? `${linkBase}${href}` : href);
 
@@ -81,95 +79,40 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
     Boolean(children?.some((child) => isCurrent(child.href)));
 
   const itemClass = (active: boolean) =>
-    `group relative inline-flex items-center gap-1.5 whitespace-nowrap py-1 text-[13px] font-medium tracking-wide transition-colors duration-300 ${
-      light
-        ? active
-          ? 'text-background-50'
-          : 'text-background-100/85 hover:text-background-50'
-        : active
-          ? 'text-foreground-950'
-          : 'text-foreground-600 hover:text-foreground-950'
+    `group relative inline-flex items-center gap-1.5 whitespace-nowrap py-1 text-[14px] font-medium tracking-wide transition-colors duration-300 ${
+      active ? 'text-background-50' : 'text-background-100 hover:text-primary-400'
     }`;
 
   // Hairline under each item: parked at zero width, drawn left-to-right on
-  // hover, and held open for the route you are currently on.
+  // hover, and held open in coral for the route you are currently on.
   const railClass = (active: boolean) =>
-    `absolute -bottom-0.5 left-0 h-px w-full origin-left transition-transform duration-300 group-hover:scale-x-100 ${
-      active ? 'scale-x-100' : 'scale-x-0'
-    } ${light ? 'bg-background-50' : 'bg-foreground-950'}`;
+    `absolute -bottom-1 left-0 h-px w-full origin-left transition-transform duration-300 group-hover:scale-x-100 ${
+      active ? 'scale-x-100 bg-primary-500' : 'scale-x-0 bg-background-50/70'
+    }`;
+
+  const logoImg = (
+    <img
+      src={brand.logo}
+      alt="BW Metro Properties logo"
+      className="h-9 w-auto md:h-10"
+    />
+  );
 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-500 ${
-          scrolled
-            ? 'bg-background-50/95 shadow-[0_12px_40px_-32px_rgba(20,16,12,0.7)] backdrop-blur-xl'
-            : 'bg-transparent'
+        className={`fixed inset-x-0 top-0 z-50 border-b border-background-50/10 bg-foreground-950 transition-shadow duration-500 ${
+          scrolled ? 'shadow-[0_18px_50px_-30px_rgba(0,0,0,0.9)]' : ''
         }`}
       >
-        {/* 1 — Utility rail. Folds to nothing on scroll so the bar tightens. */}
-        <div
-          aria-hidden={scrolled}
-          className={`hidden overflow-hidden border-b transition-all duration-500 lg:block ${
-            scrolled
-              ? 'h-0 border-transparent opacity-0'
-              : `h-[38px] opacity-100 ${light ? 'border-background-50/15' : 'border-background-300/70'}`
-          }`}
-        >
-          <div
-            className={`mx-auto flex h-[38px] max-w-[1500px] items-center justify-between px-5 text-[10.5px] font-semibold uppercase tracking-[0.24em] md:px-10 ${
-              light ? 'text-background-100/70' : 'text-foreground-500'
-            }`}
-          >
-            <p className="flex items-center gap-3">
-              <span>Licensed in DC · VA · MD</span>
-              <span className="h-px w-6 bg-current opacity-40" aria-hidden="true" />
-              <span className="normal-case tracking-[0.12em]">Open daily 8:00am – 6:00pm</span>
-            </p>
-            <div className="flex items-center gap-7">
-              <a
-                href={`mailto:${brand.email}`}
-                className="flex items-center gap-2 normal-case tracking-[0.12em] transition-colors duration-300 hover:text-background-50"
-              >
-                <Mail className="h-3.5 w-3.5" aria-hidden="true" />
-                {brand.email}
-              </a>
-              <a
-                href={brand.phoneHref}
-                className="flex items-center gap-2 normal-case tracking-[0.12em] transition-colors duration-300 hover:text-background-50"
-              >
-                <Phone className="h-3.5 w-3.5" aria-hidden="true" />
-                {brand.phone}
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* 2 — Main bar. */}
-        <div
-          className={`mx-auto flex max-w-[1500px] items-center justify-between gap-6 px-5 transition-all duration-500 md:px-10 ${
-            scrolled ? 'h-[68px] md:h-[76px]' : 'h-[72px] md:h-[84px]'
-          }`}
-        >
+        <div className="mx-auto flex h-[74px] max-w-[1500px] items-center justify-between gap-6 px-5 md:h-[88px] md:px-10">
           {logoIsHash ? (
             <a href={homeHref} className="flex shrink-0 items-center" aria-label="BW Metro Properties home">
-              <img
-                src={brand.logo}
-                alt="BW Metro Properties logo"
-                className={`w-auto transition-all duration-500 ${
-                  scrolled ? 'h-7 md:h-8' : 'h-8 md:h-9'
-                } ${light ? 'brightness-0 invert' : 'brightness-0'}`}
-              />
+              {logoImg}
             </a>
           ) : (
             <Link href={homeHref} className="flex shrink-0 items-center" aria-label="BW Metro Properties home">
-              <img
-                src={brand.logo}
-                alt="BW Metro Properties logo"
-                className={`w-auto transition-all duration-500 ${
-                  scrolled ? 'h-7 md:h-8' : 'h-8 md:h-9'
-                } ${light ? 'brightness-0 invert' : 'brightness-0'}`}
-              />
+              {logoImg}
             </Link>
           )}
 
@@ -194,10 +137,10 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
                     >
                       {link.label}
                       <ChevronDown
-                        className={`h-3.5 w-3.5 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
+                        className={`h-4 w-4 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
                         aria-hidden="true"
                       />
-                      <span className={railClass(active || open)} aria-hidden="true" />
+                      <span className={railClass(active)} aria-hidden="true" />
                     </button>
 
                     <div
@@ -207,22 +150,22 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
                           : 'pointer-events-none translate-y-1 opacity-0'
                       }`}
                     >
-                      <div className="overflow-hidden rounded-2xl border border-background-50/10 bg-foreground-950/95 shadow-[0_30px_60px_-40px_rgba(0,0,0,0.9)] backdrop-blur-xl">
+                      <div className="overflow-hidden rounded-2xl border border-background-50/12 bg-foreground-950 shadow-[0_30px_60px_-30px_rgba(0,0,0,1)]">
                         {link.children.map((child) => (
                           <Link
                             key={child.label}
                             href={child.href}
                             onClick={closeMenu}
                             aria-current={isCurrent(child.href) ? 'page' : undefined}
-                            className={`group/item flex items-center justify-between gap-3 border-b border-background-50/10 px-5 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] transition-colors duration-300 last:border-b-0 hover:bg-background-50/10 ${
+                            className={`group/item flex items-center justify-between gap-3 border-b border-background-50/10 px-5 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] transition-colors duration-300 last:border-b-0 hover:bg-background-50/[0.07] ${
                               isCurrent(child.href)
-                                ? 'bg-background-50/10 text-background-50'
-                                : 'text-background-100/80 hover:text-background-50'
+                                ? 'bg-background-50/[0.07] text-primary-400'
+                                : 'text-background-100 hover:text-background-50'
                             }`}
                           >
                             {child.label}
                             <span
-                              className="h-px w-4 shrink-0 bg-current opacity-30 transition-all duration-300 group-hover/item:w-6 group-hover/item:opacity-80"
+                              className="h-px w-4 shrink-0 bg-current opacity-40 transition-all duration-300 group-hover/item:w-6 group-hover/item:opacity-90"
                               aria-hidden="true"
                             />
                           </Link>
@@ -261,17 +204,12 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
             })}
           </nav>
 
-          <div className="flex items-center gap-2.5 md:gap-3.5">
-            {/* Phone repeats in the bar only once the utility rail has folded. */}
+          <div className="flex items-center gap-3 md:gap-4">
             <a
               href={brand.phoneHref}
-              className={`hidden items-center gap-2 whitespace-nowrap text-[12.5px] font-medium transition-all duration-500 xl:flex ${
-                scrolled
-                  ? 'text-foreground-600 opacity-100 hover:text-foreground-950'
-                  : 'pointer-events-none w-0 overflow-hidden opacity-0'
-              }`}
+              className="hidden items-center gap-2.5 whitespace-nowrap text-[14px] font-medium text-background-50 transition-colors duration-300 hover:text-primary-400 xl:flex"
             >
-              <Phone className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+              <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
               {brand.phone}
             </a>
 
@@ -279,7 +217,7 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
                 same-page anchor rather than being prefixed with linkBase. */}
             <a
               href="#contact"
-              className="btn-shimmer hidden whitespace-nowrap rounded-full bg-primary-500 px-6 py-3 text-[12.5px] font-semibold tracking-wide text-background-50 transition-colors duration-300 hover:bg-primary-600 md:inline-block"
+              className="btn-shimmer hidden whitespace-nowrap rounded-full bg-primary-500 px-7 py-3.5 text-[13.5px] font-semibold text-background-50 transition-colors duration-300 hover:bg-primary-600 md:inline-block"
             >
               Schedule a Consultation
             </a>
@@ -289,11 +227,7 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
               onClick={() => setDrawerOpen(true)}
               aria-label="Open navigation menu"
               aria-expanded={drawerOpen}
-              className={`group flex h-11 items-center gap-3 whitespace-nowrap rounded-full border px-4 transition-colors duration-300 ${
-                light
-                  ? 'border-background-50/35 text-background-50 hover:border-background-50/80 hover:bg-background-50/10'
-                  : 'border-background-300 text-foreground-900 hover:border-foreground-950 hover:bg-foreground-950 hover:text-background-50'
-              }`}
+              className="group flex h-12 items-center gap-3 whitespace-nowrap rounded-full border border-background-50/25 px-5 text-background-50 transition-colors duration-300 hover:border-background-50/70 hover:bg-background-50/10"
             >
               {/* Three rules of uneven length that re-shuffle on hover. */}
               <span className="flex h-[11px] w-[18px] flex-col justify-between" aria-hidden="true">
@@ -301,17 +235,15 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
                 <span className="h-px w-3/4 bg-current transition-all duration-300 group-hover:w-full" />
                 <span className="h-px w-full bg-current transition-all duration-300 group-hover:w-1/2" />
               </span>
-              <span className="hidden text-[11px] font-semibold uppercase tracking-[0.24em] sm:inline">
-                Menu
-              </span>
+              <span className="text-[12px] font-semibold uppercase tracking-[0.22em]">Menu</span>
             </button>
           </div>
         </div>
 
-        {/* 3 — Reading progress. Appears only once the bar has settled. */}
+        {/* Reading progress, along the bottom edge. Appears once the page moves. */}
         <div
           className={`absolute inset-x-0 bottom-0 h-px transition-opacity duration-500 ${
-            scrolled ? 'bg-background-300/70 opacity-100' : 'opacity-0'
+            scrolled ? 'opacity-100' : 'opacity-0'
           }`}
           aria-hidden="true"
         >
