@@ -23,12 +23,16 @@ const legalLinks = ['Accessibility', 'Privacy Policy', 'Sitemap'];
 export default function SiteFooter({ linkBase = '' }: SiteFooterProps) {
   const resolve = (href: string) => (href.startsWith('#') ? `${linkBase}${href}` : href);
 
+  /* Headings stay coral; the gold below is the hover colour only.
+     text-accent-400 is oklch(0.81 0.068 88), which renders exactly the
+     #D3BF8F the studio asked for - so this stays on the token scale
+     instead of hardcoding the hex. */
   const columnHeading = 'text-[11px] font-semibold uppercase tracking-[0.24em] text-primary-400';
   const linkClass =
-    'group relative inline-block break-words text-[15px] leading-snug text-background-100 transition-colors duration-300 hover:text-primary-400';
+    'group relative inline-block break-words text-[15px] leading-snug text-background-100 transition-colors duration-300 hover:text-accent-400';
   const linkRail = (
     <span
-      className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-primary-400/60 transition-transform duration-300 group-hover:scale-x-100"
+      className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-accent-400/70 transition-transform duration-300 group-hover:scale-x-100"
       aria-hidden="true"
     />
   );
@@ -105,7 +109,7 @@ export default function SiteFooter({ linkBase = '' }: SiteFooterProps) {
               <li>
                 <a
                   href={brand.phoneHref}
-                  className="flex items-start gap-3 transition-colors duration-300 hover:text-primary-400"
+                  className="flex items-start gap-3 transition-colors duration-300 hover:text-accent-400"
                 >
                   <Phone className="mt-[3px] h-4 w-4 shrink-0 text-background-200/70" aria-hidden="true" />
                   <span>(202) 998-4593</span>
@@ -114,7 +118,7 @@ export default function SiteFooter({ linkBase = '' }: SiteFooterProps) {
               <li>
                 <a
                   href={`mailto:${brand.email}`}
-                  className="flex items-start gap-3 break-all transition-colors duration-300 hover:text-primary-400"
+                  className="flex items-start gap-3 break-all transition-colors duration-300 hover:text-accent-400"
                 >
                   <Mail className="mt-[3px] h-4 w-4 shrink-0 text-background-200/70" aria-hidden="true" />
                   <span>{brand.email}</span>
@@ -150,7 +154,7 @@ export default function SiteFooter({ linkBase = '' }: SiteFooterProps) {
               <li key={item}>
                 <a
                   href={resolve('#top')}
-                  className="whitespace-nowrap text-xs text-background-200/65 transition-colors duration-300 hover:text-primary-400"
+                  className="whitespace-nowrap text-xs text-background-200/65 transition-colors duration-300 hover:text-accent-400"
                 >
                   {item}
                 </a>
