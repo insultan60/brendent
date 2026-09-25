@@ -10,23 +10,29 @@ interface HeroV2Props {
 export default function HeroV2({ onWatchFilm }: HeroV2Props) {
   return (
     <section id="top" className="relative min-h-[100svh] w-full overflow-hidden bg-foreground-950">
+      {/* Brandon's own footage, replacing the Pexels stock clip this hero used
+          to stream from a third-party CDN.
+
+          The source is a 888 MB 4K/60 camera master, which is a delivery
+          format, not a web one. What ships is 720p30 with the audio track
+          dropped: the hero autoplays, and an autoplaying video has to be muted
+          anyway, so the audio was pure weight. 720p rather than 1080p because
+          .v2-scrim lays a heavy dark gradient over this and .v2-grain a noise
+          layer on top of that - the detail a larger encode buys is not
+          detail anyone can see through them.
+
+          No `preload` override: a muted autoplay background is fetched by the
+          browser regardless, and declaring otherwise only fights it. */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        poster="https://assets.agentfire3.com/uploads/sites/2739/2026/03/Alexandria-VA-Area-Guide.jpeg"
+        poster="/video/hero-poster.jpg"
         className="v2-kenburns absolute inset-0 h-full w-full object-cover object-top"
         aria-hidden="true"
       >
-        <source
-          src="https://videos.pexels.com/video-files/7578541/7578541-hd_1920_1080_30fps.mp4"
-          type="video/mp4"
-        />
-        <source
-          src="https://videos.pexels.com/video-files/7578541/7578541-uhd_2560_1440_30fps.mp4"
-          type="video/mp4"
-        />
+        <source src="/video/hero.mp4" type="video/mp4" />
       </video>
       <div className="v2-scrim absolute inset-0" aria-hidden="true" />
       <div className="v2-grain absolute inset-0" aria-hidden="true" />

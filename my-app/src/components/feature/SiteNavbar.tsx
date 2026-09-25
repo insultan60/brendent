@@ -100,9 +100,17 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
 
   return (
     <>
+      {/* Transparent over the hero, solid once the page moves.
+          The wordmark needs no brightness filter in either state: the hero
+          runs Brandon's film under .v2-scrim, so the bar sits on dark at the
+          top and on the ink band after the scroll - the coral-and-white logo
+          reads on both. That is what let this go back to transparent without
+          the flattened silhouette the cream version used to need. */}
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b border-background-50/10 bg-foreground-950 transition-shadow duration-500 ${
-          scrolled ? 'shadow-[0_18px_50px_-30px_rgba(0,0,0,0.9)]' : ''
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-500 ${
+          scrolled
+            ? 'border-background-50/10 bg-foreground-950 shadow-[0_18px_50px_-30px_rgba(0,0,0,0.9)]'
+            : 'border-transparent bg-transparent'
         }`}
       >
         <div className="mx-auto flex h-[74px] max-w-[1500px] items-center justify-between gap-6 px-5 md:h-[88px] md:px-10">
