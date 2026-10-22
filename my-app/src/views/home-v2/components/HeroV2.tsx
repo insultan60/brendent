@@ -48,13 +48,21 @@ export default function HeroV2() {
 
           Phones keep the left edge: at that width the column is barely wider
           than the text, so right-ragged setting buys nothing and costs the
-          clean left margin the buttons share. */}
+          clean left margin the buttons share.
+
+          From lg up the headline is held to the right-hand ~40% of the screen
+          so it stays off Brandon, who stands at roughly 44-54% of the frame
+          width. Its box is min(40vw, 34rem): 40vw keeps the left edge past
+          ~56% at 1024-1280px, and the 34rem cap does the same on wide screens,
+          where the 1500px container would otherwise let a 40vw box reach back
+          over him. The size scales with the viewport so the narrower box still
+          sets in five or so lines rather than a tall stack of single words. */}
       <div className="relative mx-auto flex min-h-[100svh] max-w-[1500px] flex-col justify-between gap-12 px-5 pb-12 pt-32 md:px-10 md:pb-16 md:pt-44">
         <div className="v2-rise lg:text-right">
           <Eyebrow tone="light" className="lg:flex-row-reverse">
             Serving Buyers, Sellers &amp; Investors Across the DMV Region
           </Eyebrow>
-          <h1 className="text-scrim mt-8 max-w-4xl font-heading text-[42px] font-normal leading-[0.98] tracking-[-0.03em] text-background-50 md:text-[74px] lg:ml-auto lg:text-[96px]">
+          <h1 className="text-scrim mt-8 max-w-2xl font-heading text-[36px] font-normal leading-[1.02] tracking-[-0.025em] text-background-50 md:text-[54px] lg:ml-auto lg:max-w-[min(40vw,34rem)] lg:text-[clamp(44px,3.6vw,68px)]">
             Clearing the path forward to <em className="italic">move smart</em>, build wealth, and live well.
           </h1>
         </div>
