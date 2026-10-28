@@ -45,8 +45,27 @@ export default function PropertyDetail({ detail, others, fullMlsUrl }: PropertyD
     <div className="min-h-screen bg-background-100">
       <NavbarV2 linkBase="/" homeHref="/" />
       <main>
-        {/* Title band: dark, because the masthead is transparent at the top. */}
-        <section id="top" className="bg-foreground-950 px-5 pb-10 pt-32 md:px-10 md:pb-12 md:pt-36">
+        {/* Title band over the home's photo, darkened so the transparent
+            masthead and the white text stay readable. */}
+        <section
+          id="top"
+          className="relative isolate overflow-hidden bg-foreground-950 px-5 pb-10 pt-40 md:px-10 md:pb-14 md:pt-56"
+        >
+          {detail.photos[0] ? (
+            <>
+              <img
+                src={detail.photos[0]}
+                alt=""
+                fetchPriority="high"
+                referrerPolicy="no-referrer"
+                className="absolute inset-0 -z-20 h-full w-full object-cover"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 -z-10 bg-gradient-to-t from-foreground-950 via-foreground-950/70 to-foreground-950/45"
+              />
+            </>
+          ) : null}
           <div className="mx-auto max-w-[1280px]">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-[12px] text-background-200/70">
               <Link href="/properties" className="hover:text-background-50">
