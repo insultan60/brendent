@@ -1,32 +1,40 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Bath, BedDouble, ChevronDown, MapPin, Ruler } from 'lucide-react';
+import { Bath, BedDouble, ChevronDown, Home, MapPin, Ruler } from 'lucide-react';
 import Reveal from '@/components/base/Reveal';
+import FullMlsNotice from '@/components/feature/FullMlsNotice';
+import { useListings } from '@/components/feature/ListingsProvider';
 import { Eyebrow } from '@/views/home-v2/components/shared';
-import {
-  soldListings,
-  soldMapMessage,
-  soldRegions,
-  soldSortOptions,
-} from '@/mocks/recentlySoldData';
-import type { SoldListing } from '@/mocks/recentlySoldData';
+import { soldRegions, soldSortOptions } from '@/mocks/recentlySoldData';
+import PropertiesMap from '@/views/properties/components/PropertiesMap';
+import type { Listing } from '@/views/properties/types';
+import { placeText, priceText, splitListings } from '@/views/properties/utils';
 
-function SoldCard({ listing }: { listing: SoldListing }) {
-  const location = `${listing.city}, ${listing.state} ${listing.zip}`;
+function SoldCard({ listing }: { listing: Listing }) {
+  const location = `${placeText(listing)} ${listing.zip}`;
   return (
-    <article className="sold-card group flex h-full flex-col overflow-hidden rounded-[26px] border border-background-200 bg-background-50">
+    <a
+      href={listing.url}
+            className="sold-card group flex h-full flex-col overflow-hidden rounded-[26px] border border-background-200 bg-background-50 transition-colors duration-300 hover:border-foreground-300"
+    >
       <div className="relative h-[280px] w-full overflow-hidden md:h-[320px]">
-        <img
-              loading="lazy"
-              decoding="async"
-          src={listing.image}
-          alt={`Sold: ${listing.address}, ${location}`}
-          title={`${listing.address} ${location} recently sold`}
-          className="h-full w-full object-cover object-top transition-transform duration-[900ms] group-hover:scale-105"
-        />
+        {listing.image ? (
+          <img
+            loading="lazy"
+            decoding="async"
+            referrerPolicy="no-referrer"
+            src={listing.image}
+            alt={`${listing.status}: ${listing.address}, ${location}`}
+            className="h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-105"
+          />
+        ) : (
+          <span className="flex h-full items-center justify-center bg-background-200 text-foreground-400">
+            <Home className="h-8 w-8" aria-hidden="true" />
+          </span>
+        )}
         <span className="absolute left-5 top-5 rounded-full bg-accent-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-background-50">
-          Closed
+          {listing.status}
         </span>
         <span className="absolute bottom-5 right-5 rounded-full bg-background-50/92 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-foreground-700 backdrop-blur">
           {listing.type}
@@ -42,42 +50,48 @@ function SoldCard({ listing }: { listing: SoldListing }) {
           <h3 className="mt-4 font-heading text-[23px] leading-tight text-foreground-950 md:text-[26px]">
             {listing.address}
           </h3>
-          <p className="mt-4 font-heading text-[24px] leading-none text-foreground-950">{listing.price}</p>
+          <p className="mt-4 font-heading text-[24px] leading-none text-foreground-950">{priceText(listing)}</p>
         </div>
 
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-background-200 pt-5 text-[12.5px] text-foreground-600">
-          {listing.beds !== null ? (
+          {listing.beds ? (
             <span className="flex items-center gap-1.5">
               <BedDouble className="h-4 w-4 text-foreground-400" aria-hidden="true" />
               {listing.beds} Bd
             </span>
           ) : null}
-          {listing.baths !== null ? (
+          {listing.baths ? (
             <span className="flex items-center gap-1.5">
               <Bath className="h-4 w-4 text-foreground-400" aria-hidden="true" />
               {listing.baths} Ba
             </span>
           ) : null}
-          <span className="flex items-center gap-1.5">
-            <Ruler className="h-4 w-4 text-foreground-400" aria-hidden="true" />
-            {listing.sqft} Sqft
-          </span>
+          {listing.sqft ? (
+            <span className="flex items-center gap-1.5">
+              <Ruler className="h-4 w-4 text-foreground-400" aria-hidden="true" />
+              {listing.sqft.toLocaleString('en-US')} Sqft
+            </span>
+          ) : null}
         </div>
       </div>
-    </article>
+    </a>
   );
 }
 
+/* Every home Brandon has closed, sold or leased, from IDX. */
 export default function SoldListings() {
   const [region, setRegion] = useState('all');
   const [sort, setSort] = useState('recent');
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const { listings, fullMlsUrl } = useListings();
+  const closed = useMemo(() => splitListings(listings).past, [listings]);
 
   const filtered = useMemo(() => {
-    const list = soldListings.filter((listing) => region === 'all' || listing.region === region);
-    if (sort === 'price-desc') return [...list].sort((a, b) => b.priceValue - a.priceValue);
-    if (sort === 'price-asc') return [...list].sort((a, b) => a.priceValue - b.priceValue);
+    const list = closed.filter((listing) => region === 'all' || listing.state.toLowerCase() === region);
+    if (sort === 'price-desc') return [...list].sort((a, b) => b.price - a.price);
+    if (sort === 'price-asc') return [...list].sort((a, b) => a.price - b.price);
     return list;
-  }, [region, sort]);
+  }, [closed, region, sort]);
 
   return (
     <section id="listings" className="bg-background-100 px-5 py-24 md:px-10 md:py-32">
@@ -94,17 +108,13 @@ export default function SoldListings() {
         </Reveal>
 
         <Reveal className="mt-14">
-          <div className="relative h-[400px] w-full overflow-hidden rounded-[30px] border border-background-300 bg-background-100 md:h-[500px]">
-            <iframe
-              title="Map of recently sold homes across the Washington DC metro"
-              src="https://www.google.com/maps?q=Washington%2C%20DC&z=9&output=embed"
-              className="absolute inset-0 h-full w-full border-0"
-              referrerPolicy="no-referrer-when-downgrade"
+          <div className="h-[400px] w-full md:h-[500px]">
+            <PropertiesMap
+              listings={filtered}
+              activeId={activeId}
+              onActiveChange={setActiveId}
+              fullMlsUrl={fullMlsUrl}
             />
-            <div className="pointer-events-none absolute left-4 top-4 max-w-[280px] rounded-2xl border border-background-200 bg-background-50/95 p-5 backdrop-blur md:left-6 md:top-6">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground-500">Sold Map</p>
-              <p className="mt-2 text-[13px] leading-relaxed text-foreground-600">{soldMapMessage}</p>
-            </div>
           </div>
         </Reveal>
 
@@ -164,9 +174,11 @@ export default function SoldListings() {
         </div>
 
         {filtered.length === 0 ? (
-          <p className="mt-16 text-center text-[15px] text-foreground-500">
-            No sold homes match this area yet. Try another area or get in touch for a private market review.
-          </p>
+          <FullMlsNotice
+            className="mt-10"
+            title="No closed homes in this area yet"
+            text="Try another area, or search every home on the market here on the full MLS."
+          />
         ) : null}
       </div>
     </section>

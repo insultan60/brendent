@@ -14,8 +14,7 @@ export const valuationHero = {
   equalHousing: 'https://www.hifello.com/hubfs/equal-housing-logo-grey.png',
   copyright: '© Brandon Wilson, Realtor, MRP, ABR, SRS, RENE',
   legalLinks: [
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
+    { label: 'Privacy Policy', href: '/privacy-policy' },
   ],
 };
 

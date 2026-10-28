@@ -1,21 +1,13 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowUpRight, Bath, BedDouble, ChevronDown, MapPin, Ruler } from 'lucide-react';
+import { ArrowUpRight, Bath, BedDouble, ChevronDown, Home, MapPin, Ruler } from 'lucide-react';
 import Reveal from '@/components/base/Reveal';
+import FullMlsNotice from '@/components/feature/FullMlsNotice';
+import { useListings } from '@/components/feature/ListingsProvider';
 import { CtaButton, Eyebrow } from '@/views/home-v2/components/shared';
-
-export interface AreaListing {
-  id: string;
-  price: string;
-  street: string;
-  city: string;
-  beds: string;
-  baths: string;
-  sqft: string;
-  tag: string;
-  image: string;
-}
+import { isRental, type Listing } from '@/views/properties/types';
+import { placeText, priceText, splitListings } from '@/views/properties/utils';
 
 interface AreaListingsProps {
   id: string;
@@ -24,7 +16,8 @@ interface AreaListingsProps {
   titleLead: string;
   titleAccent: string;
   text: string;
-  listings: AreaListing[];
+  /** Which of Brandon's IDX listings belong to this area. */
+  match: (listing: Listing) => boolean;
   viewAllHref: string;
   variant: 'sale' | 'rent';
   tone?: 'light' | 'dark';
@@ -33,8 +26,6 @@ interface AreaListingsProps {
 
 const sortOptions = ['Newest', 'Lowest Price', 'Highest Price'];
 
-const toNumber = (price: string) => Number(price.replace(/[^0-9]/g, ''));
-
 export default function AreaListings({
   id,
   index,
@@ -42,7 +33,7 @@ export default function AreaListings({
   titleLead,
   titleAccent,
   text,
-  listings,
+  match,
   viewAllHref,
   variant,
   tone = 'light',
@@ -61,11 +52,18 @@ export default function AreaListings({
     return () => document.removeEventListener('mousedown', onClick);
   }, []);
 
-  const sorted = useMemo(() => {
-    if (sort === 'Lowest Price') return [...listings].sort((a, b) => toNumber(a.price) - toNumber(b.price));
-    if (sort === 'Highest Price') return [...listings].sort((a, b) => toNumber(b.price) - toNumber(a.price));
-    return listings;
-  }, [listings, sort]);
+  const { listings } = useListings();
+  const { current, past } = useMemo(
+    () => splitListings(listings.filter((l) => match(l) && isRental(l.status) === (variant === 'rent'))),
+    [listings, match, variant],
+  );
+
+  const sortList = (list: Listing[]) => {
+    if (sort === 'Lowest Price') return [...list].sort((a, b) => a.price - b.price);
+    if (sort === 'Highest Price') return [...list].sort((a, b) => b.price - a.price);
+    return list;
+  };
+  const kind = variant === 'rent' ? 'rentals' : 'homes for sale';
 
   const card = dark
     ? 'border-background-50/10 bg-background-50/[0.05] hover:border-background-50/30'
@@ -81,6 +79,80 @@ export default function AreaListings({
   const arrowBtn = dark
     ? 'border-background-50/25 text-background-100 group-hover:border-background-50 group-hover:bg-background-50 group-hover:text-foreground-950'
     : 'border-foreground-300 text-foreground-800 group-hover:border-foreground-950 group-hover:bg-foreground-950 group-hover:text-background-50';
+
+  const renderGrid = (list: Listing[], spacing: string) => (
+          <div data-product-shop className={`${spacing} grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-7 lg:grid-cols-3`}>
+            {list.map((listing, i) => (
+              <Reveal key={listing.id} delay={(i % 3) * 70}>
+                <a
+                  href={listing.url}
+                                    className={`group flex h-full flex-col overflow-hidden rounded-[26px] border transition-colors duration-300 ${card}`}
+                >
+                  <div className="relative h-[280px] w-full overflow-hidden bg-background-200/20 md:h-[320px]">
+                    {listing.image ? (
+                      <img
+                        loading="lazy"
+                        decoding="async"
+                        referrerPolicy="no-referrer"
+                        src={listing.image}
+                        alt={`${listing.address}, ${placeText(listing)}`}
+                        className="h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-105"
+                      />
+                    ) : (
+                      <span className={`flex h-full items-center justify-center ${specIcon}`}>
+                        <Home className="h-8 w-8" aria-hidden="true" />
+                      </span>
+                    )}
+                    <span className="absolute left-5 top-5 rounded-full bg-primary-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-background-50">
+                      {listing.status}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col justify-between gap-6 p-7">
+                    <div>
+                      <p className={`flex items-center gap-2 text-[11.5px] font-medium uppercase tracking-[0.16em] ${metaColor}`}>
+                        <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
+                        {placeText(listing)}
+                      </p>
+                      <h3 className={`mt-4 font-heading text-[22px] leading-tight md:text-[24px] ${streetColor}`}>
+                        {listing.address}
+                      </h3>
+                      <p className={`mt-4 font-heading text-[24px] leading-none ${priceColor}`}>{priceText(listing)}</p>
+                    </div>
+
+                    <div className={`flex items-center justify-between gap-4 border-t pt-5 ${divider}`}>
+                      <div className={`flex flex-wrap items-center gap-x-4 gap-y-1 text-[12.5px] ${specColor}`}>
+                        {listing.beds ? (
+                          <span className="flex items-center gap-1.5">
+                            <BedDouble className={`h-4 w-4 ${specIcon}`} aria-hidden="true" />
+                            {listing.beds} Bd
+                          </span>
+                        ) : null}
+                        {listing.baths ? (
+                          <span className="flex items-center gap-1.5">
+                            <Bath className={`h-4 w-4 ${specIcon}`} aria-hidden="true" />
+                            {listing.baths} Ba
+                          </span>
+                        ) : null}
+                        {listing.sqft ? (
+                          <span className="flex items-center gap-1.5">
+                            <Ruler className={`h-4 w-4 ${specIcon}`} aria-hidden="true" />
+                            {listing.sqft.toLocaleString('en-US')} Sqft
+                          </span>
+                        ) : null}
+                      </div>
+                      <span
+                        className={`arrow-btn flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${arrowBtn}`}
+                      >
+                        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </Reveal>
+            ))}
+          </div>
+  );
 
   return (
     <section
@@ -153,70 +225,25 @@ export default function AreaListings({
           </Reveal>
         </div>
 
-        <div data-product-shop className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-7 lg:grid-cols-3">
-          {sorted.map((listing, i) => (
-            <Reveal key={listing.id} delay={(i % 3) * 70}>
-              <article
-                className={`group flex h-full flex-col overflow-hidden rounded-[26px] border transition-colors duration-300 ${card}`}
-              >
-                <div className="relative h-[280px] w-full overflow-hidden md:h-[320px]">
-                  <img
-              loading="lazy"
-              decoding="async"
-                    src={listing.image}
-                    alt={`${listing.street}, ${listing.city} — available in ${areaName}`}
-                    title={`${listing.street} ${listing.city} listing`}
-                    className="h-full w-full object-cover object-top transition-transform duration-[900ms] group-hover:scale-105"
-                  />
-                  {listing.tag ? (
-                    <span className="absolute left-5 top-5 rounded-full bg-primary-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-background-50">
-                      {listing.tag}
-                    </span>
-                  ) : null}
-                </div>
+        {current.length > 0 ? (
+          renderGrid(sortList(current), 'mt-16')
+        ) : (
+          <FullMlsNotice
+            className="mt-16"
+            tone={tone}
+            title={`No ${kind} from Brandon in ${areaName} right now`}
+            text={`Search every ${variant === 'rent' ? 'rental' : 'home for sale'} in ${areaName} on the full MLS, updated as new listings hit the market.`}
+          />
+        )}
 
-                <div className="flex flex-1 flex-col justify-between gap-6 p-7">
-                  <div>
-                    <p className={`flex items-center gap-2 text-[11.5px] font-medium uppercase tracking-[0.16em] ${metaColor}`}>
-                      <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
-                      {listing.city}
-                    </p>
-                    <h3 className={`mt-4 font-heading text-[22px] leading-tight md:text-[24px] ${streetColor}`}>
-                      {listing.street}
-                    </h3>
-                    <p className={`mt-4 font-heading text-[24px] leading-none ${priceColor}`}>{listing.price}</p>
-                  </div>
-
-                  <div className={`flex items-center justify-between gap-4 border-t pt-5 ${divider}`}>
-                    <div className={`flex flex-wrap items-center gap-x-4 gap-y-1 text-[12.5px] ${specColor}`}>
-                      {listing.beds ? (
-                        <span className="flex items-center gap-1.5">
-                          <BedDouble className={`h-4 w-4 ${specIcon}`} aria-hidden="true" />
-                          {listing.beds} Bd
-                        </span>
-                      ) : null}
-                      {listing.baths ? (
-                        <span className="flex items-center gap-1.5">
-                          <Bath className={`h-4 w-4 ${specIcon}`} aria-hidden="true" />
-                          {listing.baths} Ba
-                        </span>
-                      ) : null}
-                      <span className="flex items-center gap-1.5">
-                        <Ruler className={`h-4 w-4 ${specIcon}`} aria-hidden="true" />
-                        {listing.sqft} Sqft
-                      </span>
-                    </div>
-                    <span
-                      className={`arrow-btn flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${arrowBtn}`}
-                    >
-                      <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                    </span>
-                  </div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+        {current.length === 0 && past.length > 0 ? (
+          <>
+            <p className={`mt-14 text-[11px] font-semibold uppercase tracking-[0.24em] ${metaColor}`}>
+              Recently {variant === 'rent' ? 'leased' : 'sold'} by Brandon in {areaName}
+            </p>
+            {renderGrid(sortList(past), 'mt-6')}
+          </>
+        ) : null}
       </div>
     </section>
   );

@@ -8,9 +8,14 @@ import CtaV2 from '@/views/home-v2/components/CtaV2';
 import PropertiesHero from '@/views/properties/components/PropertiesHero';
 import PropertiesFeed from '@/views/properties/components/PropertiesFeed';
 import PropertiesBrandBand from '@/views/properties/components/PropertiesBrandBand';
-import { createInitialFilters, type PropertyFilters, type PropertySort } from '@/views/properties/types';
+import { createInitialFilters, type Listing, type PropertyFilters, type PropertySort } from '@/views/properties/types';
 
-export default function Properties() {
+interface PropertiesProps {
+  listings: Listing[];
+  fullMlsUrl: string;
+}
+
+export default function Properties({ listings, fullMlsUrl }: PropertiesProps) {
   useReveal();
 
   const [filters, setFilters] = useState<PropertyFilters>(createInitialFilters);
@@ -24,20 +29,14 @@ export default function Properties() {
     [],
   );
 
-  const scrollToFeed = useCallback(() => {
-    document.getElementById('properties-feed')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, []);
-
   return (
     <div className="min-h-screen bg-background-100">
       <NavbarV2 linkBase="/" homeHref="/" />
       <main>
-        <PropertiesHero
-          location={filters.location}
-          onLocationChange={(value) => setFilter('location', value)}
-          onSearch={scrollToFeed}
-        />
+        <PropertiesHero fullMlsUrl={fullMlsUrl} />
         <PropertiesFeed
+          listings={listings}
+          fullMlsUrl={fullMlsUrl}
           filters={filters}
           setFilter={setFilter}
           sort={sort}

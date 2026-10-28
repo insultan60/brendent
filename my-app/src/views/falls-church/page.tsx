@@ -18,14 +18,16 @@ import {
   marketReport,
   newsCopy,
   newsPosts,
-  rentalListings,
   rentalListingsLead,
-  saleListings,
   saleListingsLead,
   schoolFilters,
   schools,
   schoolsCopy,
 } from '@/mocks/fallsChurchData';
+import type { Listing } from '@/views/properties/types';
+
+// Brandon's IDX listings shown on this page.
+const inArea = (l: Listing) => l.city.toLowerCase() === 'falls church';
 
 export default function FallsChurch() {
   useReveal();
@@ -43,7 +45,7 @@ export default function FallsChurch() {
           titleLead={saleListingsLead.titleLead}
           titleAccent={saleListingsLead.titleAccent}
           text={saleListingsLead.text}
-          listings={saleListings}
+          match={inArea}
           viewAllHref={saleListingsLead.viewAllHref}
           variant="sale"
           tone="light"
@@ -56,7 +58,7 @@ export default function FallsChurch() {
           titleLead={rentalListingsLead.titleLead}
           titleAccent={rentalListingsLead.titleAccent}
           text={rentalListingsLead.text}
-          listings={rentalListings}
+          match={inArea}
           viewAllHref={rentalListingsLead.viewAllHref}
           variant="rent"
           tone="dark"

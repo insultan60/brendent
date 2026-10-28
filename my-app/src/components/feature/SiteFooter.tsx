@@ -8,7 +8,11 @@ interface SiteFooterProps {
   linkBase?: string;
 }
 
-const legalLinks = ['Accessibility', 'Privacy Policy', 'Sitemap'];
+const legalLinks = [
+  { label: 'Accessibility', href: '/accessibility' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Sitemap', href: '/sitemap.xml' },
+];
 
 /**
  * Closing ink band.
@@ -155,12 +159,12 @@ export default function SiteFooter({ linkBase = '' }: SiteFooterProps) {
           </p>
           <ul className="flex flex-wrap items-center gap-x-7 gap-y-2">
             {legalLinks.map((item) => (
-              <li key={item}>
+              <li key={item.label}>
                 <a
-                  href={resolve('#top')}
+                  href={item.href}
                   className="whitespace-nowrap text-xs text-background-200/65 transition-colors duration-300 hover:text-accent-400"
                 >
-                  {item}
+                  {item.label}
                 </a>
               </li>
             ))}

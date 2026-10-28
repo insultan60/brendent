@@ -13,11 +13,13 @@ import SchoolsInArea from '@/views/washington/components/SchoolsInArea';
 import AroundTheArea from '@/views/washington/components/AroundTheArea';
 import NewsAdvice from '@/views/washington/components/NewsAdvice';
 import {
-  rentalListings,
   rentalListingsLead,
-  saleListings,
   saleListingsLead,
 } from '@/mocks/washingtonData';
+import type { Listing } from '@/views/properties/types';
+
+// Brandon's IDX listings shown on this page.
+const inArea = (l: Listing) => l.state === 'DC';
 
 export default function Washington() {
   useReveal();
@@ -36,7 +38,7 @@ export default function Washington() {
           titleLead={saleListingsLead.titleLead}
           titleAccent={saleListingsLead.titleAccent}
           text={saleListingsLead.text}
-          listings={saleListings}
+          match={inArea}
           viewAllHref={saleListingsLead.viewAllHref}
           variant="sale"
           tone="light"
@@ -48,7 +50,7 @@ export default function Washington() {
           titleLead={rentalListingsLead.titleLead}
           titleAccent={rentalListingsLead.titleAccent}
           text={rentalListingsLead.text}
-          listings={rentalListings}
+          match={inArea}
           viewAllHref={rentalListingsLead.viewAllHref}
           variant="rent"
           tone="dark"

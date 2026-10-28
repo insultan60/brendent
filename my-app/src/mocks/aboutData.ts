@@ -51,7 +51,7 @@ export const aboutReviews: AboutReview[] = [
     rating: 5,
     text: 'I had a great experience working with Brandon to buy my first home in Columbia Heights. As a first-time homebuyer, there was a lot about the process that was new to me, and Brandon was incredibly helpful, patient, and responsive every step of the way. He took the time to answer my questions, explain what to expect, and make sure I felt comfortable and informed throughout the process. Brandon made the entire home-buying experience much less intimidating, especially on days I was feeling confused, and helped me find a place in Columbia Heights that I’m excited to now call home. I’d absolutely recommend him, especially to anyone buying a home for the first time.',
     avatar:
-      'https://lh3.googleusercontent.com/a-/ALV-UjVqAPZm9bnz-sA6jNUHdbxnz7EpyhBKFL7cY5iRLSGojscyrQ05sg=s120-c-rp-mo',
+      '/images/reviews/rodrigo-soto.png',
   },
   {
     name: 'Ronny Escobar',
@@ -59,7 +59,7 @@ export const aboutReviews: AboutReview[] = [
     rating: 5,
     text: 'I can’t recommend Brandon highly enough. From start to finish, he was attentive, responsive, and genuinely invested in helping me find great tenants for my property. What really stood out was that he went well beyond what I’d expect from a real estate agent. While I was traveling internationally, an unexpected maintenance issue came up at my property. Since I wasn’t in a position to make calls or coordinate repairs, Brandon stepped in and helped coordinate everything. That level of support gave me tremendous peace of mind. He also connected me with several contractors for projects around the house, and every recommendation was excellent. It’s clear that Brandon has built a strong network of trusted professionals and truly cares about his clients long after the transaction. If you’re looking for someone who is knowledgeable, responsive, and treats you like a partner instead of just another client, I highly recommend Brandon.',
     avatar:
-      'https://lh3.googleusercontent.com/a-/ALV-UjWx7wgvt9uHcbI4Zvz2cxmJRIBafYGTrZbc22e_eHjqvfdTE8kH=s120-c-rp-mo',
+      '/images/reviews/ronny-escobar.png',
   },
   {
     name: 'Kris Otto (Kris Ngo)',
@@ -67,7 +67,7 @@ export const aboutReviews: AboutReview[] = [
     rating: 5,
     text: 'Five stars for Brandon honestly doesn’t feel like enough. He is, without a doubt, the best real estate agent I’ve ever worked with. From the day we started looking for a home to the day we closed, the entire process took less than two months. As a first-time homebuyer, I had a lot of questions, specific requests, and even some personal challenges along the way. Brandon was patient, professional, and incredibly supportive through every step. What I appreciated most was his honesty. He never tried to sell me on a property just to close a deal. Instead, he carefully explained the pros and cons of every home we viewed, making sure I had all the information I needed to make the right decision for myself. I always felt that he had my best interests at heart. His dedication, responsiveness, and hard work made what could have been a stressful experience feel smooth and manageable. He went above and beyond to ensure everything stayed on track and that I felt confident throughout the entire process. I wouldn’t hesitate to work with Brandon again in the future, and I wholeheartedly recommend him to anyone looking to buy or sell a home. If you’re searching for a realtor who truly cares about his clients, Brandon is the one.',
     avatar:
-      'https://lh3.googleusercontent.com/a-/ALV-UjXyi39bkNxZxkNW6t7MzXhHPSfx-KBrWFD-dajuBHrwwgDihLE0=s120-c-rp-mo-ba12',
+      '/images/reviews/kris-otto-kris-ngo.png',
   },
   {
     name: 'Sam Winkeler',
@@ -75,7 +75,7 @@ export const aboutReviews: AboutReview[] = [
     rating: 5,
     text: 'Working with Brandon Wilson has been a great experience. He’s a true professional who knows the DMV real estate market inside and out, and his attention to detail when writing contracts is second to none. From the lending side, I’ve seen firsthand how thoroughly Brandon works to protect his clients throughout every step of the home buying process. His knowledge, communication, and commitment to his clients make him an outstanding Realtor and someone I would confidently recommend to anyone buying or selling a home in the DMV.',
     avatar:
-      'https://lh3.googleusercontent.com/a/ACg8ocJ7cdJIOjTzDjvrDSfruZpKSox1QVtsj4-tYqi9zNMamzQ_DQ=s120-c-rp-mo',
+      '/images/reviews/sam-winkeler.png',
   },
 ];
 

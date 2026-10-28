@@ -142,7 +142,7 @@ export default function ResourceContactForm() {
           <span>
             {resourceFormDisclaimer}{' '}
             <a
-              href="https://bwmetroproperties.com/privacy-policy/"
+              href="/privacy-policy"
               target="_blank"
               rel="nofollow noopener noreferrer"
               className="text-foreground-800 underline decoration-foreground-400 underline-offset-2 transition-colors hover:text-primary-600"

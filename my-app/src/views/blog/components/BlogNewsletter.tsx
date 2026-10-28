@@ -154,9 +154,14 @@ export default function BlogNewsletter() {
                       />
                       <span>
                         {blogNewsletter.disclaimer}{' '}
-                        <span className="text-background-50 underline decoration-background-50/40 underline-offset-2">
+                        <a
+                          href="/privacy-policy"
+                          target="_blank"
+                          rel="noopener"
+                          className="text-background-50 underline decoration-background-50/40 underline-offset-2"
+                        >
                           Privacy Policy
-                        </span>
+                        </a>
                       </span>
                     </label>
 

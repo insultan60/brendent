@@ -19,12 +19,16 @@ import {
   marketReport,
   newsCopy,
   newsPosts,
-  saleListings,
   saleListingsLead,
   schoolFilters,
   schools,
   schoolsCopy,
 } from '@/mocks/shawUStreetData';
+import type { Listing } from '@/views/properties/types';
+
+// Shaw and the U Street corridor sit in D.C. zip codes 20001 and 20009.
+// Brandon's IDX listings shown on this page.
+const inArea = (l: Listing) => l.state === 'DC' && ['20001', '20009'].includes(l.zip);
 
 export default function ShawUStreet() {
   useReveal();
@@ -42,7 +46,7 @@ export default function ShawUStreet() {
           titleLead={saleListingsLead.titleLead}
           titleAccent={saleListingsLead.titleAccent}
           text={saleListingsLead.text}
-          listings={saleListings}
+          match={inArea}
           viewAllHref={saleListingsLead.viewAllHref}
           variant="sale"
           tone="light"

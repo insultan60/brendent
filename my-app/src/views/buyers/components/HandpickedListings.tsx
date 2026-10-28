@@ -1,13 +1,21 @@
 'use client';
 
 import { useRef } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Bath, BedDouble, MapPin, Ruler } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Bath, BedDouble, Home, MapPin, Ruler } from 'lucide-react';
 import Reveal from '@/components/base/Reveal';
-import { handpickedListings } from '@/mocks/buyersData';
+import FullMlsNotice from '@/components/feature/FullMlsNotice';
+import { useListings } from '@/components/feature/ListingsProvider';
+import { placeText, priceText, splitListings } from '@/views/properties/utils';
 import { CtaButton, Eyebrow } from '@/views/home-v2/components/shared';
 
+/* Brandon's IDX listings: homes on the market now, or his most recent sales
+   when nothing is listed. */
 export default function HandpickedListings() {
   const railRef = useRef<HTMLDivElement | null>(null);
+  const { listings } = useListings();
+  const { current, past } = splitListings(listings);
+  const selling = current.length > 0;
+  const shown = selling ? current : past;
 
   const scrollBy = (direction: number) => {
     const rail = railRef.current;
@@ -20,13 +28,14 @@ export default function HandpickedListings() {
       <div className="mx-auto max-w-[1280px]">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <Reveal className="max-w-2xl">
-            <Eyebrow index="07">New to the Market</Eyebrow>
+            <Eyebrow index="07">{selling ? 'New to the Market' : 'Recent Results'}</Eyebrow>
             <h2 className="mt-6 font-heading text-[34px] font-normal leading-[1.04] tracking-[-0.02em] text-foreground-950 md:text-[52px]">
-              Handpicked <em className="italic">Listings</em>
+              {selling ? 'Handpicked' : 'Recently'} <em className="italic">{selling ? 'Listings' : 'Sold'}</em>
             </h2>
             <p className="mt-6 text-[15px] leading-relaxed text-foreground-600 md:text-[16.5px]">
-              A curated look at homes across the region — explore what is available and see what your next chapter
-              could look like.
+              {selling
+                ? 'Homes Brandon has on the market across the region. Explore what is available and see what your next chapter could look like.'
+                : 'Homes Brandon has recently helped buyers and sellers close. Search every home for sale on the MLS to find yours.'}
             </p>
           </Reveal>
 
@@ -47,33 +56,46 @@ export default function HandpickedListings() {
             >
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </button>
-            <CtaButton href="#listings">View All</CtaButton>
+            <CtaButton href="/properties">View All</CtaButton>
           </Reveal>
         </div>
       </div>
 
       <div className="mx-auto mt-14 max-w-[1280px]">
+        {shown.length === 0 ? (
+          <FullMlsNotice
+            title="New listings are on the way"
+            text="Search every home for sale across D.C., Maryland and Virginia on the full MLS."
+          />
+        ) : null}
         <div
           ref={railRef}
           data-product-shop
           className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2"
         >
-          {handpickedListings.map((listing) => (
-            <article
+          {shown.map((listing) => (
+            <a
               key={listing.id}
-              className="group flex w-[300px] shrink-0 snap-start flex-col overflow-hidden rounded-[26px] border border-background-200 bg-background-50 transition-colors duration-300 hover:border-foreground-300 sm:w-[360px]"
+              href={listing.url}
+                            className="group flex w-[300px] shrink-0 snap-start flex-col overflow-hidden rounded-[26px] border border-background-200 bg-background-50 transition-colors duration-300 hover:border-foreground-300 sm:w-[360px]"
             >
               <div className="relative h-[260px] w-full overflow-hidden md:h-[300px]">
-                <img
-              loading="lazy"
-              decoding="async"
-                  src={listing.image}
-                  alt={`${listing.street}, ${listing.city} — home for sale in the DMV`}
-                  title={`${listing.street} ${listing.city} home for sale`}
-                  className="h-full w-full object-cover object-top transition-transform duration-[900ms] group-hover:scale-105"
-                />
-                <span className="absolute left-5 top-5 rounded-full bg-background-50/92 px-4 py-1.5 text-[11px] font-semibold text-foreground-900 backdrop-blur">
-                  {listing.price}
+                {listing.image ? (
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    referrerPolicy="no-referrer"
+                    src={listing.image}
+                    alt={`${listing.address}, ${placeText(listing)}`}
+                    className="h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-105"
+                  />
+                ) : (
+                  <span className="flex h-full items-center justify-center text-foreground-400">
+                    <Home className="h-8 w-8" aria-hidden="true" />
+                  </span>
+                )}
+                <span className="absolute left-5 top-5 rounded-full bg-background-50/92 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground-900 backdrop-blur">
+                  {listing.status}
                 </span>
               </div>
 
@@ -81,34 +103,40 @@ export default function HandpickedListings() {
                 <div>
                   <p className="flex items-center gap-2 text-[11.5px] font-medium uppercase tracking-[0.16em] text-foreground-500">
                     <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
-                    {listing.city}
+                    {placeText(listing)}
                   </p>
                   <h3 className="mt-4 font-heading text-[23px] leading-tight text-foreground-950">
-                    {listing.street}
+                    {listing.address}
                   </h3>
-                  <p className="mt-3 font-heading text-[22px] leading-none text-foreground-950">{listing.price}</p>
+                  <p className="mt-3 font-heading text-[22px] leading-none text-foreground-950">{priceText(listing)}</p>
                 </div>
                 <div className="flex items-center justify-between gap-4 border-t border-background-200 pt-5">
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[12.5px] text-foreground-600">
-                    <span className="flex items-center gap-1.5">
-                      <BedDouble className="h-4 w-4 text-foreground-400" aria-hidden="true" />
-                      {listing.beds} Bd
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <Bath className="h-4 w-4 text-foreground-400" aria-hidden="true" />
-                      {listing.baths} Ba
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <Ruler className="h-4 w-4 text-foreground-400" aria-hidden="true" />
-                      {listing.sqft} Sqft
-                    </span>
+                    {listing.beds ? (
+                      <span className="flex items-center gap-1.5">
+                        <BedDouble className="h-4 w-4 text-foreground-400" aria-hidden="true" />
+                        {listing.beds} Bd
+                      </span>
+                    ) : null}
+                    {listing.baths ? (
+                      <span className="flex items-center gap-1.5">
+                        <Bath className="h-4 w-4 text-foreground-400" aria-hidden="true" />
+                        {listing.baths} Ba
+                      </span>
+                    ) : null}
+                    {listing.sqft ? (
+                      <span className="flex items-center gap-1.5">
+                        <Ruler className="h-4 w-4 text-foreground-400" aria-hidden="true" />
+                        {listing.sqft.toLocaleString('en-US')} Sqft
+                      </span>
+                    ) : null}
                   </div>
                   <span className="arrow-btn flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-foreground-300 text-foreground-800 transition-colors duration-300 group-hover:border-foreground-950 group-hover:bg-foreground-950 group-hover:text-background-50">
                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                   </span>
                 </div>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </div>

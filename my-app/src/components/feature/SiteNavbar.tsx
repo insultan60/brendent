@@ -127,7 +127,7 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
             </Link>
           )}
 
-          <nav ref={navRef} className="hidden items-center gap-9 lg:flex" aria-label="Primary">
+          <nav ref={navRef} className="hidden items-center gap-6 lg:flex xl:gap-9" aria-label="Primary">
             {navLinks.map((link) => {
               if (link.children) {
                 const open = openMenu === link.label;
@@ -228,7 +228,7 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
                 same-page anchor rather than being prefixed with linkBase. */}
             <a
               href="#contact"
-              className="btn-shimmer hidden whitespace-nowrap rounded-full bg-primary-500 px-7 py-3.5 text-[13.5px] font-semibold text-background-50 transition-colors duration-300 hover:bg-primary-600 md:inline-block"
+              className="btn-shimmer hidden whitespace-nowrap rounded-full bg-primary-500 px-5 py-3.5 text-[13.5px] xl:px-7 font-semibold text-background-50 transition-colors duration-300 hover:bg-primary-600 md:inline-block"
             >
               Schedule a Consultation
             </a>
@@ -238,7 +238,7 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
               onClick={() => setDrawerOpen(true)}
               aria-label="Open navigation menu"
               aria-expanded={drawerOpen}
-              className="group flex h-12 items-center gap-3 whitespace-nowrap rounded-full border border-background-50/25 px-5 text-background-50 transition-colors duration-300 hover:border-background-50/70 hover:bg-background-50/10"
+              className="group flex h-12 items-center gap-3 whitespace-nowrap rounded-full border border-background-50/25 px-5 text-background-50 lg:max-2xl:px-4 transition-colors duration-300 hover:border-background-50/70 hover:bg-background-50/10"
             >
               {/* Three rules of uneven length that re-shuffle on hover. */}
               <span className="flex h-[11px] w-[18px] flex-col justify-between" aria-hidden="true">
@@ -246,7 +246,7 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
                 <span className="h-px w-3/4 bg-current transition-all duration-300 group-hover:w-full" />
                 <span className="h-px w-full bg-current transition-all duration-300 group-hover:w-1/2" />
               </span>
-              <span className="text-[12px] font-semibold uppercase tracking-[0.22em]">Menu</span>
+              <span className="text-[12px] font-semibold uppercase tracking-[0.22em] lg:max-2xl:sr-only">Menu</span>
             </button>
           </div>
         </div>

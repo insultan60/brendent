@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import Script from 'next/script';
 import CallWidget from '@/components/base/CallWidget';
+import { ListingsProvider } from '@/components/feature/ListingsProvider';
+import { getHomeSearch } from '@/lib/idx';
 import '@/index.css';
 
 const SITE = 'https://bwmetroproperties.com';
@@ -10,7 +12,8 @@ const TITLE = 'BW Metro Properties | Brandon Wilson, DMV Realtor';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
-  title: TITLE,
+  // Inner pages set their own title; this adds the brand after it.
+  title: { default: TITLE, template: '%s | BW Metro Properties' },
   description:
     'BW Metro Properties with Brandon Wilson, trusted DMV realtor serving Washington DC, Maryland & Northern Virginia. Buy, sell and invest with data-driven strategy and military-grade discipline across the DC Metro.',
   keywords: [
@@ -21,9 +24,6 @@ export const metadata: Metadata = {
     'Brandon Wilson',
     'BW Metro Properties',
   ],
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     type: 'website',
     title: TITLE,
@@ -86,7 +86,10 @@ const jsonLd = {
   },
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  // Brandon's IDX listings for every page that shows homes (cached an hour).
+  const listings = await getHomeSearch();
+
   return (
     <html lang="en">
       <head>
@@ -109,7 +112,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
+        <ListingsProvider value={listings}>{children}</ListingsProvider>
 
         {/* Floating call / text button, on every page including the ones that
             render their own header and footer. It is excluded from /dashboard

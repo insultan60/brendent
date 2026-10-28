@@ -54,7 +54,7 @@ export default function ValuationIntro() {
             />
             <div className="absolute inset-x-0 bottom-0 p-7">
               <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-background-200">
-                Instant Estimate
+                Free Home Valuation
               </p>
               <p className="mt-2 font-heading text-[22px] text-background-50 md:text-[26px]">
                 Built for the DMV market
