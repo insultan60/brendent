@@ -38,6 +38,8 @@ export const metadata: Metadata = {
     description:
       'Trusted DMV real estate advisor for buyers, sellers and investors across the Washington DC Metro.',
   },
+  // Google Search Console ownership check.
+  verification: { google: 'iOV4j7nC7udOWFTnaJUuB01weurFYxSO1MPl5Y6Am9c' },
   other: {
     'geo.region': 'US-VA',
     'geo.placename': 'Fairfax, Virginia',
