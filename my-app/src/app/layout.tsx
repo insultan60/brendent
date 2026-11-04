@@ -122,6 +122,17 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             ring from. */}
         <CallWidget />
 
+        {/* Sienna accessibility widget (text size, contrast, readable font,
+            link highlighting...), the same one the other client sites use.
+            It sits bottom-left, clear of the call button on the right.
+            Loaded from the root layout, so it is on every page and keeps the
+            visitor's settings as they move between pages. lazyOnload keeps it
+            off the critical path. */}
+        <Script
+          src="https://cdn.jsdelivr.net/npm/sienna-accessibility/dist/sienna-accessibility.umd.js"
+          strategy="lazyOnload"
+        />
+
         {/* Google Analytics. Rendered only when the measurement ID is present,
             so a local or preview build collects nothing and no empty gtag stub
             ships to visitors. `afterInteractive` keeps it off the critical

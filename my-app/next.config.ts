@@ -25,6 +25,13 @@ const nextConfig: NextConfig = {
         destination: '/resources#network',
         permanent: true,
       },
+      {
+        // The contact page lives at /get-in-touch; /contact is the address
+        // people (and links from other sites) are most likely to type.
+        source: '/contact',
+        destination: '/get-in-touch',
+        permanent: true,
+      },
     ];
   },
 };
