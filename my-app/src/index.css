@@ -833,11 +833,22 @@ section[id] {
 }
 
 .drawer-item {
-  animation: bw-drawer-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: bw-drawer-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* The arrow in the drawer's "Scroll for more" hint nudges down. */
+@keyframes bw-drawer-hint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+.drawer-hint {
+  animation: bw-drawer-hint 1.4s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .drawer-item {
+  .drawer-item,
+  .drawer-hint {
     animation: none !important;
   }
 }

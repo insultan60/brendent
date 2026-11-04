@@ -1,5 +1,6 @@
 'use client';
 
+import { brand } from '@/mocks/homeData';
 import { CtaButton, Eyebrow, GhostButton } from '@/views/home-v2/components/shared';
 
 export default function HeroV2() {
@@ -71,7 +72,7 @@ export default function HeroV2() {
           className="v2-rise flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-end"
           style={{ animationDelay: '340ms' }}
         >
-          <CtaButton href="#contact">Schedule a Consultation</CtaButton>
+          <CtaButton href={brand.bookingUrl}>Schedule a Consultation</CtaButton>
           <GhostButton href="#value" tone="light">
             Get your home value
           </GhostButton>

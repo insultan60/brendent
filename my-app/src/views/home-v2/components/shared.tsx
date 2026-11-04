@@ -31,9 +31,13 @@ interface ActionProps {
 
 /** Primary action — the ONLY place the brand orange appears. */
 export function CtaButton({ href, children, className = '' }: ActionProps) {
+  // Other sites (e.g. the booking calendar) open in a new tab so the visitor
+  // keeps their place here.
+  const external = /^https?:\/\//.test(href);
   return (
     <a
       href={href}
+      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       className={`btn-shimmer inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-primary-500 px-7 py-4 text-[13px] font-semibold tracking-wide text-background-50 transition-colors duration-300 hover:bg-primary-600 ${className}`}
     >
       {children}

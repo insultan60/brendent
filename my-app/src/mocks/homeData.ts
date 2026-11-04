@@ -5,6 +5,13 @@ export const brand = {
   psrLogo: 'https://assets.agentfire3.com/uploads/sites/2739/2026/07/PSR-logo-footer-600xAUTO.fit.max.png',
   phone: '202-998-4593',
   phoneHref: 'tel:+12029984593',
+  /** Every "Schedule a Consultation" button goes to this page, which embeds
+   *  Brandon's Google Calendar booking schedule (bookingCalendar). */
+  bookingUrl: '/schedule',
+  /** Brandon's Google Calendar appointment schedule (short link:
+   *  calendar.app.google/vZpzHV7SjmTfswtJA). `gv=true` is Google's embed mode. */
+  bookingCalendar:
+    'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2DJLPz3NJkfgh5BaA9KevjOgCwSIAdYaFoDKDbk_AibAMsL67y4VZ4D3CBjr3RTYiXTj8xeX8J?gv=true',
   email: 'brandon@bwmetroproperties.com',
   address: '8315 Lee Hwy, Fairfax, VA 22031',
   licenses: 'DC: SP40002157  ·  VA: 0225262536  ·  MD: 5014155',

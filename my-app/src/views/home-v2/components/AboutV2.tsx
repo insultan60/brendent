@@ -1,5 +1,5 @@
 import Reveal from '@/components/base/Reveal';
-import { stats } from '@/mocks/homeData';
+import { brand, stats } from '@/mocks/homeData';
 import { CtaButton, Eyebrow, GhostButton } from '@/views/home-v2/components/shared';
 
 export default function AboutV2() {
@@ -71,7 +71,7 @@ export default function AboutV2() {
             </div>
 
             <div className="mt-11 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <CtaButton href="#contact">Schedule a Consultation</CtaButton>
+              <CtaButton href={brand.bookingUrl}>Schedule a Consultation</CtaButton>
               <GhostButton href="#services">Get to know me</GhostButton>
             </div>
           </Reveal>

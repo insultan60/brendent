@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { ChevronRight, Mail, Phone, X } from 'lucide-react';
+import { ChevronDown, ChevronRight, Mail, Phone, X } from 'lucide-react';
 import Icon from '@/components/base/Icon';
 import { brand, menuGroups, socialLinks } from '@/mocks/homeData';
 
@@ -31,7 +31,32 @@ export default function SidebarDrawer({ open, onClose, linkBase = '' }: SidebarD
     };
   }, [open, onClose]);
 
-  let itemIndex = 0;
+  /* The link list scrolls inside the drawer. Until the visitor reaches its
+     end, a fade and a "Scroll for more" hint sit at the bottom of the list so
+     it is obvious there is more below. */
+  const listRef = useRef<HTMLDivElement | null>(null);
+  const [moreBelow, setMoreBelow] = useState(false);
+
+  const checkScroll = useCallback(() => {
+    const el = listRef.current;
+    if (!el) return;
+    setMoreBelow(el.scrollHeight - el.scrollTop - el.clientHeight > 8);
+  }, []);
+
+  useEffect(() => {
+    const el = listRef.current;
+    if (!open || !el) return undefined;
+    el.scrollTop = 0;
+    checkScroll();
+    const observer = new ResizeObserver(checkScroll);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [open, checkScroll]);
+
+  // Each group's first item's position in the whole list, for the fade-in cascade.
+  const groupOffsets = menuGroups.map((_, g) =>
+    menuGroups.slice(0, g).reduce((count, group) => count + group.items.length, 0),
+  );
 
   return (
     <>
@@ -66,77 +91,92 @@ export default function SidebarDrawer({ open, onClose, linkBase = '' }: SidebarD
         </div>
 
         {/* Scrollable navigation */}
-        <div className="flex-1 overflow-y-auto px-6 py-8 md:px-8">
-          {open ? (
-            <>
-              <div className="drawer-item" style={{ animationDelay: '40ms' }}>
-                <img
-              loading="lazy"
-              decoding="async"
-                  src={brand.logo}
-                  alt="BW Metro Properties logo"
-                  className="h-8 w-auto brightness-0"
-                />
-                <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-foreground-400">
-                  {brand.advisor}
-                </p>
-              </div>
+        <div className="relative min-h-0 flex-1">
+          <div ref={listRef} onScroll={checkScroll} className="h-full overflow-y-auto px-6 py-8 md:px-8">
+            {open ? (
+              <>
+                <div className="drawer-item" style={{ animationDelay: '40ms' }}>
+                  <img
+                loading="lazy"
+                decoding="async"
+                    src={brand.logo}
+                    alt="BW Metro Properties logo"
+                    className="h-8 w-auto brightness-0"
+                  />
+                  <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-foreground-400">
+                    {brand.advisor}
+                  </p>
+                </div>
 
-              <nav className="mt-9">
-                {menuGroups.map((group, groupIdx) => (
-                  <div key={group.label} className={groupIdx === menuGroups.length - 1 ? '' : 'mb-9'}>
-                    <p className="flex items-center gap-3 text-[10.5px] font-semibold uppercase tracking-[0.28em] text-foreground-400">
-                      <span className="tabular-nums">{String(groupIdx + 1).padStart(2, '0')}</span>
-                      <span className="h-px w-6 bg-current opacity-40" aria-hidden="true" />
-                      <span>{group.label}</span>
-                    </p>
-                    <ul className="mt-3 flex flex-col">
-                      {group.items.map((item) => {
-                        const delay = 100 + groupIdx * 140 + itemIndex * 32;
-                        itemIndex += 1;
-                        const itemClass =
-                          'group flex items-center justify-between border-b border-background-200/80 py-3.5';
-                        const label = (
-                          <>
-                            <span className="font-heading text-[19px] leading-snug text-foreground-900 transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary-600">
-                              {item.label}
-                            </span>
-                            <ChevronRight
-                              className="h-4 w-4 text-foreground-300 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-primary-500"
-                              aria-hidden="true"
-                            />
-                          </>
-                        );
-                        return (
-                          <li
-                            key={`${group.label}-${item.label}`}
-                            className="drawer-item"
-                            style={{ animationDelay: `${delay}ms` }}
-                          >
-                            {item.href.startsWith('#') ? (
-                              <a href={`${linkBase}${item.href}`} onClick={onClose} className={itemClass}>
-                                {label}
-                              </a>
-                            ) : (
-                              <Link href={item.href} onClick={onClose} className={itemClass}>
-                                {label}
-                              </Link>
-                            )}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                ))}
-              </nav>
-            </>
-          ) : null}
+                <nav className="mt-9">
+                  {menuGroups.map((group, groupIdx) => (
+                    <div key={group.label} className={groupIdx === menuGroups.length - 1 ? '' : 'mb-9'}>
+                      <p className="flex items-center gap-3 text-[10.5px] font-semibold uppercase tracking-[0.28em] text-foreground-400">
+                        <span className="tabular-nums">{String(groupIdx + 1).padStart(2, '0')}</span>
+                        <span className="h-px w-6 bg-current opacity-40" aria-hidden="true" />
+                        <span>{group.label}</span>
+                      </p>
+                      <ul className="mt-3 flex flex-col">
+                        {group.items.map((item, itemIdx) => {
+                          // Quick cascade, capped so links far down the list are not still
+                          // fading in when the visitor scrolls to them.
+                          const delay = Math.min(60 + (groupOffsets[groupIdx] + itemIdx) * 25, 360);
+                          const itemClass =
+                            'group flex items-center justify-between border-b border-background-200/80 py-3.5';
+                          const label = (
+                            <>
+                              <span className="font-heading text-[19px] leading-snug text-foreground-900 transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary-600">
+                                {item.label}
+                              </span>
+                              <ChevronRight
+                                className="h-4 w-4 text-foreground-300 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-primary-500"
+                                aria-hidden="true"
+                              />
+                            </>
+                          );
+                          return (
+                            <li
+                              key={`${group.label}-${item.label}`}
+                              className="drawer-item"
+                              style={{ animationDelay: `${delay}ms` }}
+                            >
+                              {item.href.startsWith('#') ? (
+                                <a href={`${linkBase}${item.href}`} onClick={onClose} className={itemClass}>
+                                  {label}
+                                </a>
+                              ) : (
+                                <Link href={item.href} onClick={onClose} className={itemClass}>
+                                  {label}
+                                </Link>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  ))}
+                </nav>
+              </>
+            ) : null}
+          </div>
+
+          <div
+            aria-hidden="true"
+            className={`pointer-events-none absolute inset-x-0 bottom-0 flex h-24 items-end justify-center bg-gradient-to-t from-background-50 via-background-50/85 to-transparent pb-3 transition-opacity duration-300 ${
+              open && moreBelow ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <span className="flex items-center gap-1.5 rounded-full border border-background-300 bg-background-50 px-3.5 py-1.5 text-[10.5px] font-semibold uppercase tracking-[0.2em] text-foreground-500 shadow-sm">
+              Scroll for more
+              <ChevronDown className="drawer-hint h-3.5 w-3.5" aria-hidden="true" />
+            </span>
+          </div>
         </div>
 
         {/* Footer — contact + CTA + socials */}
         <div className="border-t border-background-200 px-6 py-6 md:px-8">
           {open ? (
-            <div className="drawer-item" style={{ animationDelay: '1500ms' }}>
+            <div className="drawer-item" style={{ animationDelay: '120ms' }}>
               <div className="flex flex-col gap-3">
                 <a href={brand.phoneHref} className="group flex items-center gap-3">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary-100 text-secondary-900 transition-colors duration-300 group-hover:bg-foreground-950 group-hover:text-background-50">

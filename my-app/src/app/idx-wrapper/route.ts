@@ -116,7 +116,7 @@ function render(origin: string) {
   const url = (href: string) => (href.startsWith('#') ? `${origin}/${href}` : href.startsWith('/') ? `${origin}${href}` : href);
   const link = (label: string, href: string, cls = '') =>
     `<a href="${esc(url(href))}"${cls ? ` class="${cls}"` : ''}>${esc(label)}</a>`;
-  const consult = `${origin}/get-in-touch`;
+  const consult = url(brand.bookingUrl);
 
   const desktopNav = navLinks
     .map((item) =>

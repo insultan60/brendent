@@ -1,4 +1,5 @@
 import { Sparkles } from 'lucide-react';
+import { brand } from '@/mocks/homeData';
 
 export default function Hero() {
   return (
@@ -59,7 +60,7 @@ export default function Hero() {
           </h1>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="#contact"
+              href={brand.bookingUrl}
               className="btn-shimmer whitespace-nowrap rounded-full bg-primary-500 px-8 py-4 text-center text-sm font-semibold text-background-50 transition-colors duration-300 hover:bg-primary-600"
             >
               Schedule a Consultation

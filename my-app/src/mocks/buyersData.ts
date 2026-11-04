@@ -1,6 +1,8 @@
 // Content for the Buyers page — mirrors the real BW Metro Properties "Buyers"
 // experience section for section, adapted to our own design system.
 
+import { brand } from '@/mocks/homeData';
+
 export const buyersHero = {
   eyebrow: 'Buy With Confidence',
   title: 'Find the Right Home in the DMV',
@@ -25,7 +27,7 @@ export const closingHandled = {
   eyebrow: 'From First Showing to',
   title: 'Closing Day—Handled',
   text: 'Buying a home involves more than just finding the right property. I manage every detail behind the scenes, including scheduling private showings, analyzing property values, crafting strong offers, and negotiating on your behalf. I also coordinate inspections, appraisals, and communication with lenders and other professionals, ensuring nothing falls through the cracks and your transaction stays on track.',
-  cta: { label: 'Schedule a Consultation', href: '#contact' },
+  cta: { label: 'Schedule a Consultation', href: brand.bookingUrl },
 };
 
 export const buyerStats = [

@@ -2,6 +2,8 @@
 // BW Metro Properties "Sell your home" landing experience and sellers content,
 // adapted to our own design system.
 
+import { brand } from '@/mocks/homeData';
+
 export const sellHero = {
   eyebrow: 'Sell With BW Metro Properties',
   title: 'Sell your home for more with our real estate team',
@@ -31,7 +33,7 @@ export const reachBuyers = {
   eyebrow: 'Reach Qualified Buyers',
   title: 'Across All Channels',
   text: 'Your home deserves maximum visibility. I leverage both traditional and digital marketing—MLS listings, targeted online campaigns, social media exposure, and my extensive network of partners and past clients—to ensure your property reaches the right audience. By combining these methods with engaging storytelling and high-quality visuals, your listing generates attention, builds credibility, and drives qualified buyer interest quickly and efficiently.',
-  cta: { label: 'Schedule a Consultation', href: '#contact' },
+  cta: { label: 'Schedule a Consultation', href: brand.bookingUrl },
 };
 
 export const sellerStats = [

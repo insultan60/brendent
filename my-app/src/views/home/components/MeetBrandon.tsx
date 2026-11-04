@@ -1,5 +1,5 @@
 import Reveal from '@/components/base/Reveal';
-import { stats } from '@/mocks/homeData';
+import { brand, stats } from '@/mocks/homeData';
 
 export default function MeetBrandon() {
   return (
@@ -57,7 +57,7 @@ export default function MeetBrandon() {
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
-                href="#contact"
+                href={brand.bookingUrl}
                 className="whitespace-nowrap rounded-full bg-primary-500 px-8 py-4 text-center text-sm font-semibold text-background-50 transition-colors duration-300 hover:bg-primary-600"
               >
                 Schedule a Consultation

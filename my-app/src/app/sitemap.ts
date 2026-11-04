@@ -33,6 +33,7 @@ const PAGES = [
   '/mortgage-calculator',
   '/home-sale-calculator',
   '/get-in-touch',
+  '/schedule',
   '/privacy-policy',
   '/accessibility',
 ];

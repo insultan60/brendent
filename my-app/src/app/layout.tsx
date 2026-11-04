@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import Script from 'next/script';
 import CallWidget from '@/components/base/CallWidget';
+import BookingModal from '@/components/feature/BookingModal';
 import { ListingsProvider } from '@/components/feature/ListingsProvider';
 import { getHomeSearch } from '@/lib/idx';
 import '@/index.css';
@@ -121,6 +122,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             below, which is a private tool rather than somewhere a visitor would
             ring from. */}
         <CallWidget />
+
+        {/* "Schedule a Consultation" opens Brandon's calendar in a pop-up. */}
+        <BookingModal />
 
         {/* Sienna accessibility widget (text size, contrast, readable font,
             link highlighting...), the same one the other client sites use.

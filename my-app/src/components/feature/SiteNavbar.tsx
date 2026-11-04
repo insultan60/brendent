@@ -224,10 +224,9 @@ export default function SiteNavbar({ linkBase = '', homeHref = '#top' }: SiteNav
               {brand.phone}
             </a>
 
-            {/* Every route renders CtaV2, which owns #contact, so this stays a
-                same-page anchor rather than being prefixed with linkBase. */}
+            {/* The booking page, with Brandon's calendar embedded. */}
             <a
-              href="#contact"
+              href={brand.bookingUrl}
               className="btn-shimmer hidden whitespace-nowrap rounded-full bg-primary-500 px-5 py-3.5 text-[13.5px] xl:px-7 font-semibold text-background-50 transition-colors duration-300 hover:bg-primary-600 md:inline-block"
             >
               Schedule a Consultation
