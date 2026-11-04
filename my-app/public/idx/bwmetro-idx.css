@@ -1,0 +1,222 @@
+/* ==========================================================================
+   BW Metro Properties: IDX Broker styles
+   --------------------------------------------------------------------------
+   Makes the IDX Broker search pages (bwmetroproperties.idxbroker.com) match
+   the main site: Onest body text, Fraunces headings, coral buttons, warm
+   cream background, ink navigation.
+
+   It is loaded automatically by the IDX wrapper (/idx-wrapper). To use it
+   without the wrapper, paste this whole file into IDX Broker ->
+   Designs -> Website Integration -> Custom CSS (or Designs -> Custom CSS).
+
+   IDX Broker colours its pages through the --idx-* variables, so most of the
+   work is resetting those. `html:root` outranks IDX's own `:root`, so these
+   win whichever stylesheet loads last.
+   ========================================================================== */
+
+html:root {
+  --idx-font-family: 'Onest', system-ui, sans-serif;
+  --idx-primary-color: #e06345;          /* brand coral (primary-500) */
+  --idx-secondary-color: #6e6b67;
+  --idx-button-color: #e06345;
+  --idx-button-text-color: #ffffff;
+  --idx-secondary-button-color: #13100b; /* ink */
+  --idx-secondary-button-text-color: #ffffff;
+  --idx-darkest-gray: #13100b;
+  --idx-lightest-gray: #f4f1eb;
+  --idx-stroke-gray: #eae6de;
+  --idx-pill-gray: #8e8c88;
+}
+
+/* --- Base ---------------------------------------------------------------- */
+
+#IDX-main,
+#IDX-main label {
+  font-family: 'Onest', system-ui, sans-serif;
+  font-weight: 400;
+  color: #3d3a35;
+}
+
+#IDX-main h1,
+#IDX-main h2,
+#IDX-main h3,
+#IDX-main .IDX-title--PL {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #13100b;
+}
+
+#IDX-main a,
+#IDX-main a:hover,
+#IDX-main a:focus {
+  color: #c25034;
+}
+
+/* --- Search tabs (Advanced / Listing ID / Address / AI / Map) ------------ */
+
+#IDX-main.IDX-wrapper-standard .IDX-precision-navbar {
+  background-color: #13100b;
+  border-radius: 999px;
+  margin: 0 0 24px;
+  padding: 0 22px;
+}
+
+.IDX-nav-items-container .IDX-searchNavItem .IDX-navLinkTitle {
+  color: #f4f1eb;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.IDX-nav-items-container .IDX-searchNavItem:hover,
+.IDX-nav-items-container .IDX-searchNavItem:focus {
+  filter: none;
+}
+
+.IDX-nav-items-container .IDX-searchNavItem:hover .IDX-navLinkTitle,
+.IDX-nav-items-container .IDX-active .IDX-navLinkTitle {
+  color: #f9886a;
+}
+
+/* --- Buttons --------------------------------------------------------------- */
+
+#IDX-main .IDX-btn,
+#IDX-main .IDX-btn-primary,
+#IDX-main.IDX-wrapper-standard .IDX-btn.IDX-btn__PL,
+.IDX-wrapper-standard #IDX-formSubmit,
+#IDX-registration .IDX-btn-primary {
+  border: 0;
+  border-radius: 999px;
+  background-color: #e06345;
+  color: #ffffff;
+  font-family: 'Onest', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  transition: background-color 0.3s ease;
+}
+
+#IDX-main .IDX-btn:hover,
+#IDX-main .IDX-btn-primary:hover,
+#IDX-main.IDX-wrapper-standard .IDX-btn.IDX-btn__PL:hover,
+.IDX-wrapper-standard #IDX-formSubmit:hover,
+#IDX-registration .IDX-btn-primary:hover {
+  background-color: #c25034;
+  color: #ffffff;
+  filter: none;
+}
+
+/* Outline / secondary buttons */
+#IDX-main.IDX-wrapper-standard .IDX-btn.IDX-btn__PL--inverse,
+#IDX-main .IDX-btn-default,
+#IDX-main .IDX-btn--link,
+#IDX-main .IDX-btn-link {
+  background-color: transparent;
+  color: #13100b;
+  border: 1px solid #d8d4cb;
+}
+
+#IDX-main.IDX-wrapper-standard .IDX-btn.IDX-btn__PL--inverse:hover,
+#IDX-main .IDX-btn-default:hover {
+  background-color: #13100b;
+  border-color: #13100b;
+  color: #ffffff;
+}
+
+/* --- Form fields ------------------------------------------------------------- */
+
+.IDX-wrapper-standard .IDX-form__element--PL,
+#IDX-main .IDX-form-control,
+#IDX-main .IDX-input,
+#IDX-main .IDX-select,
+.IDX-advancedBox,
+.IDX-advancedRange,
+.IDX-wrapper-standard .select2-container .select2-selection {
+  border: 1px solid #eae6de;
+  border-radius: 12px;
+  background: #fefdfc;
+  color: #13100b;
+  font-family: 'Onest', system-ui, sans-serif;
+}
+
+.IDX-wrapper-standard .IDX-form__element--PL:focus,
+#IDX-main .IDX-form-control:focus,
+#IDX-main .IDX-input:focus {
+  border-color: #6e6b67;
+  outline: none;
+  box-shadow: none;
+}
+
+#IDX-main .IDX-control-label,
+#IDX-main .IDX-custom-form-element__label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6e6b67;
+}
+
+.IDX-custom-form-element__group,
+.select2-results__option {
+  background-color: #f4f1eb;
+  border-radius: 8px;
+}
+
+.select2-results__option--highlighted,
+.select2-results__option[aria-selected='true'] {
+  background-color: #ffe4d9;
+  color: #13100b;
+}
+
+/* --- Results cards ------------------------------------------------------------ */
+
+#IDX-main .IDX-resultsCell {
+  overflow: hidden;
+  border: 1px solid #eae6de;
+  border-radius: 20px;
+  background: #fefdfc;
+  box-shadow: 0 18px 40px -32px rgba(19, 16, 11, 0.45);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#IDX-main .IDX-resultsCell:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 26px 50px -30px rgba(19, 16, 11, 0.55);
+}
+
+#IDX-main .IDX-resultsCell .IDX-field-listingPrice,
+#IDX-main .IDX-resultsCell .IDX-field-price {
+  font-family: 'Fraunces', Georgia, serif;
+  color: #13100b;
+}
+
+#IDX-main .IDX-badge {
+  border-radius: 999px;
+  background-color: #13100b;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+#IDX-main .IDX-badge--success {
+  background-color: #e06345;
+}
+
+/* --- Alerts and lead bar -------------------------------------------------------- */
+
+#IDX-main .IDX-alert {
+  border-radius: 14px;
+}
+
+#IDX-leadToolsBar {
+  border-radius: 14px;
+  background-color: #13100b;
+}
+
+/* --- Page spacing inside the wrapper ------------------------------------------- */
+
+#IDX-main.IDX-wrapper-standard {
+  max-width: 1420px;
+  margin: 0 auto;
+}
