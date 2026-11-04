@@ -190,54 +190,29 @@ export const shareLinks = [
   {
     label: 'Facebook',
     icon: 'ri-facebook-fill',
-    href: 'https://www.facebook.com/sharer.php?u=https%3A%2F%2Fbwmetroproperties.com%2Fyour-step-by-step-guide-to-buying-a-home-in-the-dmv-2026-edition%2F',
+    href: 'https://www.facebook.com/sharer.php?u=https%3A%2F%2Fbwmetroproperties.com%2Fblog%2Fyour-step-by-step-guide-to-buying-a-home-in-the-dmv-2026-edition',
   },
   {
     label: 'X',
     icon: 'ri-twitter-x-fill',
-    href: 'https://x.com/intent/post?url=https%3A%2F%2Fbwmetroproperties.com%2Fyour-step-by-step-guide-to-buying-a-home-in-the-dmv-2026-edition%2F&text=Your+Step-by-Step+Guide+to+Buying+a+Home+in+the+DMV+%282026+Edition%29',
+    href: 'https://x.com/intent/post?url=https%3A%2F%2Fbwmetroproperties.com%2Fblog%2Fyour-step-by-step-guide-to-buying-a-home-in-the-dmv-2026-edition&text=Your+Step-by-Step+Guide+to+Buying+a+Home+in+the+DMV+%282026+Edition%29',
   },
   {
     label: 'Pinterest',
     icon: 'ri-pinterest-fill',
-    href: 'https://pinterest.com/pin/create/link/?url=https%3A%2F%2Fbwmetroproperties.com%2Fyour-step-by-step-guide-to-buying-a-home-in-the-dmv-2026-edition%2F',
+    href: 'https://pinterest.com/pin/create/link/?url=https%3A%2F%2Fbwmetroproperties.com%2Fblog%2Fyour-step-by-step-guide-to-buying-a-home-in-the-dmv-2026-edition',
   },
   {
     label: 'LinkedIn',
     icon: 'ri-linkedin-fill',
-    href: 'https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fbwmetroproperties.com%2Fyour-step-by-step-guide-to-buying-a-home-in-the-dmv-2026-edition%2F&title=Your+Step-by-Step+Guide+to+Buying+a+Home+in+the+DMV+%282026+Edition%29&summary=',
+    href: 'https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fbwmetroproperties.com%2Fblog%2Fyour-step-by-step-guide-to-buying-a-home-in-the-dmv-2026-edition&title=Your+Step-by-Step+Guide+to+Buying+a+Home+in+the+DMV+%282026+Edition%29&summary=',
   },
 ];
-
-export const relatedArticle = {
-  eyebrow: 'Check out this article next',
-  title: 'The VA Loan, Explained: A Smart Guide for DMV Buyers and Sellers',
-  excerpt:
-    'If you have served this country, you have earned one of the most powerful tools in real estate: the VA home loan. It is a…',
-  image: 'https://assets.agentfire3.com/uploads/sites/2739/2026/06/va-loan-blog-header-1-500x500.png',
-  href: 'https://bwmetroproperties.com/the-va-loan-explained-a-smart-guide-for-dmv-buyers-and-sellers/',
-};
 
 export const recentPosts = [
   {
     title: 'Your Step-by-Step Guide to Buying a Home in the DMV (2026 Edition)',
     href: '/blog/your-step-by-step-guide-to-buying-a-home-in-the-dmv-2026-edition',
-  },
-  {
-    title: 'The VA Loan, Explained: A Smart Guide for DMV Buyers and Sellers',
-    href: 'https://bwmetroproperties.com/the-va-loan-explained-a-smart-guide-for-dmv-buyers-and-sellers/',
-  },
-  {
-    title: 'How Smart DMV Buyers Negotiate in Today’s Rebalancing Market',
-    href: 'https://bwmetroproperties.com/how-smart-dmv-buyers-negotiate-in-todays-rebalancing-market/',
-  },
-  {
-    title: 'The 3 Types of Buyers I’m Seeing Right Now (And How Sellers Should Respond)',
-    href: 'https://bwmetroproperties.com/the-3-types-of-buyers-im-seeing-right-now-and-how-sellers-should-respond/',
-  },
-  {
-    title: 'Renting vs. Buying in the DMV',
-    href: 'https://bwmetroproperties.com/renting-vs-buying-in-the-dmv/',
   },
 ];
 

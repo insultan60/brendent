@@ -73,6 +73,12 @@ function PostCard({ post }: { post: BlogPost }) {
   );
 }
 
+/* Only categories that have articles, so no tab opens onto an empty grid.
+   With a single category the tabs are hidden entirely. */
+const categories = blogCategories.filter(
+  (category) => category === 'All' || blogPosts.some((post) => post.categories.includes(category)),
+);
+
 export default function BlogGrid() {
   const [active, setActive] = useState<string>('All');
 
@@ -95,28 +101,30 @@ export default function BlogGrid() {
             </p>
           </Reveal>
 
-          <Reveal delay={120} className="lg:pb-2">
-            <div className="flex flex-wrap items-center gap-2 rounded-full border border-background-200 bg-background-50 px-2 py-2">
-              {blogCategories.map((category) => {
-                const isActive = category === active;
-                return (
-                  <button
-                    key={category}
-                    type="button"
-                    aria-pressed={isActive}
-                    onClick={() => setActive(category)}
-                    className={`whitespace-nowrap rounded-full px-4 py-2 text-[11.5px] font-semibold uppercase tracking-[0.14em] transition-colors duration-300 ${
-                      isActive
-                        ? 'bg-primary-500 text-background-50'
-                        : 'text-foreground-600 hover:bg-background-200 hover:text-foreground-950'
-                    }`}
-                  >
-                    {category}
-                  </button>
-                );
-              })}
-            </div>
-          </Reveal>
+          {categories.length > 2 ? (
+            <Reveal delay={120} className="lg:pb-2">
+              <div className="flex flex-wrap items-center gap-2 rounded-full border border-background-200 bg-background-50 px-2 py-2">
+                {categories.map((category) => {
+                  const isActive = category === active;
+                  return (
+                    <button
+                      key={category}
+                      type="button"
+                      aria-pressed={isActive}
+                      onClick={() => setActive(category)}
+                      className={`whitespace-nowrap rounded-full px-4 py-2 text-[11.5px] font-semibold uppercase tracking-[0.14em] transition-colors duration-300 ${
+                        isActive
+                          ? 'bg-primary-500 text-background-50'
+                          : 'text-foreground-600 hover:bg-background-200 hover:text-foreground-950'
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  );
+                })}
+              </div>
+            </Reveal>
+          ) : null}
         </div>
 
         <div key={active} className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-7">

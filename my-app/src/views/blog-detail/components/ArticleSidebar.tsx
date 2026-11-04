@@ -48,60 +48,64 @@ export default function ArticleSidebar() {
         </ul>
       </nav>
 
-      <div className="rounded-[22px] border border-background-200 bg-background-50 p-6">
-        <p className="text-[10.5px] font-semibold uppercase tracking-[0.24em] text-foreground-500">
-          Recent Posts
-        </p>
+      {/* Hidden while this is the only article: a list containing just the
+          page you are reading is not worth the space. */}
+      {recentPosts.length > 1 ? (
+        <div className="rounded-[22px] border border-background-200 bg-background-50 p-6">
+          <p className="text-[10.5px] font-semibold uppercase tracking-[0.24em] text-foreground-500">
+            Recent Posts
+          </p>
 
-        <div className="relative mt-4">
-          <span className="pointer-events-none absolute left-4 top-1/2 flex -translate-y-1/2 text-foreground-400">
-            <Search className="h-3.5 w-3.5" aria-hidden="true" />
-          </span>
-          <label htmlFor="article-search" className="sr-only">
-            Search posts
-          </label>
-          <input
-            id="article-search"
-            type="search"
-            name="s"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search"
-            className="w-full rounded-full border border-background-300 bg-background-100 py-3 pl-10 pr-4 text-[13px] text-foreground-900 outline-none transition-colors placeholder:text-foreground-400 focus:border-primary-400"
-          />
+          <div className="relative mt-4">
+            <span className="pointer-events-none absolute left-4 top-1/2 flex -translate-y-1/2 text-foreground-400">
+              <Search className="h-3.5 w-3.5" aria-hidden="true" />
+            </span>
+            <label htmlFor="article-search" className="sr-only">
+              Search posts
+            </label>
+            <input
+              id="article-search"
+              type="search"
+              name="s"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search"
+              className="w-full rounded-full border border-background-300 bg-background-100 py-3 pl-10 pr-4 text-[13px] text-foreground-900 outline-none transition-colors placeholder:text-foreground-400 focus:border-primary-400"
+            />
+          </div>
+
+          <ul className="mt-4 flex flex-col divide-y divide-background-200">
+            {filteredPosts.map((post) =>
+              post.href.startsWith('/') ? (
+                <li key={post.title}>
+                  <Link
+                    href={post.href}
+                    className="block py-3.5 text-[13.5px] leading-snug text-foreground-700 transition-colors duration-300 hover:text-primary-600"
+                  >
+                    {post.title}
+                  </Link>
+                </li>
+              ) : (
+                <li key={post.title}>
+                  <a
+                    href={post.href}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                    className="block py-3.5 text-[13.5px] leading-snug text-foreground-700 transition-colors duration-300 hover:text-primary-600"
+                  >
+                    {post.title}
+                  </a>
+                </li>
+              ),
+            )}
+            {filteredPosts.length === 0 ? (
+              <li className="py-3.5 text-[13px] text-foreground-500">
+                No posts match your search.
+              </li>
+            ) : null}
+          </ul>
         </div>
-
-        <ul className="mt-4 flex flex-col divide-y divide-background-200">
-          {filteredPosts.map((post) =>
-            post.href.startsWith('/') ? (
-              <li key={post.title}>
-                <Link
-                  href={post.href}
-                  className="block py-3.5 text-[13.5px] leading-snug text-foreground-700 transition-colors duration-300 hover:text-primary-600"
-                >
-                  {post.title}
-                </Link>
-              </li>
-            ) : (
-              <li key={post.title}>
-                <a
-                  href={post.href}
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
-                  className="block py-3.5 text-[13.5px] leading-snug text-foreground-700 transition-colors duration-300 hover:text-primary-600"
-                >
-                  {post.title}
-                </a>
-              </li>
-            ),
-          )}
-          {filteredPosts.length === 0 ? (
-            <li className="py-3.5 text-[13px] text-foreground-500">
-              No posts match your search.
-            </li>
-          ) : null}
-        </ul>
-      </div>
+      ) : null}
 
       <div className="rounded-[22px] border border-background-200 bg-foreground-950 p-6">
         <p className="text-[10.5px] font-semibold uppercase tracking-[0.24em] text-background-200/70">

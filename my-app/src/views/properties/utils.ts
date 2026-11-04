@@ -4,6 +4,12 @@ import { isClosed, isRental, type Listing } from '@/views/properties/types';
  *  systemlinks call fails, so the full-MLS button never disappears. */
 export const FULL_MLS_FALLBACK = 'https://bwmetroproperties.idxbroker.com/idx/map/mapsearch';
 
+/** IDX Broker's Home Valuation request form. The address typed on this site
+ *  travels as ?bwAddress=, and the IDX wrapper (app/idx-wrapper) fills it in. */
+export function idxHomeValuationUrl(address: string): string {
+  return `https://bwmetroproperties.idxbroker.com/idx/homevaluation?bwAddress=${encodeURIComponent(address)}`;
+}
+
 export function formatMoney(value: number): string {
   return `$${value.toLocaleString('en-US')}`;
 }

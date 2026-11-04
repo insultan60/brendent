@@ -83,6 +83,35 @@ body{margin:0;background:#fbf9f5;color:#3d3a35;font-family:'Onest',system-ui,san
 @media (max-width:640px){.bwm-bar{height:74px;padding:0 20px}.bwm-logo img{height:34px}.bwm-actions .bwm-cta{display:none}.bwm-main{padding:24px 16px 60px}.bwm-foot{padding:60px 20px 32px}.bwm-grid{grid-template-columns:1fr 1fr}.bwm-legal a{margin:0 18px 0 0}}
 `;
 
+/*
+ * The site's "Get My Home Value" boxes send visitors to IDX's Home Valuation
+ * form with the address they typed in ?bwAddress= (see idxHomeValuationUrl).
+ * IDX cannot pre-fill its form from the URL, so this does it: it splits
+ * "8315 Lee Hwy, Fairfax, VA 22031" into street / city & state / zip and fills
+ * any of those fields that are still empty. It does nothing on other pages.
+ */
+const PREFILL_SCRIPT = `(function () {
+  var raw = new URLSearchParams(location.search).get('bwAddress');
+  var street = document.getElementById('IDX-hvAddress');
+  if (!raw || !street) return;
+  var rest = raw.trim();
+  var zipMatch = rest.match(/\\s*(\\d{5})(?:-\\d{4})?\\s*$/);
+  var zip = zipMatch ? zipMatch[1] : '';
+  if (zipMatch) rest = rest.slice(0, zipMatch.index);
+  var parts = rest.split(',').map(function (p) { return p.trim(); }).filter(Boolean);
+  var fill = function (id, value) {
+    var el = document.getElementById(id);
+    if (el && value && !el.value) {
+      el.value = value;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  };
+  fill('IDX-hvAddress', parts[0] || rest);
+  fill('IDX-hvCityState', parts.slice(1).join(', '));
+  fill('IDX-hvZipcode', zip);
+})();`;
+
 function render(origin: string) {
   const url = (href: string) => (href.startsWith('#') ? `${origin}/${href}` : href.startsWith('/') ? `${origin}${href}` : href);
   const link = (label: string, href: string, cls = '') =>
@@ -190,6 +219,7 @@ function render(origin: string) {
     </div>
   </div>
 </footer>
+<script>${PREFILL_SCRIPT}</script>
 </body>
 </html>`;
 }

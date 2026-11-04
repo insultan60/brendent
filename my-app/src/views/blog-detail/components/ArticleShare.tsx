@@ -5,7 +5,7 @@ import { Check, Link2 } from 'lucide-react';
 import { shareLinks } from '@/mocks/blogDetailData';
 
 const ARTICLE_URL =
-  'https://bwmetroproperties.com/your-step-by-step-guide-to-buying-a-home-in-the-dmv-2026-edition/';
+  'https://bwmetroproperties.com/blog/your-step-by-step-guide-to-buying-a-home-in-the-dmv-2026-edition';
 
 export default function ArticleShare() {
   const [copied, setCopied] = useState(false);

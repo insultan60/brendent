@@ -1,13 +1,13 @@
 import AddressLeadForm from '@/components/feature/AddressLeadForm';
 import { valuationHero } from '@/mocks/valuationData';
+import { idxHomeValuationUrl } from '@/views/properties/utils';
 
-export const VALUATION_ENDPOINT = 'https://readdy.ai/api/form/daklkvkov550s8tcob1g';
-
-/** Source "Home Valuation" lead form: the home address, then how to reach the owner. */
+/** "Home Valuation" lead form: the home address here, then IDX Broker's Home
+ *  Valuation form (address pre-filled) for the details and contact info. */
 export default function ValuationLeadForm() {
   return (
     <AddressLeadForm
-      endpoint={VALUATION_ENDPOINT}
+      handoffUrl={idxHomeValuationUrl}
       id="home-valuation-form"
       addressLabel={valuationHero.addressLabel}
       addressPlaceholder={valuationHero.addressPlaceholder}

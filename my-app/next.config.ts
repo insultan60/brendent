@@ -25,6 +25,31 @@ const nextConfig: NextConfig = {
         destination: '/resources#network',
         permanent: true,
       },
+      /*
+       * Articles from the old site that were not carried over. Their cards were
+       * removed from /blog; these send anyone arriving from Google or an old
+       * link to the blog instead of a 404. Remove a line here if that article
+       * is ever republished at the same address.
+       */
+      ...[
+        'the-va-loan-explained-a-smart-guide-for-dmv-buyers-and-sellers',
+        'how-smart-dmv-buyers-negotiate-in-todays-rebalancing-market',
+        'the-3-types-of-buyers-im-seeing-right-now-and-how-sellers-should-respond',
+        'renting-vs-buying-in-the-dmv',
+        'condo-association-basics',
+        '7-signs-youre-ready-to-buy-in-the-dmv',
+        '10-things-to-check-before-buying-a-condo',
+        'what-losing-a-home-really-means-for-buyers-in-a-competitive-market',
+        'things-shouldnt-buying-home',
+        'rent-buy-home',
+        '10-top-renos-that-will-up-the-sale-price-of-your-home',
+      ].map((slug) => ({ source: `/${slug}`, destination: '/blog', permanent: true })),
+      // The one article that was kept moved under /blog.
+      {
+        source: '/your-step-by-step-guide-to-buying-a-home-in-the-dmv-2026-edition',
+        destination: '/blog/your-step-by-step-guide-to-buying-a-home-in-the-dmv-2026-edition',
+        permanent: true,
+      },
       {
         // The contact page lives at /get-in-touch; /contact is the address
         // people (and links from other sites) are most likely to type.

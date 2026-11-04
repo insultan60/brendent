@@ -5,7 +5,6 @@ import StepsSection from '@/views/blog-detail/components/StepsSection';
 import ProgramsSection from '@/views/blog-detail/components/ProgramsSection';
 import ClosingSection from '@/views/blog-detail/components/ClosingSection';
 import ArticleShare from '@/views/blog-detail/components/ArticleShare';
-import RelatedArticle from '@/views/blog-detail/components/RelatedArticle';
 
 export default function ArticleBody() {
   return (
@@ -29,7 +28,6 @@ export default function ArticleBody() {
       <ClosingSection />
 
       <ArticleShare />
-      <RelatedArticle />
     </article>
   );
 }

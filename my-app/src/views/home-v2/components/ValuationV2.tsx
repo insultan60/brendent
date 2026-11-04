@@ -1,11 +1,12 @@
 import Reveal from '@/components/base/Reveal';
 import AddressLeadForm from '@/components/feature/AddressLeadForm';
 import { Eyebrow } from '@/views/home-v2/components/shared';
-import { VALUATION_ENDPOINT } from '@/views/home-valuation/components/ValuationLeadForm';
+import { idxHomeValuationUrl } from '@/views/properties/utils';
 
-/* The homepage valuation box sends the address and the owner's details to
-   Brandon, who prepares the value himself. It used to show an "estimate"
-   computed from the length of the address text, which was not a valuation. */
+/* The homepage valuation box takes the address, then hands the visitor to
+   IDX Broker's Home Valuation form (with the address filled in) for the
+   property details and contact info. The request lands in Brandon's IDX lead
+   manager and he prepares the value himself. */
 export default function ValuationV2() {
   return (
     <section id="value" className="bg-background-100 px-5 py-6 md:px-10 md:py-8">
@@ -27,7 +28,7 @@ export default function ValuationV2() {
             <Reveal delay={120}>
               <div className="mt-10">
                 <AddressLeadForm
-                  endpoint={VALUATION_ENDPOINT}
+                  handoffUrl={idxHomeValuationUrl}
                   id="home-value-form-v2"
                   addressLabel="Property address"
                   addressPlaceholder="Enter your street, city, state and zip"

@@ -11,7 +11,10 @@ interface FormResponse {
 
 interface AddressLeadFormProps {
   /** Readdy form endpoint the lead is posted to. */
-  endpoint: string;
+  endpoint?: string;
+  /** Instead of asking for contact details here, send the visitor (with the
+   *  address) to this URL, e.g. IDX Broker's Home Valuation form. */
+  handoffUrl?: (address: string) => string;
   id: string;
   addressLabel: string;
   addressPlaceholder: string;
@@ -35,6 +38,7 @@ interface AddressLeadFormProps {
  */
 export default function AddressLeadForm({
   endpoint,
+  handoffUrl,
   id,
   addressLabel,
   addressPlaceholder,
@@ -58,6 +62,10 @@ export default function AddressLeadForm({
   const next = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!address.trim()) return fail('Please enter the property address so we can get started.');
+    if (handoffUrl) {
+      window.location.href = handoffUrl(address.trim());
+      return;
+    }
     setStatus('idle');
     setFormError('');
     setStep('contact');
@@ -65,7 +73,7 @@ export default function AddressLeadForm({
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (status === 'submitting') return;
+    if (status === 'submitting' || !endpoint) return;
     const data = new FormData(event.currentTarget);
 
     // Spam trap: a real visitor never fills this field.
