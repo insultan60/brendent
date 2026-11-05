@@ -5,7 +5,7 @@ import { AlertCircle, CheckCircle2 } from 'lucide-react';
 
 /* The site's "Get in Touch" form, so property questions arrive in the same
    inbox with the same fields, and the message names the home. */
-const ENDPOINT = 'https://readdy.ai/api/form/dalsvrs4la7l5tj2iqrg';
+const ENDPOINT = '/api/lead?form=property';
 
 interface FormResponse {
   code?: string;
@@ -13,7 +13,16 @@ interface FormResponse {
   meta?: { message?: string; detail?: string };
 }
 
-export default function InquiryForm({ subject, prompt }: { subject: string; prompt: string }) {
+export default function InquiryForm({
+  subject,
+  prompt,
+  property = {},
+}: {
+  subject: string;
+  prompt: string;
+  /** The listing, sent as hidden prop_* fields so FUB records which home it is. */
+  property?: Record<string, string | number | null | undefined>;
+}) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [error, setError] = useState('');
 
@@ -101,6 +110,9 @@ export default function InquiryForm({ subject, prompt }: { subject: string; prom
         <span className="sr-only">Message</span>
         <textarea name="comments" rows={4} defaultValue={`${prompt}\n\n${subject}`} className={`${input} resize-none`} />
       </label>
+      {Object.entries(property).map(([key, value]) =>
+        value || value === 0 ? <input key={key} type="hidden" name={`prop_${key}`} value={String(value)} /> : null,
+      )}
       <input type="text" name="website_alt" className="touch-hp" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <button
         type="submit"

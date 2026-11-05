@@ -60,7 +60,7 @@ export const marketReport = {
   title: 'Want the full market report for Silver Spring?',
   text: "We want to ensure that you have all the information needed to make the best decisions when it comes to your home goals. When you enter your info below you will get instant access to the area's latest market report, complete with sales and demographic trends.",
   formId: 'damjsbop3fe23ggcgibg',
-  submitAddr: 'https://readdy.ai/api/form/damjsbop3fe23ggcgibg',
+  submitAddr: '/api/lead?form=area-guide',
   areaName: 'Silver Spring',
   coverLabel: 'Market Report',
   logo: 'https://assets.agentfire3.com/uploads/sites/2739/2026/03/Logo-02.png',

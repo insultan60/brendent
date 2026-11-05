@@ -4,7 +4,7 @@ import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { Check, Loader2 } from 'lucide-react';
 import { resourceFormDisclaimer } from '@/mocks/resourcesData';
 
-const SUBMIT_ADDR = 'https://readdy.ai/api/form/daluh7th599pccsgtup0';
+const SUBMIT_ADDR = '/api/lead?form=resources-contact';
 const COMMENT_LIMIT = 500;
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
@@ -98,7 +98,7 @@ export default function ResourceContactForm() {
 
   return (
     <div className="rounded-[26px] border border-background-300 bg-background-50 p-6 md:p-8">
-      <form data-readdy-form onSubmit={handleSubmit} className="flex flex-col gap-3.5" noValidate>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3.5" noValidate>
         <input
           type="text"
           name="phone_alt"
@@ -136,7 +136,6 @@ export default function ResourceContactForm() {
             type="checkbox"
             name="disclaimer_accepted"
             value="yes"
-            required
             className="mt-0.5 h-4 w-4 shrink-0 rounded border-background-400 accent-primary-500"
           />
           <span>

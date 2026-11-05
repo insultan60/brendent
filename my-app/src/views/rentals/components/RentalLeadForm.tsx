@@ -96,7 +96,7 @@ export default function RentalLeadForm({ formId }: RentalLeadFormProps) {
           </p>
         </div>
       ) : (
-        <form id={formId} data-readdy-form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
+        <form id={formId} onSubmit={handleSubmit} className="flex flex-col gap-3.5">
           <input
             type="text"
             name="contact_alt"
@@ -141,7 +141,6 @@ export default function RentalLeadForm({ formId }: RentalLeadFormProps) {
               type="checkbox"
               name="disclaimer_accepted"
               value="yes"
-              required
               className="mt-0.5 h-4 w-4 shrink-0 rounded border-background-400 accent-primary-500"
             />
             <span>

@@ -225,6 +225,18 @@ export default function PropertyDetail({ detail, others, fullMlsUrl }: PropertyD
                   <InquiryForm
                     subject={`${detail.address}, ${place} (MLS# ${detail.mlsNumber})`}
                     prompt={closed ? "I'm looking for a home like this one:" : "I'd like more information about:"}
+                    property={{
+                      street: detail.address,
+                      city: detail.city,
+                      state: detail.state,
+                      code: detail.zip,
+                      mls: detail.mlsNumber,
+                      price: detail.price,
+                      beds: detail.beds,
+                      baths: detail.baths,
+                      sqft: detail.sqft,
+                      type: detail.type,
+                    }}
                   />
                 </div>
               </div>

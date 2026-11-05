@@ -222,7 +222,7 @@ export const marketReport = {
   title: 'Want the full market report for Washington?',
   text: "We want to ensure that you have all the information needed to make the best decisions when it comes to your home goals. When you enter your info below you will get instant access to the area's latest market report, complete with sales and demographic trends.",
   formId: 'damh2t8p3fe23ggcghbg',
-  submitAddr: 'https://readdy.ai/api/form/damh2t8p3fe23ggcghbg',
+  submitAddr: '/api/lead?form=market-report',
   areaName: 'Washington',
   coverLabel: 'Market Report',
   logo: 'https://assets.agentfire3.com/uploads/sites/2739/2026/03/Logo-02.png',

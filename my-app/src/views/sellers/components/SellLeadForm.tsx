@@ -5,7 +5,7 @@ import { sellHero } from '@/mocks/sellersData';
 export default function SellLeadForm() {
   return (
     <AddressLeadForm
-      endpoint="https://readdy.ai/api/form/daklagh2o72dhfjvq6c0"
+      endpoint="/api/lead?form=sell-your-home"
       id="sell-your-home-form"
       addressLabel={sellHero.addressLabel}
       addressPlaceholder={sellHero.addressPlaceholder}

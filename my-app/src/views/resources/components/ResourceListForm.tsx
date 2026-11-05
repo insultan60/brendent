@@ -4,7 +4,7 @@ import { useState, type FormEvent } from 'react';
 import { Check, Loader2 } from 'lucide-react';
 import { lookingToOptions, resourceFormDisclaimer, timelineOptions } from '@/mocks/resourcesData';
 
-const SUBMIT_ADDR = 'https://readdy.ai/api/form/dalugndh599pccsgtuog';
+const SUBMIT_ADDR = '/api/lead?form=resource-download';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -91,7 +91,7 @@ export default function ResourceListForm() {
 
   return (
     <div className="rounded-[26px] border border-background-300 bg-background-50 p-6 md:p-8">
-      <form data-readdy-form onSubmit={handleSubmit} className="flex flex-col gap-3.5" noValidate>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3.5" noValidate>
         <input
           type="text"
           name="company_alt"
@@ -142,7 +142,6 @@ export default function ResourceListForm() {
             type="checkbox"
             name="disclaimer_accepted"
             value="yes"
-            required
             className="mt-0.5 h-4 w-4 shrink-0 rounded border-background-400 accent-primary-500"
           />
           <span>

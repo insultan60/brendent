@@ -2,7 +2,7 @@ import Reveal from '@/components/base/Reveal';
 import { contactSectionCopy } from '@/mocks/getInTouchData';
 import { Eyebrow } from '@/views/home-v2/components/shared';
 import ContactInfoCard from '@/views/get-in-touch/components/ContactInfoCard';
-import ContactForm from '@/views/get-in-touch/components/ContactForm';
+import LeadForm from '@/components/feature/LeadForm';
 
 export default function ContactSection() {
   return (
@@ -20,7 +20,7 @@ export default function ContactSection() {
             <ContactInfoCard />
           </Reveal>
           <Reveal className="lg:col-span-7" delay={120}>
-            <ContactForm />
+            <LeadForm form="contact" title={contactSectionCopy.formTitle} text={contactSectionCopy.formText} submitLabel="Send Message" />
           </Reveal>
         </div>
       </div>

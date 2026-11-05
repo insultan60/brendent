@@ -5,7 +5,7 @@ import NavbarV2 from '@/views/home-v2/components/NavbarV2';
 import FooterV2 from '@/views/home-v2/components/FooterV2';
 import CtaV2 from '@/views/home-v2/components/CtaV2';
 import CalcHero from '@/views/affordability-calculator/components/CalcHero';
-import AffordabilityCalculator from '@/views/affordability-calculator/components/AffordabilityCalculator';
+import FelloCalculator from '@/components/feature/FelloCalculator';
 import CalcSteps from '@/views/affordability-calculator/components/CalcSteps';
 import CalcFactors from '@/views/affordability-calculator/components/CalcFactors';
 import CalcRegions from '@/views/affordability-calculator/components/CalcRegions';
@@ -19,7 +19,10 @@ export default function AffordabilityCalculatorPage() {
       <NavbarV2 linkBase="/" homeHref="/" />
       <main>
         <CalcHero />
-        <AffordabilityCalculator />
+        <FelloCalculator
+          kind="affordability-calculator"
+          title={<>See your target price <em className="italic">in real time</em></>}
+        />
         <CalcSteps />
         <CalcFactors />
         <CalcRegions />

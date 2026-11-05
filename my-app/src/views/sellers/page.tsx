@@ -4,6 +4,7 @@ import { useReveal } from '@/hooks/useReveal';
 import NavbarV2 from '@/views/home-v2/components/NavbarV2';
 import FooterV2 from '@/views/home-v2/components/FooterV2';
 import CtaV2 from '@/views/home-v2/components/CtaV2';
+import ConsultSection from '@/components/feature/ConsultSection';
 import SellersHero from '@/views/sellers/components/SellersHero';
 import SellContactButton from '@/views/sellers/components/SellContactButton';
 import SellPlanSection from '@/views/sellers/components/SellPlanSection';
@@ -27,7 +28,8 @@ export default function Sellers() {
         <SellerAdvantage />
         <HomeValueBand />
         <SellerReviews />
-        <CtaV2 />
+        <ConsultSection variant="seller" sectionIndex="08" />
+        <CtaV2 sectionIndex="09" />
       </main>
       <FooterV2 linkBase="/" />
       <SellContactButton />

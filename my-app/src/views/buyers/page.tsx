@@ -4,6 +4,7 @@ import { useReveal } from '@/hooks/useReveal';
 import NavbarV2 from '@/views/home-v2/components/NavbarV2';
 import FooterV2 from '@/views/home-v2/components/FooterV2';
 import CtaV2 from '@/views/home-v2/components/CtaV2';
+import ConsultSection from '@/components/feature/ConsultSection';
 import BuyersHero from '@/views/buyers/components/BuyersHero';
 import PlanSection from '@/views/buyers/components/PlanSection';
 import StatsSection from '@/views/buyers/components/StatsSection';
@@ -26,7 +27,8 @@ export default function Buyers() {
         <WinSection />
         <BuyerReviews />
         <HandpickedListings />
-        <CtaV2 />
+        <ConsultSection variant="buyer" sectionIndex="08" />
+        <CtaV2 sectionIndex="09" />
       </main>
       <FooterV2 linkBase="/" />
     </div>

@@ -112,6 +112,27 @@ const PREFILL_SCRIPT = `(function () {
   fill('IDX-hvZipcode', zip);
 })();`;
 
+/*
+ * IDX's map search shows its search-type <select> on phones with nothing
+ * selected (an IDX bug), so it looks like an empty box. This selects the
+ * option that matches the active tab. IDX draws the page after load, so it
+ * retries for a few seconds.
+ */
+const NAV_SELECT_SCRIPT = `(function () {
+  var tries = 0;
+  var fix = function () {
+    var select = document.querySelector('.idx-nav-button-container-mobile select');
+    var buttons = document.querySelectorAll('.idx-nav-button');
+    var active = document.querySelector('.idx-nav-button__active');
+    if (select && active && select.selectedIndex < 0) {
+      select.selectedIndex = Array.prototype.indexOf.call(buttons, active);
+      return;
+    }
+    if (tries++ < 20) setTimeout(fix, 500);
+  };
+  fix();
+})();`;
+
 function render(origin: string) {
   const url = (href: string) => (href.startsWith('#') ? `${origin}/${href}` : href.startsWith('/') ? `${origin}${href}` : href);
   const link = (label: string, href: string, cls = '') =>
@@ -220,6 +241,7 @@ function render(origin: string) {
   </div>
 </footer>
 <script>${PREFILL_SCRIPT}</script>
+<script>${NAV_SELECT_SCRIPT}</script>
 </body>
 </html>`;
 }

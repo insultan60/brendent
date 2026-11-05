@@ -33,5 +33,3 @@ export const contactDetails = [
   },
 ];
 
-export const contactFormDisclaimer =
-  "I agree to be contacted by Unbound Solutions dba BW Metro Properties via call, email, and text for real estate services. To opt out, you can reply 'stop' at any time or reply 'help' for assistance. You can also click the unsubscribe link in the emails. Message and data rates may apply. Message frequency may vary.";

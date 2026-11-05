@@ -66,7 +66,7 @@ export const marketReport = {
   title: 'Want the full market report for Shaw / U Street Corridor?',
   text: "We want to ensure that you have all the information needed to make the best decisions when it comes to your home goals. When you enter your info below you will get instant access to the area's latest market report, complete with sales and demographic trends.",
   formId: 'damk02lvmcl80jn2930g',
-  submitAddr: 'https://readdy.ai/api/form/damk02lvmcl80jn2930g',
+  submitAddr: '/api/lead?form=area-guide',
   areaName: 'Shaw / U Street Corridor',
   coverLabel: 'Market Report',
   logo: 'https://assets.agentfire3.com/uploads/sites/2739/2026/03/Logo-02.png',

@@ -5,7 +5,7 @@ import { cashOfferHero } from '@/mocks/cashOfferData';
 export default function CashOfferLeadForm() {
   return (
     <AddressLeadForm
-      endpoint="https://readdy.ai/api/form/dakose92o72dhfjvq9o0"
+      endpoint="/api/lead?form=cash-offer"
       id="cash-offer-form"
       addressLabel={cashOfferHero.addressLabel}
       addressPlaceholder={cashOfferHero.addressPlaceholder}

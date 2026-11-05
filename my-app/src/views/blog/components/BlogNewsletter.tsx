@@ -6,7 +6,7 @@ import Reveal from '@/components/base/Reveal';
 import { blogNewsletter } from '@/mocks/blogData';
 import { Eyebrow } from '@/views/home-v2/components/shared';
 
-const SUBMIT_ADDR = 'https://readdy.ai/api/form/dalej08uus3pn58u99u0';
+const SUBMIT_ADDR = '/api/lead?form=newsletter';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -112,7 +112,7 @@ export default function BlogNewsletter() {
                 ) : (
                   <form
                     id="blog-newsletter-form"
-                    data-readdy-form
+                   
                     onSubmit={handleSubmit}
                     className="flex flex-col gap-5"
                     noValidate
@@ -149,7 +149,6 @@ export default function BlogNewsletter() {
                         type="checkbox"
                         name="consent"
                         value="yes"
-                        required
                         className="mt-0.5 h-4 w-4 shrink-0 rounded border-background-300/50 accent-[oklch(var(--primary-500))]"
                       />
                       <span>

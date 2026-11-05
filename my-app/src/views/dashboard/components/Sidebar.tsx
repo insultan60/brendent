@@ -11,6 +11,7 @@ import {
   Plug,
   Search,
   Users,
+  Inbox,
   X,
 } from 'lucide-react';
 
@@ -33,6 +34,7 @@ const NAV = [
   { href: '/dashboard/pages', label: 'Pages', icon: FileText },
   { href: '/dashboard/audience', label: 'Audience', icon: Users },
   { href: '/dashboard/search', label: 'Google Search', icon: Search },
+  { href: '/dashboard/leads', label: 'Leads', icon: Inbox },
   { href: '/dashboard/connections', label: 'Connections', icon: Plug },
 ];
 

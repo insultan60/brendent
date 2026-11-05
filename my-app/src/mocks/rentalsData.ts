@@ -227,5 +227,5 @@ export const rentalsFormSection = {
 
 export const rentalsForm = {
   id: 'dai25dboh653ivfvo870',
-  submitAddr: 'https://readdy.ai/api/form/dai25dboh653ivfvo870',
+  submitAddr: '/api/lead?form=rentals',
 };

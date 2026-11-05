@@ -110,7 +110,7 @@ export default function MarketReport({ data = marketReport }: MarketReportProps)
               ) : (
                 <form
                   id={data.formId}
-                  data-readdy-form
+                 
                   onSubmit={handleSubmit}
                   className="flex flex-col gap-4 rounded-[22px] border border-background-50/15 bg-background-50/[0.05] p-7"
                 >
@@ -168,7 +168,6 @@ export default function MarketReport({ data = marketReport }: MarketReportProps)
                       type="checkbox"
                       name="consent"
                       value="yes"
-                      required
                       className="mt-0.5 h-4 w-4 shrink-0 accent-primary-500"
                     />
                     <span>{data.disclaimer}</span>

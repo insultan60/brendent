@@ -1,130 +1,709 @@
-/* ==========================================================================
-   BW Metro Properties: IDX Broker styles
-   --------------------------------------------------------------------------
+/* ═══════════════════════════════════════════════════════════════════════
+   BW METRO PROPERTIES: IDX BROKER STYLESHEET
+   ─────────────────────────────────────────────────────────────────────
    Makes the IDX Broker search pages (bwmetroproperties.idxbroker.com) match
-   the main site: Onest body text, Fraunces headings, coral buttons, warm
-   cream background, ink navigation.
+   the main site: Onest body text, Fraunces headings, coral actions, warm
+   cream ground, ink navigation.
 
-   It is loaded automatically by the IDX wrapper (/idx-wrapper). To use it
-   without the wrapper, paste this whole file into IDX Broker ->
-   Designs -> Website Integration -> Custom CSS (or Designs -> Custom CSS).
+   Loaded automatically by the IDX wrapper (/idx-wrapper). To use it without
+   the wrapper, paste this whole file into IDX Broker -> Designs ->
+   Website Integration -> Custom CSS.
 
-   IDX Broker colours its pages through the --idx-* variables, so most of the
-   work is resetting those. `html:root` outranks IDX's own `:root`, so these
-   win whichever stylesheet loads last.
-   ========================================================================== */
+   IDX colours its classic pages through --idx-* variables; `html:root`
+   outranks IDX's own `:root`. The map search is a separate app with its
+   own scoped styles, so its rules carry !important.
 
+   SECTIONS
+     0  Brand tokens
+     1  IDX theme variables + base type
+     2  Page background
+     3  Search-type tabs (Advanced / Listing ID / Address / AI / Map)
+     4  Map search: filter pills
+     5  Map search: filter dropdown panels
+     6  Map search: City, County, Zip field + results count
+     7  Map search: listing cards
+     8  Classic pages: buttons, form fields, results cells
+     9  Lead tools bar (Welcome / My Account)
+    10  Sign-up / login modal
+    11  Responsive (tablet · mobile · small phone)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+
+/* ═══════════════════════════════════════════════════════════
+   0 · BRAND TOKENS (same values as the main site's palette)
+   ═══════════════════════════════════════════════════════════ */
 html:root {
-  --idx-font-family: 'Onest', system-ui, sans-serif;
-  --idx-primary-color: #e06345;          /* brand coral (primary-500) */
-  --idx-secondary-color: #6e6b67;
-  --idx-button-color: #e06345;
+  --bw-ink: #13100b;            /* foreground-900 */
+  --bw-ink-soft: #6e6b67;       /* foreground-500 */
+  --bw-body: #3d3a35;           /* foreground-700 */
+  --bw-line: #eae6de;           /* background-300 */
+  --bw-line-strong: #d8d4cb;    /* background-400 */
+  --bw-cream: #fbf9f5;          /* background-100 */
+  --bw-sand: #f4f1eb;           /* background-200 */
+  --bw-paper: #fefdfc;          /* background-50 */
+  --bw-coral: #e06345;          /* primary-500 */
+  --bw-coral-deep: #c25034;     /* primary-600 */
+  --bw-coral-soft: #ffe4d9;     /* primary-100 */
+  --bw-gold: #d3bf8f;           /* accent-400 */
+  --bw-display: 'Fraunces', Georgia, serif;
+  --bw-text: 'Onest', system-ui, -apple-system, sans-serif;
+  --bw-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   1 · IDX THEME VARIABLES + BASE TYPE
+   ═══════════════════════════════════════════════════════════ */
+html:root {
+  --idx-font-family: var(--bw-text);
+  --idx-primary-color: var(--bw-coral);
+  --idx-secondary-color: var(--bw-ink-soft);
+  --idx-button-color: var(--bw-coral);
   --idx-button-text-color: #ffffff;
-  --idx-secondary-button-color: #13100b; /* ink */
+  --idx-secondary-button-color: var(--bw-ink);
   --idx-secondary-button-text-color: #ffffff;
-  --idx-darkest-gray: #13100b;
-  --idx-lightest-gray: #f4f1eb;
-  --idx-stroke-gray: #eae6de;
+  --idx-darkest-gray: var(--bw-ink);
+  --idx-lightest-gray: var(--bw-sand);
+  --idx-stroke-gray: var(--bw-line);
   --idx-pill-gray: #8e8c88;
 }
 
-/* --- Base ---------------------------------------------------------------- */
-
 #IDX-main,
 #IDX-main label {
-  font-family: 'Onest', system-ui, sans-serif;
+  font-family: var(--bw-text);
   font-weight: 400;
-  color: #3d3a35;
+  color: var(--bw-body);
 }
 
 #IDX-main h1,
 #IDX-main h2,
 #IDX-main h3,
 #IDX-main .IDX-title--PL {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--bw-display);
   font-weight: 400;
   letter-spacing: -0.02em;
-  color: #13100b;
+  color: var(--bw-ink);
 }
 
 #IDX-main a,
 #IDX-main a:hover,
 #IDX-main a:focus {
-  color: #c25034;
+  color: var(--bw-coral-deep);
 }
 
-/* --- Search tabs (Advanced / Listing ID / Address / AI / Map) ------------ */
 
+/* ═══════════════════════════════════════════════════════════
+   2 · PAGE BACKGROUND — warm cream, cards on paper
+   ═══════════════════════════════════════════════════════════ */
+#IDX-main,
+#IDX-searchPageWrapper,
+#prime-map-search-page,
+#prime-map-search--results,
+#prime-map-search--main-content-container {
+  background: var(--bw-cream) !important;
+}
+
+#IDX-main.IDX-wrapper-standard {
+  max-width: 1420px;
+  margin: 0 auto;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   3 · SEARCH-TYPE TABS
+   Map search uses .idx-nav-button; the classic pages use the
+   precision navbar. Both become one ink bar with a coral tab.
+   ═══════════════════════════════════════════════════════════ */
+.idx-nav-button-container {
+  /* No display rule: IDX itself hides this bar below ~850px and shows the
+     <select> below instead, and that must keep working. */
+  width: fit-content !important;
+  max-width: 100% !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  padding: 5px !important;
+  margin: 0 0 18px !important;
+  background: var(--bw-ink) !important;
+  border-radius: 100px !important;
+  box-shadow: 0 10px 30px -18px rgba(19, 16, 11, 0.6) !important;
+}
+
+.idx-nav-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 10px 20px !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 100px !important;
+  color: var(--bw-sand) !important;
+  font-family: var(--bw-text) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  opacity: 1 !important;
+  transition: background 200ms ease, color 200ms ease !important;
+}
+.idx-nav-button:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+.idx-nav-button.idx-nav-button__active,
+.idx-nav-button.idx-nav-button__active:hover {
+  background: var(--bw-coral) !important;
+  color: #ffffff !important;
+}
+
+/* Mobile version is a <select> */
+.idx-nav-button-container-mobile select {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 46px !important;
+  padding: 11px 18px !important;
+  line-height: 1.3 !important;
+  border: 1.5px solid var(--bw-line-strong) !important;
+  border-radius: 100px !important;
+  background: var(--bw-paper) !important;
+  color: var(--bw-ink) !important;
+  font-family: var(--bw-text) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+/* Classic pages (Advanced, Address, Listing ID…) */
 #IDX-main.IDX-wrapper-standard .IDX-precision-navbar {
-  background-color: #13100b;
-  border-radius: 999px;
+  background-color: var(--bw-ink);
+  border-radius: 100px;
   margin: 0 0 24px;
   padding: 0 22px;
 }
-
 .IDX-nav-items-container .IDX-searchNavItem .IDX-navLinkTitle {
-  color: #f4f1eb;
+  color: var(--bw-sand);
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
 }
-
 .IDX-nav-items-container .IDX-searchNavItem:hover,
 .IDX-nav-items-container .IDX-searchNavItem:focus {
   filter: none;
 }
-
 .IDX-nav-items-container .IDX-searchNavItem:hover .IDX-navLinkTitle,
 .IDX-nav-items-container .IDX-active .IDX-navLinkTitle {
   color: #f9886a;
 }
 
-/* --- Buttons --------------------------------------------------------------- */
 
+/* ═══════════════════════════════════════════════════════════
+   4 · MAP SEARCH: FILTER PILLS (Status / Price / Bed & Baths…)
+   ═══════════════════════════════════════════════════════════ */
+.filter-buttons-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  align-items: center !important;
+}
+
+.idx-filter-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: var(--bw-paper) !important;
+  border: 1.5px solid var(--bw-line-strong) !important;
+  border-radius: 100px !important;
+  color: var(--bw-ink) !important;
+  box-shadow: 0 1px 3px rgba(19, 16, 11, 0.04) !important;
+  transition: border-color 180ms var(--bw-ease), box-shadow 180ms var(--bw-ease), transform 180ms var(--bw-ease) !important;
+}
+.idx-filter-button:hover {
+  border-color: var(--bw-ink) !important;
+  box-shadow: 0 6px 16px -8px rgba(19, 16, 11, 0.35) !important;
+  transform: translateY(-1px) !important;
+}
+
+.idx-filter-button > div {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 10px 18px 10px 20px !important;
+}
+
+.idx-filter-button span:first-child {
+  font-family: var(--bw-text) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  color: var(--bw-ink) !important;
+}
+
+.idx-filter-button svg {
+  width: 16px !important;
+  height: 16px !important;
+  position: relative !important;
+  top: 1px !important;
+}
+.idx-filter-button svg path {
+  stroke: var(--bw-coral) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   5 · MAP SEARCH: FILTER DROPDOWN PANELS
+   ═══════════════════════════════════════════════════════════ */
+.idx-filter-input-section,
+.property-status-filter-container {
+  position: absolute !important;
+  z-index: 1100 !important;
+  min-width: 210px !important;
+  padding: 14px !important;
+  background: var(--bw-paper) !important;
+  border: 1.5px solid var(--bw-line) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 22px 50px -18px rgba(19, 16, 11, 0.35) !important;
+}
+
+/* Option rows (ANY / ACTIVE / SOLD …) */
+.property-status-filter.header-label-text-format {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 9px 8px !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  transition: background 150ms ease !important;
+}
+.property-status-filter.header-label-text-format:hover {
+  background: var(--bw-sand) !important;
+}
+.property-status-filter.header-label-text-format label {
+  margin: 0 !important;
+  font-family: var(--bw-text) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  color: var(--bw-ink) !important;
+  cursor: pointer !important;
+}
+.property-status-filter.header-label-text-format input[type="checkbox"],
+.idx-filter-input-section input[type="checkbox"],
+.idx-filter-input-section input[type="radio"] {
+  width: 18px !important;
+  height: 18px !important;
+  margin: 0 !important;
+  accent-color: var(--bw-coral) !important;
+  cursor: pointer !important;
+}
+
+/* Number / select fields inside panels (price, beds, sqft…) */
+.idx-filter-input-section input[type="text"],
+.idx-filter-input-section input[type="number"],
+.idx-filter-input-section select,
+.more-filter-options-container input[type="text"],
+.more-filter-options-container input[type="number"],
+.more-filter-options-container select {
+  padding: 10px 14px !important;
+  border: 1.5px solid var(--bw-line) !important;
+  border-radius: 10px !important;
+  background: var(--bw-cream) !important;
+  color: var(--bw-ink) !important;
+  font-family: var(--bw-text) !important;
+  font-size: 14px !important;
+}
+.idx-filter-input-section input:focus,
+.idx-filter-input-section select:focus,
+.more-filter-options-container input:focus,
+.more-filter-options-container select:focus {
+  outline: none !important;
+  border-color: var(--bw-ink) !important;
+  background: #ffffff !important;
+}
+
+/* Apply — coral pill (the white variant is the secondary "Reset") */
+.idx-filter-apply-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  margin-top: 10px !important;
+  padding: 12px 20px !important;
+  background: var(--bw-coral) !important;
+  border: 0 !important;
+  border-radius: 100px !important;
+  color: #ffffff !important;
+  font-family: var(--bw-text) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: background 180ms ease !important;
+}
+.idx-filter-apply-button:hover {
+  background: var(--bw-coral-deep) !important;
+}
+.idx-filter-apply-button.idx-filter-apply-button-white {
+  background: transparent !important;
+  border: 1.5px solid var(--bw-line-strong) !important;
+  color: var(--bw-ink) !important;
+}
+.idx-filter-apply-button.idx-filter-apply-button-white:hover {
+  background: var(--bw-ink) !important;
+  border-color: var(--bw-ink) !important;
+  color: #ffffff !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   6 · MAP SEARCH: CITY / COUNTY / ZIP FIELD + RESULTS COUNT
+   ═══════════════════════════════════════════════════════════ */
+.pm-ccz-fly-to-field {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  max-width: 340px !important;
+  min-height: 48px !important;
+  padding: 0 22px !important;
+  box-sizing: border-box !important;
+  background: var(--bw-paper) !important;
+  border: 1.5px solid var(--bw-line-strong) !important;
+  border-radius: 100px !important;
+  box-shadow: 0 1px 3px rgba(19, 16, 11, 0.04) !important;
+  transition: border-color 180ms var(--bw-ease), box-shadow 180ms var(--bw-ease) !important;
+}
+.pm-ccz-fly-to-field:hover {
+  border-color: var(--bw-ink) !important;
+}
+.pm-ccz-fly-to-field:focus-within {
+  border-color: var(--bw-ink) !important;
+  box-shadow: 0 0 0 4px rgba(224, 99, 69, 0.14) !important;
+}
+.pm-ccz-fly-to-field section svg {
+  flex: none !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+.pm-ccz-fly-to-field section svg path {
+  fill: var(--bw-coral) !important;
+}
+.vue-tags-input {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  background: transparent !important;
+}
+.ti-input { border: none !important; padding: 0 !important; }
+.ti-tags { margin: 0 !important; padding: 0 !important; list-style: none !important; }
+.ti-tag {
+  background: var(--bw-ink) !important;
+  border-radius: 100px !important;
+  padding: 4px 10px !important;
+  font-family: var(--bw-text) !important;
+  font-size: 12px !important;
+}
+.ti-new-tag-input {
+  width: 100% !important;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  font-family: var(--bw-text) !important;
+  font-size: 14px !important;
+  color: var(--bw-ink) !important;
+}
+.ti-new-tag-input::placeholder {
+  color: var(--bw-ink-soft) !important;
+}
+
+/* "500 RESULTS ×" chip above the cards (and its mobile-panel twin) */
+#listing-results-count__chip {
+  /* Colours and corners only: IDX positions the × icon itself. */
+  background: var(--bw-ink) !important;
+  border-radius: 100px !important;
+  color: #ffffff !important;
+  font-family: var(--bw-text) !important;
+  letter-spacing: 0.08em !important;
+}
+#listing-results-count__chip svg path,
+#listing-results-count__chip svg circle {
+  stroke: var(--bw-coral) !important;
+}
+.header-results {
+  background: var(--bw-ink) !important;
+  border-radius: 100px !important;
+  color: #ffffff !important;
+  font-family: var(--bw-text) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+}
+.header-results * {
+  color: inherit !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   7 · MAP SEARCH: LISTING CARDS (cosmetic — keeps IDX layout)
+   ═══════════════════════════════════════════════════════════ */
+.listing-card__parent {
+  overflow: hidden !important;
+  background: var(--bw-paper) !important;
+  border: 1px solid var(--bw-line) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 18px 40px -30px rgba(19, 16, 11, 0.45) !important;
+  font-family: var(--bw-text) !important;
+  transition: transform 280ms var(--bw-ease), box-shadow 280ms var(--bw-ease) !important;
+}
+.listing-card__parent:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 26px 50px -28px rgba(19, 16, 11, 0.55) !important;
+}
+
+/* Image */
+.listing-card__image--wrap {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 0 !important;
+  background: var(--bw-sand) !important;
+}
+.listing-card__image {
+  display: block !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  transition: transform 900ms var(--bw-ease) !important;
+}
+.listing-card__parent:hover .listing-card__image {
+  transform: scale(1.04) !important;
+}
+
+/* Keep overlay wrappers from stretching their children into blobs */
+.listing-card__image--wrap > div,
+.listing-card__image--wrap > span,
+.listing-card__image--wrap [class*="overlay"],
+.listing-card__image--wrap [class*="badge"],
+.listing-card__image--wrap [class*="status"],
+.listing-card__image--wrap [class*="label"] {
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  height: auto !important;
+  max-height: none !important;
+}
+.listing-card__image--wrap > div > * {
+  flex: 0 0 auto !important;
+  align-self: flex-start !important;
+}
+
+/* Status badge — frosted ink pill, top left */
+.listing-card__single-item.listing-card__prop-status {
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: 4 !important;
+  display: inline-block !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0 !important;
+  max-width: max-content !important;
+  min-height: 0 !important;
+  flex: 0 0 auto !important;
+  align-self: flex-start !important;
+  margin: 0 !important;
+  padding: 7px 14px !important;
+  background: rgba(19, 16, 11, 0.62) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border-radius: 100px !important;
+  color: #ffffff !important;
+  font-family: var(--bw-text) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+}
+
+/* Secondary label (Virtual Tour) — hidden, it crowded the photo */
+.listing-card__label { display: none !important; }
+
+/* Price-reduced / new-listing / open-house chips */
+.listing-card__price-reduced,
+.listing-card__new-listing,
+.listing-card__open-house {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 4px 10px !important;
+  border-radius: 100px !important;
+  background: var(--bw-coral-soft) !important;
+  color: var(--bw-coral-deep) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+}
+.listing-card__price-reduced *,
+.listing-card__new-listing *,
+.listing-card__open-house * {
+  color: inherit !important;
+  fill: currentColor !important;
+}
+
+/* Favorite heart — frosted circle, top right */
+.listing-card__favorite {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  left: auto !important;
+  z-index: 4 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 40px !important;
+  align-self: flex-start !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: rgba(19, 16, 11, 0.55) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border: none !important;
+  border-radius: 50% !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+  transition: background 200ms ease, transform 200ms ease !important;
+}
+.listing-card__favorite:hover {
+  background: var(--bw-coral) !important;
+  transform: scale(1.06) !important;
+}
+.listing-card__favorite svg {
+  display: block !important;
+  flex: 0 0 auto !important;
+  width: 17px !important;
+  height: 17px !important;
+  min-width: 17px !important;
+  min-height: 17px !important;
+  fill: #ffffff !important;
+}
+.listing-card__favorite svg path {
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Details */
+.listing-card__details {
+  padding: 18px 20px 10px !important;
+}
+
+.listing-card__single-item.listing-card__listing-price {
+  display: block !important;
+  font-family: var(--bw-display) !important;
+  font-size: 26px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.15 !important;
+  color: var(--bw-ink) !important;
+}
+
+.listing-card__core-fields {
+  margin-top: 6px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid var(--bw-line) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: var(--bw-ink) !important;
+}
+.listing-card__core-fields .listing-card__single-item {
+  margin-right: 12px !important;
+  font-weight: 600 !important;
+}
+
+.listing-card__single-item.listing-card__address {
+  display: block !important;
+  margin-top: 8px !important;
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+  color: var(--bw-ink-soft) !important;
+}
+.listing-card__single-item.listing-card__subdivision {
+  font-size: 12px !important;
+  letter-spacing: 0.04em !important;
+  color: var(--bw-ink-soft) !important;
+}
+
+/* Courtesy line + MLS logo (the Bright MLS logo stays: MLS rules
+   require the source to be credited on listing cards) */
+.listing-card__additional-info {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  margin-top: 10px !important;
+  padding: 10px 20px 14px !important;
+  border-top: 1px solid var(--bw-line) !important;
+}
+.listing-card__courtesy {
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+  color: var(--bw-ink-soft) !important;
+}
+.listing-card__mls img {
+  max-height: 26px !important;
+  width: auto !important;
+  opacity: 0.75 !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   8 · CLASSIC PAGES: BUTTONS, FORM FIELDS, RESULTS CELLS
+   (Advanced search, Home Valuation, Contact, results lists)
+   ═══════════════════════════════════════════════════════════ */
 #IDX-main .IDX-btn,
 #IDX-main .IDX-btn-primary,
 #IDX-main.IDX-wrapper-standard .IDX-btn.IDX-btn__PL,
-.IDX-wrapper-standard #IDX-formSubmit,
-#IDX-registration .IDX-btn-primary {
+.IDX-wrapper-standard #IDX-formSubmit {
   border: 0;
-  border-radius: 999px;
-  background-color: #e06345;
+  border-radius: 100px;
+  background-color: var(--bw-coral);
   color: #ffffff;
-  font-family: 'Onest', system-ui, sans-serif;
+  font-family: var(--bw-text);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: none;
   transition: background-color 0.3s ease;
 }
-
 #IDX-main .IDX-btn:hover,
 #IDX-main .IDX-btn-primary:hover,
 #IDX-main.IDX-wrapper-standard .IDX-btn.IDX-btn__PL:hover,
-.IDX-wrapper-standard #IDX-formSubmit:hover,
-#IDX-registration .IDX-btn-primary:hover {
-  background-color: #c25034;
+.IDX-wrapper-standard #IDX-formSubmit:hover {
+  background-color: var(--bw-coral-deep);
   color: #ffffff;
   filter: none;
 }
 
-/* Outline / secondary buttons */
 #IDX-main.IDX-wrapper-standard .IDX-btn.IDX-btn__PL--inverse,
 #IDX-main .IDX-btn-default,
 #IDX-main .IDX-btn--link,
 #IDX-main .IDX-btn-link {
   background-color: transparent;
-  color: #13100b;
-  border: 1px solid #d8d4cb;
+  border: 1px solid var(--bw-line-strong);
+  color: var(--bw-ink);
 }
-
 #IDX-main.IDX-wrapper-standard .IDX-btn.IDX-btn__PL--inverse:hover,
 #IDX-main .IDX-btn-default:hover {
-  background-color: #13100b;
-  border-color: #13100b;
+  background-color: var(--bw-ink);
+  border-color: var(--bw-ink);
   color: #ffffff;
 }
-
-/* --- Form fields ------------------------------------------------------------- */
 
 .IDX-wrapper-standard .IDX-form__element--PL,
 #IDX-main .IDX-form-control,
@@ -133,19 +712,18 @@ html:root {
 .IDX-advancedBox,
 .IDX-advancedRange,
 .IDX-wrapper-standard .select2-container .select2-selection {
-  border: 1px solid #eae6de;
+  border: 1px solid var(--bw-line);
   border-radius: 12px;
-  background: #fefdfc;
-  color: #13100b;
-  font-family: 'Onest', system-ui, sans-serif;
+  background: var(--bw-paper);
+  color: var(--bw-ink);
+  font-family: var(--bw-text);
 }
-
 .IDX-wrapper-standard .IDX-form__element--PL:focus,
 #IDX-main .IDX-form-control:focus,
 #IDX-main .IDX-input:focus {
-  border-color: #6e6b67;
+  border-color: var(--bw-ink-soft);
   outline: none;
-  box-shadow: none;
+  box-shadow: 0 0 0 4px rgba(224, 99, 69, 0.12);
 }
 
 #IDX-main .IDX-control-label,
@@ -154,69 +732,379 @@ html:root {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #6e6b67;
+  color: var(--bw-ink-soft);
 }
 
 .IDX-custom-form-element__group,
 .select2-results__option {
-  background-color: #f4f1eb;
+  background-color: var(--bw-sand);
   border-radius: 8px;
 }
-
 .select2-results__option--highlighted,
 .select2-results__option[aria-selected='true'] {
-  background-color: #ffe4d9;
-  color: #13100b;
+  background-color: var(--bw-coral-soft);
+  color: var(--bw-ink);
 }
-
-/* --- Results cards ------------------------------------------------------------ */
 
 #IDX-main .IDX-resultsCell {
   overflow: hidden;
-  border: 1px solid #eae6de;
+  border: 1px solid var(--bw-line);
   border-radius: 20px;
-  background: #fefdfc;
+  background: var(--bw-paper);
   box-shadow: 0 18px 40px -32px rgba(19, 16, 11, 0.45);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-
 #IDX-main .IDX-resultsCell:hover {
   transform: translateY(-3px);
   box-shadow: 0 26px 50px -30px rgba(19, 16, 11, 0.55);
 }
-
 #IDX-main .IDX-resultsCell .IDX-field-listingPrice,
 #IDX-main .IDX-resultsCell .IDX-field-price {
-  font-family: 'Fraunces', Georgia, serif;
-  color: #13100b;
+  font-family: var(--bw-display);
+  color: var(--bw-ink);
 }
 
 #IDX-main .IDX-badge {
-  border-radius: 999px;
-  background-color: #13100b;
+  border-radius: 100px;
+  background-color: var(--bw-ink);
   color: #ffffff;
   font-weight: 600;
   letter-spacing: 0.12em;
 }
-
 #IDX-main .IDX-badge--success {
-  background-color: #e06345;
+  background-color: var(--bw-coral);
 }
-
-/* --- Alerts and lead bar -------------------------------------------------------- */
 
 #IDX-main .IDX-alert {
   border-radius: 14px;
 }
 
+
+/* ═══════════════════════════════════════════════════════════
+   9 · LEAD TOOLS BAR (Welcome / My Account) — ink band
+   ═══════════════════════════════════════════════════════════ */
 #IDX-leadToolsBar {
-  border-radius: 14px;
-  background-color: #13100b;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 6px 16px !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 10px 24px !important;
+  background: var(--bw-ink) !important;
+  border-radius: 0 !important;
+  box-sizing: border-box !important;
+  color: #ffffff !important;
+  font-family: var(--bw-text) !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
+}
+#IDX-leadInfo {
+  height: auto !important;
+  padding: 0 !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  color: #ffffff !important;
+}
+#IDX-leadLogOutLink {
+  height: auto !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+#IDX-leadLogOutLink a {
+  color: var(--bw-gold) !important;
+  text-decoration: none !important;
+}
+#IDX-leadLogOutLink a:hover { text-decoration: underline !important; }
+#IDX-leadAccountLink {
+  height: auto !important;
+  margin-left: auto !important;
+}
+#IDX-leadAccountLink a {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 7px 16px !important;
+  background: var(--bw-coral) !important;
+  border: 0 !important;
+  border-radius: 100px !important;
+  color: #ffffff !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  transition: background 180ms ease !important;
+}
+#IDX-leadAccountLink a:hover {
+  background: var(--bw-coral-deep) !important;
+}
+#IDX-leadToolsBar .IDX-clear { display: none !important; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   10 · SIGN-UP / LOGIN MODAL — light card, serif title
+   ═══════════════════════════════════════════════════════════ */
+.ui-widget-overlay {
+  background: rgba(19, 16, 11, 0.5) !important;
+  opacity: 1 !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
 }
 
-/* --- Page spacing inside the wrapper ------------------------------------------- */
+.ui-dialog.IDX-registrationModal {
+  max-width: calc(100vw - 24px) !important;
+  max-height: calc(100vh - 24px) !important;
+  padding: 0 !important;
+  overflow: hidden auto !important;
+  background: var(--bw-paper) !important;
+  border: none !important;
+  border-radius: 24px !important;
+  box-shadow: 0 40px 100px rgba(19, 16, 11, 0.3) !important;
+  font-family: var(--bw-text) !important;
+}
 
-#IDX-main.IDX-wrapper-standard {
-  max-width: 1420px;
-  margin: 0 auto;
+.IDX-registrationModal .ui-dialog-titlebar {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 26px 30px 8px !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  text-align: left !important;
+}
+.IDX-registrationModal .ui-dialog-titlebar::after { display: none !important; }
+
+/* Coral house mark before the title */
+.IDX-registrationModal .ui-dialog-titlebar::before {
+  content: "";
+  flex: none;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e06345' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 11l8-6 8 6M6 10v9h12v-9'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.IDX-registrationModal .ui-dialog-title {
+  width: auto !important;
+  overflow: visible !important;
+  font-family: var(--bw-display) !important;
+  font-size: 26px !important;
+  font-weight: 500 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--bw-ink) !important;
+  text-align: left !important;
+  white-space: nowrap !important;
+}
+
+.IDX-registrationModal .ui-dialog-titlebar-close {
+  position: absolute !important;
+  top: 22px !important;
+  right: 22px !important;
+  width: 36px !important;
+  height: 36px !important;
+  background: transparent !important;
+  border: 1px solid var(--bw-line-strong) !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  transition: background 200ms ease, border-color 200ms ease !important;
+}
+.IDX-registrationModal .ui-dialog-titlebar-close:hover {
+  background: var(--bw-ink) !important;
+  border-color: var(--bw-ink) !important;
+}
+.IDX-registrationModal .ui-dialog-titlebar-close .ui-icon {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  background: none !important;
+  text-indent: 0 !important;
+  font-size: 0 !important;
+}
+.IDX-registrationModal .ui-dialog-titlebar-close .ui-icon::before {
+  content: "\2715";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: var(--bw-ink);
+}
+.IDX-registrationModal .ui-dialog-titlebar-close:hover .ui-icon::before {
+  color: #ffffff;
+}
+
+#IDX-registration.ui-dialog-content {
+  padding: 12px 30px 30px !important;
+  background: var(--bw-paper) !important;
+  box-sizing: border-box !important;
+}
+#IDX-registration p {
+  margin-bottom: 18px !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: var(--bw-ink-soft) !important;
+  text-align: center !important;
+}
+
+.IDX-registrationModal .IDX-control-label,
+#IDX-registration .IDX-control-label {
+  display: block !important;
+  margin-bottom: 6px !important;
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--bw-ink) !important;
+}
+#IDX-registration .IDX-required { margin-left: 2px; color: var(--bw-coral) !important; }
+#IDX-registration .IDX-control-group { margin-bottom: 14px !important; }
+
+#IDX-registration .IDX-input {
+  width: 100% !important;
+  padding: 13px 18px !important;
+  border: 1.5px solid var(--bw-line) !important;
+  border-radius: 12px !important;
+  background: var(--bw-cream) !important;
+  box-sizing: border-box !important;
+  color: var(--bw-ink) !important;
+  font-family: var(--bw-text) !important;
+  font-size: 15px !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  transition: border-color 200ms ease, background 200ms ease, box-shadow 200ms ease !important;
+}
+#IDX-registration .IDX-input::placeholder { color: var(--bw-ink-soft) !important; opacity: 0.7 !important; }
+#IDX-registration .IDX-input:focus {
+  outline: none !important;
+  border-color: var(--bw-ink) !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(224, 99, 69, 0.12) !important;
+}
+
+#IDX-registration .IDX-btn.IDX-btn-primary,
+#IDX-registration #IDX-formSubmit,
+#IDX-registration .IDX-btn-primary {
+  width: 100% !important;
+  margin-top: 6px !important;
+  padding: 15px 24px !important;
+  background: var(--bw-coral) !important;
+  border: 0 !important;
+  border-radius: 100px !important;
+  color: #ffffff !important;
+  font-family: var(--bw-text) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  box-shadow: 0 10px 24px -10px rgba(224, 99, 69, 0.6) !important;
+  transition: background 200ms var(--bw-ease), transform 200ms var(--bw-ease) !important;
+}
+#IDX-registration .IDX-btn.IDX-btn-primary:hover,
+#IDX-registration #IDX-formSubmit:hover,
+#IDX-registration .IDX-btn-primary:hover {
+  background: var(--bw-coral-deep) !important;
+  transform: translateY(-2px) !important;
+}
+
+.IDX-googleRecaptchaPolicy {
+  margin: 14px 0 0 !important;
+  font-size: 10px !important;
+  line-height: 1.4 !important;
+  color: var(--bw-ink-soft) !important;
+  text-align: center !important;
+}
+.IDX-googleRecaptchaPolicy a { color: var(--bw-coral-deep) !important; text-decoration: none !important; }
+
+.IDX-signupLoginToggleWrap {
+  margin-top: 16px !important;
+  padding-top: 14px !important;
+  border-top: 1px solid var(--bw-line) !important;
+  text-align: center !important;
+}
+.IDX-signupLoginToggle {
+  padding-bottom: 2px !important;
+  border-bottom: 2px solid rgba(224, 99, 69, 0.35) !important;
+  color: var(--bw-coral-deep) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   11 · RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+
+/* Tablet (≤ 1024px) */
+@media (max-width: 1024px) {
+  #prime-map-search--results { width: 58% !important; flex: 0 0 58% !important; }
+  #prime-map-search--map { width: 42% !important; flex: 0 0 42% !important; }
+  .idx-nav-button { padding: 9px 14px !important; letter-spacing: 0.1em !important; }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  /* Stack map above results */
+  #prime-map-search--main-content-container { flex-direction: column !important; }
+  #prime-map-search--map {
+    order: 0 !important;
+    width: 100% !important;
+    height: 300px !important;
+    flex: 0 0 auto !important;
+  }
+  #prime-map-search--results {
+    order: 1 !important;
+    width: 100% !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* Filter bar */
+  #prime-map-search--filter-bar { flex-wrap: wrap !important; gap: 8px !important; }
+  #prime-map-search--filter-bar__flyto { flex: 1 1 100% !important; }
+  .pm-ccz-fly-to-field { width: 100% !important; max-width: 100% !important; }
+  .filter-buttons-container { gap: 6px !important; }
+  .idx-filter-button > div { padding: 9px 14px !important; }
+  .idx-filter-button span:first-child { font-size: 12px !important; }
+
+  .idx-filter-input-section,
+  .property-status-filter-container {
+    min-width: 0 !important;
+    max-width: calc(100vw - 24px) !important;
+  }
+
+  /* Cards one per row */
+  .listing-card__parent { width: 100% !important; }
+  .listing-card__single-item.listing-card__listing-price { font-size: 22px !important; }
+
+  /* Lead bar */
+  #IDX-leadToolsBar { padding: 8px 16px !important; font-size: 12px !important; }
+  #IDX-leadAccountLink a { padding: 6px 12px !important; font-size: 11px !important; }
+
+  /* Modal */
+  .ui-dialog.IDX-registrationModal { width: calc(100vw - 16px) !important; border-radius: 18px !important; }
+  #IDX-registration.ui-dialog-content { padding: 18px 20px 22px !important; }
+  #IDX-registration .IDX-input { font-size: 16px !important; } /* stops iOS zoom */
+  .IDX-registrationModal .ui-dialog-title { font-size: 21px !important; }
+
+  /* Classic pages' tab bar can wrap */
+  #IDX-main.IDX-wrapper-standard .IDX-precision-navbar { border-radius: 18px; }
+}
+
+/* Small phones (≤ 480px) */
+@media (max-width: 480px) {
+  .idx-filter-button > div { gap: 6px !important; padding: 8px 12px !important; }
+  .idx-filter-button span:first-child { font-size: 11.5px !important; }
+  .idx-filter-button svg { width: 14px !important; height: 14px !important; }
+  #prime-map-search--map { height: 240px !important; }
+  .listing-card__single-item.listing-card__listing-price { font-size: 20px !important; }
+  .listing-card__details { padding: 14px 16px 8px !important; }
 }
