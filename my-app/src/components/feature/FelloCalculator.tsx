@@ -31,7 +31,9 @@ export default function FelloCalculator({ kind, title }: { kind: Kind; title: Re
           </h2>
         </div>
 
-        <div className="mt-12 min-h-[480px] rounded-[28px] border border-background-300 bg-background-50 p-4 md:p-8">
+        {/* isolate: Fello's widget sets its own z-index values; this keeps them
+            inside the card so the sticky site header still scrolls over it. */}
+        <div className="relative isolate mt-12 min-h-[480px] rounded-[28px] border border-background-300 bg-background-50 p-4 md:p-8">
           <Script src={`https://widget.hifello.com/${kind}-widget.js`} strategy="afterInteractive" />
           {/* Fello's custom element, upgraded once its script loads. */}
           <div
