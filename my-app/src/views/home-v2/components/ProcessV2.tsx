@@ -2,19 +2,15 @@ import Reveal from '@/components/base/Reveal';
 import { processSteps } from '@/mocks/homeData';
 import { Eyebrow } from '@/views/home-v2/components/shared';
 
-export default function ProcessV2() {
+export default function ProcessV2({ index }: { index: string }) {
   return (
     <section id="process" className="bg-background-50 px-5 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-[1280px]">
         <Reveal className="max-w-3xl">
-          <Eyebrow index="09">How I Help You Succeed</Eyebrow>
+          <Eyebrow index={index}>How It Works</Eyebrow>
           <h2 className="mt-7 font-heading text-[34px] font-normal leading-[1.04] tracking-[-0.02em] text-foreground-950 md:text-[54px]">
-            A Simple, <em className="italic">Strategic Approach</em>
+            A Simple Plan From First Call <em className="italic">to Closing Day</em>
           </h2>
-          <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-foreground-600 md:text-[16.5px]">
-            Real estate can feel overwhelming, but my process is designed to make it smooth, clear, and stress-free.
-            From our first conversation to closing day, I guide you every step of the way.
-          </p>
         </Reveal>
 
         <div className="relative mt-20">

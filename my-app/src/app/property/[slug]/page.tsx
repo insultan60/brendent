@@ -8,7 +8,7 @@ import { byNewest, placeText, priceText } from '@/views/properties/utils';
 // Re-read from IDX at most once an hour, like the rest of the listings.
 export const revalidate = 3600;
 
-const SITE = 'https://bwmetroproperties.com';
+const SITE = 'https://www.bwmetroproperties.com';
 
 type Props = { params: Promise<{ slug: string }> };
 

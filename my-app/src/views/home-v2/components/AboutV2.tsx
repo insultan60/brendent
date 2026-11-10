@@ -2,17 +2,16 @@ import Reveal from '@/components/base/Reveal';
 import { brand, stats } from '@/mocks/homeData';
 import { CtaButton, Eyebrow, GhostButton } from '@/views/home-v2/components/shared';
 
-export default function AboutV2() {
+export default function AboutV2({ index }: { index: string }) {
   return (
     <section id="about" className="bg-background-100 px-5 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-[1280px]">
         <Reveal className="mx-auto max-w-4xl text-center">
-          <Eyebrow index="01" className="justify-center">
-            About Us
+          <Eyebrow index={index} className="justify-center">
+            About Brandon
           </Eyebrow>
           <p className="mt-8 font-heading text-[26px] font-normal italic leading-[1.28] tracking-[-0.01em] text-foreground-950 md:text-[42px]">
-            &ldquo;Brandon Wilson is a modern real estate professional dedicated to connecting people with properties
-            that truly fit their lifestyle and goals.&rdquo;
+            &ldquo;You should always know what happens next.&rdquo;
           </p>
         </Reveal>
 
@@ -24,7 +23,7 @@ export default function AboutV2() {
               loading="lazy"
               decoding="async"
                   src="https://assets.agentfire3.com/uploads/sites/2739/2026/04/IMG-6235.jpeg"
-                  alt="Brandon Wilson, DMV realtor with BW Metro Properties"
+                  alt="Brandon Wilson, Washington DC real estate agent with BW Metro Properties"
                   className="h-full w-full object-cover object-top"
                 />
               </div>
@@ -44,14 +43,20 @@ export default function AboutV2() {
 
           <Reveal delay={120} className="flex flex-col justify-center">
             <Eyebrow>Meet Brandon Wilson</Eyebrow>
-            <h2 className="mt-6 font-heading text-[34px] font-normal leading-[1.04] tracking-[-0.02em] text-foreground-950 md:text-[52px]">
-              Strategic Approach to <em className="italic">Real Estate</em>
+            <h2 className="mt-6 font-heading text-[32px] font-normal leading-[1.06] tracking-[-0.02em] text-foreground-950 md:text-[46px]">
+              Meet Brandon Wilson, a Washington DC Real Estate Agent <em className="italic">Who Plans Ahead</em>
             </h2>
             <p className="mt-7 max-w-xl text-[15.5px] leading-relaxed text-foreground-600 md:text-[16.5px]">
-              Brandon Wilson is a dedicated full-time real estate professional serving clients throughout the
-              Washington, D.C., Maryland, and Northern Virginia area. Known for his commitment to excellence and
-              personalized service, Brandon combines real-world experience, business acumen, and a genuine passion for
-              helping people achieve their homeownership and investment goals.
+              Brandon Wilson is a full-time Washington DC realtor who also serves Northern Virginia and Maryland. BW
+              Metro Properties is built around one idea: you should always know what happens next.
+            </p>
+            <p className="mt-5 max-w-xl text-[15.5px] leading-relaxed text-foreground-600 md:text-[16.5px]">
+              Brandon brings military discipline to every deal. He tracks each deadline, reads contracts line by line
+              and tells you the truth about price, even when it is not the answer you hoped for.
+            </p>
+            <p className="mt-5 max-w-xl text-[15.5px] leading-relaxed text-foreground-600 md:text-[16.5px]">
+              Buyers, sellers and investors hire him for three things: local market knowledge, clear communication and
+              calm negotiation.
             </p>
 
             <div className="mt-12 border-t border-background-300 pt-10">
@@ -72,7 +77,7 @@ export default function AboutV2() {
 
             <div className="mt-11 flex flex-col gap-3 sm:flex-row sm:items-center">
               <CtaButton href={brand.bookingUrl}>Schedule a Consultation</CtaButton>
-              <GhostButton href="#services">Get to know me</GhostButton>
+              <GhostButton href="/about">Meet Brandon</GhostButton>
             </div>
           </Reveal>
         </div>

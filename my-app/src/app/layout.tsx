@@ -7,7 +7,7 @@ import { ListingsProvider } from '@/components/feature/ListingsProvider';
 import { getHomeSearch } from '@/lib/idx';
 import '@/index.css';
 
-const SITE = 'https://bwmetroproperties.com';
+const SITE = 'https://www.bwmetroproperties.com';
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const TITLE = 'BW Metro Properties | Brandon Wilson, DMV Realtor';
 
@@ -55,16 +55,34 @@ export const viewport: Viewport = {
   themeColor: '#080808',
 };
 
+// No aggregateRating: only add one if the rating comes from a real review
+// source shown on the site.
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'RealEstateAgent',
+  '@id': `${SITE}/#agent`,
   name: 'BW Metro Properties',
   description:
-    'Full-service real estate advisory serving buyers, sellers and investors across Washington DC, Maryland and Northern Virginia.',
+    'Brandon Wilson is a Washington DC real estate agent and VA loan realtor serving DC, Northern Virginia and Maryland.',
   url: `${SITE}/`,
+  logo: 'https://assets.agentfire3.com/uploads/sites/2739/2026/03/Logo-01-400xAUTO.fit.png',
   telephone: '+1-202-998-4593',
   email: 'brandon@bwmetroproperties.com',
-  areaServed: ['Washington, DC', 'Maryland', 'Northern Virginia'],
+  geo: { '@type': 'GeoCoordinates', latitude: 38.8682, longitude: -77.2269 },
+  areaServed: [
+    'Washington, DC',
+    'Alexandria, VA',
+    'Arlington, VA',
+    'Bethesda, MD',
+    'Silver Spring, MD',
+    'Fort Washington, MD',
+  ].map((name) => ({ '@type': 'City', name })),
+  sameAs: [
+    'https://www.facebook.com/people/Brandon-Wilson-Realtor-MRP-ABR/61577357866577/',
+    'https://www.instagram.com/brandonwilsonrealtor_dmv',
+    'https://www.linkedin.com/in/brandon-wilson-5a95b01b',
+    'https://www.youtube.com/@BWMetroProperties',
+  ],
   address: {
     '@type': 'PostalAddress',
     streetAddress: '8315 Lee Hwy',

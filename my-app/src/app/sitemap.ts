@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { getHomeSearch } from '@/lib/idx';
 
-const SITE = 'https://bwmetroproperties.com';
+const SITE = 'https://www.bwmetroproperties.com';
 
 // Every public page. /home-classic and /home-v2 are old homepage copies kept
 // out of search, and /dashboard is private, so none of them are listed.

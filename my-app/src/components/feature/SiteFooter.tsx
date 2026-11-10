@@ -55,8 +55,9 @@ export default function SiteFooter({ linkBase = '' }: SiteFooterProps) {
               className="h-12 w-auto object-contain md:h-14"
             />
             <p className="mt-7 max-w-md text-[15.5px] leading-relaxed text-background-100/85">
-              Brandon Wilson — a full-time real estate professional serving buyers, sellers and
-              investors across Washington, D.C., Maryland and Northern Virginia.
+              BW Metro Properties, led by Brandon Wilson, serves buyers, sellers and military families across
+              the DC metro real estate market, from Washington DC to Northern Virginia and Maryland. Looking for
+              a Northern Virginia realtor? Brandon&rsquo;s office is at 8315 Lee Hwy, Fairfax, VA 22031.
             </p>
             <div className="mt-8 flex items-center gap-2.5">
               {socialLinks.map((social) => (
@@ -155,7 +156,7 @@ export default function SiteFooter({ linkBase = '' }: SiteFooterProps) {
         {/* Legal */}
         <div className="mt-16 flex flex-col gap-4 border-t border-background-50/[0.12] pt-8 sm:flex-row sm:items-center sm:justify-between md:mt-20">
           <p className="text-xs text-background-200/65">
-            © 2026 Unbound Solutions dba BW Metro Properties · Licensed in DC, VA &amp; MD
+            © 2026 Unbound Solutions dba BW Metro Properties · Licensed in DC, VA &amp; MD · Equal Housing Opportunity
           </p>
           <ul className="flex flex-wrap items-center gap-x-7 gap-y-2">
             {legalLinks.map((item) => (

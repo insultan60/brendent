@@ -9,7 +9,7 @@ import { placeText, priceText, splitListings } from '@/views/properties/utils';
 
 /* Brandon's own IDX listings: what he has on the market, or, when there is
    nothing listed right now, the homes he has most recently sold. */
-export default function ListingsV2() {
+export default function ListingsV2({ index }: { index?: string }) {
   const { listings } = useListings();
   const { current, past } = splitListings(listings);
   const selling = current.length > 0;
@@ -20,7 +20,7 @@ export default function ListingsV2() {
       <div className="mx-auto max-w-[1280px]">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <Reveal className="max-w-2xl">
-            <Eyebrow index="04">{selling ? 'New to the Market' : 'Recent Results'}</Eyebrow>
+            <Eyebrow index={index}>{selling ? 'New to the Market' : 'Recent Results'}</Eyebrow>
             <h2 className="mt-7 font-heading text-[34px] font-normal leading-[1.04] tracking-[-0.02em] text-foreground-950 md:text-[52px]">
               {selling ? (
                 <>
@@ -28,19 +28,28 @@ export default function ListingsV2() {
                 </>
               ) : (
                 <>
-                  Recently <em className="italic">Sold</em>
+                  Recent Sales and Rentals <em className="italic">Across the DMV</em>
                 </>
               )}
             </h2>
             <p className="mt-6 text-[15px] leading-relaxed text-foreground-600 md:text-[16.5px]">
               {selling
                 ? 'Homes Brandon has on the market across the DMV region. See what your next chapter could look like.'
-                : 'Homes Brandon has recently helped close across the DMV region. Looking for your next home? Search every listing on the MLS.'}
+                : 'Here are homes Brandon has helped clients close, from DC condos to a family home in Waldorf, Maryland. Behind each result is a pricing plan built on nearby sales.'}
             </p>
           </Reveal>
           <Reveal className="flex flex-wrap items-center gap-3">
-            <GhostButton href="/vip-home-search">VIP Home Search</GhostButton>
-            <CtaButton href="/properties">View All Listings</CtaButton>
+            {selling ? (
+              <>
+                <GhostButton href="/vip-home-search">VIP Home Search</GhostButton>
+                <CtaButton href="/properties">View All Listings</CtaButton>
+              </>
+            ) : (
+              <>
+                <GhostButton href="/vip-home-search">Search every MLS listing</GhostButton>
+                <CtaButton href="/recently-sold">View All Sold Homes</CtaButton>
+              </>
+            )}
           </Reveal>
         </div>
 
@@ -65,7 +74,11 @@ export default function ListingsV2() {
                         decoding="async"
                         referrerPolicy="no-referrer"
                         src={listing.image}
-                        alt={`${listing.address}, ${placeText(listing)}`}
+                        alt={
+                          selling
+                            ? `${listing.address}, ${placeText(listing)}`
+                            : `${listing.address}, ${placeText(listing)} home sold by BW Metro Properties`
+                        }
                         className="h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-105"
                       />
                     ) : (

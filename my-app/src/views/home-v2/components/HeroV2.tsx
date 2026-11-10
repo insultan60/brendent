@@ -61,21 +61,32 @@ export default function HeroV2() {
       <div className="relative mx-auto flex min-h-[100svh] max-w-[1500px] flex-col justify-between gap-12 px-5 pb-12 pt-32 md:px-10 md:pb-16 md:pt-44">
         <div className="v2-rise lg:text-right">
           <Eyebrow tone="light" className="lg:flex-row-reverse">
-            Serving Buyers, Sellers &amp; Investors Across the DMV Region
+            Brandon Wilson | BW Metro Properties
           </Eyebrow>
           <h1 className="text-scrim mt-8 max-w-2xl font-heading text-[36px] font-normal leading-[1.02] tracking-[-0.025em] text-background-50 md:text-[54px] lg:ml-auto lg:max-w-[min(40vw,34rem)] lg:text-[clamp(44px,3.6vw,68px)]">
-            Clearing the path forward to <em className="italic">move smart</em>, build wealth, and live well.
+            A Washington DC Real Estate Agent With a <em className="italic">Clear Plan</em>
           </h1>
+          <p className="text-scrim-sm mt-6 max-w-xl text-[15px] leading-relaxed text-background-100 md:text-[16.5px] lg:ml-auto lg:max-w-[min(40vw,34rem)]">
+            Brandon Wilson helps buyers, sellers and military families move smart across Washington DC, Northern
+            Virginia and Maryland. You get straight answers, current local data and one person who handles the
+            details.
+          </p>
         </div>
 
-        <div
-          className="v2-rise flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-end"
-          style={{ animationDelay: '340ms' }}
-        >
-          <CtaButton href={brand.bookingUrl}>Schedule a Consultation</CtaButton>
-          <GhostButton href="#value" tone="light">
-            Get your home value
-          </GhostButton>
+        <div className="v2-rise lg:text-right" style={{ animationDelay: '340ms' }}>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-end">
+            <CtaButton href={brand.bookingUrl}>Schedule a Consultation</CtaButton>
+            <GhostButton href="/home-valuation" tone="light">
+              Get Your Home Value
+            </GhostButton>
+          </div>
+          <p className="text-scrim-sm mt-4 text-[13px] text-background-200">
+            Free consultation. No obligation. Call{' '}
+            <a href={brand.phoneHref} className="font-semibold text-background-50 underline-offset-4 hover:underline">
+              (202) 998-4593
+            </a>
+            .
+          </p>
         </div>
       </div>
     </section>

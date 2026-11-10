@@ -11,12 +11,12 @@ const iconMap: Record<string, LucideIcon> = {
   map: Map,
 };
 
-export default function ServicesV2() {
+export default function ServicesV2({ index }: { index: string }) {
   return (
     <section id="services" className="bg-background-50 px-5 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-[1280px]">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <Eyebrow index="03" className="justify-center">
+          <Eyebrow index={index} className="justify-center">
             DMV Real Estate Services
           </Eyebrow>
           <h2 className="mt-7 font-heading text-[34px] font-normal leading-[1.04] tracking-[-0.02em] text-foreground-950 md:text-[54px]">

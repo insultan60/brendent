@@ -42,11 +42,47 @@ export const navLinks: NavLink[] = [
 ];
 
 export const whyPoints = [
-  { icon: 'strategy', title: 'Strategic Approach', text: 'Backed by data and deep local expertise.' },
-  { icon: 'communication', title: 'Clear Communication', text: 'Proactive from start to finish.' },
-  { icon: 'market', title: 'DMV Market Depth', text: 'Real understanding of local neighborhoods.' },
-  { icon: 'negotiation', title: 'Skilled Negotiation', text: 'Positioned to maximize your value.' },
-  { icon: 'military', title: 'Military & Federal', text: 'Discipline and organization throughout.' },
+  {
+    icon: 'strategy',
+    title: 'Strategy backed by data',
+    text: 'Pricing and offers rest on recent sales and current inventory. You see the numbers behind every recommendation.',
+  },
+  {
+    icon: 'communication',
+    title: 'Clear communication',
+    text: 'Brandon updates you before you have to ask. Clients mention his fast replies and patient explanations in their reviews.',
+  },
+  {
+    icon: 'market',
+    title: 'Depth across the DMV',
+    text: 'Licensed in DC, Virginia and Maryland, Brandon follows your search across state lines. Need a Northern Virginia real estate agent? His office is in Fairfax, and his Virginia license covers the whole state.',
+  },
+  {
+    icon: 'negotiation',
+    title: 'Skilled negotiation',
+    text: 'Brandon holds the RENE designation and negotiates price, repairs and contract terms for you. A lender partner singled out his attention to detail in contracts.',
+  },
+  {
+    icon: 'military',
+    title: 'Military discipline',
+    text: 'His military background shows up in how he plans, communicates and follows through. He is also a Military Relocation Professional (MRP).',
+  },
+];
+
+/** The letters after Brandon's name, spelled out. */
+export const credentials = [
+  { code: 'ABR', name: 'Accredited Buyer’s Representative' },
+  { code: 'SRS', name: 'Seller Representative Specialist' },
+  { code: 'MRP', name: 'Military Relocation Professional' },
+  { code: 'RENE', name: 'Real Estate Negotiation Expert' },
+];
+
+/** The strip directly under the hero. */
+export const trustPoints = [
+  '$2.7M in sales closed in the last 12 months',
+  'ABR, SRS, MRP and RENE designations',
+  'Licensed in DC, Virginia and Maryland',
+  'Military relocation specialist',
 ];
 
 export const stats = [
@@ -139,10 +175,233 @@ export const lookingTo = [
 ];
 
 export const processSteps = [
-  { step: '01', title: 'Personalized Consultation', text: 'We start with a conversation to understand your goals, timeline, and priorities.' },
-  { step: '02', title: 'Strategic Planning', text: 'A clear plan for buying or selling, using data, market insights, and proven strategies.' },
-  { step: '03', title: 'Hands-On Guidance', text: 'From property tours to offer strategy and negotiations, I handle the details so you don’t have to.' },
-  { step: '04', title: 'Closing & Beyond', text: 'I stay with you through closing and provide ongoing support into your next chapter.' },
+  { step: '01', title: 'Personalized consultation', text: 'We talk about your goals, timeline and budget. You leave with a clear next step.' },
+  { step: '02', title: 'Strategic planning', text: 'Brandon builds a plan from recent sales and current inventory, whether you are buying or selling.' },
+  { step: '03', title: 'Hands-on guidance', text: 'Tours, offers, negotiation, inspections and paperwork. He handles the details and keeps you posted.' },
+  { step: '04', title: 'Closing and beyond', text: 'Brandon stays with you through closing day and answers questions after you move in.' },
+];
+
+export interface GuideSection {
+  id: string;
+  eyebrow: string;
+  /** The H2 is `title` followed by `accent` in italics. */
+  title: string;
+  accent: string;
+  intro: string[];
+  listTitle: string;
+  list: string[];
+  outro?: string[];
+  cta: { label: string; href: string };
+  link?: { label: string; href: string };
+  image: string;
+  imageAlt: string;
+}
+
+export const buySection: GuideSection = {
+  id: 'buy',
+  eyebrow: 'Buy a Home',
+  title: 'Buy a Home in Washington DC',
+  accent: 'With a Plan You Can Follow',
+  intro: [
+    'Homes for sale in Washington DC can go from listing to contract in days, or sit for weeks. The difference usually comes down to price, condition and timing. Brandon helps you read all three before you make an offer.',
+    'Want condos for sale in Washington DC near a Metro stop? Or townhomes for sale in Washington DC with more space and a small yard? Brandon builds your search around your budget, commute and daily routine.',
+  ],
+  listTitle: 'What you get as a buyer',
+  list: [
+    'A shortlist matched to your budget, commute and must-haves',
+    'Recent sales and days-on-market numbers before every showing',
+    'Offer strategy and negotiation backed by the ABR and RENE designations',
+    'Help coordinating your lender, inspector and closing',
+  ],
+  outro: [
+    'Buying your first home? Brandon explains each step in plain language, from pre-approval to closing day. He also points you to local assistance programs worth asking your lender about.',
+  ],
+  cta: { label: 'Start Your Home Search', href: '/buyers' },
+  link: { label: 'Browse homes for sale in Washington DC', href: '/properties' },
+  image: 'https://assets.agentfire3.com/uploads/sites/2739/2026/04/IMG-1568.jpg',
+  imageAlt: 'Brandon Wilson helping buyers find homes for sale in Washington DC',
+};
+
+export const sellSection: GuideSection = {
+  id: 'sell',
+  eyebrow: 'Sell Your Home',
+  title: 'Sell Your Home With the Right Price',
+  accent: 'and a Clear Strategy',
+  intro: [
+    'Many sellers begin by searching “sell my house Washington DC.” The results are often full of quick-cash offers. Brandon helps you compare a traditional listing with other options, so you can see what each path puts in your pocket.',
+  ],
+  listTitle: 'How Brandon prepares your listing',
+  list: [
+    'Pricing built on recent sales near your address',
+    'Strategic staging and prep advice that fits your budget',
+    'Marketing that shows buyers why your home is worth the price',
+    'Negotiation focused on your net proceeds, not just the sale price',
+  ],
+  cta: { label: 'Sell Your Home', href: '/sellers' },
+  image: 'https://assets.agentfire3.com/uploads/sites/2739/2026/03/Alexandria-VA-Area-Guide-AUTOx1150.fit.jpeg',
+  imageAlt: 'Rowhouses in Old Town Alexandria, VA, a market where Brandon lists homes',
+};
+
+export const vaSection: GuideSection = {
+  id: 'va-loan',
+  eyebrow: 'Military & VA Buyers',
+  title: 'VA Loan Realtor for Military,',
+  accent: 'Veteran and Federal Buyers',
+  intro: [
+    'Brandon holds the Military Relocation Professional (MRP) designation and has military service in his own background. He knows how a VA purchase works and what a PCS timeline demands.',
+    'Eligible borrowers can often buy with no down payment and no monthly mortgage insurance. A VA funding fee may apply, and your lender confirms the terms for your situation.',
+  ],
+  listTitle: 'How a VA loan realtor helps',
+  list: [
+    'Finds homes and condo projects that meet VA loan requirements',
+    'Writes offers that sellers take seriously when you use VA financing',
+    'Plans around PCS orders, short house-hunting trips and report dates',
+    'Helps federal employees and contractors relocating to the DC area',
+  ],
+  outro: [
+    'Many military and federal buyers look near the Pentagon, Fort Belvoir, Joint Base Andrews and Walter Reed in Bethesda. Brandon can help you compare the commute to each one.',
+  ],
+  // The VA and military page does not exist yet; until it does, this books a
+  // consultation.
+  cta: { label: 'Talk to a VA Loan Realtor', href: '/schedule' },
+  link: { label: 'Read what an active-duty client said about using her VA loan', href: '/success-stories' },
+  image: 'https://assets.agentfire3.com/uploads/sites/2739/2026/03/Falls-Chruch-VA-Area-Guide-AUTOx1150.fit.jpeg',
+  imageAlt: 'Falls Church, VA neighborhood popular with military and federal buyers',
+};
+
+export interface NeighborhoodTab {
+  id: string;
+  city: string;
+  blurb: string;
+  items: { name: string; text: string; href: string }[];
+  viewAll: { label: string; href: string };
+}
+
+/* Each neighborhood is meant to get its own page. Until it has one, its card
+   links to the city guide it belongs to. */
+export const neighborhoodTabs: NeighborhoodTab[] = [
+  {
+    id: 'dc',
+    city: 'Washington DC',
+    blurb: 'The District is Brandon’s primary market, from historic rowhouses to new waterfront condos.',
+    items: [
+      { name: 'Capitol Hill', text: 'Brick rowhouses, Eastern Market and a short walk to the Capitol.', href: '/washington' },
+      { name: 'Navy Yard', text: 'Waterfront condos, Nationals Park and a Green Line Metro stop.', href: '/washington' },
+      { name: 'Dupont Circle', text: 'Historic rowhouses, cafes and Red Line Metro access.', href: '/washington' },
+      { name: 'Logan Circle', text: 'Victorian rowhouses around a park, with restaurants along 14th Street.', href: '/washington' },
+      { name: 'Shaw', text: 'Walkable blocks, music venues and quick Metro access.', href: '/shaw-u-street-corridor' },
+      { name: 'Columbia Heights', text: 'A mix of condos and rowhouses near the Green and Yellow Line Metro.', href: '/washington' },
+      { name: 'Georgetown', text: 'Historic townhouses, the waterfront and the C&O Canal.', href: '/washington' },
+      { name: 'Adams Morgan', text: 'Colorful rowhouses, global restaurants and a lively nightlife strip.', href: '/washington' },
+    ],
+    viewAll: { label: 'View all Washington DC neighborhoods', href: '/washington' },
+  },
+  {
+    id: 'alexandria',
+    city: 'Alexandria, VA',
+    blurb: 'Old Town charm, Del Ray’s small-town feel and newer neighborhoods with Metro access.',
+    items: [
+      { name: 'Old Town Alexandria', text: 'Brick sidewalks, the waterfront and King Street shops.', href: '/alexandria' },
+      { name: 'Del Ray', text: 'A small-town feel along Mount Vernon Avenue.', href: '/alexandria' },
+      { name: 'Carlyle', text: 'Condos and townhomes with easy access to Old Town.', href: '/alexandria' },
+      { name: 'Potomac Yard', text: 'Newer townhomes and condos beside the Potomac Yard Metro station.', href: '/alexandria' },
+    ],
+    viewAll: { label: 'View all Alexandria neighborhoods', href: '/alexandria' },
+  },
+  {
+    id: 'arlington',
+    city: 'Arlington, VA',
+    blurb: 'Walkable Metro corridors, close to the Pentagon and Reagan National Airport.',
+    items: [
+      { name: 'Clarendon', text: 'A walkable Orange Line neighborhood with restaurants and shops.', href: '/arlington' },
+      { name: 'Ballston', text: 'Condos, offices and a Metro stop in the middle of it all.', href: '/arlington' },
+      { name: 'Rosslyn', text: 'High-rise condos with views of the Potomac and the DC skyline.', href: '/arlington' },
+      { name: 'Crystal City', text: 'Condos and townhomes in National Landing, near Reagan National Airport.', href: '/arlington' },
+    ],
+    viewAll: { label: 'View all Arlington neighborhoods', href: '/arlington' },
+  },
+  {
+    id: 'bethesda',
+    city: 'Bethesda, MD',
+    blurb: 'Red Line access, a busy downtown and quiet residential streets nearby.',
+    items: [
+      { name: 'Bethesda Row', text: 'Shops, restaurants and the Capital Crescent Trail.', href: '/bethesda' },
+      { name: 'Downtown Bethesda', text: 'Red Line Metro, offices and high-rise condos.', href: '/bethesda' },
+      { name: 'Chevy Chase, MD', text: 'Tree-lined streets and larger single-family homes.', href: '/bethesda' },
+    ],
+    viewAll: { label: 'View all Bethesda neighborhoods', href: '/bethesda' },
+  },
+  {
+    id: 'silver-spring',
+    city: 'Silver Spring, MD',
+    blurb: 'Metro access and a range of price points just north of DC.',
+    items: [
+      { name: 'Downtown Silver Spring', text: 'Red Line Metro, the AFI Silver Theatre and plenty of restaurants.', href: '/silver-spring' },
+      { name: 'Takoma Park', text: 'Leafy streets, older homes and a close-knit community.', href: '/silver-spring' },
+      { name: 'Woodside', text: 'Residential streets with quick access to downtown Silver Spring.', href: '/silver-spring' },
+    ],
+    viewAll: { label: 'View all Silver Spring neighborhoods', href: '/silver-spring' },
+  },
+  {
+    id: 'fort-washington',
+    city: 'Fort Washington and Oxon Hill, MD',
+    blurb: 'Quieter streets, river access and a short drive to National Harbor.',
+    items: [
+      { name: 'Fort Washington', text: 'Quiet residential streets near Fort Washington Park and the Potomac River.', href: '/explore-areas' },
+      { name: 'Oxon Hill', text: 'Close to National Harbor and the Capital Beltway.', href: '/explore-areas' },
+    ],
+    viewAll: { label: 'View all Fort Washington and Oxon Hill neighborhoods', href: '/explore-areas' },
+  },
+];
+
+/**
+ * Washington DC market numbers for the snapshot tiles. The tiles stay hidden
+ * until every value AND the source line are filled in: a market number with no
+ * named source and date must not be published. Update monthly.
+ */
+export const marketSnapshot = {
+  medianPrice: '', // e.g. '$650,000'
+  daysOnMarket: '', // e.g. '32 days'
+  activeListings: '', // e.g. '2,140'
+  saleToList: '', // e.g. '99.1%'
+  source: '', // e.g. 'Source: Bright MLS, October 2026'
+};
+
+export const homeTools = [
+  { title: 'Mortgage Calculator', text: 'Estimate your monthly payment before you start touring.', href: '/mortgage-calculator' },
+  { title: 'Affordability Calculator', text: 'See a price range that fits your income and savings.', href: '/affordability-calculator' },
+  { title: 'Home Sale Calculator', text: 'Estimate what you could keep after costs when you sell.', href: '/home-sale-calculator' },
+];
+
+/** The three reviews shown on the homepage, by name, from `testimonials`. */
+export const featuredReviewNames = ['Andie Coutoulakis', 'Rodrigo Soto', 'Allen Yarbrough'];
+
+/** Homepage FAQ. Also emitted as FAQPage structured data from app/page.tsx. */
+export const homeFaqs = [
+  {
+    q: 'Can one agent help me buy in DC, Maryland and Virginia?',
+    a: 'Yes, if the agent is licensed in all three places. Brandon holds licenses in DC, Virginia and Maryland, so you work with one person even when your search crosses state lines. Rules, taxes and closing customs differ in each place, and he explains those differences up front.',
+  },
+  {
+    q: 'What help is available for a first time home buyer in Washington DC?',
+    a: 'DC offers the Home Purchase Assistance Program (HPAP). Maryland and Virginia have their own programs through the Maryland Mortgage Program and VHDA. Eligibility rules, income limits and funding change often, so confirm current terms with a participating lender.',
+  },
+  {
+    q: 'How do I pay a buyer’s agent?',
+    a: 'Compensation is discussed and signed in a written buyer agreement before you tour homes. Amounts are negotiable, and sellers may offer to cover part or all of it. Brandon walks through your options at the first consultation so there are no surprises.',
+  },
+  {
+    q: 'Can I use a VA loan to buy a condo?',
+    a: 'Yes, if the condo project meets VA requirements and is approved. Brandon checks approval status early, because an unapproved building can delay or end a deal.',
+  },
+  {
+    q: 'Do I need to stage my home before I list it?',
+    a: 'Not always, but it often helps buyers picture daily life in the space. Brandon recommends only the prep that fits your budget and your home, and sometimes that is just decluttering and fresh paint.',
+  },
+  {
+    q: 'Can you help if I am moving to the DC area from out of state?',
+    a: 'Yes. Brandon can set up video tours, share documents for e-signature and line up trusted inspectors and contractors. Many buyers then visit once to see their top choices in person.',
+  },
 ];
 
 export const exploreAreas = [

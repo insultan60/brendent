@@ -1,26 +1,36 @@
 import Reveal from '@/components/base/Reveal';
 import Icon from '@/components/base/Icon';
-import { whyPoints } from '@/mocks/homeData';
+import { brand, credentials, whyPoints } from '@/mocks/homeData';
 import { CtaButton, Eyebrow } from '@/views/home-v2/components/shared';
 
-export default function WhyV2() {
+export default function WhyV2({ index }: { index: string }) {
   return (
     <section className="bg-foreground-950 px-5 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-[1280px]">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <Reveal className="lg:sticky lg:top-32 lg:self-start">
-            <Eyebrow tone="light" index="02">
-              Proven Results.
+            <Eyebrow tone="light" index={index}>
+              Why Brandon
             </Eyebrow>
             <h2 className="mt-7 font-heading text-[34px] font-normal leading-[1.04] tracking-[-0.02em] text-background-50 md:text-[52px]">
-              Why Work With <em className="italic">Brandon</em>
+              Why Clients Choose <em className="italic">Brandon Wilson</em>
             </h2>
-            <p className="mt-7 max-w-md text-[15px] leading-relaxed text-background-200 md:text-[16.5px]">
-              Our commitment to exceptional service and results has earned us recognition across the Washington DC
-              Metro Area and beyond:
-            </p>
             <div className="mt-10">
-              <CtaButton href="#contact">Schedule Your Consultation</CtaButton>
+              <CtaButton href={brand.bookingUrl}>Schedule a Consultation</CtaButton>
+            </div>
+
+            <div className="mt-12 border-t border-background-50/10 pt-8">
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.28em] text-background-200">
+                What the letters mean
+              </h3>
+              <dl className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {credentials.map((item) => (
+                  <div key={item.code}>
+                    <dt className="font-heading text-[18px] text-background-50">{item.code}</dt>
+                    <dd className="mt-0.5 text-[13px] leading-snug text-background-200/80">{item.name}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </Reveal>
 
