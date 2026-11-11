@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import Reveal from '@/components/base/Reveal';
 import { useReveal } from '@/hooks/useReveal';
-import { guideRoutes, hub, type NeighborhoodGuide } from '@/mocks/neighborhoodsData';
+import { hub, routeForName, type NeighborhoodGuide } from '@/mocks/neighborhoodsData';
 import NavbarV2 from '@/views/home-v2/components/NavbarV2';
 import FooterV2 from '@/views/home-v2/components/FooterV2';
 import { CtaButton, GhostButton } from '@/views/home-v2/components/shared';
@@ -15,7 +15,7 @@ import { Faq, GuideCta, GuideHero, GuideSchema, Prose, SectionTitle } from './co
 export default function NeighborhoodGuidePage({ guide }: { guide: NeighborhoodGuide }) {
   useReveal();
   const path = `${hub.path}/${guide.slug}`;
-  const match = useCallback((l: Listing) => l.state === 'DC' && guide.listings.zips.includes(l.zip), [guide]);
+  const match = useCallback((l: Listing) => l.state === guide.listings.state && guide.listings.zips.includes(l.zip), [guide]);
 
   return (
     <div className="min-h-screen bg-background-100">
@@ -87,9 +87,25 @@ export default function NeighborhoodGuidePage({ guide }: { guide: NeighborhoodGu
         {guide.sections.map((s, i) => (
           <section key={s.title} className={`px-5 py-20 md:px-10 md:py-28 ${i % 2 ? 'bg-background-100' : 'bg-background-50'}`}>
             <div className="mx-auto max-w-[1280px]">
-              <SectionTitle index={`0${i + 4}`} eyebrow={guide.name} title={s.title}>
+              <SectionTitle index={String(i + 4).padStart(2, '0')} eyebrow={guide.name} title={s.title}>
                 <Prose paragraphs={s.paragraphs} />
               </SectionTitle>
+              {s.steps ? (
+                <Reveal className="mt-10 max-w-3xl rounded-[22px] border border-background-200 bg-background-50 p-7 md:p-9">
+                  <p className="text-[15px] font-semibold text-foreground-950">{s.steps.lead}</p>
+                  <ol className="mt-5 space-y-4">
+                    {s.steps.items.map((item, n) => (
+                      <li key={item} className="flex gap-4 text-[15px] leading-relaxed text-foreground-600">
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground-950 text-[12px] font-semibold text-background-50">
+                          {n + 1}
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ol>
+                  {s.steps.after ? <p className="mt-5 text-[14px] leading-relaxed text-foreground-500">{s.steps.after}</p> : null}
+                </Reveal>
+              ) : null}
               {s.points ? (
                 <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
                   {s.points.map((p) => (
@@ -125,7 +141,7 @@ export default function NeighborhoodGuidePage({ guide }: { guide: NeighborhoodGu
             </SectionTitle>
             <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {guide.nearby.map((n) => {
-                const href = guideRoutes[n.name.toLowerCase().replace(/[^a-z]+/g, '-')];
+                const href = routeForName(n.name);
                 return (
                   <li key={n.name} className="rounded-[20px] border border-background-200 bg-background-100 p-6">
                     <h3 className="font-heading text-[20px] text-foreground-950">
@@ -145,7 +161,7 @@ export default function NeighborhoodGuidePage({ guide }: { guide: NeighborhoodGu
           </div>
         </section>
 
-        <Faq index="09" title={guide.faqTitle} items={guide.faqs} />
+        <Faq index={String(guide.sections.length + 4).padStart(2, '0')} title={guide.faqTitle} items={guide.faqs} />
         <GuideCta title={guide.cta.title} text={guide.cta.text} primary={{ label: guide.cta.button, href: '#listings' }} />
       </main>
       <FooterV2 linkBase="/" />

@@ -19,6 +19,8 @@ const PAGES = [
   '/explore-areas',
   '/neighborhoods',
   '/neighborhoods/capitol-hill',
+  '/neighborhoods/georgetown',
+  '/neighborhoods/old-town-alexandria',
   '/washington',
   '/shaw-u-street-corridor',
   '/alexandria',

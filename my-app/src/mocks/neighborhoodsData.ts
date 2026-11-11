@@ -12,7 +12,12 @@ const photo = (path: string, size = 'AUTOx700') => `${ASSETS}/${path}-${size}.fi
 export const guideRoutes: Record<string, string> = {
   'capitol-hill': '/neighborhoods/capitol-hill',
   'shaw-u-street': '/shaw-u-street-corridor',
+  georgetown: '/neighborhoods/georgetown',
+  'old-town': '/neighborhoods/old-town-alexandria',
 };
+
+/** Hub/nearby names → guide route, for plain-name lists such as "Old Town". */
+export const routeForName = (name: string) => guideRoutes[name.toLowerCase().replace(/[^a-z]+/g, '-').replace(/-$/, '')];
 
 export interface HubNeighborhood {
   slug: string;
@@ -62,7 +67,7 @@ export const hub = {
       image: dcFallback,
       intro: 'Row houses, condos and historic districts across the District, served by every Metro line.',
       neighborhoods: [
-        { slug: 'georgetown', name: 'Georgetown', hook: 'Federal-style townhomes, the C&O Canal and the M Street shopping corridor', image: dcFallback, linkLabel: 'Georgetown homes for sale' },
+        { slug: 'georgetown', name: 'Georgetown', hook: 'Federal-style townhomes, the C&O Canal and the M Street shopping corridor', image: photo('2026/06/georgetown'), linkLabel: 'Georgetown homes for sale' },
         { slug: 'capitol-hill', name: 'Capitol Hill', hook: 'Brick row houses, Eastern Market and Barracks Row near four Metro stations', image: photo('2026/07/capitol-hill-1'), linkLabel: 'Capitol Hill homes for sale' },
         { slug: 'columbia-heights', name: 'Columbia Heights', hook: 'Row houses and condos beside the Green and Yellow Line station', image: photo('2026/06/columbia-heights-1'), linkLabel: 'Columbia Heights homes for sale' },
         { slug: 'dupont-circle', name: 'Dupont Circle', hook: 'Converted row-house condos around the Red Line station', image: photo('2026/06/dupont-circle'), linkLabel: 'Dupont Circle condos for sale' },
@@ -178,6 +183,8 @@ export interface GuideSection {
   paragraphs: string[];
   /** Bold-led sub-points, e.g. "Capitol Hill condos for sale. Many condos…" */
   points?: { title: string; text: string }[];
+  /** Numbered checklist, with an optional lead-in and closing line. */
+  steps?: { lead: string; items: string[]; after?: string };
 }
 
 export interface NeighborhoodGuide {
@@ -192,7 +199,7 @@ export interface NeighborhoodGuide {
   hero: { h1: string; text: string; image: string; imageAlt: string; listingsLabel: string };
   facts: { label: string; value: string }[];
   about: GuideSection;
-  listings: { title: string; text: string; zips: string[]; viewAllHref: string };
+  listings: { title: string; text: string; state: 'DC' | 'VA' | 'MD'; zips: string[]; viewAllHref: string };
   market: GuideSection;
   sections: GuideSection[];
   agent: GuideSection;
@@ -240,6 +247,7 @@ export const capitolHill: NeighborhoodGuide = {
   listings: {
     title: 'Browse Capitol Hill Homes for Sale',
     text: 'Listings update throughout the day. Want a heads-up before a home goes live? Join the VIP Home Search.',
+    state: 'DC',
     zips: ['20002', '20003'],
     viewAllHref: '/properties',
   },
@@ -310,9 +318,274 @@ export const capitolHill: NeighborhoodGuide = {
   ],
   cta: {
     title: 'Ready to Look at Capitol Hill Homes for Sale?',
-    text: 'Whether you want a condo near Eastern Market or a row house near Lincoln Park, Brandon can narrow the search to your budget and commute. Call or send a message to talk with a Capitol Hill real estate agent.',
+    text: 'Whether you want a condo near Eastern Market or a row house near Lincoln Park, Brandon can narrow the search to your budget and commute.',
     button: 'Search Capitol Hill Homes',
   },
 };
 
-export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill];
+export const georgetown: NeighborhoodGuide = {
+  slug: 'georgetown',
+  name: 'Georgetown',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Georgetown DC Homes for Sale | Georgetown Neighborhood Guide',
+  description:
+    'Georgetown DC guide: historic row houses, condos and the waterfront. Browse Georgetown DC real estate and homes for sale with Brandon Wilson.',
+  ogTitle: 'Georgetown, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Historic row houses, condos and waterfront living, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Georgetown, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Georgetown is a Washington, DC neighborhood that was a port town before the capital existed, and it still runs on its own rules: a federal review law for exterior work and no Metro station of its own. This guide covers Georgetown, DC in practical terms, from its history to the specific issues that come up when you buy here. If you are looking at Georgetown DC homes for sale, start with these details before you tour.',
+    image: photo('2026/06/georgetown', 'AUTOx1150'),
+    imageAlt: 'Brick row houses on a hillside street in Georgetown, Washington, DC',
+    listingsLabel: 'See Georgetown Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 2, ANC 2E)' },
+    { label: 'ZIP code', value: '20007' },
+    { label: 'Main corridors', value: 'M Street NW and Wisconsin Avenue NW' },
+    { label: 'Waterfront', value: 'Georgetown Waterfront Park along the Potomac, and Washington Harbour at K Street' },
+    { label: 'Transit', value: 'No Metro station in the neighborhood. Foggy Bottom-GWU and Rosslyn are the closest.' },
+    { label: 'Landmarks', value: 'Old Stone House, the C&O Canal, Georgetown University' },
+    { label: 'Typical homes', value: 'Brick row houses in Federal and Georgian styles, condos, some larger detached houses' },
+    { label: 'Rules', value: 'Exterior work is reviewed under the Old Georgetown Act of 1950' },
+    { label: 'Last updated', value: 'November 2026' },
+  ],
+  about: {
+    title: 'A Port Town Older Than the Capital',
+    paragraphs: [
+      'Georgetown was founded in 1751 as a tobacco port on the Potomac, about 40 years before the City of Washington was laid out. Congress annexed it into Washington in 1871.',
+      'Some of that history is still standing. The Old Stone House on M Street dates to 1765 and is generally cited as the oldest unchanged building in DC.',
+      'The Chesapeake and Ohio Canal runs through the neighborhood and is now a National Park Service trail. It stopped operating as a canal in 1924, and a severe flood in 1936 led to its sale to the National Park Service.',
+      'The waterfront stayed industrial well into the twentieth century. Today it is a park, and the shopping and dining streets of M Street and Wisconsin Avenue sit a few blocks inland.',
+    ],
+  },
+  listings: {
+    title: 'Browse Georgetown DC Homes for Sale',
+    text: 'Want a heads-up before a home goes live? Join the VIP Home Search.',
+    state: 'DC',
+    zips: ['20007'],
+    viewAllHref: '/properties',
+  },
+  market: {
+    title: 'Georgetown DC Real Estate Market',
+    paragraphs: [
+      'Georgetown’s housing stock ranges from small row houses on narrow lots to large detached properties, so a single median says little about any one block. Prices also depend heavily on size, outdoor space and parking.',
+      'For a custom comparison on a specific street, request a Georgetown price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Homes You Will Find in Georgetown',
+      paragraphs: [],
+      points: [
+        { title: 'Historic row houses', text: 'Brick Federal and Georgian row houses define the older streets, many with steep front steps, small rear gardens and narrow floor plans. Check the stairs, ceiling heights and storage against how you plan to live in the house.' },
+        { title: 'Georgetown DC condos for sale', text: 'Condos appear in converted historic buildings and in larger buildings near the commercial streets and the waterfront. Fees, reserves and parking vary by building, so we review the documents before you make an offer.' },
+        { title: 'Larger houses on bigger lots', text: 'Farther from M Street, some properties have more land and off-street parking. Those are the exception, and they price accordingly.' },
+      ],
+    },
+    {
+      title: 'Buying in a Historic District: What the Old Georgetown Act Means for You',
+      paragraphs: [
+        'Georgetown is a National Historic Landmark district, and the Old Georgetown Act of 1950 gives the U.S. Commission of Fine Arts authority to review most exterior construction here. Its advisory panel, the Old Georgetown Board, does the detailed review before DC issues a permit.',
+        'In practice, exterior changes that people can see from a street or alley need approval before work starts. DC’s Historic Preservation Office separately reviews exterior work that is not visible. Interior work is generally outside that process, but normal DC permits still apply.',
+      ],
+      steps: {
+        lead: 'Before you buy a house you plan to change, we suggest four steps:',
+        items: [
+          'Ask for the permit history and any approved plans for the property.',
+          'Tell Brandon what you want to build, so he can check feasibility before you write an offer.',
+          'Ask the Commission of Fine Arts staff for current review timelines, then build that time into your schedule.',
+          'Consider whether a renovation contingency fits the contract.',
+        ],
+      },
+    },
+    {
+      title: 'Getting Around Georgetown Without a Metro Station',
+      paragraphs: [
+        'Georgetown has no Metrorail station, which shapes how people get to work. The nearest Metro stops are Foggy Bottom-GWU on the Blue, Orange and Silver lines, and Rosslyn across the Key Bridge in Virginia.',
+        'Metrobus and DC Circulator service run through the neighborhood on M Street and Wisconsin Avenue, though routes change, so check current service. The Capital Crescent Trail starts in Georgetown and runs toward Silver Spring, which gives cyclists a car-free route out of the neighborhood.',
+        'Many residents drive, and many older houses have no off-street parking. Ask about a garage or pad, check the block’s permit zone with DDOT, and test the street on a weekend evening.',
+      ],
+    },
+    {
+      title: 'Living in Georgetown',
+      paragraphs: [
+        'The commercial center is the corner of Wisconsin Avenue and M Street, with shops, restaurants and the Georgetown Park building. The Washington Harbour complex on K Street faces the river, and Georgetown Waterfront Park runs along the Potomac from 31st Street to the Key Bridge.',
+        'The C&O Canal towpath runs just south of M Street and gives a flat walking or running route. Georgetown University’s main campus sits on the hill above the river, and Dumbarton Oaks, Tudor Place and the Volta Bureau are among the other landmarks.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Georgetown Experience',
+    paragraphs: [
+      'Brandon Wilson holds licenses in DC, Virginia and Maryland, which helps if you are weighing Georgetown against Arlington or Alexandria across the river. If you want a Georgetown real estate agent who can compare both sides of the Potomac, start here.',
+    ],
+  },
+  nearby: [
+    { name: 'West End / Foggy Bottom', text: 'To the southeast, with the closest Metro station' },
+    { name: 'Dupont Circle', text: 'Across Rock Creek to the east' },
+    { name: 'Glover Park', text: 'To the north along Wisconsin Avenue' },
+    { name: 'Foxhall and Palisades', text: 'To the northwest' },
+  ],
+  faqTitle: 'Georgetown FAQ',
+  faqs: [
+    { q: 'Does the Old Georgetown Act apply to interior renovations?', a: 'No. The act focuses on exterior features visible from public streets and alleys. DC’s normal building permits still apply to interior work, so confirm the rules for your project before you begin.' },
+    { q: 'How long does Georgetown’s exterior review take?', a: 'It depends on the project and the review calendar. Ask the Commission of Fine Arts staff for current timelines before you set a renovation schedule.' },
+    { q: 'Where does Georgetown end?', a: 'Sources draw the borders differently, but Rock Creek separates it from Dupont Circle on the east, and Glover Park lies to the north. Foxhall and Palisades sit to the northwest, and Foggy Bottom is to the southeast.' },
+    { q: 'What should I check on a home near the river or the canal?', a: 'Look up the property’s FEMA flood zone and ask about flood insurance, since costs can change the monthly budget. The canal had severe flooding in 1936, and older basements near the water deserve a careful inspection.' },
+    { q: 'Can I use a VA loan for a Georgetown home?', a: 'Yes, a VA loan can be used in DC, but the amount you can borrow depends on your entitlement, income and the appraisal. If a home’s price is above the standard conforming loan limit, ask a lender early about VA or jumbo options.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Georgetown DC Homes for Sale?',
+    text: 'Tell Brandon whether you plan to renovate, how you want to commute without a Metro station, and whether you need parking. He will build the search around those answers.',
+    button: 'Search Georgetown Homes',
+  },
+};
+
+export const oldTownAlexandria: NeighborhoodGuide = {
+  slug: 'old-town-alexandria',
+  name: 'Old Town Alexandria',
+  city: 'Alexandria, VA',
+  cityHref: '/alexandria',
+  title: 'Old Town Alexandria Homes for Sale | Neighborhood Guide',
+  description:
+    'Old Town Alexandria guide: historic townhomes, condos, Metro and the waterfront. Browse Old Town Alexandria real estate and homes for sale.',
+  ogTitle: 'Old Town Alexandria: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Historic townhomes and condos near King Street and the Potomac waterfront, with a licensed Virginia Realtor.',
+  hero: {
+    h1: 'Old Town Alexandria: Neighborhood Guide and Homes for Sale',
+    text: 'Old Town Alexandria is the historic core of the independent city of Alexandria, Virginia, on the Potomac River just south of Washington, DC. It has its own city government, its own tax rate and its own review board for exterior changes. This guide covers Old Town Alexandria in practical terms, with the details that matter when you compare Old Town Alexandria homes for sale.',
+    image: `${ASSETS}/2026/03/Alexandria-VA-Area-Guide-AUTOx1150.fit.jpeg`,
+    imageAlt: 'Brick townhomes on a cobbled street in Old Town Alexandria, Virginia',
+    listingsLabel: 'See Old Town Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Alexandria, Virginia (an independent city)' },
+    { label: 'ZIP code', value: '22314, with parts of 22301' },
+    { label: 'Main street', value: 'King Street, running from the Metro station to the waterfront' },
+    { label: 'Metro', value: 'King Street-Old Town (Blue and Yellow lines), next to Amtrak and VRE' },
+    { label: 'Waterfront', value: 'Waterfront Park, Founders Park and the Torpedo Factory area' },
+    { label: 'Typical homes', value: 'Brick townhomes in Federal, Georgian and Victorian styles, condos, some detached houses' },
+    { label: 'Rules', value: 'Exterior work is reviewed by the city’s Board of Architectural Review in the Old and Historic Alexandria District' },
+    { label: 'Edges', value: 'Sources draw the borders differently, so treat them as approximate' },
+    { label: 'Last updated', value: 'November 2026' },
+  ],
+  about: {
+    title: 'A Colonial Port With Its Own Rulebook',
+    paragraphs: [
+      'Alexandria was founded in 1749 as a port on the Potomac, and it was part of the District of Columbia until Congress returned it to Virginia in 1846. That history explains why Old Town feels separate from DC: it follows Virginia law and city rules, not the District’s.',
+      'The Old and Historic Alexandria District was created in 1946, and a second local district, Parker-Gray, covering the Uptown area, was added in 1984. Only those two districts are locally regulated.',
+      'Most of the historic buildings you see along King Street and the streets near the waterfront fall inside the Old and Historic Alexandria District. That matters if you plan to change the outside of a home.',
+    ],
+  },
+  listings: {
+    title: 'Browse Old Town Alexandria Homes for Sale',
+    text: 'Want a heads-up before a home goes live? Join the VIP Home Search.',
+    state: 'VA',
+    zips: ['22314', '22301'],
+    viewAllHref: '/properties',
+  },
+  market: {
+    title: 'Old Town Alexandria Real Estate Market',
+    paragraphs: [
+      'Old Town’s housing mix runs from small historic townhomes to condos and larger detached houses, so one median never describes a specific street. Prices depend on location relative to the waterfront, size, condition and parking.',
+      'For a custom comparison on a specific block, request an Old Town price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Homes You Will Find in Old Town Alexandria',
+      paragraphs: [],
+      points: [
+        { title: 'Historic townhomes', text: 'Brick townhomes dominate the older streets. Many are narrow, with several floors, small rear gardens or courtyards, and original details that the review board expects to be kept.' },
+        { title: 'Old Town Alexandria condos for sale', text: 'Options range from a few units inside a converted historic building to larger buildings with elevators and garages. Buildings near the river raise flood insurance and building-system questions that inland ones may not, so ask the association about both. Request the budget, reserves and rules early.' },
+        { title: 'Detached houses', text: 'Some Old Town blocks have freestanding houses, usually on narrow lots. They are less common than townhomes.' },
+      ],
+    },
+    {
+      title: 'Buying in the Old and Historic Alexandria District',
+      paragraphs: [
+        'If a property sits in the Old and Historic Alexandria District, exterior changes need approval from the city’s Board of Architectural Review before work starts. That covers changes visible from the public right of way, and the board also acts on demolition. Routine items can need approval too, so ask city staff before you assume something is exempt.',
+        'Only two districts are locally regulated: Old and Historic Alexandria and Parker-Gray. Rosemont is not regulated by the board, even though it is also historic.',
+        'Approvals do not last forever. A BAR approval can expire if work does not begin within a set period, and the city has been revising its design guidelines, so check the current rules.',
+      ],
+      steps: {
+        lead: 'Before you buy a home you plan to change, we suggest:',
+        items: [
+          'Confirm the property’s district using the city’s historic district map, not the listing description.',
+          'Ask for the permit history and any past approvals.',
+          'Contact BAR staff before you write an offer, if the change matters to your decision.',
+          'Build the review calendar into your renovation timeline.',
+        ],
+      },
+    },
+    {
+      title: 'Waterfront Flooding: What Buyers Should Know',
+      paragraphs: [
+        'Parts of Old Town near the river flood when high tides and storms combine. The area around lower King Street, Union Street and The Strand is the most affected.',
+        'According to city data reported in October 2026, the waterfront saw 227 flooding events at the Prince Street level between January and October 2025, compared with a 20-year average of 145.',
+        'The city has a Waterfront Flood Mitigation Project under way. After the National Park Service declined a pump station at Waterfront Park earlier in 2026, City Council approved an alternate plan in June 2026 that relies on an upgraded gravity storm sewer system. The plans are still moving through review, so details can change.',
+      ],
+      steps: {
+        lead: 'If a home is near the waterfront, we suggest:',
+        items: [
+          'Look up the property’s FEMA flood zone and get a flood insurance quote before you make an offer.',
+          'Ask the seller about past water in basements or ground floors.',
+          'Check the city’s flood mitigation project page for the latest status.',
+        ],
+        after: 'Blocks farther from the river are not affected in the same way, but the same questions are worth asking on any older basement.',
+      },
+    },
+    {
+      title: 'Taxes and Fees in Alexandria, Virginia',
+      paragraphs: [
+        'Alexandria sets its own real estate tax. The calendar year 2026 rate is $1.135 per $100 of assessed value, and the city assesses property at 100% of market value as of January 1 each year.',
+        'The city also bills a refuse fee and a stormwater utility fee, separate from the real estate tax. Check the current amounts with the city when you build your monthly budget.',
+        'Veterans with a 100% permanent and total service-connected disability, certified by the VA, may qualify for a full real estate tax exemption on their primary city residence. Brandon works with VA buyers and can point you to the city’s application process.',
+      ],
+    },
+    {
+      title: 'Getting Around Old Town Alexandria',
+      paragraphs: [
+        'The King Street-Old Town station is on the Blue and Yellow lines and sits beside Alexandria’s Amtrak and VRE station. The Yellow Line runs south toward Huntington and north into DC, and the waterfront is about a mile east of the station.',
+        'The free King Street Trolley runs between the station and City Hall at Market Square, with stops every two to three blocks, and it ends close to the waterfront. DASH buses also serve the area. The Braddock Road station is closer to the north end of Old Town.',
+        'Parking is tight on many historic blocks. Ask whether a home has a garage or pad, and check the city’s rules for the block’s residential parking permit.',
+      ],
+    },
+    {
+      title: 'Living in Old Town Alexandria',
+      paragraphs: [
+        'King Street is the main commercial street, with shops and restaurants stretching from the Metro station down to the river. City Hall and Market Square sit at the middle of the district.',
+        'The waterfront has Waterfront Park, Founders Park and the Torpedo Factory area. The city’s flood project will change parts of the waterfront over the next few years, including the foot of King Street and Point Lumley Park, so expect construction in the area.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Old Town Experience',
+    paragraphs: [
+      'Brandon Wilson holds licenses in Virginia, DC and Maryland, so he can compare Old Town with DC neighborhoods across the river. If you want an Old Town Alexandria real estate agent who works on both sides of the Potomac, start here.',
+    ],
+  },
+  nearby: [
+    { name: 'Del Ray', text: 'To the north' },
+    { name: 'Potomac Yard', text: 'To the north along the river' },
+    { name: 'Carlyle', text: 'To the southwest' },
+    { name: 'Rosemont', text: 'To the west' },
+  ],
+  faqTitle: 'Old Town Alexandria FAQ',
+  faqs: [
+    { q: 'Do all Alexandria homes need review board approval for exterior changes?', a: 'No. Only properties in the Old and Historic Alexandria District and the Parker-Gray District are locally regulated. Rosemont and other areas are not. Use the city’s district map to confirm a specific address.' },
+    { q: 'Is Old Town part of Washington, DC?', a: 'No. Alexandria is an independent city in Virginia, so DC taxes and rules do not apply. The area was part of the District until 1846.' },
+    { q: 'How far is the Metro station from the waterfront?', a: 'About a mile. Many people walk it, and the free King Street Trolley covers much of the route along King Street.' },
+    { q: 'Who qualifies for Alexandria’s veteran tax exemption?', a: 'The city’s exemption applies to veterans with a service-connected, 100% permanent and total disability certified by the VA, on their primary residence. Confirm current rules and the application process with the city.' },
+    { q: 'How does buying in Virginia differ from buying in DC?', a: 'Taxes, closing costs and local rules differ between Virginia and the District. Brandon is licensed in both and can walk you through the differences for the areas you are comparing.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Old Town Alexandria Homes for Sale?',
+    text: 'If exterior changes, waterfront flood risk or the Metro commute will drive your decision, say so up front and Brandon will start the search there.',
+    button: 'Search Old Town Homes',
+  },
+};
+
+export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria];

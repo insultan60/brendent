@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ArrowUpRight, MapPin } from 'lucide-react';
 import Reveal from '@/components/base/Reveal';
 import { useReveal } from '@/hooks/useReveal';
-import { guideRoutes, hub } from '@/mocks/neighborhoodsData';
+import { guideRoutes, hub, routeForName } from '@/mocks/neighborhoodsData';
 import NavbarV2 from '@/views/home-v2/components/NavbarV2';
 import FooterV2 from '@/views/home-v2/components/FooterV2';
 import { CtaButton, GhostButton } from '@/views/home-v2/components/shared';
@@ -134,12 +134,25 @@ export default function NeighborhoodsHub() {
                       <p className="text-[15px] leading-relaxed text-foreground-600">{city.intro}</p>
                       {city.names.length > 0 ? (
                         <ul className="flex flex-wrap gap-2">
-                          {city.names.map((name) => (
-                            <li key={name} className="flex items-center gap-1.5 rounded-full bg-background-100 px-3.5 py-1.5 text-[13px] text-foreground-800">
-                              <MapPin className="h-3.5 w-3.5 text-foreground-400" aria-hidden="true" />
-                              {name}
-                            </li>
-                          ))}
+                          {city.names.map((name) => {
+                            const href = routeForName(name);
+                            const chip = 'flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[13px]';
+                            return (
+                              <li key={name}>
+                                {href ? (
+                                  <a href={href} className={`${chip} bg-foreground-950 text-background-50 hover:bg-foreground-800`}>
+                                    <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
+                                    {name} guide
+                                  </a>
+                                ) : (
+                                  <span className={`${chip} bg-background-100 text-foreground-800`}>
+                                    <MapPin className="h-3.5 w-3.5 text-foreground-400" aria-hidden="true" />
+                                    {name}
+                                  </span>
+                                )}
+                              </li>
+                            );
+                          })}
                         </ul>
                       ) : null}
                       <div>

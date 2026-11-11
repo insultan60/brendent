@@ -34,6 +34,8 @@ export const SITE_PAGES: SitePage[] = [
   { path: '/explore-areas', name: 'Explore areas', group: 'Areas' },
   { path: '/neighborhoods', name: 'Neighborhoods', group: 'Areas' },
   { path: '/neighborhoods/capitol-hill', name: 'Capitol Hill', group: 'Areas' },
+  { path: '/neighborhoods/georgetown', name: 'Georgetown', group: 'Areas' },
+  { path: '/neighborhoods/old-town-alexandria', name: 'Old Town Alexandria', group: 'Areas' },
   { path: '/washington', name: 'Washington DC', group: 'Areas' },
   { path: '/arlington', name: 'Arlington', group: 'Areas' },
   { path: '/alexandria', name: 'Alexandria', group: 'Areas' },
