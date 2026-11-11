@@ -14,6 +14,7 @@ export const guideRoutes: Record<string, string> = {
   'shaw-u-street': '/shaw-u-street-corridor',
   georgetown: '/neighborhoods/georgetown',
   'old-town': '/neighborhoods/old-town-alexandria',
+  'dupont-circle': '/neighborhoods/dupont-circle',
 };
 
 /** Hub/nearby names → guide route, for plain-name lists such as "Old Town". */
@@ -185,6 +186,8 @@ export interface GuideSection {
   points?: { title: string; text: string }[];
   /** Numbered checklist, with an optional lead-in and closing line. */
   steps?: { lead: string; items: string[]; after?: string };
+  /** Comparison table; the first header is the blank corner cell. */
+  table?: { headers: string[]; rows: string[][] };
 }
 
 export interface NeighborhoodGuide {
@@ -588,4 +591,125 @@ export const oldTownAlexandria: NeighborhoodGuide = {
   },
 };
 
-export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria];
+export const dupontCircle: NeighborhoodGuide = {
+  slug: 'dupont-circle',
+  name: 'Dupont Circle',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Dupont Circle Condos for Sale | Dupont Circle DC Guide',
+  description:
+    'Dupont Circle DC guide: condos, co-ops and row houses near the Red Line. Browse Dupont Circle real estate and homes for sale with Brandon Wilson.',
+  ogTitle: 'Dupont Circle, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Condos, co-ops and row houses near the Red Line, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Dupont Circle, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Dupont Circle is a Washington, DC neighborhood built around a traffic circle and fountain, and its housing is mostly condos, co-ops and converted row houses. This guide covers Dupont Circle, DC in practical terms. If you are comparing Dupont Circle condos for sale or Dupont Circle homes for sale, the sections below cover the rules and choices that shape the buying process here.',
+    image: photo('2026/06/dupont-circle', 'AUTOx1150'),
+    imageAlt: 'Victorian row houses on a street near Dupont Circle in Washington, DC',
+    listingsLabel: 'See Dupont Circle Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 2, ANC 2B)' },
+    { label: 'ZIP code', value: '20036' },
+    { label: 'Main streets', value: 'Connecticut Avenue NW and Massachusetts Avenue NW' },
+    { label: 'Metro', value: 'Dupont Circle station (Red Line), with entrances north and south of the circle' },
+    { label: 'Landmarks', value: 'Dupont Circle fountain, Phillips Collection, Embassy Row, Dupont Underground' },
+    { label: 'Typical homes', value: 'Condos and co-ops in converted row houses and larger buildings, plus some row houses' },
+    { label: 'Rules', value: 'Exterior work in the historic district goes through DC’s Historic Preservation Office' },
+    { label: 'Edges', value: 'The exact borders are loosely defined, so we confirm them listing by listing' },
+    { label: 'Last updated', value: 'November 2026' },
+  ],
+  about: {
+    title: 'A Circle, a Fountain and a Row of Mansions',
+    paragraphs: [
+      'The neighborhood takes its name from Dupont Circle and the fountain at its center. The fountain was designed by Daniel Chester French and Henry Bacon, the team behind the Lincoln Memorial, and it replaced an earlier statue of Admiral Samuel Francis Du Pont in the early 1920s.',
+      'Most of the row houses around the circle were built before 1900, in Queen Anne and Richardsonian Romanesque styles. Larger mansions went up along Massachusetts Avenue, which is now known as Embassy Row.',
+      'The Phillips Collection opened in 1921 and is often called America’s first museum of modern art. A weekly FRESHFARM market has run on 20th Street NW since 1997.',
+    ],
+  },
+  listings: {
+    title: 'Browse Dupont Circle Condos and Homes for Sale',
+    text: 'Want a heads-up before a home goes live? Join the VIP Home Search.',
+    state: 'DC',
+    zips: ['20036'],
+    viewAllHref: '/properties',
+  },
+  market: {
+    title: 'Dupont Circle Real Estate Market',
+    paragraphs: [
+      'Condos and co-ops make up most of what sells here, so the unit type often matters more than the street. A small condo in a converted row house and a larger apartment in a full-service building can sit a block apart and differ widely in price and monthly cost.',
+      'For a custom comparison on a specific building, request a Dupont Circle price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Condo, Co-op or Row House: Which Fits?',
+      paragraphs: ['Dupont Circle is the neighborhood where this question comes up most. The main differences:'],
+      table: {
+        headers: ['', 'Condo', 'Co-op', 'Row house'],
+        rows: [
+          ['What you own', 'Your unit and a share of common areas', 'Shares in a corporation, plus a right to occupy a unit', 'The whole building and lot'],
+          ['Monthly cost', 'Condo fee for shared costs', 'Monthly fee, often covering the building’s underlying costs', 'Your own utilities, taxes and upkeep'],
+          ['Buyer approval', 'Usually governed by bylaws', 'Often requires board approval', 'None'],
+          ['Financing', 'Standard mortgages in most cases', 'Share loans, with lender rules that can be narrower', 'Standard mortgages'],
+        ],
+      },
+      points: [
+        { title: 'Converted row house condos', text: 'Many Dupont Circle condos sit in old row houses divided into a few units. Small buildings have fewer owners to share costs, so ask about reserves, past special assessments and who controls the board.' },
+        { title: 'Co-ops', text: 'Co-op rules vary from building to building. Ask for the application package, the financial statements and the board’s rules on financing and subletting before you make an offer.' },
+        { title: 'Larger buildings', text: 'These often come with front desks and shared amenities, and the fees reflect that.' },
+      ],
+    },
+    {
+      title: 'Buying in the Dupont Circle Historic District',
+      paragraphs: [
+        'Much of Dupont Circle is inside the Dupont Circle Historic District, and the nearby Strivers’ Section is a separate historic district. In these districts, exterior alterations, additions and demolitions need review by DC’s Historic Preservation Office and the Historic Preservation Review Board before a building permit is issued.',
+        'Dupont Circle follows the standard DC process, unlike Georgetown, which adds a federal review layer. The review desk sits at the permit office, and the Review Board has design guidelines for common alterations.',
+        'Neighborhood input matters here. The Advisory Neighborhood Commission for Dupont Circle, ANC 2B, can weigh in on cases, and the Review Board gives great weight to written ANC views. A project that draws attention can take longer.',
+        'If you own a condo, you may face two approvals: the association’s rules for exterior changes, and historic review for work visible from public space. Interior work is generally outside historic review, but DC building permits still apply.',
+      ],
+    },
+    {
+      title: 'Getting Around Dupont Circle',
+      paragraphs: [
+        'The Dupont Circle Metro station is on the Red Line, with one entrance on Q Street, north of the circle, and another on the south side. The Red Line connects with the Blue, Orange and Silver lines at Metro Center, and many bus routes run along the main avenues.',
+        'Georgetown, 14th Street and downtown are all within walking or short transit distance, depending on your starting block. Street parking is tight, especially on weekend evenings, so check the block’s Residential Parking Permit zone and ask whether a unit comes with a space.',
+      ],
+    },
+    {
+      title: 'Living in Dupont Circle',
+      paragraphs: [
+        'The circle and its fountain are the neighborhood’s gathering point, and Connecticut Avenue runs north and south from it with shops, restaurants and Kramerbooks. Embassy Row runs along Massachusetts Avenue, starting near Scott Circle.',
+        'The FRESHFARM market runs on 20th Street on Sundays year-round, and the Phillips Collection sits on 21st Street NW. Dupont Underground is a repurposed underground space used for art installations.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Dupont Circle Experience',
+    paragraphs: [
+      'If you want a Dupont Circle real estate agent who can explain condo and co-op paperwork before you tour, Brandon Wilson can help you compare unit types on the same budget.',
+    ],
+  },
+  nearby: [
+    { name: 'Kalorama', text: 'To the northwest' },
+    { name: 'Adams Morgan', text: 'To the north' },
+    { name: 'Logan Circle', text: 'To the east' },
+    { name: 'West End / Foggy Bottom', text: 'To the southwest' },
+    { name: 'Georgetown', text: 'Across Rock Creek to the west' },
+  ],
+  faqTitle: 'Dupont Circle FAQ',
+  faqs: [
+    { q: 'What does a co-op board review involve?', a: 'Boards commonly ask for financial documents and may hold an interview. Rules and timelines vary by building, so ask for the application package and the building’s financial statements before you make an offer.' },
+    { q: 'Do I need both association and historic approval for exterior work on a condo?', a: 'Possibly. Most condo bylaws set rules for exterior changes, and historic review applies to work visible from public space in the district. Check both before you plan a project.' },
+    { q: 'How do small condo associations in converted row houses work?', a: 'With only a few owners, each carries a larger share of costs and decisions. Ask for the reserve study, the meeting minutes and any history of special assessments.' },
+    { q: 'Can I rent out a Dupont Circle condo?', a: 'Condo documents can limit or ban rentals and set minimum lease terms, and the District adds licensing and tenant requirements on top. Read the bylaws before you count on rental income.' },
+    { q: 'Where does Dupont Circle end?', a: 'The borders are loosely defined. Connecticut and Massachusetts Avenues form the core, with Kalorama to the northwest and the Strivers’ Section historic district nearby. We confirm the boundaries listing by listing.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Dupont Circle Condos for Sale?',
+    text: 'Condo, co-op or row house: pick the one you lean toward and Brandon will start with the paperwork questions that go with it.',
+    button: 'Search Dupont Circle Condos',
+  },
+};
+
+export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle];

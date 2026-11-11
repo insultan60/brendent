@@ -90,6 +90,35 @@ export default function NeighborhoodGuidePage({ guide }: { guide: NeighborhoodGu
               <SectionTitle index={String(i + 4).padStart(2, '0')} eyebrow={guide.name} title={s.title}>
                 <Prose paragraphs={s.paragraphs} />
               </SectionTitle>
+              {s.table ? (
+                <Reveal className="mt-10 overflow-x-auto rounded-[22px] border border-background-200">
+                  <table className="w-full min-w-[640px] text-left text-[14px]">
+                    <thead className="bg-foreground-950 text-background-50">
+                      <tr>
+                        {s.table.headers.map((h, n) => (
+                          <th key={n} scope="col" className="px-5 py-4 text-[11px] font-semibold uppercase tracking-[0.16em]">
+                            {h}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-background-200">
+                      {s.table.rows.map(([label, ...cells]) => (
+                        <tr key={label} className="align-top odd:bg-background-50 even:bg-background-100/60">
+                          <th scope="row" className="px-5 py-4 font-heading text-[16px] font-normal text-foreground-950">
+                            {label}
+                          </th>
+                          {cells.map((cell, n) => (
+                            <td key={n} className="px-5 py-4 leading-relaxed text-foreground-600">
+                              {cell}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </Reveal>
+              ) : null}
               {s.steps ? (
                 <Reveal className="mt-10 max-w-3xl rounded-[22px] border border-background-200 bg-background-50 p-7 md:p-9">
                   <p className="text-[15px] font-semibold text-foreground-950">{s.steps.lead}</p>

@@ -37,6 +37,7 @@ export const navLinks: NavLink[] = [
       { label: 'Neighborhoods Guide', href: '/neighborhoods' },
       { label: 'Capitol Hill', href: '/neighborhoods/capitol-hill' },
       { label: 'Georgetown', href: '/neighborhoods/georgetown' },
+      { label: 'Dupont Circle', href: '/neighborhoods/dupont-circle' },
       { label: 'Old Town Alexandria', href: '/neighborhoods/old-town-alexandria' },
     ],
   },
