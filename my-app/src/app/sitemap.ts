@@ -21,6 +21,8 @@ const PAGES = [
   '/neighborhoods/capitol-hill',
   '/neighborhoods/georgetown',
   '/neighborhoods/dupont-circle',
+  '/neighborhoods/adams-morgan',
+  '/neighborhoods/national-landing',
   '/neighborhoods/old-town-alexandria',
   '/washington',
   '/shaw-u-street-corridor',

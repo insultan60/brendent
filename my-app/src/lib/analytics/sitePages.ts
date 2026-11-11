@@ -36,6 +36,8 @@ export const SITE_PAGES: SitePage[] = [
   { path: '/neighborhoods/capitol-hill', name: 'Capitol Hill', group: 'Areas' },
   { path: '/neighborhoods/georgetown', name: 'Georgetown', group: 'Areas' },
   { path: '/neighborhoods/dupont-circle', name: 'Dupont Circle', group: 'Areas' },
+  { path: '/neighborhoods/adams-morgan', name: 'Adams Morgan', group: 'Areas' },
+  { path: '/neighborhoods/national-landing', name: 'National Landing', group: 'Areas' },
   { path: '/neighborhoods/old-town-alexandria', name: 'Old Town Alexandria', group: 'Areas' },
   { path: '/washington', name: 'Washington DC', group: 'Areas' },
   { path: '/arlington', name: 'Arlington', group: 'Areas' },

@@ -15,6 +15,10 @@ export const guideRoutes: Record<string, string> = {
   georgetown: '/neighborhoods/georgetown',
   'old-town': '/neighborhoods/old-town-alexandria',
   'dupont-circle': '/neighborhoods/dupont-circle',
+  'adams-morgan': '/neighborhoods/adams-morgan',
+  'national-landing': '/neighborhoods/national-landing',
+  'crystal-city': '/neighborhoods/national-landing',
+  'old-town-alexandria': '/neighborhoods/old-town-alexandria',
 };
 
 /** Hub/nearby names → guide route, for plain-name lists such as "Old Town". */
@@ -712,4 +716,310 @@ export const dupontCircle: NeighborhoodGuide = {
   },
 };
 
-export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle];
+export const adamsMorgan: NeighborhoodGuide = {
+  slug: 'adams-morgan',
+  name: 'Adams Morgan',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Adams Morgan Homes for Sale | Adams Morgan DC Guide',
+  description:
+    'Adams Morgan DC guide: rowhouses, condos, nightlife rules and Metro access. Browse Adams Morgan real estate and homes for sale with Brandon Wilson.',
+  ogTitle: 'Adams Morgan, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Rowhouses, condos and the 18th Street corridor, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Adams Morgan, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Adams Morgan is a Northwest Washington, DC neighborhood centered on 18th Street and Columbia Road, known for its rowhouses and its restaurant and nightlife strip. This guide covers Adams Morgan, DC in practical terms, from its history to the rules that affect a purchase. If you are comparing Adams Morgan homes for sale, these details come before the tour.',
+    image: photo('2026/06/adams-morgan-1', 'AUTOx1150'),
+    imageAlt: 'Brightly painted rowhouses on a street in Adams Morgan, Washington, DC',
+    listingsLabel: 'See Adams Morgan Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 1, ANC 1C)' },
+    { label: 'Main streets', value: '18th Street NW and Columbia Road NW, with Florida Avenue to the south and Connecticut Avenue to the southwest' },
+    { label: 'Edges', value: 'Rock Creek Park to the west, Harvard Street to the north, 16th Street to the east' },
+    { label: 'Metro', value: 'None in the neighborhood. Woodley Park-Zoo/Adams Morgan (Red Line) is closest; Columbia Heights (Green, Yellow) and Dupont Circle (Red) are also nearby' },
+    { label: 'Typical homes', value: 'Rowhouses, some split into condos or flats, plus older apartment buildings and small condo buildings' },
+    { label: 'Historic districts', value: 'Washington Heights and Kalorama Triangle' },
+    { label: 'Rules', value: 'Exterior work in historic districts is reviewed by DC’s Historic Preservation Office' },
+    { label: 'Business district', value: 'The Adams Morgan Partnership Business Improvement District, active since 2005' },
+    { label: 'Last updated', value: 'November 2026' },
+  ],
+  about: {
+    title: 'How Adams Morgan Got Its Name',
+    paragraphs: [
+      'Adams Morgan takes its name from two elementary schools. The Thomas P. Morgan School served Black students, and the John Quincy Adams School served white students. DC schools were desegregated in 1955, and a community group formed in 1958 under the name Adams-Morgan Community Council to carry the work forward.',
+      'The neighborhood’s borders were drawn through four older areas: Washington Heights, Lanier Heights, Kalorama Triangle and Meridian Hill. In the late 1960s, residents led by Bishop Marie H. Reed pushed for a community school, and the Marie H. Reed Learning Center still carries her name.',
+      'Adams Morgan, Mount Pleasant and Columbia Heights have long been gateway areas for immigrants, and many newcomers since the 1960s have come from El Salvador, Guatemala and other Central American countries. Adams Morgan Day, an annual street festival, has been held each September since 1978.',
+    ],
+  },
+  listings: {
+    title: 'Browse Adams Morgan Homes for Sale',
+    text: 'Want a heads-up before a home goes live? Join the VIP Home Search.',
+    state: 'DC',
+    zips: ['20009'],
+    viewAllHref: '/properties',
+  },
+  market: {
+    title: 'Adams Morgan Real Estate Market',
+    paragraphs: [
+      'Adams Morgan mixes rowhouses, small condo buildings and older apartment buildings, so one median says little about a single block. A rowhouse near Columbia Road and a condo near the 18th Street strip can be a short walk apart yet carry very different prices and monthly costs.',
+      'For a custom comparison on a specific street, request an Adams Morgan price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Four Areas, Four Different Feels',
+      paragraphs: ['Adams Morgan is not one block pattern. These four areas sit inside or beside it, and each has its own character.'],
+      table: {
+        headers: ['', 'Washington Heights', 'Kalorama Triangle', 'Lanier Heights', 'Reed-Cooke'],
+        rows: [
+          ['Where', 'Around 18th Street and Columbia Road', 'Between Connecticut Avenue, Columbia Road and Calvert Street', 'East of Adams Mill Road and the zoo, up to 16th Street, south of Harvard Street', 'Between Columbia Road and Florida Avenue, on the east side'],
+          ['Housing', 'Rowhouses, with some ground-floor shops along the main streets', 'Rowhouses and early apartment buildings', 'A compact area of about 50 acres, one of the city’s early planned subdivisions', 'Rowhouses and former industrial buildings'],
+          ['Good to know', 'National Register historic district, listed in 2006', 'National Register historic district, listed in 1987', 'Borders Mount Pleasant to the north', 'Residents resisted 1960s urban renewal plans'],
+        ],
+      },
+    },
+    {
+      title: 'Homes You Will Find in Adams Morgan',
+      paragraphs: [],
+      points: [
+        { title: 'Rowhouses', text: 'Three-story and four-story brick rowhouses line many streets, often with front steps and small rear yards. Some have been split into flats or condo units, so check how a building is divided before you compare prices.' },
+        { title: 'Adams Morgan condos for sale', text: 'Condos appear in converted rowhouses and in small and mid-size buildings near the main streets. Ask how close a unit is to a ground-floor restaurant or bar, because noise and trash pickup affect some buildings more than others.' },
+        { title: 'Older apartment buildings', text: 'Early apartment buildings add condo and co-op options in some cases. Read the financials and rules before you make an offer.' },
+      ],
+    },
+    {
+      title: 'Living Next to 18th Street: Nightlife and Liquor License Rules',
+      paragraphs: [
+        'DC has limited new liquor licenses around 18th Street for decades, and a moratorium zone has existed in some form since 2000. The zone covers the area around 18th Street and Columbia Road and is reviewed on a schedule by the neighborhood commission, ANC 1C, and DC’s alcohol regulator. In recent reviews, new restaurant licenses were allowed, taverns were capped and new nightclub licenses stayed blocked.',
+        'For buyers, that means the mix of businesses on the corridor changes slowly, but it does change. ANC 1C also reviews license requests and has said it weighs neighbors’ concerns about noise and trash. The rules are renewed on a cycle, so confirm the current status before you rely on them.',
+      ],
+      steps: {
+        lead: 'Before you buy near the strip, we suggest:',
+        items: [
+          'Visit the block on a Friday and a Saturday night, not just on a weekday',
+          'Ask neighbors and the association about noise, trash and late-night traffic',
+          'Check the license applications near the address on the regulator’s search page or in ANC 1C’s agendas',
+        ],
+      },
+    },
+    {
+      title: 'Buying a Building With Renters: TOPA After the 2025 Changes',
+      paragraphs: [
+        'DC’s Tenant Opportunity to Purchase Act, known as TOPA, gives tenants in a rental building a chance to buy when the owner sells. It matters in Adams Morgan because many buildings here have renters. A new law, the RENTAL Act, took effect on December 31, 2025 and changed several rules.',
+        'Buildings less than 15 years old are now exempt from the offer of sale, and certain buildings with two to four units may be exempt depending on how they are owned. Tenants must now wait a set cooling-off period before they can assign their rights, and purchase contracts must be filed with DC’s housing department. Further changes were introduced in 2026, so the details can shift.',
+        'This matters most if you plan to buy a small multi-unit building and live in one unit. If you are buying a house or condo to live in, TOPA usually does not apply, but ask a title company or attorney to confirm for your property.',
+      ],
+    },
+    {
+      title: 'Getting Around Adams Morgan',
+      paragraphs: [
+        'The nearest station is Woodley Park-Zoo/Adams Morgan on the Red Line. It was renamed in 1999 to reflect how close it sits to the neighborhood, though it is in Woodley Park. Columbia Heights station on the Green and Yellow lines and Dupont Circle on the Red Line are also within reach, depending on your starting block.',
+        'Several Metrobus routes run along 18th Street and Columbia Road. The strip fills with visitors, cars and rideshare vehicles on weekend nights, so test your own drive and parking before you buy.',
+      ],
+    },
+    {
+      title: 'Living in Adams Morgan',
+      paragraphs: [
+        'Restaurants, bars, music venues and small shops line 18th Street and Columbia Road. Rock Creek Park runs along the western edge, and the National Zoo is a short distance away near Adams Mill Road.',
+        'Adams Morgan Day fills the main streets each September, and the business district has worked since 2005 on a clean, friendly corridor.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Adams Morgan Experience',
+    paragraphs: [
+      'Brandon Wilson holds licenses in DC, Virginia and Maryland, and DC is his primary market. If you want an Adams Morgan real estate agent who can explain TOPA, historic review and condo paperwork before you tour, start here.',
+    ],
+  },
+  nearby: [
+    { name: 'Dupont Circle', text: 'To the south' },
+    { name: 'Kalorama', text: 'To the west' },
+    { name: 'Woodley Park', text: 'To the northwest' },
+    { name: 'Mount Pleasant', text: 'To the north' },
+    { name: 'Columbia Heights', text: 'To the east across 16th Street' },
+  ],
+  faqTitle: 'Adams Morgan FAQ',
+  faqs: [
+    { q: 'Is Kalorama part of Adams Morgan?', a: 'Part of it, depending on who draws the map. The Kalorama Triangle sits inside Adams Morgan’s borders, while Sheridan-Kalorama lies west of Connecticut Avenue. Ask us which name a listing uses, since the label can change what shows up in a search.' },
+    { q: 'How can I see which liquor licenses are near a home?', a: 'DC’s alcohol regulator keeps a searchable license record, and ANC 1C publishes agendas and minutes that list new applications. Check both for the street you are considering.' },
+    { q: 'Does TOPA apply if I buy a condo to live in?', a: 'Usually not for an owner-occupied house or condo, but it can apply when a building with renters is sold. Ask a title company or attorney to confirm for your specific property.' },
+    { q: 'How do school assignments work here?', a: 'Assignments depend on the address, and different parts of Adams Morgan feed different schools. Use DCPS’s boundary tool to check an address. We do not rate schools.' },
+    { q: 'Can I live here without a car?', a: 'Many people do, using the nearby Red, Green and Yellow line stations and several bus routes. Walk the route to your station at the hour you would commute, and test the nearest grocery trip before you decide.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Adams Morgan Homes for Sale?',
+    text: 'Tell Brandon whether you lean toward a rowhouse or a condo, how you feel about living near 18th Street, and whether you plan to rent a unit. He will shape the search around your answers.',
+    button: 'Search Adams Morgan Homes',
+  },
+};
+
+export const nationalLanding: NeighborhoodGuide = {
+  slug: 'national-landing',
+  name: 'National Landing',
+  city: 'Arlington, VA',
+  cityHref: '/arlington',
+  title: 'Crystal City Homes for Sale | Pentagon City Guide',
+  description:
+    'Crystal City and Pentagon City guide: condos, Metro, the airport and Amazon HQ2. Browse Crystal City real estate and homes for sale with Brandon Wilson.',
+  ogTitle: 'National Landing, Arlington: Crystal City and Pentagon City Homes for Sale',
+  ogDescription: 'High-rise condos, Metro and airport access, with a licensed Virginia Realtor.',
+  hero: {
+    h1: 'National Landing, Arlington: Crystal City and Pentagon City Homes for Sale',
+    text: 'National Landing is the name for Crystal City and Pentagon City, the high-rise Arlington, Virginia neighborhoods between the Pentagon and Reagan National Airport. This guide covers both areas in practical terms, from Metro stations to flight noise to condo fees. If you are comparing Crystal City homes for sale or Pentagon City condos for sale, these details come first.',
+    image: `${ASSETS}/2026/03/Arlington-VA-Area-Guide-AUTOx1150.fit.jpeg`,
+    imageAlt: 'High-rise buildings along Crystal Drive in Crystal City, Arlington, Virginia',
+    listingsLabel: 'See National Landing Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Arlington, Virginia (Arlington County)' },
+    { label: 'ZIP code', value: '22202' },
+    { label: 'Main streets', value: 'Route 1, Crystal Drive and South Hayes Street' },
+    { label: 'Metro', value: 'Crystal City and Pentagon City stations (Blue and Yellow lines), with National Airport one stop south' },
+    { label: 'Rail', value: 'Virginia Railway Express stops at Crystal City' },
+    { label: 'Landmarks', value: 'Fashion Centre at Pentagon City, Pentagon Row, Crystal City Water Park and Metropolitan Park' },
+    { label: 'Typical homes', value: 'High-rise and mid-rise condos, some townhomes, and houses in Aurora Highlands and Arlington Ridge next door' },
+    { label: 'Rules', value: 'Arlington County zoning and taxes, plus Virginia condo law' },
+    { label: 'Edges', value: 'Potomac Yard is also part of the National Landing brand but sits in Alexandria, so it has its own page' },
+    { label: 'Last updated', value: 'November 2026' },
+  ],
+  about: {
+    title: 'What National Landing Means',
+    paragraphs: [
+      'National Landing is a brand, not a city boundary. It appeared in 2018, when Amazon chose the area for its second headquarters, and it covers Crystal City, Pentagon City and Potomac Yard. Potomac Yard is in the City of Alexandria, so its taxes and rules differ from the Arlington side.',
+      'Crystal City began as an office and apartment district in the 1960s, centered on Route 1. Pentagon City’s first high-rise apartment buildings went up on Hayes, Fern and Joyce Streets in the 1960s, and the Fashion Centre mall opened in 1989. Listings, maps and neighbors still say Crystal City and Pentagon City, so this guide uses both names.',
+    ],
+  },
+  listings: {
+    title: 'Browse Crystal City Homes for Sale and Pentagon City Condos',
+    text: 'Pentagon City homes for sale and Crystal City condos in ZIP 22202. Want a heads-up before a home goes live? Join the VIP Home Search.',
+    state: 'VA',
+    zips: ['22202'],
+    viewAllHref: '/properties',
+  },
+  market: {
+    title: 'Crystal City Real Estate Market',
+    paragraphs: [
+      'Crystal City and Pentagon City are mostly condos, so the building often matters more than the street. A unit in a 1960s high-rise and a unit in a newer tower with a front desk can sit a few blocks apart and differ widely in price and monthly cost. Pentagon City real estate also includes townhomes and, next door, detached houses.',
+      'For a custom comparison on a specific building, request a National Landing price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'What Amazon HQ2 Means Today',
+      paragraphs: [
+        'Amazon finished the first phase of HQ2, called Metropolitan Park, in mid-2023. It has two 22-story office towers and a public park of about 2.5 acres. The second phase in Pentagon City, known as PenPlace, has been paused, and local reports in 2026 describe temporary uses for the site.',
+        'Developers have also pursued office-to-residential conversions in the area, according to local reports. Plans can change, so we separate what is built from what is only proposed. Ask us to review the status of any project near a home you like before you count on it.',
+      ],
+    },
+    {
+      title: 'Crystal City vs Pentagon City: Which Fits?',
+      paragraphs: ['The two areas sit side by side along Route 1, but they feel different day to day. This table shows the main differences, with Aurora Highlands included because many condo shoppers also look there.'],
+      table: {
+        headers: ['', 'Crystal City', 'Pentagon City', 'Aurora Highlands'],
+        rows: [
+          ['Metro', 'Crystal City station', 'Pentagon City station', 'Both stations are nearby'],
+          ['Main draws', 'Water Park, Metropolitan Park, 23rd Street restaurants, Reagan National Airport', 'Fashion Centre mall, Pentagon Row, the Pentagon one stop away', 'Virginia Highlands Park and residential streets'],
+          ['Housing', 'Condos and apartments among office towers', 'High-rise condos and apartments around the retail', 'Mostly single-family houses, many built from 1910 to 1930'],
+          ['Best for', 'Airport access and an office-district feel', 'Walking to shopping and the Pentagon commute', 'Buyers who want a yard and still want Metro'],
+        ],
+      },
+    },
+    {
+      title: 'Homes You Will Find in National Landing',
+      paragraphs: [],
+      points: [
+        { title: 'Crystal City condos for sale', text: 'Condo buildings sit among office towers along Route 1 and Crystal Drive, close to the Metro station and the Water Park. Many buildings are older, so ask about elevator age, system upgrades and the reserve balance.' },
+        { title: 'Pentagon City condos', text: 'High-rises date from the 1960s onward, with newer buildings around the mall and Pentagon Row. Unit sizes run from studios to larger floor plans, and parking and storage are often separate decisions.' },
+        { title: 'Houses and townhomes next door', text: 'Aurora Highlands, south of Pentagon City, is mostly single-family houses, and Arlington Ridge lies to the west. Buyers who want a yard but still want a short Metro walk often compare these streets with a condo.' },
+      ],
+    },
+    {
+      title: 'Condo Fees, Taxes and Building Questions',
+      paragraphs: ['In a high-rise, the monthly fee can matter as much as the price. Ask what the fee includes, because some buildings cover certain utilities and others cover only shared costs and amenities.'],
+      steps: {
+        lead: 'We suggest asking each building:',
+        items: [
+          'Which utilities, if any, the fee covers',
+          'Whether parking is deeded, assigned or leased, and what it costs',
+          'Whether storage is included or sold separately',
+          'The age of the elevators, windows and heating and cooling systems',
+          'Move-in rules and amenity access',
+        ],
+        after: 'Virginia’s resale certificate gives you the fee, reserve and rule details in writing, with a short window to cancel. Arlington County’s real estate tax rate for calendar year 2026 is $1.053 per $100 of assessed value. The National Landing business improvement district adds a charge on commercial property, which is separate from the rate on condos and houses.',
+      },
+    },
+    {
+      title: 'Living Under the Flight Path: Airport Noise',
+      paragraphs: [
+        'Reagan National Airport sits next to the neighborhood, and aircraft noise is part of life in some buildings. Residents have raised flight noise for years, and they point to jets arriving and leaving the airport and to helicopters headed for the Pentagon. A community noise working group run by the airport authority reviews the issue with residents and the FAA.',
+      ],
+      steps: {
+        lead: 'Noise varies by building, floor and wind direction, so one visit tells you little. Before you make an offer, we suggest:',
+        items: [
+          'Visit the unit in the morning, in the evening and on a weekend',
+          'Stand on the balcony and listen with the windows open and closed',
+          'Ask the association about window type and any past noise complaints',
+        ],
+      },
+    },
+    {
+      title: 'Buying Near the Pentagon: Federal and Military Buyers',
+      paragraphs: [
+        'The Pentagon is the next Metro stop north of Pentagon City on the Blue and Yellow lines, so federal and military buyers often compare Crystal City and Pentagon City first. Brandon holds the Military Relocation Professional (MRP) designation and has military service in his own background. He plans around PCS orders, short house-hunting trips and report dates.',
+      ],
+      steps: {
+        lead: 'If you are moving here on orders, we suggest lining up these steps early:',
+        items: [
+          'Ask whether the building is VA-approved before you fall for a unit',
+          'Confirm your lender’s occupancy rules for a VA loan',
+          'Set up video tours and e-signing if you cannot visit often',
+          'Test the commute to your office at rush hour, by Metro and by car',
+        ],
+      },
+    },
+    {
+      title: 'Getting Around National Landing',
+      paragraphs: [
+        'Crystal City and Pentagon City are both on the Blue and Yellow lines. Going north, the Pentagon is one stop past Pentagon City, and going south, National Airport is one stop past Crystal City. Potomac Yard is the next station after the airport.',
+        'Arlington and Metro are building a second entrance to Crystal City station at 18th Street and Crystal Drive. Metro says it should open in summer 2027, and construction closed the station on several weekends in spring 2026. The county is also designing a pedestrian and bike bridge from Crystal City to the airport, and design work continued into 2026, so it is not close to opening.',
+        'Virginia Railway Express serves Crystal City, and a relocated station is planned near the future bridge. The Mount Vernon Trail runs along the river nearby for cyclists. Parking varies by building, so ask whether a unit includes a space.',
+      ],
+    },
+    {
+      title: 'Living in National Landing',
+      paragraphs: [
+        'Crystal City Water Park sits at the center of Crystal Drive, and 23rd Street is known locally for its row of restaurants. Metropolitan Park, next to the Amazon towers, has a public park and ground-floor shops.',
+        'In Pentagon City, the Fashion Centre is Arlington’s largest indoor mall. Pentagon Row next to it has a grocery store, an outdoor ice rink in winter and a free concert series in summer.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s National Landing Experience',
+    paragraphs: [
+      'Brandon Wilson holds licenses in Virginia, DC and Maryland, so he can compare National Landing with Capitol Hill, Navy Yard and other Metro-connected areas on the same budget. If you want a Crystal City real estate agent who can weigh both sides of the Potomac, start here.',
+    ],
+  },
+  nearby: [
+    { name: 'Potomac Yard', text: 'To the south along the Yellow and Blue lines, in Alexandria' },
+    { name: 'Old Town Alexandria', text: 'Farther south' },
+    { name: 'Del Ray', text: 'South of Potomac Yard' },
+    { name: 'Clarendon', text: 'The other Arlington Metro hub, on the Orange and Silver lines' },
+    { name: 'Navy Yard', text: 'Across the Potomac in DC' },
+  ],
+  faqTitle: 'National Landing FAQ',
+  faqs: [
+    { q: 'Can I walk to Reagan National Airport from Crystal City?', a: 'Not easily today. The walk crosses busy roads, and the pedestrian bridge is still in design. Most people ride one Metro stop south to National Airport station.' },
+    { q: 'How does planned Metro work affect the Blue and Yellow lines here?', a: 'It can be significant. In September 2026, the Yellow Line shut down on two weekends for bridge and track work, and a work train derailment on September 21 stopped Yellow Line trains from crossing into DC. Check WMATA before weekend trips, and ask how a building’s commute holds up when one line is down.' },
+    { q: 'Can I report aircraft noise?', a: 'Yes. The airport offers an online complaint system and a public flight tracker called DCA WebTrak. Check the airport’s current pages for how to use them, and review recent patterns before you buy.' },
+    { q: 'What if I get new orders after I buy?', a: 'You can often keep a home and rent it out, but condo documents may limit or ban rentals, and VA loans carry occupancy rules. Read the rental section of the bylaws and talk to your lender before you buy.' },
+    { q: 'Is Pentagon City the mall or the neighborhood?', a: 'Both uses are common. The Fashion Centre is the mall, while Pentagon City is the neighborhood around it, with Pentagon Row, high-rise condos and apartments, and the Metro station.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Crystal City Homes for Sale?',
+    text: 'Tell Brandon which area you lean toward, whether airport access or the Pentagon commute matters more, and whether you need parking. He will build the search around those answers.',
+    button: 'Search National Landing Homes',
+  },
+};
+
+export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle, adamsMorgan, nationalLanding];
