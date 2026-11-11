@@ -29,7 +29,15 @@ export const navLinks: NavLink[] = [
   { label: 'Buyers', href: '/buyers' },
   { label: 'Sellers', href: '/sellers' },
   { label: 'Rentals', href: '/rentals' },
-  { label: 'Explore Areas', href: '/explore-areas' },
+  {
+    label: 'Explore Areas',
+    href: '/explore-areas',
+    children: [
+      { label: 'All Areas', href: '/explore-areas' },
+      { label: 'Neighborhoods Guide', href: '/neighborhoods' },
+      { label: 'Capitol Hill', href: '/neighborhoods/capitol-hill' },
+    ],
+  },
   {
     label: 'Calculators',
     href: '#process',
@@ -523,6 +531,7 @@ export const footerColumns = [
     title: 'Explore',
     links: [
       { label: 'Explore Areas', href: '/explore-areas' },
+      { label: 'Neighborhoods', href: '/neighborhoods' },
       { label: 'Communities We Serve', href: '#communities' },
       { label: 'Resources & Partners', href: '/resources' },
       { label: 'Success Stories', href: '/success-stories' },
@@ -560,6 +569,7 @@ export const menuGroups = [
       { label: 'Exclusive Listings', href: '/exclusive-listings' },
       { label: 'Properties', href: '/properties' },
       { label: 'Explore Areas', href: '/explore-areas' },
+      { label: 'Neighborhoods', href: '/neighborhoods' },
       { label: 'VIP Home Search', href: '/vip-home-search' },
       { label: 'Rentals', href: '/rentals' },
     ],

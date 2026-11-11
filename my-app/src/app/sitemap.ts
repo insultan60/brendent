@@ -17,6 +17,8 @@ const PAGES = [
   '/exclusive-listings',
   '/recently-sold',
   '/explore-areas',
+  '/neighborhoods',
+  '/neighborhoods/capitol-hill',
   '/washington',
   '/shaw-u-street-corridor',
   '/alexandria',

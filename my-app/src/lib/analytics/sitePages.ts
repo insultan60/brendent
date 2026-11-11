@@ -32,6 +32,8 @@ export const SITE_PAGES: SitePage[] = [
   { path: '/success-stories', name: 'Success stories', group: 'Core' },
 
   { path: '/explore-areas', name: 'Explore areas', group: 'Areas' },
+  { path: '/neighborhoods', name: 'Neighborhoods', group: 'Areas' },
+  { path: '/neighborhoods/capitol-hill', name: 'Capitol Hill', group: 'Areas' },
   { path: '/washington', name: 'Washington DC', group: 'Areas' },
   { path: '/arlington', name: 'Arlington', group: 'Areas' },
   { path: '/alexandria', name: 'Alexandria', group: 'Areas' },
