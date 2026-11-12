@@ -23,6 +23,8 @@ const PAGES = [
   '/neighborhoods/dupont-circle',
   '/neighborhoods/adams-morgan',
   '/neighborhoods/national-landing',
+  '/neighborhoods/logan-circle',
+  '/neighborhoods/navy-yard',
   '/neighborhoods/old-town-alexandria',
   '/washington',
   '/shaw-u-street-corridor',

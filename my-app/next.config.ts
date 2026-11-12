@@ -57,6 +57,12 @@ const nextConfig: NextConfig = {
         destination: '/get-in-touch',
         permanent: true,
       },
+      // Capitol Riverfront is covered on the Navy Yard guide (the BID renamed itself).
+      ...['/neighborhoods/capitol-riverfront', '/capitol-riverfront'].map((source) => ({
+        source,
+        destination: '/neighborhoods/navy-yard',
+        permanent: true,
+      })),
     ];
   },
 };

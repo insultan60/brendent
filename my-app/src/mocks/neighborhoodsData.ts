@@ -19,6 +19,8 @@ export const guideRoutes: Record<string, string> = {
   'national-landing': '/neighborhoods/national-landing',
   'crystal-city': '/neighborhoods/national-landing',
   'old-town-alexandria': '/neighborhoods/old-town-alexandria',
+  'logan-circle': '/neighborhoods/logan-circle',
+  'navy-yard': '/neighborhoods/navy-yard',
 };
 
 /** Hub/nearby names → guide route, for plain-name lists such as "Old Town". */
@@ -1022,4 +1024,282 @@ export const nationalLanding: NeighborhoodGuide = {
   },
 };
 
-export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle, adamsMorgan, nationalLanding];
+export const loganCircle: NeighborhoodGuide = {
+  slug: 'logan-circle',
+  name: 'Logan Circle',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Logan Circle Homes for Sale | Logan Circle DC Guide',
+  description:
+    'Logan Circle DC guide: Victorian rowhouses, condos, 14th Street and Metro access. Browse Logan Circle real estate and homes for sale with Brandon Wilson.',
+  ogTitle: 'Logan Circle, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Victorian rowhouses and condos around a historic circle, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Logan Circle, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Logan Circle is a Washington, DC neighborhood built around a historic traffic circle and park, with Victorian rowhouses on the residential blocks and the 14th Street corridor running through its western edge. This guide covers Logan Circle, DC in practical terms, from its history to the condo and tax questions that come up when you buy. If you are comparing Logan Circle homes for sale, start with these details before you tour.',
+    image: photo('2026/06/logan-circle-1', 'AUTOx1150'),
+    imageAlt: 'Victorian row houses facing the park at Logan Circle in Washington, DC',
+    listingsLabel: 'See Logan Circle Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (mostly Ward 2, ANC 2F)' },
+    { label: 'Main streets', value: '14th Street NW, P Street NW and the circle at 13th Street, Rhode Island Avenue and Vermont Avenue' },
+    { label: 'Metro', value: 'None in the neighborhood. McPherson Square, Mount Vernon Square, Shaw-Howard University, U Street and Dupont Circle are all within reach' },
+    { label: 'Landmarks', value: 'The General John A. Logan statue, Studio Theatre and the Mary McLeod Bethune Council House' },
+    { label: 'Typical homes', value: 'Victorian rowhouses, some divided into condos, plus loft-style and newer condo buildings' },
+    { label: 'Historic districts', value: 'The Logan Circle Historic District and the larger Fourteenth Street Historic District' },
+    { label: 'Rules', value: 'Exterior changes in both districts go through DC’s Historic Preservation Office' },
+    { label: 'Edges', value: 'Loosely drawn, with Shaw and U Street to the north and east, so we confirm the area listing by listing' },
+    { label: 'Last updated', value: 'November 2026' },
+  ],
+  about: {
+    title: 'From Iowa Circle to Logan Circle',
+    paragraphs: [
+      'Logan Circle was part of Pierre L’Enfant’s 1791 plan for the city, and it was first known as Iowa Circle. Houses went up around it from the 1870s, and a horse-drawn trolley line on 14th Street had arrived in 1864. President William McKinley unveiled the equestrian statue of Union General John A. Logan in 1901, and Congress renamed the circle for him in 1930.',
+      'As wealthier families moved elsewhere, many of the big houses became rooming houses. In the early 1900s, the area around the circle was also a social and artistic hub for Black Washington. In the 1950s, planners cut 13th Street through the circle to move commuters, and in 1972 the Logan Circle Historic District was listed on the National Register of Historic Places.',
+      'Renewed interest in the 1970s and 1980s led to the restoration of many houses and of the circle’s original shape. Studio Theatre opened on 14th Street in the late 1970s, and the corridor around it has been rebuilt since. Logan Circle is often described as the only major downtown circle that has stayed entirely residential.',
+    ],
+  },
+  listings: {
+    title: 'Browse Logan Circle Homes for Sale',
+    text: 'Want a heads-up before a home goes live? Join the VIP Home Search.',
+    state: 'DC',
+    zips: ['20005'],
+    viewAllHref: '/properties',
+  },
+  market: {
+    title: 'Logan Circle Real Estate Market',
+    paragraphs: [
+      'Logan Circle has two very different kinds of housing, historic rowhouses on the residential blocks and condos near the 14th Street corridor. A single median blends the two, so the unit type matters more than the street name. Condos are a big part of the mix.',
+      'For a custom comparison on a specific building, request a Logan Circle price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Two Historic Districts, Two Different Settings',
+      paragraphs: [
+        'The Logan Circle Historic District is a compact area of about eight blocks around the circle. It holds 135 late-19th-century residences, mostly in Late Victorian and Richardsonian Romanesque styles. The Fourteenth Street Historic District is much larger, with roughly 765 contributing properties, and it includes shops, churches and mixed-use buildings along the corridor.',
+        'In practice, a rowhouse on a block facing the circle and a condo above a 14th Street storefront sit in very different settings, even if both are in a historic district. Exterior changes in either district are reviewed by DC’s Historic Preservation Office, so confirm the district for any address. We suggest asking for the permit history, and checking with the office before you offer if you plan to change the outside of a home.',
+      ],
+    },
+    {
+      title: 'Rowhouse, Loft or New Condo: What You Will Find',
+      paragraphs: [],
+      points: [
+        { title: 'Victorian rowhouses', text: 'Late-19th-century rowhouses line the blocks around the circle and along nearby side streets. Some remain single-family houses, and others have been divided into condo units, so check how a building is arranged before you compare prices.' },
+        { title: 'Logan Circle condos for sale', text: 'Condos include loft-style units in converted buildings and newer mid-size buildings along 14th Street and nearby avenues. Fees, parking and rules vary by building. Ask how close a unit sits to a ground-floor restaurant or bar.' },
+        { title: 'Large historic houses', text: 'A few large houses near the circle have stayed single-family or become small condo buildings. They are rare, so ask us to set up an alert.' },
+      ],
+    },
+    {
+      title: 'DC Condo Paperwork: How It Differs From Virginia',
+      paragraphs: [
+        'Many Logan Circle buyers sign a contract on a condo, and DC has its own timetable for the documents. It differs from Virginia’s rules.',
+        'Time limits are short and wording matters, so we read the contract clause and request the condo documents early when we can. Review the monthly fee and what it covers, the reserve balance, any special assessment and any lawsuit involving the association.',
+      ],
+      table: {
+        headers: ['', 'DC resale condo', 'DC new-construction condo', 'Virginia resale condo (for comparison)'],
+        rows: [
+          ['Who provides the documents', 'The seller, from the association', 'The developer’s public offering statement', 'The seller, from the association'],
+          ['When they are due', 'Within 10 business days after contract', 'By the time of sale', 'Association has 14 days after a written request'],
+          ['Your cancellation window', '3 business days after you receive them', '15 days from signing or receipt, whichever is later', 'Generally 3 days after receipt, up to 7 if the contract extends it'],
+        ],
+      },
+    },
+    {
+      title: 'Closing Costs and Taxes in DC',
+      paragraphs: [
+        'DC taxes residential property at $0.85 per $100 of assessed value, a lower headline rate than Arlington or Alexandria. Two deed taxes apply at closing, a recordation tax and a transfer tax. Each is 1.1% of the price under $400,000 and 1.45% at $400,000 or more.',
+        'By custom, the buyer pays the recordation tax and the seller pays the transfer tax, though this can be negotiated. On a $600,000 condo, the buyer’s recordation tax would be $8,700. Qualifying first-time buyers may get a reduced recordation rate, with income and price limits that change, so ask your lender and title company.',
+      ],
+    },
+    {
+      title: 'Getting Around Without a Metro Station',
+      paragraphs: [
+        'Logan Circle has no station of its own, which suits people who like options. Which station is closest depends on your corner of the neighborhood.',
+        'Metrobus routes run up 14th Street, and a bike or scooter covers the gap to a station quickly. Parking varies by building, so ask whether a condo includes a space. Test your commute from the exact address at your usual hour.',
+      ],
+      table: {
+        headers: ['Station', 'Lines', 'Closest for homes toward the'],
+        rows: [
+          ['Shaw-Howard University and U Street', 'Green and Yellow', 'North'],
+          ['Mount Vernon Square', 'Green and Yellow', 'South and east'],
+          ['McPherson Square', 'Blue, Orange and Silver', 'South'],
+          ['Dupont Circle (and Farragut North)', 'Red', 'West'],
+        ],
+      },
+    },
+    {
+      title: 'Living in Logan Circle',
+      paragraphs: [
+        'The circle itself is a park with the Logan statue at its center. Studio Theatre sits on 14th Street, and the corridor has restaurants, shops and a Whole Foods Market. The Mary McLeod Bethune Council House, a National Historic Site, stands nearby.',
+        'Visit on a weeknight and a weekend evening, because 14th Street is busy after dark. Noise differs from block to block, so judge the specific street.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Logan Circle Experience',
+    paragraphs: [
+      'Brandon Wilson is licensed in DC, Virginia and Maryland, so he can set Logan Circle beside options across the river on the same budget. If you want a Logan Circle real estate agent who can read DC condo documents with you before the cancellation window closes, start here.',
+    ],
+  },
+  nearby: [
+    { name: 'Dupont Circle', text: 'To the west' },
+    { name: 'Shaw / U Street', text: 'To the north and east' },
+    { name: 'Adams Morgan', text: 'To the northwest' },
+    { name: 'Columbia Heights', text: 'To the north' },
+    { name: 'Downtown, Penn Quarter and Chinatown', text: 'To the southeast' },
+  ],
+  faqTitle: 'Logan Circle FAQ',
+  faqs: [
+    { q: 'Where does Logan Circle begin and end?', a: 'The borders are informal. The circle sits at the center, 14th Street runs through the west side, and Shaw lies to the north and east. We note the area name on each listing so you can compare like with like.' },
+    { q: 'Do I get a property tax break if I live in the home?', a: 'DC offers a homestead deduction for owner-occupied primary homes, which lowers the taxable value. You apply through DC’s tax office after you close, so confirm the deadline with your title company.' },
+    { q: 'Can I see condo documents before I make an offer?', a: 'Sometimes. On resale condos, the full package usually arrives after you sign, so we ask for the budget, rules and recent minutes early when the listing allows. That way the fee and reserve picture shapes your offer.' },
+    { q: 'Who speaks for the neighborhood on local issues?', a: 'Logan Circle falls under ANC 2F, which reviews zoning and licensing items, and the Logan Circle Community Association is an active neighbor group. Their meeting notes show what projects are coming to a block.' },
+    { q: 'How does traffic around the circle affect nearby homes?', a: 'Four streets meet at the circle, and 13th Street passes through it. Visit at rush hour and in the evening to judge noise on the specific block.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Logan Circle Homes for Sale?',
+    text: 'Tell Brandon whether you lean toward a Victorian rowhouse or a condo, how close you want to be to 14th Street, and which Metro line you need. He will shape the search around your answers.',
+    button: 'Search Logan Circle Homes',
+  },
+};
+
+export const navyYard: NeighborhoodGuide = {
+  slug: 'navy-yard',
+  name: 'Navy Yard',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Navy Yard Homes for Sale | Navy Yard DC Guide',
+  description:
+    'Navy Yard DC guide: condos, Nationals Park, Metro and affordable-unit rules. Browse Navy Yard real estate and homes for sale with Brandon Wilson.',
+  ogTitle: 'Navy Yard, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Waterfront condos near Yards Park, the ballpark and the Green Line, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Navy Yard, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Navy Yard is a Southeast Washington, DC neighborhood on the Anacostia River, named for the Navy base that has stood here since 1799. This guide covers Navy Yard, DC in practical terms, from the base and the ballpark to the rules that apply when you buy a new condo. If you are comparing Navy Yard homes for sale, start with these details before you tour.',
+    image: photo('2026/07/navy-yard-1', 'AUTOx1150'),
+    imageAlt: 'Residential buildings and the boardwalk at Yards Park along the Anacostia River in Navy Yard, Washington, DC',
+    listingsLabel: 'See Navy Yard Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 6, ANC 6D)' },
+    { label: 'Main streets', value: 'M Street SE, Half Street SE and New Jersey Avenue SE' },
+    { label: 'Metro', value: 'Navy Yard-Ballpark station (Green Line), with Capitol South (Blue, Orange and Silver lines) on the northern edge' },
+    { label: 'Landmarks', value: 'The Washington Navy Yard, Nationals Park, Yards Park, Canal Park and the Frederick Douglass Memorial Bridge' },
+    { label: 'Typical homes', value: 'Condos and apartments in newer mid-rise and high-rise buildings' },
+    { label: 'Rules', value: 'DC condo law, plus affordable units with resale limits in some buildings' },
+    { label: 'Edges', value: 'Capitol Hill to the north, the Anacostia River to the south and east, and Southwest and Buzzard Point to the west' },
+    { label: 'Last updated', value: 'November 2026' },
+  ],
+  about: {
+    title: 'Navy Yard DC History: A Shipyard Becomes a Neighborhood',
+    paragraphs: [
+      'Pierre L’Enfant’s 1791 plan put wharves and a commercial center on the Anacostia River, and the Washington Navy Yard was founded here in 1799. For decades it was the nation’s largest naval shipbuilding facility, and today it is the Navy’s longest continuously operated federal facility. Land that is now Yards Park was added to the base in 1916.',
+      'For most of the 20th century, the area south of Capitol Hill was industrial. That changed after Nationals Park, a stadium of about 41,000 seats, opened in 2008. Yards Park, a riverfront park of roughly five acres, followed in 2010, and the Navy opened the riverwalk trail behind the base to the public.',
+      'Navy Yard or Capitol Riverfront? You will see both names. A business improvement district launched in 2007 coined “Capitol Riverfront” for the area, but residents kept saying Navy Yard. The district has since renamed itself the Navy Yard BID, which is why searches and listings use both terms for the same streets.',
+    ],
+  },
+  listings: {
+    title: 'Browse Navy Yard Homes for Sale',
+    text: 'Want a heads-up before a home goes live? Join the VIP Home Search.',
+    state: 'DC',
+    zips: ['20003'],
+    viewAllHref: '/properties',
+  },
+  market: {
+    title: 'Navy Yard Real Estate Market',
+    paragraphs: [
+      'Most Navy Yard homes sit in newer buildings, so building, floor and view often matter more than the street. Two units a block apart can differ in price and in monthly fees, because amenities vary widely. Many buildings here are rental apartments, so for-sale inventory can be narrower than it looks.',
+      'For a custom comparison on a specific building, request a Navy Yard price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Homes You Will Find in Navy Yard',
+      paragraphs: [],
+      points: [
+        { title: 'Navy Yard condos for sale', text: 'Condos fill newer mid-rise and high-rise buildings near Yards Park, the ballpark and M Street, often with shared amenities. Unit sizes and fees vary, so review the budget before you compare prices.' },
+        { title: 'Apartment-style buildings', text: 'Large apartment buildings stand across the neighborhood, and some buildings mix owner-occupied and investor-owned units. Ask how many units are owner-occupied.' },
+        { title: 'Affordable units', text: 'Some buildings reserve units under DC’s affordable housing rules. Those are covered below.' },
+      ],
+    },
+    {
+      title: 'Buying in a Neighborhood That Is Still Being Built',
+      paragraphs: [
+        'Navy Yard keeps growing. Local reports describe a pipeline of thousands of homes, and the zoning commission has approved new riverfront apartment towers across from the ballpark. An open view today may change when the next parcel builds out.',
+      ],
+      steps: {
+        lead: 'Before you offer on a unit, we suggest:',
+        items: [
+          'Ask which nearby lots are approved, under construction or still empty, and check DC’s zoning and permit records',
+          'Read ANC 6D’s agendas to see what is coming to the block',
+          'Ask whether the developer still controls the condo board, and when owners take over',
+        ],
+        after: 'In newer buildings, DC law lets the developer control the board for a transition period. That can affect budgets, reserves and repairs, so ask for the board history and recent minutes.',
+      },
+    },
+    {
+      title: 'Affordable Units: Inclusionary Zoning in Navy Yard Buildings',
+      paragraphs: [
+        'Some new buildings include units under DC’s Inclusionary Zoning program. These units carry income limits, a capped price and permanent resale rules, set in a recorded covenant. Listings often say so in the remarks, so read them closely.',
+        'If you buy one, the rules shape how you live and how you sell. The unit must stay your primary home, renting it out generally needs the housing department’s consent, and you must request a maximum resale price before you sell or refinance. We help you confirm whether a unit is restricted before you fall for it.',
+      ],
+    },
+    {
+      title: 'Game Days and Events',
+      paragraphs: [
+        'Nationals Park draws large crowds on game days and for other events. The streets around it fill with fans, traffic and parking limits, and Metro stations get busy before and after games. Check the schedule, and visit a unit on a game night before you commit.',
+        'Blocks several streets from the ballpark may feel the effect less. Parking near the stadium follows special rules, so ask the listing agent how a building handles guest and resident cars.',
+      ],
+    },
+    {
+      title: 'Buying Near the Navy Yard: Military and Federal Buyers',
+      paragraphs: [
+        'The Washington Navy Yard is an active base and the home of Naval District Washington and Naval Sea Systems Command. The U.S. Department of Transportation and DC Water also have headquarters in the neighborhood. Many residents work within a short walk of home.',
+        'Brandon holds the Military Relocation Professional (MRP) designation and has military service in his own background. If you are moving here on orders, ask your command about base access and parking, and check whether a building is VA-approved before you tour.',
+      ],
+    },
+    {
+      title: 'Getting Around Navy Yard',
+      paragraphs: [
+        'Navy Yard-Ballpark is on the Green Line, and Capitol South on the northern edge adds the Blue, Orange and Silver lines. M Street is the main corridor for cars, buses and Metro access, and the Southeast and Anacostia freeways are close. The Anacostia Riverwalk Trail and the Frederick Douglass Memorial Bridge, finished in 2021, link the area to neighborhoods across the river.',
+        'A regional study in October 2026 looked at electric hydrofoil ferries linking Georgetown, The Wharf, Navy Yard, Old Town Alexandria and National Harbor. Backers say Georgetown to Navy Yard could take about 24 minutes, but there is no launch date, so do not plan around it.',
+      ],
+    },
+    {
+      title: 'Living in Navy Yard',
+      paragraphs: [
+        'Yards Park has a boardwalk, a marina and a terraced performance space along the river, and Canal Park follows the line of the old Washington City Canal. In summer, the business district programs movies and live music in Yards Park.',
+        'The riverfront and the new buildings give the neighborhood a modern feel compared with older DC areas. Walk it on a weekday and a game night to see both sides.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Navy Yard Experience',
+    paragraphs: [
+      'Brandon Wilson is licensed in DC, Virginia and Maryland, so he can set Navy Yard beside waterfront options in Alexandria on one budget. If you want a Navy Yard real estate agent who can explain new-building condo paperwork, affordable-unit rules and base-area commutes before you tour, start here.',
+    ],
+  },
+  nearby: [
+    { name: 'Capitol Hill', text: 'To the north' },
+    { name: 'Southwest Waterfront and The Wharf', text: 'To the west' },
+    { name: 'Barney Circle', text: 'To the northeast along the river' },
+    { name: 'Hill East', text: 'Farther northeast' },
+  ],
+  faqTitle: 'Navy Yard FAQ',
+  faqs: [
+    { q: 'Can I walk into the Washington Navy Yard?', a: 'The base is an active military installation, so visitor access follows its security rules, which can change. The riverwalk trail along the river is public, and the base’s own visitor pages list current entry steps.' },
+    { q: 'How do I apply for an affordable unit?', a: 'DC’s housing department runs registration and a lottery for these units. You complete the registration steps, submit income details to an approved certifying entity, and enter the lottery when a unit is offered.' },
+    { q: 'How do I find out what is planned near a condo I like?', a: 'DC’s zoning and permit records list approved projects, and ANC 6D’s agendas show cases before they start. We pull both for the block before you make an offer.' },
+    { q: 'Is Navy Yard part of Capitol Hill?', a: 'No. Navy Yard lies south of Capitol Hill, past the freeway, and listings may also call it Near Southeast. Ask us which name a listing uses so your search covers the right streets.' },
+    { q: 'Do I need flood insurance near the river?', a: 'It depends on the address. Look up the property’s FEMA flood zone, and ask the association about any past water in garages or ground floors. If a lender requires flood insurance, get a quote before you set your budget.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Navy Yard Homes for Sale?',
+    text: 'Tell Brandon whether you lean toward a condo or an affordable unit, how you feel about game-day crowds, and whether you work at the base or downtown. He will shape the search around your answers.',
+    button: 'Search Navy Yard Homes',
+  },
+};
+
+export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle, adamsMorgan, nationalLanding, loganCircle, navyYard];

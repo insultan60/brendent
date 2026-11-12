@@ -40,6 +40,8 @@ export const navLinks: NavLink[] = [
       { label: 'Dupont Circle', href: '/neighborhoods/dupont-circle' },
       { label: 'Adams Morgan', href: '/neighborhoods/adams-morgan' },
       { label: 'National Landing', href: '/neighborhoods/national-landing' },
+      { label: 'Logan Circle', href: '/neighborhoods/logan-circle' },
+      { label: 'Navy Yard', href: '/neighborhoods/navy-yard' },
       { label: 'Old Town Alexandria', href: '/neighborhoods/old-town-alexandria' },
     ],
   },
