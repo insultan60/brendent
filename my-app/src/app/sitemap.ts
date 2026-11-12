@@ -26,6 +26,7 @@ const PAGES = [
   '/neighborhoods/logan-circle',
   '/neighborhoods/navy-yard',
   '/neighborhoods/del-ray',
+  '/neighborhoods/columbia-heights',
   '/neighborhoods/old-town-alexandria',
   '/washington',
   '/neighborhoods/shaw-u-street',

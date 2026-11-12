@@ -44,6 +44,7 @@ export const navLinks: NavLink[] = [
       { label: 'Navy Yard', href: '/neighborhoods/navy-yard' },
       { label: 'Shaw / U Street', href: '/neighborhoods/shaw-u-street' },
       { label: 'Del Ray', href: '/neighborhoods/del-ray' },
+      { label: 'Columbia Heights', href: '/neighborhoods/columbia-heights' },
       { label: 'Old Town Alexandria', href: '/neighborhoods/old-town-alexandria' },
     ],
   },

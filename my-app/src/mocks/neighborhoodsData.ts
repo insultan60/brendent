@@ -14,6 +14,7 @@ export const guideRoutes: Record<string, string> = {
   'shaw-u-street': '/neighborhoods/shaw-u-street',
   shaw: '/neighborhoods/shaw-u-street',
   'del-ray': '/neighborhoods/del-ray',
+  'columbia-heights': '/neighborhoods/columbia-heights',
   georgetown: '/neighborhoods/georgetown',
   'old-town': '/neighborhoods/old-town-alexandria',
   'dupont-circle': '/neighborhoods/dupont-circle',
@@ -1581,4 +1582,120 @@ export const shawUStreet: NeighborhoodGuide = {
   },
 };
 
-export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle, adamsMorgan, nationalLanding, loganCircle, navyYard, delRay, shawUStreet];
+export const columbiaHeights: NeighborhoodGuide = {
+  slug: 'columbia-heights',
+  name: 'Columbia Heights',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Columbia Heights Homes for Sale | Columbia Heights DC Guide',
+  description:
+    'Columbia Heights DC guide: row houses, condos and Metro access along 14th Street. Browse Columbia Heights real estate and homes for sale.',
+  ogTitle: 'Columbia Heights, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Row houses and condos beside the Green and Yellow Line Metro, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Columbia Heights, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Columbia Heights is a Washington, DC neighborhood organized around 14th Street NW, where a Metro station, a large shopping center and a historic theater sit within a few blocks of each other. This guide covers Columbia Heights, DC from the ground up: how the area developed, what the homes are like, and what to check if you are looking at Columbia Heights homes for sale.',
+    image: photo('2026/06/columbia-heights-1', 'AUTOx1150'),
+    imageAlt: 'Row houses on a residential block near 14th Street in Columbia Heights, Washington, DC',
+    listingsLabel: 'See Columbia Heights Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 1)' },
+    { label: 'ZIP code', value: '20010' },
+    { label: 'Main corridor', value: '14th Street NW, with Park Road NW and Irving Street NW as the key cross streets' },
+    { label: 'Metro', value: 'Columbia Heights station (Green and Yellow lines)' },
+    { label: 'Landmarks', value: 'DC USA, Tivoli Theatre, Civic Plaza, Meridian Hill Park' },
+    { label: 'Typical homes', value: 'Row houses (many with a lower-level unit), condos in newer mid-rise buildings' },
+    { label: 'Edges', value: '16th Street NW on the west, with Mount Pleasant across it. Sources draw the borders differently, so treat these edges as approximate' },
+    { label: 'Last updated', value: 'November 2026' },
+  ],
+  about: {
+    title: 'How a Metro Station Reshaped Columbia Heights',
+    paragraphs: [
+      'Columbia Heights began as farmland on an estate known as Pleasant Plains, and it was built up into a commercial center in the early twentieth century. A few dates explain most of what you see today.',
+      '1924: the Tivoli Theatre opens on 14th Street, anchoring a busy commercial strip. 1999: the Columbia Heights Metro station opens in September, after decades of vacancy and disinvestment in the area. 2008: DC USA, a 546,000-square-foot shopping center, opens across from the station on March 5.',
+      'The Metro station is the reason the neighborhood looks the way it does now. New apartment and condo buildings went up around the station and the Civic Plaza, and the Tivoli was restored as part of a new complex. Homes within a short walk of the station tend to be a different mix from blocks farther out, which is worth keeping in mind as you search.',
+    ],
+  },
+  listings: {
+    title: 'Browse Columbia Heights Homes for Sale',
+    text: 'Want a heads-up before a home goes live? Join the VIP Home Search.',
+    state: 'DC',
+    zips: ['20010'],
+    viewAllHref: '/properties',
+  },
+  market: {
+    title: 'Columbia Heights Real Estate Market',
+    paragraphs: [
+      'Housing in Columbia Heights splits into two broad groups: older row houses on the residential blocks, and newer condo and apartment buildings near the Metro. Prices differ a lot between the two, and between a renovated row house and one that needs work.',
+      'Brandon can pull a custom comparison for a specific block or building. Request a Columbia Heights price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Homes You Will Find in Columbia Heights',
+      paragraphs: [],
+      points: [
+        { title: 'Row houses, often with a lower-level unit', text: 'Many older row houses here have been divided or have a separate unit on the lower level. That can add rental income or space for a relative, but only if the unit is legal. Ask for the Certificate of Occupancy and check how the property is listed: single-family, single-family with an accessory unit, or multi-unit.' },
+        { title: 'Columbia Heights condos for sale', text: 'Newer mid-rise buildings near the station include condos, and some also hold rentals. That matters for financing. Lenders and the VA look at how many units are owner-occupied, so check the building’s numbers early. Condo fees, reserves and parking also vary by building.' },
+        { title: 'Tenant-occupied properties', text: 'Some listings come with tenants in place. In DC, the Tenant Opportunity to Purchase Act can give tenants a chance to buy when a rented building or unit is sold, which can change your timeline. Talk to a DC real estate attorney before you make an offer on any tenant-occupied home.' },
+      ],
+    },
+    {
+      title: 'Living Near 14th Street',
+      paragraphs: [
+        'Most daily needs sit along 14th Street NW. DC USA has national retail chains and about 1,000 underground parking spaces, and a grocery store sits nearby.',
+        'The Civic Plaza, at 14th Street and Park Road, hosts a farmers market. Check the current season and hours before you plan around it, since schedules change.',
+        'The Tivoli Theatre, a 1924 building on 14th Street, is now home to GALA Hispanic Theatre. Meridian Hill Park sits at the neighborhood’s western edge and is also known as Malcolm X Park. Howard University is a short distance to the southeast.',
+      ],
+    },
+    {
+      title: 'Getting Around Columbia Heights',
+      paragraphs: [
+        'The Columbia Heights station is the center of the neighborhood. The Green Line runs south through downtown toward Anacostia, and the Yellow Line crosses the Potomac into Virginia. Both run north toward the Maryland suburbs.',
+        'Several bus routes also run along 14th Street NW, so confirm current routes on the WMATA site. Blocks near the station have the shortest walk, and blocks toward 16th Street or Georgia Avenue can add a few minutes.',
+        'Street parking falls under DC’s Residential Parking Permit program. If a home has no pad or garage, test the block on a weekday evening and on a weekend before you commit.',
+      ],
+    },
+    {
+      title: 'Before You Make an Offer in Columbia Heights',
+      paragraphs: [],
+      steps: {
+        lead: 'A few checks matter more here than in many other neighborhoods:',
+        items: [
+          'Lower-level unit: get the Certificate of Occupancy and confirm the unit is permitted before you count on it for income.',
+          'Condo building: ask for the owner-occupancy figure, the reserve fund and the current fee, since many buildings near the Metro also hold rentals.',
+          'Tenants in place: ask early whether the sale could trigger TOPA rights.',
+          'Parking: confirm whether the home has a pad or garage, or how neighbors park on that block.',
+          'Schools: assignment depends on your address, so use the DCPS boundary tool and My School DC. We do not rank schools.',
+          'Taxes: check the DC Office of Tax and Revenue for owner-occupant deductions and current rates.',
+        ],
+      },
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Columbia Heights Experience',
+    paragraphs: ['Brandon Wilson is licensed in DC, Virginia and Maryland and has closed a sale in Columbia Heights.'],
+  },
+  nearby: [
+    { name: 'Mount Pleasant', text: 'Across 16th Street to the west' },
+    { name: 'Adams Morgan', text: 'To the southwest' },
+    { name: 'Shaw / U Street', text: 'To the south' },
+    { name: 'Logan Circle', text: 'South along the 14th Street corridor' },
+  ],
+  faqTitle: 'Columbia Heights FAQ',
+  faqs: [
+    { q: 'Is Columbia Heights the same as Pleasant Plains?', a: 'Pleasant Plains was the name of the estate the area grew from, and one Metro station exit still carries it. Today it is also used as the name of a separate area to the east, near Howard University. Listings sometimes use either name for blocks near the border, so ask which one the seller and the map use.' },
+    { q: 'What separates Columbia Heights from Mount Pleasant?', a: '16th Street NW is the usual dividing line, with Columbia Heights to the east and Mount Pleasant to the west. Columbia Heights centers on 14th Street and the Metro, while Mount Pleasant’s shops sit along Mount Pleasant Street. The homes, prices and block layouts differ, so it helps to tour both on the same day.' },
+    { q: 'Does a lower-level unit count as a legal apartment?', a: 'Not automatically. Ask for the Certificate of Occupancy and confirm how the property is classified. Lenders and appraisers may treat a permitted unit and an unpermitted one very differently.' },
+    { q: 'What is TOPA, and will it affect my purchase?', a: 'TOPA is DC’s Tenant Opportunity to Purchase Act. It can give tenants a chance to buy when a rented building or unit is sold, so it mainly affects tenant-occupied properties. An attorney who handles DC real estate can tell you how it applies to a specific home.' },
+    { q: 'What should I know about living close to 14th Street’s shops and restaurants?', a: 'Blocks on or near 14th Street and Park Road mix homes with retail, so activity levels differ from side streets. Visit at night and on weekends, and for buildings with ground-floor retail, ask about trash pickup and delivery hours.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Columbia Heights Homes for Sale?',
+    text: 'Tell Brandon whether you are leaning toward a row house, possibly with a lower-level unit, or a condo near the station, and he will start the search from there.',
+    button: 'Search Columbia Heights Homes',
+  },
+};
+
+export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle, adamsMorgan, nationalLanding, loganCircle, navyYard, delRay, shawUStreet, columbiaHeights];
