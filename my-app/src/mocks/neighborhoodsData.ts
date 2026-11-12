@@ -11,7 +11,9 @@ const photo = (path: string, size = 'AUTOx700') => `${ASSETS}/${path}-${size}.fi
  *  renders without a link rather than pointing at a page that doesn't exist. */
 export const guideRoutes: Record<string, string> = {
   'capitol-hill': '/neighborhoods/capitol-hill',
-  'shaw-u-street': '/shaw-u-street-corridor',
+  'shaw-u-street': '/neighborhoods/shaw-u-street',
+  shaw: '/neighborhoods/shaw-u-street',
+  'del-ray': '/neighborhoods/del-ray',
   georgetown: '/neighborhoods/georgetown',
   'old-town': '/neighborhoods/old-town-alexandria',
   'dupont-circle': '/neighborhoods/dupont-circle',
@@ -1302,4 +1304,281 @@ export const navyYard: NeighborhoodGuide = {
   },
 };
 
-export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle, adamsMorgan, nationalLanding, loganCircle, navyYard];
+export const delRay: NeighborhoodGuide = {
+  slug: 'del-ray',
+  name: 'Del Ray',
+  city: 'Alexandria, VA',
+  cityHref: '/alexandria',
+  title: 'Del Ray Alexandria Homes for Sale | Neighborhood Guide',
+  description:
+    'Del Ray Alexandria guide: bungalows, townhomes, Mount Vernon Avenue and flood projects. Browse Del Ray Alexandria real estate and homes for sale.',
+  ogTitle: 'Del Ray, Alexandria: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Bungalows and townhomes along Mount Vernon Avenue, with a licensed Virginia Realtor.',
+  hero: {
+    h1: 'Del Ray, Alexandria: Neighborhood Guide and Homes for Sale',
+    text: 'Del Ray is a neighborhood in the independent city of Alexandria, Virginia, about a mile north of Old Town and organized around Mount Vernon Avenue. This guide covers Del Ray, Alexandria in practical terms, from its history as a separate town to the stormwater and zoning questions that matter when you buy. If you are comparing Del Ray Alexandria homes for sale, start with these details before you tour.',
+    image: `${ASSETS}/2026/03/Alexandria-VA-Area-Guide-AUTOx1150.fit.jpeg`,
+    imageAlt: 'Brick and frame houses on a residential street in Del Ray, Alexandria, Virginia',
+    listingsLabel: 'See Del Ray Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Alexandria, Virginia (an independent city)' },
+    { label: 'ZIP code', value: 'Mostly 22301' },
+    { label: 'Main streets', value: 'Mount Vernon Avenue and Commonwealth Avenue' },
+    { label: 'Metro', value: 'None in Del Ray. Braddock Road and Potomac Yard stations (Blue and Yellow lines) are the closest' },
+    { label: 'Landmarks', value: 'The Town of Potomac Historic District, Del Ray Artisans at the Colasanto Center, and the Saturday farmers market at Mount Vernon and East Oxford Avenues' },
+    { label: 'Typical homes', value: 'Early 20th-century bungalows and Cape Cods, townhomes, and some newer infill' },
+    { label: 'Rules', value: 'City of Alexandria zoning and taxes. Del Ray is not under the Board of Architectural Review' },
+    { label: 'Edges', value: 'Arlandria to the north, Potomac Yard to the east and Old Town to the south, with approximate borders' },
+    { label: 'Last updated', value: 'November 2026' },
+  ],
+  about: {
+    title: 'From Streetcar Suburb to the Town of Potomac',
+    paragraphs: [
+      'Developers from Ohio, Wood, Harmon and Company, platted Del Ray in 1894 as a suburb, and the Potomac Yard rail yard opened around 1906 and brought more residents. In 1908, Del Ray and neighboring St. Elmo incorporated as the Town of Potomac, with its own mayor, council, police and fire service. Mount Vernon Avenue was paved in 1911, and the Bank of Del Ray opened in 1923 at 2018 Mount Vernon Avenue.',
+      'The City of Alexandria annexed the town on January 1, 1930, and Potomac ceased to exist. The Town of Potomac Historic District was added to the National Register of Historic Places in 1992, and it covers modest houses built from the 1890s to 1941, including several mail-order homes. Mount Vernon Avenue struggled in the postwar decades before the city and local groups pushed to rebuild it.',
+    ],
+  },
+  listings: {
+    title: 'Browse Del Ray Alexandria Homes for Sale',
+    text: 'Want a heads-up before a home goes live? Join the VIP Home Search.',
+    state: 'VA',
+    zips: ['22301'],
+    viewAllHref: '/properties',
+  },
+  market: {
+    title: 'Del Ray Alexandria Real Estate Market',
+    paragraphs: [
+      'Del Ray is mostly houses and townhomes, so lot size, renovation level and block matter more than building amenities. A renovated bungalow and an original one can sit on the same street and differ widely in price. A single median hides that, so we compare by home type and condition.',
+      'For a custom comparison on a specific street, request a Del Ray price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Homes You Will Find in Del Ray',
+      paragraphs: [],
+      points: [
+        { title: 'Bungalows and Cape Cods', text: 'Small and mid-size houses from the early 20th century fill many blocks, some original and some expanded. Check the age of the roof, wiring and plumbing, and ask what permits covered any addition.' },
+        { title: 'Townhomes', text: 'Townhomes appear on side streets and near Mount Vernon Avenue. They suit buyers who want less yard work and still want a walk to the shops.' },
+        { title: 'Del Ray Alexandria condos for sale', text: 'Condos are a smaller part of the market than houses and townhomes. They show up in small buildings and townhouse-style communities, so ask us to set an alert if a condo is your priority.' },
+        { title: 'Infill and rebuilds', text: 'On some blocks, older houses have been expanded or replaced, and neighbors have debated how much new construction fits. Look at what sits next door before you assume the view and light will stay as they are.' },
+      ],
+    },
+    {
+      title: 'Stormwater and Flash Flooding: What Del Ray Buyers Should Ask',
+      paragraphs: [
+        'Del Ray’s flood risk comes from heavy rain more than from the river. When storm sewers fill, water backs up in streets, alleys and basements. Alexandria says nearly 20 percent of the city lies in mapped floodplains, and it launched Flood Action Alexandria in 2021 to respond to more intense storms.',
+        'Several of the city’s flood projects are in and around Del Ray. The largest, the Commonwealth, Ashby and Glebe Flood Mitigation Project, will add storm sewer culverts along Commonwealth Avenue, East Glebe Road and Montrose Avenue, plus a new outfall to Four Mile Run. A June 2026 report said the city is targeting a summer 2027 start, and that schedule can change. Smaller upgrades near Mount Vernon Avenue include new inlets, alley storm sewers and culvert replacements.',
+      ],
+      steps: {
+        lead: 'Before you offer on a home, we suggest:',
+        items: [
+          'Ask the seller about any water in the basement, crawl space or garage, and about sewer backups',
+          'Check the city’s Flood Action Alexandria project list for work on the block',
+          'Get quotes for flood and sewer backup coverage, since standard policies often exclude them',
+        ],
+        after: 'The tidal flooding near the Potomac is a separate issue, covered on our Old Town Alexandria guide.',
+      },
+    },
+    {
+      title: 'Zoning for Housing: Up to Four Units on a Single-Family Lot',
+      paragraphs: [
+        'In late 2023, Alexandria’s City Council adopted Zoning for Housing, which allows buildings of up to four units on lots zoned for single-family homes and cuts some parking requirements. Residents sued in January 2024. A circuit court judge ruled for the city in November 2025, and the plaintiffs filed a notice of appeal with the Virginia Court of Appeals in December 2025.',
+        'City planners projected that only a small share of single-family lots, about 66 of roughly 9,000, would convert over a decade. For a buyer, the main points are what a neighbor may build, and whether your own lot could host more units. Ask city zoning staff about a specific address, and check the status of the appeal before you rely on either answer. Arlington has a similar case.',
+      ],
+    },
+    {
+      title: 'Taxes and Fees in Alexandria',
+      paragraphs: [
+        'The calendar year 2026 real estate tax rate in Alexandria is $1.135 per $100 of assessed value, the same rate that applies in Old Town. The city also bills a refuse fee and a stormwater utility fee, and the stormwater fee funds the flood work above. For the fiscal year 2026, the stormwater fee was $340.30 per billing unit and the refuse fee was $500 per household.',
+        'The city bills real estate tax in two installments, with the 2026 dates in June and November. Veterans with a 100% permanent and total service-connected disability may qualify for a full exemption on a primary home, as explained on our Old Town Alexandria guide.',
+      ],
+    },
+    {
+      title: 'Getting Around Del Ray',
+      paragraphs: [
+        'Del Ray has no Metro station. The Braddock Road station sits at the southern edge, and the Potomac Yard station, which opened in May 2023, is an easier connection for northern Del Ray and Arlandria. Both are on the Blue and Yellow lines, so test the walk or bus ride from the exact address.',
+        'DASH Line 33 runs along Mount Vernon Avenue between King Street Metro and Potomac Yard. DASH has been working through budget problems and proposed service changes, so check current routes. The Potomac Yard Trail and the Metro Linear Trail connect Del Ray with Old Town and Potomac Yard, and the city is redesigning parts of Braddock Road for walking and biking.',
+      ],
+    },
+    {
+      title: 'Living in Del Ray',
+      paragraphs: [
+        'Mount Vernon Avenue is the commercial spine, with independent shops, restaurants and cafés. A Saturday farmers market sets up at Mount Vernon and East Oxford Avenues, and a Giant grocery store sits on Monroe Avenue.',
+        'Del Ray runs community events through the year. Art on the Avenue draws a large crowd in early October, the Halloween Parade is a long-running tradition, and monthly First Thursday events bring people to the Avenue. Del Ray Artisans runs an art center at 2704 Mount Vernon Avenue.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Del Ray Experience',
+    paragraphs: [
+      'Brandon Wilson’s Virginia license covers the whole state, and his office is in Fairfax. If you want a Del Ray real estate agent who can compare Del Ray with Old Town, Arlington and DC, start here.',
+    ],
+  },
+  nearby: [
+    { name: 'Old Town Alexandria', text: 'To the south' },
+    { name: 'Potomac Yard', text: 'To the east' },
+    { name: 'Rosemont', text: 'To the southwest' },
+    { name: 'National Landing', text: 'Crystal City and Pentagon City, to the northeast across Four Mile Run' },
+  ],
+  faqTitle: 'Del Ray FAQ',
+  faqs: [
+    { q: 'Where does Del Ray end?', a: 'The old Town of Potomac covered six subdivisions: Del Ray, Del Ray II, St. Elmo, Abingdon, Hume and parts of Mount Vernon. People use the name Del Ray more loosely today, so we note the area name on each listing.' },
+    { q: 'Does Del Ray have historic district review?', a: 'The Town of Potomac Historic District is on the National Register and the Virginia Landmarks Register, which recognizes its history. Alexandria’s Board of Architectural Review covers only Old and Historic Alexandria and Parker-Gray, so Del Ray homeowners generally do not go to that board. City permits still apply, so confirm the rules for your project.' },
+    { q: 'How do I check a block’s flood history?', a: 'Ask the seller for any claims or repair records, and ask neighbors about water in alleys and basements after storms. The city’s Flood Action Alexandria page lists projects by area, which shows where work is planned or finished.' },
+    { q: 'How do I follow local issues?', a: 'The Del Ray Citizens Association is a long-running neighborhood group. City planning notices and the Flood Action program pages show what is coming to specific blocks.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Del Ray Alexandria Homes for Sale?',
+    text: 'Tell Brandon whether you want a bungalow or a townhome, how you feel about renovating, and which Metro line you need. He will shape the search around your answers.',
+    button: 'Search Del Ray Homes',
+  },
+};
+
+export const shawUStreet: NeighborhoodGuide = {
+  slug: 'shaw-u-street',
+  name: 'Shaw',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Shaw DC Homes for Sale | Shaw and U Street Guide',
+  description:
+    'Shaw DC guide: rowhouses, condos, historic districts and Metro access near U Street. Browse Shaw DC real estate and homes for sale with Brandon Wilson.',
+  ogTitle: 'Shaw, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Rowhouses, condos and Black Broadway history near U Street, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Shaw, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Shaw is a Northwest Washington, DC neighborhood next to Howard University and the U Street corridor, known for Victorian rowhouses, historic theaters and a long role in Black cultural life. This guide covers Shaw, DC in practical terms, including how Shaw and U Street differ. If you are comparing Shaw DC homes for sale, start with these details before you tour.',
+    image: photo('2026/06/shaw-u-street', 'AUTOx1150'),
+    imageAlt: 'Brick rowhouses on a residential street in Shaw, Washington, DC',
+    listingsLabel: 'See Shaw Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC. Shaw spans more than one ward and advisory neighborhood commission, so we confirm both for each address' },
+    { label: 'ZIP code', value: 'Mostly 20001' },
+    { label: 'Main streets', value: '7th Street NW, 9th Street NW and U Street NW' },
+    { label: 'Metro', value: 'Shaw-Howard University, U Street/African American Civil War Memorial/Cardozo, and Mount Vernon Square (all Green and Yellow lines)' },
+    { label: 'Landmarks', value: 'Howard Theatre, Lincoln Theatre, Ben’s Chili Bowl, the Carter G. Woodson Home and the Walter E. Washington Convention Center' },
+    { label: 'Typical homes', value: 'Victorian-era rowhouses, condos in lofts and new buildings, and small boutique condo buildings' },
+    { label: 'Historic districts', value: 'Shaw, Greater U Street, Mount Vernon West and Blagden Alley-Naylor Court' },
+    { label: 'Edges', value: 'Loosely drawn, with Logan Circle to the west and Mount Vernon Square to the south, so we confirm the area listing by listing' },
+    { label: 'Last updated', value: 'November 2026' },
+  ],
+  about: {
+    title: 'From Uptown to Midcity to Shaw',
+    paragraphs: [
+      'Shaw grew out of freedpeople’s encampments that formed outside Washington City during the Civil War. The area sat above the city’s old boundary at Florida Avenue, so it was first called “Uptown.” Howard University was founded here in 1867, and the neighborhood later went by “Midcity” until the 1960s.',
+      'The name Shaw came from Shaw Junior High School, named for Colonel Robert Gould Shaw, who led the 54th Massachusetts Infantry in the Civil War. In 1966, planners used the school’s enrollment boundary to define an urban renewal area, and the name stuck. Today many residents and listings still say U Street, Cardozo or Mount Vernon Square, depending on the block.',
+    ],
+  },
+  listings: {
+    title: 'Browse Shaw DC Homes for Sale',
+    text: 'Homes in Shaw and along U Street. Want a heads-up before a home goes live? Join the VIP Home Search.',
+    state: 'DC',
+    zips: ['20001'],
+    viewAllHref: '/properties',
+  },
+  market: {
+    title: 'Shaw DC Real Estate Market',
+    paragraphs: [
+      'Shaw mixes rowhouses and condos, and prices swing with unit type, condition and distance to the corridors. A renovated rowhouse and a loft condo a few blocks apart sit in different price brackets and carry different monthly costs. One median blends them, so we compare by home type.',
+      'For a custom comparison on a specific street, request a Shaw price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Black Broadway: U Street’s Place in the Story',
+      paragraphs: [
+        'By 1920, the U Street neighborhood was predominantly African American, and it became known as Black Broadway, a phrase credited to singer Pearl Bailey. The Howard Theatre opened in 1910 and the Lincoln Theatre in 1921, and performers including Duke Ellington played the clubs of the era. Ellington’s childhood home stood on 13th Street between S and T Streets.',
+        'The area declined after the 1968 riots and later recovered. Much of U Street is Victorian-era housing built between 1862 and 1900, and most of it falls inside the Greater U Street Historic District. The Carter G. Woodson Home on 9th Street is a National Historic Site, and a self-guided heritage trail covers the main stops.',
+      ],
+    },
+    {
+      title: 'Shaw or U Street? Three Areas Compared',
+      paragraphs: [
+        'Shaw and U Street are two adjacent areas, and a third pocket sits near Mount Vernon Square. This table shows how they differ day to day.',
+        'Four historic districts touch this area: Shaw, Greater U Street, Mount Vernon West and Blagden Alley-Naylor Court. They overlap in places, so confirm the district for a specific address.',
+      ],
+      table: {
+        headers: ['', 'Shaw (7th and 9th Streets)', 'U Street Corridor', 'Blagden Alley and Mount Vernon Square'],
+        rows: [
+          ['Closest Metro', 'Shaw-Howard University', 'U Street/African American Civil War Memorial/Cardozo', 'Mount Vernon Square'],
+          ['Anchors', 'Howard University nearby, Howard Theatre, Shaw library', 'Lincoln Theatre, Ben’s Chili Bowl, the Civil War memorial', 'Convention Center, Blagden Alley'],
+          ['Housing', 'Rowhouses and new condo buildings', 'Victorian rowhouses, lofts and condos', 'Alley rowhouses and newer condo buildings'],
+          ['Good to know', 'Shaw’s main commercial blocks are 7th and 9th Streets', 'Many blocks sit in the Greater U Street Historic District', 'Close to downtown and event traffic'],
+        ],
+      },
+    },
+    {
+      title: 'Homes You Will Find in Shaw',
+      paragraphs: [],
+      points: [
+        { title: 'Rowhouses', text: 'Victorian-era rowhouses line many streets, some restored and some updated inside while keeping their street-facing look. Check ceiling heights, stairs and whether the lower level is a legal apartment.' },
+        { title: 'Shaw DC condos for sale', text: 'Condos range from loft-style units to small boutique buildings with only a few owners. Small buildings share costs among fewer people, so ask about reserves and who controls the board.' },
+        { title: 'Converted and landmark buildings', text: 'Some units sit in buildings with a longer history, such as the Gothic Revival market building now called CityMarket at O. Ask what renovation rules apply.' },
+      ],
+    },
+    {
+      title: 'Buying a Rowhouse With a Basement Apartment',
+      paragraphs: [
+        'Many Shaw rowhouses have an English basement, a lower level with its own entrance. Rental income can help, but only a legal unit protects you. In DC, renting a separate unit generally requires a Certificate of Occupancy, a housing business license and a rent registration with the housing department.',
+        'Zoning can add another rule. In some zones, an accessory apartment requires an owner to live in the main home or the unit.',
+      ],
+      steps: {
+        lead: 'Before you count on rental income, we suggest:',
+        items: [
+          'Ask the seller for the Certificate of Occupancy and the current rental license',
+          'Confirm the unit’s registration or exemption with DC’s rental registry',
+          'Check the zoning for the address and whether owner-occupancy is required',
+        ],
+        after: 'An unlicensed unit can limit your ability to enforce a lease and may be subject to rent control, so treat it as a risk, not a bonus.',
+      },
+    },
+    {
+      title: 'Venues, Events and Nights Out',
+      paragraphs: [
+        'U Street and Shaw host live music at venues such as the Howard Theatre, the Lincoln Theatre and the 9:30 Club, and the Convention Center brings large events to Mount Vernon Square. Crowds, rideshares and street closures follow show nights. Check the venue calendars for the block you like, and visit on a show night before you decide.',
+      ],
+    },
+    {
+      title: 'Getting Around Shaw',
+      paragraphs: [
+        'Three Metro stations serve the area, Shaw-Howard University, U Street and Mount Vernon Square, and all three are on the Green and Yellow lines. From there, you can transfer to the Red Line at Gallery Place and to the Blue, Orange and Silver lines at L’Enfant Plaza. Major bus routes run along 7th Street, 14th Street and Georgia Avenue.',
+        'Which station is closest depends on your block, so test the walk at your usual hour. Parking is tight near the venues, so ask whether a home includes a space.',
+      ],
+    },
+    {
+      title: 'Living in Shaw',
+      paragraphs: [
+        'The Watha T. Daniel/Shaw Library is a neighborhood anchor. The Thurgood Marshall Center, which began as a YMCA, tells the stories of African American leaders in the area.',
+        'On U Street, Ben’s Chili Bowl, the Lincoln Theatre and the African American Civil War Memorial are within a short walk of one another. The Greater U Street Heritage Trail links many of these stops.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Shaw Experience',
+    paragraphs: [
+      'Brandon Wilson is licensed in DC, Virginia and Maryland, so he can set Shaw side by side with Metro-served areas in Virginia. If you want a Shaw real estate agent who can check a basement unit’s paperwork and a condo’s documents before you offer, start here.',
+    ],
+  },
+  nearby: [
+    { name: 'Logan Circle', text: 'To the west' },
+    { name: 'Columbia Heights', text: 'To the north' },
+    { name: 'Adams Morgan', text: 'To the northwest' },
+    { name: 'NoMa', text: 'To the east and southeast' },
+    { name: 'Downtown, Penn Quarter and Chinatown', text: 'To the south' },
+  ],
+  faqTitle: 'Shaw FAQ',
+  faqs: [
+    { q: 'Where does Shaw end?', a: 'Older sources use the name more widely. The 1966 urban renewal area built on the school’s boundary covered what are now Shaw, the U Street Corridor and Logan Circle. Listings today may say Shaw, U Street Corridor, Cardozo or Mount Vernon Square, so we note the label on each listing.' },
+    { q: 'How do historic district rules apply to a Shaw rowhouse?', a: 'Exterior work that is visible from a public street generally needs review by DC’s Historic Preservation Office before a permit is issued. Interior work is usually outside that review, but normal permits still apply. Confirm the district for your address before you plan a project.' },
+    { q: 'Is there a way to learn the area before I buy?', a: 'Yes. The Greater U Street Heritage Trail is a self-guided walking tour with audio, and it passes the main sites. Walk part of it, then walk your target block at night.' },
+    { q: 'What is Shaw Main Streets?', a: 'It is a neighborhood commercial association centered on 7th and 9th Streets between K and W Streets. Its news and events show which businesses are opening near the blocks you are considering.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Shaw DC Homes for Sale?',
+    text: 'Tell Brandon whether you lean toward a rowhouse or a condo, whether a rental unit matters, and how close you want to be to the venues. He will shape the search around your answers.',
+    button: 'Search Shaw Homes',
+  },
+};
+
+export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle, adamsMorgan, nationalLanding, loganCircle, navyYard, delRay, shawUStreet];

@@ -57,6 +57,12 @@ const nextConfig: NextConfig = {
         destination: '/get-in-touch',
         permanent: true,
       },
+      // The Shaw guide now lives under /neighborhoods; keep the old addresses working.
+      ...['/shaw-u-street-corridor', '/washington/shaw-u-street-corridor'].map((source) => ({
+        source,
+        destination: '/neighborhoods/shaw-u-street',
+        permanent: true,
+      })),
       // Capitol Riverfront is covered on the Navy Yard guide (the BID renamed itself).
       ...['/neighborhoods/capitol-riverfront', '/capitol-riverfront'].map((source) => ({
         source,

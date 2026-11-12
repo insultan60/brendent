@@ -40,6 +40,7 @@ export const SITE_PAGES: SitePage[] = [
   { path: '/neighborhoods/national-landing', name: 'National Landing', group: 'Areas' },
   { path: '/neighborhoods/logan-circle', name: 'Logan Circle', group: 'Areas' },
   { path: '/neighborhoods/navy-yard', name: 'Navy Yard', group: 'Areas' },
+  { path: '/neighborhoods/del-ray', name: 'Del Ray', group: 'Areas' },
   { path: '/neighborhoods/old-town-alexandria', name: 'Old Town Alexandria', group: 'Areas' },
   { path: '/washington', name: 'Washington DC', group: 'Areas' },
   { path: '/arlington', name: 'Arlington', group: 'Areas' },
@@ -47,7 +48,7 @@ export const SITE_PAGES: SitePage[] = [
   { path: '/bethesda', name: 'Bethesda', group: 'Areas' },
   { path: '/falls-church', name: 'Falls Church', group: 'Areas' },
   { path: '/silver-spring', name: 'Silver Spring', group: 'Areas' },
-  { path: '/shaw-u-street-corridor', name: 'Shaw / U Street', group: 'Areas' },
+  { path: '/neighborhoods/shaw-u-street', name: 'Shaw / U Street', group: 'Areas' },
 
   { path: '/home-valuation', name: 'Home valuation', group: 'Tools' },
   { path: '/mortgage-calculator', name: 'Mortgage calculator', group: 'Tools' },

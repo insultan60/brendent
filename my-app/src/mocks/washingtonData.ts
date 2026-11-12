@@ -77,7 +77,7 @@ export interface NeighborhoodCard {
 export const neighborhoods: NeighborhoodCard[] = [
   {
     name: 'Shaw / U Street Corridor',
-    href: '/shaw-u-street-corridor',
+    href: '/neighborhoods/shaw-u-street',
     image: 'https://assets.agentfire3.com/uploads/sites/2739/2026/06/shaw-u-street-AUTOx350.fit.png',
   },
   {
