@@ -5,6 +5,7 @@ import NavbarV2 from '@/views/home-v2/components/NavbarV2';
 import FooterV2 from '@/views/home-v2/components/FooterV2';
 import CtaV2 from '@/views/home-v2/components/CtaV2';
 import AlexandriaHero from '@/views/alexandria/components/AlexandriaHero';
+import CarlyleSection from '@/views/alexandria/components/CarlyleSection';
 import AreaQuickNav from '@/views/washington/components/AreaQuickNav';
 import AreaListings from '@/views/washington/components/AreaListings';
 import MarketReport from '@/views/washington/components/MarketReport';
@@ -65,6 +66,7 @@ export default function Alexandria() {
           areaName="Alexandria, VA"
         />
         <MarketReport data={marketReport} />
+        <CarlyleSection />
         <SchoolsInArea filters={schoolFilters} items={schools} copy={schoolsCopy} />
         <AroundTheArea categories={aroundCategories} copy={aroundCopy} />
         <NewsAdvice copy={newsCopy} posts={newsPosts} />

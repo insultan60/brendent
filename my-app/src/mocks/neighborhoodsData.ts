@@ -3,6 +3,8 @@
 // keyword-mapped page briefs; describe homes, transit and places, never the
 // people who live there (fair housing).
 
+import { ballston, clarendon, downtownBethesda, downtownSilverSpring, potomacYard, rosslyn } from './neighborhoodGuidesVaMd';
+
 const ASSETS = 'https://assets.agentfire3.com/uploads/sites/2739';
 /** Neighborhood photo from the old site's DC area guide, at card size. */
 const photo = (path: string, size = 'AUTOx700') => `${ASSETS}/${path}-${size}.fit.png`;
@@ -15,6 +17,13 @@ export const guideRoutes: Record<string, string> = {
   shaw: '/neighborhoods/shaw-u-street',
   'del-ray': '/neighborhoods/del-ray',
   'columbia-heights': '/neighborhoods/columbia-heights',
+  clarendon: '/neighborhoods/clarendon',
+  'potomac-yard': '/neighborhoods/potomac-yard',
+  rosslyn: '/neighborhoods/rosslyn',
+  ballston: '/neighborhoods/ballston',
+  'downtown-bethesda': '/neighborhoods/downtown-bethesda',
+  'downtown-silver-spring': '/neighborhoods/downtown-silver-spring',
+  carlyle: '/alexandria#carlyle',
   georgetown: '/neighborhoods/georgetown',
   'old-town': '/neighborhoods/old-town-alexandria',
   'dupont-circle': '/neighborhoods/dupont-circle',
@@ -113,7 +122,7 @@ export const hub = {
       image: `${ASSETS}/2026/03/Bethesda-Row-Area-Guide-500x360.jpg`,
       intro: 'Red Line access, a busy downtown and residential streets just over the DC line.',
       neighborhoods: [],
-      names: [],
+      names: ['Downtown Bethesda'],
     },
     {
       id: 'silver-spring',
@@ -122,7 +131,7 @@ export const hub = {
       image: `${ASSETS}/2026/03/Silver-Spring-MD-Area-Guide-500x360.jpg`,
       intro: 'A Red Line downtown with condos, plus single-family streets further out.',
       neighborhoods: [],
-      names: [],
+      names: ['Downtown Silver Spring'],
     },
     {
       id: 'fort-washington',
@@ -1698,4 +1707,4 @@ export const columbiaHeights: NeighborhoodGuide = {
   },
 };
 
-export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle, adamsMorgan, nationalLanding, loganCircle, navyYard, delRay, shawUStreet, columbiaHeights];
+export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle, adamsMorgan, nationalLanding, loganCircle, navyYard, delRay, shawUStreet, columbiaHeights, clarendon, potomacYard, rosslyn, ballston, downtownBethesda, downtownSilverSpring];
