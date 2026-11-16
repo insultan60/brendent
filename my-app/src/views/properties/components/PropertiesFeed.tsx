@@ -142,7 +142,7 @@ export default function PropertiesFeed({
           className="rounded-[24px] border border-background-300 bg-background-50 p-4 md:p-5"
         >
           <div className="flex flex-col gap-3 xl:flex-row xl:items-center">
-            <div role="radiogroup" aria-label="For sale or for rent" className="flex shrink-0 rounded-full bg-background-100 p-1">
+            <div role="radiogroup" aria-label="Buy or rent" className="flex shrink-0 rounded-full bg-background-100 p-1">
               {(['sale', 'rent'] as const).map((kind) => (
                 <button
                   key={kind}
@@ -160,7 +160,7 @@ export default function PropertiesFeed({
                     filters.kind === kind ? 'bg-foreground-950 text-background-50' : 'text-foreground-600 hover:text-foreground-950'
                   }`}
                 >
-                  {kind === 'sale' ? 'For sale' : 'For rent'}
+                  {kind === 'sale' ? 'Buy' : 'Rent'}
                 </button>
               ))}
             </div>
@@ -182,6 +182,18 @@ export default function PropertiesFeed({
               </datalist>
             </label>
             <div className="flex flex-wrap items-center gap-2">
+              <select
+                aria-label="Listing status"
+                value={filters.status}
+                onChange={(event) => setFilter('status', event.target.value as StatusTab)}
+                className={selectClass}
+              >
+                {tabs.map((tab) => (
+                  <option key={tab.key} value={tab.key}>
+                    {tab.key === 'all' ? 'All statuses' : tab.label} ({counts[tab.key]})
+                  </option>
+                ))}
+              </select>
               <select
                 aria-label="Home type"
                 value={filters.homeType}
@@ -278,22 +290,6 @@ export default function PropertiesFeed({
           <div>
             <h2 className="font-heading text-[26px] leading-tight text-foreground-950">Brandon’s Listings and Recent Sales</h2>
             <div className="mt-4 flex flex-wrap items-center gap-2">
-              <div role="tablist" aria-label="Listing status" className="flex shrink-0 rounded-full bg-background-50 p-1">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.key}
-                    type="button"
-                    role="tab"
-                    aria-selected={filters.status === tab.key}
-                    onClick={() => setFilter('status', tab.key)}
-                    className={`whitespace-nowrap rounded-full px-4 py-2 text-[12px] font-semibold transition-colors duration-300 ${
-                      filters.status === tab.key ? 'bg-foreground-950 text-background-50' : 'text-foreground-600 hover:text-foreground-950'
-                    }`}
-                  >
-                    {tab.label} <span className="opacity-60">{counts[tab.key]}</span>
-                  </button>
-                ))}
-              </div>
               <label className="inline-flex items-center gap-2 rounded-full border border-background-300 bg-background-50 px-4 py-2.5 text-[12.5px] text-foreground-700">
                 <ArrowUpDown className="h-3.5 w-3.5 text-foreground-400" aria-hidden="true" />
                 <select
