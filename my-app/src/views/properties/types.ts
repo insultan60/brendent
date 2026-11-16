@@ -59,10 +59,14 @@ export interface PropertyFilters {
   priceMin: string;
   priceMax: string;
   bedsMin: string;
+  /** Full-MLS search only: for sale or for rent, home type and baths. */
+  kind: 'sale' | 'rent';
+  homeType: '' | 'house' | 'townhouse' | 'condo';
+  bathsMin: string;
 }
 
 export function createInitialFilters(): PropertyFilters {
-  return { status: 'all', location: '', priceMin: '', priceMax: '', bedsMin: '' };
+  return { status: 'all', location: '', priceMin: '', priceMax: '', bedsMin: '', kind: 'sale', homeType: '', bathsMin: '' };
 }
 
 export type PropertySort = 'newest' | 'price-asc' | 'price-desc';

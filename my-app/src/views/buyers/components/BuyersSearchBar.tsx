@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, MapPin, Search } from 'lucide-react';
+import { mlsSearchUrl } from '@/lib/mlsSearch';
 
 const bedOptions = ['Any', '1+', '2+', '3+', '4+', '5+'];
 const bathOptions = ['Any', '1+', '1.5+', '2+', '2.5+', '3+', '4+'];
@@ -15,7 +16,6 @@ export default function BuyersSearchBar() {
   const [maxPrice, setMaxPrice] = useState('');
   const [beds, setBeds] = useState('Any');
   const [baths, setBaths] = useState('Any');
-  const [result, setResult] = useState('');
 
   useEffect(() => {
     if (!open) return undefined;
@@ -31,17 +31,16 @@ export default function BuyersSearchBar() {
   const priceLabel =
     minPrice || maxPrice ? `$${minPrice || '0'} – $${maxPrice || 'Any'}` : 'Price';
 
+  // Runs a full Bright MLS search on Brandon's IDX site with these filters.
   const handleSearch = () => {
-    const where = location.trim() || 'the DMV';
-    const budget =
-      minPrice || maxPrice
-        ? ` between $${minPrice || '0'} and $${maxPrice || 'any'}`
-        : '';
-    const roomText = `${beds === 'Any' ? 'any' : beds} beds and ${
-      baths === 'Any' ? 'any' : baths
-    } baths`;
-    setResult(`Showing ${roomText} near ${where}${budget}.`);
     setOpen('');
+    window.location.href = mlsSearchUrl({
+      location,
+      priceMin: minPrice,
+      priceMax: maxPrice,
+      beds: beds === 'Any' ? '' : beds,
+      baths: baths === 'Any' ? '' : baths,
+    });
   };
 
   const toggle = (key: 'price' | 'beds' | 'baths') => {
@@ -58,6 +57,9 @@ export default function BuyersSearchBar() {
             type="text"
             value={location}
             onChange={(event) => setLocation(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') handleSearch();
+            }}
             placeholder="Enter City, Address or Zip"
             className="w-full bg-transparent text-sm text-foreground-800 placeholder:text-foreground-400 outline-none"
           />
@@ -203,12 +205,6 @@ export default function BuyersSearchBar() {
           Search
         </button>
       </div>
-
-      {result ? (
-        <p className="mt-4 text-[13px] font-medium text-background-100 [text-shadow:0_1px_12px_rgba(0,0,0,0.5)]">
-          {result}
-        </p>
-      ) : null}
     </div>
   );
 }

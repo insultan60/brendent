@@ -12,6 +12,7 @@ import {
   type StatusTab,
 } from '@/views/properties/types';
 import { num } from '@/views/properties/utils';
+import { mlsSearchUrl, resolveLocation } from '@/lib/mlsSearch';
 import PropertiesMap from '@/views/properties/components/PropertiesMap';
 import PropertyCard from '@/views/properties/components/PropertyCard';
 
@@ -26,7 +27,16 @@ interface PropertiesFeedProps {
   setActiveId: (id: string | null) => void;
 }
 
-const PRICE_STEPS = [100000, 200000, 300000, 400000, 500000, 750000, 1000000, 1500000, 2000000, 3000000];
+const SALE_STEPS = [100000, 200000, 300000, 400000, 500000, 600000, 750000, 1000000, 1500000, 2000000, 3000000];
+const RENT_STEPS = [1000, 1500, 2000, 2500, 3000, 3500, 4000, 5000, 6000, 8000];
+
+/** Suggestions for the location box: the cities and neighborhoods Brandon covers. */
+const PLACE_SUGGESTIONS = [
+  'Washington, DC', 'Arlington, VA', 'Alexandria, VA', 'Fairfax, VA', 'Falls Church, VA', 'Bethesda, MD', 'Silver Spring, MD',
+  'Fort Washington, MD', 'Capitol Hill', 'Georgetown', 'Dupont Circle', 'Adams Morgan', 'Logan Circle', 'Navy Yard', 'Shaw',
+  'Columbia Heights', 'Old Town Alexandria', 'Del Ray', 'Potomac Yard', 'Clarendon', 'Rosslyn', 'Ballston', 'Crystal City',
+  'Downtown Bethesda', 'Downtown Silver Spring',
+];
 const priceLabel = (value: number) =>
   value >= 1000000 ? `$${value / 1000000}M` : `$${Math.round(value / 1000)}K`;
 
@@ -50,6 +60,17 @@ export default function PropertiesFeed({
   setActiveId,
 }: PropertiesFeedProps) {
   const cardRefs = useRef(new Map<string, HTMLAnchorElement>());
+  const PRICE_STEPS = filters.kind === 'rent' ? RENT_STEPS : SALE_STEPS;
+  const where = useMemo(() => resolveLocation(filters.location), [filters.location]);
+  const mlsUrl = mlsSearchUrl({
+    location: filters.location,
+    kind: filters.kind,
+    homeType: filters.homeType,
+    priceMin: filters.priceMin,
+    priceMax: filters.priceMax,
+    beds: filters.bedsMin,
+    baths: filters.bathsMin,
+  });
 
   const counts = useMemo(
     () => ({
@@ -65,6 +86,7 @@ export default function PropertiesFeed({
     const priceMin = num(filters.priceMin);
     const priceMax = num(filters.priceMax);
     const bedsMin = num(filters.bedsMin);
+    const bathsMin = num(filters.bathsMin);
     const list = listings.filter((listing) => {
       if (!matchesTab(listing, filters.status)) return false;
       if (location && !`${listing.address} ${listing.city} ${listing.state} ${listing.zip}`.toLowerCase().includes(location)) {
@@ -73,6 +95,7 @@ export default function PropertiesFeed({
       if (priceMin !== null && listing.price < priceMin) return false;
       if (priceMax !== null && listing.price > priceMax) return false;
       if (bedsMin !== null && listing.beds < bedsMin) return false;
+      if (bathsMin !== null && listing.baths < bathsMin) return false;
       return true;
     });
     const sorted = [...list];
@@ -83,7 +106,7 @@ export default function PropertiesFeed({
   }, [listings, filters, sort]);
 
   const filtered =
-    filters.location.trim() !== '' || filters.priceMin !== '' || filters.priceMax !== '' || filters.bedsMin !== '';
+    filters.location.trim() !== '' || filters.priceMin !== '' || filters.priceMax !== '' || filters.bedsMin !== '' || filters.bathsMin !== '';
 
   const resetAll = () => {
     const initial = createInitialFilters();
@@ -111,38 +134,65 @@ export default function PropertiesFeed({
     <section id="properties-feed" className="scroll-mt-20 bg-background-100 px-5 pb-20 pt-6 md:px-10 md:pb-28 md:pt-8">
       <div className="mx-auto max-w-[1500px]">
 
-        <div className="rounded-[24px] border border-background-300 bg-background-50 p-4 md:p-5">
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            window.location.href = mlsUrl;
+          }}
+          className="rounded-[24px] border border-background-300 bg-background-50 p-4 md:p-5"
+        >
           <div className="flex flex-col gap-3 xl:flex-row xl:items-center">
-            <div role="tablist" aria-label="Listing status" className="flex shrink-0 rounded-full bg-background-100 p-1">
-              {tabs.map((tab) => (
+            <div role="radiogroup" aria-label="For sale or for rent" className="flex shrink-0 rounded-full bg-background-100 p-1">
+              {(['sale', 'rent'] as const).map((kind) => (
                 <button
-                  key={tab.key}
+                  key={kind}
                   type="button"
-                  role="tab"
-                  aria-selected={filters.status === tab.key}
-                  onClick={() => setFilter('status', tab.key)}
+                  role="radio"
+                  aria-checked={filters.kind === kind}
+                  onClick={() => {
+                    if (filters.kind === kind) return;
+                    setFilter('kind', kind);
+                    // Sale and rent prices use different scales.
+                    setFilter('priceMin', '');
+                    setFilter('priceMax', '');
+                  }}
                   className={`flex-1 whitespace-nowrap rounded-full px-4 py-2 text-[12px] font-semibold transition-colors duration-300 ${
-                    filters.status === tab.key
-                      ? 'bg-foreground-950 text-background-50'
-                      : 'text-foreground-600 hover:text-foreground-950'
+                    filters.kind === kind ? 'bg-foreground-950 text-background-50' : 'text-foreground-600 hover:text-foreground-950'
                   }`}
                 >
-                  {tab.label} <span className="opacity-60">{counts[tab.key]}</span>
+                  {kind === 'sale' ? 'For sale' : 'For rent'}
                 </button>
               ))}
             </div>
             <label className="flex flex-1 items-center gap-2.5 rounded-full border border-background-300 bg-background-100 px-4 py-2.5">
               <Search className="h-4 w-4 shrink-0 text-foreground-400" aria-hidden="true" />
-              <span className="sr-only">City, address or zip</span>
+              <span className="sr-only">City, neighborhood or ZIP</span>
               <input
                 type="search"
+                list="mls-places"
                 value={filters.location}
                 onChange={(event) => setFilter('location', event.target.value)}
-                placeholder="City, address or zip"
+                placeholder="City, neighborhood or ZIP (e.g. Arlington, Capitol Hill, 20009)"
                 className="w-full bg-transparent text-[13px] text-foreground-900 outline-none placeholder:text-foreground-400"
               />
+              <datalist id="mls-places">
+                {PLACE_SUGGESTIONS.map((place) => (
+                  <option key={place} value={place} />
+                ))}
+              </datalist>
             </label>
             <div className="flex flex-wrap items-center gap-2">
+              <select
+                aria-label="Home type"
+                value={filters.homeType}
+                onChange={(event) => setFilter('homeType', event.target.value as PropertyFilters['homeType'])}
+                className={selectClass}
+              >
+                <option value="">Any type</option>
+                <option value="house">House</option>
+                <option value="townhouse">Townhouse</option>
+                <option value="condo">Condo</option>
+              </select>
               <select
                 aria-label="Minimum price"
                 value={filters.priceMin}
@@ -182,6 +232,68 @@ export default function PropertiesFeed({
                   </option>
                 ))}
               </select>
+              <select
+                aria-label="Minimum bathrooms"
+                value={filters.bathsMin}
+                onChange={(event) => setFilter('bathsMin', event.target.value)}
+                className={selectClass}
+              >
+                <option value="">Baths</option>
+                {[1, 2, 3, 4].map((value) => (
+                  <option key={value} value={value}>
+                    {value}+ baths
+                  </option>
+                ))}
+              </select>
+              <button
+                type="submit"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary-500 px-6 py-2.5 text-[12.5px] font-semibold text-background-50 transition-colors duration-300 hover:bg-primary-600"
+              >
+                <Search className="h-4 w-4" aria-hidden="true" />
+                Search all homes
+              </button>
+            </div>
+          </div>
+          <p className="mt-3 px-1 text-[12px] leading-relaxed text-foreground-500">
+            {where.unmatched
+              ? `We couldn’t match “${where.label}” to a city, neighborhood or ZIP, so the search will cover the whole MLS. Try a city name or a 5-digit ZIP.`
+              : `Searches every ${filters.kind === 'rent' ? 'rental' : 'home for sale'} on Bright MLS${
+                  where.label ? ` in ${where.label}` : ' across DC, Maryland and Virginia'
+                }. Brandon’s own listings and recent sales are below.`}
+          </p>
+        </form>
+
+        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[1.3fr_1fr]">
+          <div>
+            <div className="h-[380px] lg:sticky lg:top-24 lg:h-[calc(100svh-7rem)] lg:min-h-[520px]">
+              <PropertiesMap
+                listings={results}
+                activeId={activeId}
+                onActiveChange={setActiveId}
+                fullMlsUrl={fullMlsUrl}
+              />
+            </div>
+          </div>
+
+          <div>
+            <h2 className="font-heading text-[26px] leading-tight text-foreground-950">Brandon’s Listings and Recent Sales</h2>
+            <div className="mt-4 flex flex-wrap items-center gap-2">
+              <div role="tablist" aria-label="Listing status" className="flex shrink-0 rounded-full bg-background-50 p-1">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.key}
+                    type="button"
+                    role="tab"
+                    aria-selected={filters.status === tab.key}
+                    onClick={() => setFilter('status', tab.key)}
+                    className={`whitespace-nowrap rounded-full px-4 py-2 text-[12px] font-semibold transition-colors duration-300 ${
+                      filters.status === tab.key ? 'bg-foreground-950 text-background-50' : 'text-foreground-600 hover:text-foreground-950'
+                    }`}
+                  >
+                    {tab.label} <span className="opacity-60">{counts[tab.key]}</span>
+                  </button>
+                ))}
+              </div>
               <label className="inline-flex items-center gap-2 rounded-full border border-background-300 bg-background-50 px-4 py-2.5 text-[12.5px] text-foreground-700">
                 <ArrowUpDown className="h-3.5 w-3.5 text-foreground-400" aria-hidden="true" />
                 <select
@@ -198,23 +310,7 @@ export default function PropertiesFeed({
                 </select>
               </label>
             </div>
-          </div>
-        </div>
-
-        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[1.3fr_1fr]">
-          <div>
-            <div className="h-[380px] lg:sticky lg:top-24 lg:h-[calc(100svh-7rem)] lg:min-h-[520px]">
-              <PropertiesMap
-                listings={results}
-                activeId={activeId}
-                onActiveChange={setActiveId}
-                fullMlsUrl={fullMlsUrl}
-              />
-            </div>
-          </div>
-
-          <div>
-            <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
               <p className="text-[13px] text-foreground-600">
                 Showing <span className="font-heading text-[18px] text-foreground-950">{results.length}</span> of{' '}
                 {listings.length} {listings.length === 1 ? 'home' : 'homes'}
@@ -261,13 +357,11 @@ export default function PropertiesFeed({
                 </div>
                 <div className="flex flex-wrap items-center justify-center gap-3">
                   <a
-                    href={fullMlsUrl}
-                    target="_blank"
-                    rel="noopener"
+                    href={mlsUrl}
                     className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary-500 px-6 py-3 text-[12.5px] font-semibold text-background-50 transition-colors duration-300 hover:bg-primary-600"
                   >
-                    Search My Full MLS
-                    <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                    See matching homes on the MLS
+                    <Search className="h-4 w-4" aria-hidden="true" />
                   </a>
                   {filtered || filters.status !== 'all' ? (
                     <button
@@ -297,12 +391,10 @@ export default function PropertiesFeed({
                   searches and new-listing alerts.
                 </p>
                 <a
-                  href={fullMlsUrl}
-                  target="_blank"
-                  rel="noopener"
+                  href={mlsUrl}
                   className="mt-5 inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary-500 px-6 py-3 text-[12.5px] font-semibold text-background-50 transition-colors duration-300 hover:bg-primary-600"
                 >
-                  Start Searching
+                  Search with my filters
                   <ExternalLink className="h-4 w-4" aria-hidden="true" />
                 </a>
               </div>
