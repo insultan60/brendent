@@ -190,7 +190,7 @@ export default function PropertiesFeed({
               >
                 {tabs.map((tab) => (
                   <option key={tab.key} value={tab.key}>
-                    {tab.key === 'all' ? 'All statuses' : tab.label} ({counts[tab.key]})
+                    {tab.key === 'all' ? 'Status' : `${tab.label} (${counts[tab.key]})`}
                   </option>
                 ))}
               </select>
@@ -200,7 +200,7 @@ export default function PropertiesFeed({
                 onChange={(event) => setFilter('homeType', event.target.value as PropertyFilters['homeType'])}
                 className={selectClass}
               >
-                <option value="">Any type</option>
+                <option value="">Type</option>
                 <option value="house">House</option>
                 <option value="townhouse">Townhouse</option>
                 <option value="condo">Condo</option>
