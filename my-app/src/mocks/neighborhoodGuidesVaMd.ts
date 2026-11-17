@@ -1723,6 +1723,7 @@ export const clevelandPark: NeighborhoodGuide = {
   },
   nearby: [
     { name: 'Woodley Park', text: 'To the south' },
+    { name: 'Forest Hills', text: 'To the north' },
     { name: 'Chevy Chase DC', text: 'To the north up Connecticut Avenue' },
   ],
   faqTitle: 'Cleveland Park FAQ',
@@ -1957,6 +1958,8 @@ export const chevyChaseDc: NeighborhoodGuide = {
   },
   nearby: [
     { name: 'Cleveland Park', text: 'To the south down Connecticut Avenue' },
+    { name: 'Forest Hills', text: 'To the south' },
+    { name: 'Friendship Heights', text: 'To the west' },
     { name: 'Kenwood', text: 'Across the Maryland line in Bethesda' },
   ],
   faqTitle: 'Chevy Chase DC FAQ',
@@ -2078,5 +2081,280 @@ export const palisades: NeighborhoodGuide = {
     title: 'Ready to Look at Palisades DC Homes for Sale?',
     text: 'House, townhouse or one of the few condos: tell Brandon which you lean toward and he will start with the questions that go with it.',
     button: 'Search Palisades Homes',
+  },
+};
+
+export const forestHills: NeighborhoodGuide = {
+  slug: 'forest-hills',
+  name: 'Forest Hills',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Forest Hills DC Homes for Sale | Forest Hills DC Guide',
+  description: 'Forest Hills DC guide: houses by Rock Creek Park, Connecticut Avenue co-ops and the Van Ness Metro. Browse Forest Hills DC real estate and homes for sale.',
+  ogTitle: 'Forest Hills, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Houses by Rock Creek Park, co-ops and condos on Connecticut Avenue and a Red Line station, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Forest Hills, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Forest Hills is a Washington, DC neighborhood east of Connecticut Avenue and beside Rock Creek Park, with houses on quiet streets, a row of co-ops and condos along the avenue and a Red Line station at Van Ness. This guide covers Forest Hills, DC in practical terms. If you are comparing Forest Hills DC homes for sale, the sections below explain the Van Ness name, the apartment buildings and the parks around the neighborhood.',
+    image: dcPhoto,
+    imageAlt: 'Washington, DC, home to the Forest Hills neighborhood beside Rock Creek Park',
+    listingsLabel: 'See Forest Hills Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 3, ANC 3F)' },
+    { label: 'ZIP code', value: '20008' },
+    { label: 'Main streets', value: 'Connecticut Avenue NW, Tilden Street NW, Van Ness Street NW and Upton Street NW' },
+    { label: 'Metro', value: 'Van Ness-UDC station (Red Line)' },
+    { label: 'Landmarks', value: 'UDC’s Van Ness campus, the Levine School of Music, Soapstone Valley Park, Melvin C. Hazen Park, Hillwood Estate' },
+    { label: 'Typical homes', value: 'Detached houses and some rowhouses east of Connecticut Avenue, plus co-ops and condos along the avenue' },
+    { label: 'Rules', value: 'Standard DC permit and zoning rules' },
+    { label: 'Edges', value: 'Connecticut Avenue to the west, Rock Creek Park to the east, Chevy Chase to the north and Tilden Street to the south. Sources place the borders slightly differently' },
+    UPDATED,
+  ],
+  about: {
+    title: 'From Fernwood Heights to Van Ness',
+    paragraphs: [
+      'Forest Hills began as Fernwood Heights, two streets east of Connecticut Avenue, Tilden (then Quincy) and Upton (then Randolph), shown on a 1908 map. The National Bureau of Standards had bought land near today’s Van Ness Street in 1901, and its employees built or bought homes nearby.',
+      'People often call the neighborhood Van Ness, after the Red Line station and the University of the District of Columbia campus. The Bureau is gone, but a gate and fence on Connecticut Avenue between Van Ness and Tilden Streets are remnants of its site.',
+    ],
+  },
+  listings: { title: 'Browse Forest Hills DC Homes for Sale', text: VIP, state: 'DC', zips: ['20008'], viewAllHref: '/properties' },
+  market: {
+    title: 'Forest Hills Real Estate Market',
+    paragraphs: [
+      'Forest Hills DC real estate splits between detached houses near the park and apartments along the avenue, and the two behave differently.',
+      'For a custom comparison on a specific home, request a Forest Hills price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Houses on the Park Side, Co-ops on the Avenue',
+      paragraphs: [
+        'East of Connecticut Avenue, detached houses and some rowhouses sit on quiet streets close to Rock Creek Park. Along the avenue, apartment buildings hold a mix of ownership types. The neighborhood commission’s resource list names Tilden Gardens and Van Ness North as co-ops, and Parker House, Truman House and Van Ness East as condos.',
+        'Several buildings along the avenue are rent-controlled apartments that are not for sale. If you plan to buy, confirm the building’s ownership structure on the first call, before you tour.',
+      ],
+    },
+    {
+      title: 'Parks and Creek Valleys',
+      paragraphs: [
+        'Rock Creek Park forms the eastern edge of the neighborhood. Soapstone Valley Park, added to Rock Creek Park under 1924 legislation to protect the creek’s watershed, runs along 32nd Street at Albemarle Street. Melvin C. Hazen Park and its trail sit at Reno Road and Tilden Street, and Peirce Mill is a short trip away inside Rock Creek Park.',
+        'Homes beside the creek valleys can have drainage and sewer questions. Local reporting has covered concerns about an aging sewer line in the Soapstone Valley area, so ask the seller what they know and ask your inspector to look closely at the lot.',
+      ],
+    },
+    {
+      title: 'A University, Embassies and an Avenue',
+      paragraphs: [
+        'UDC’s Van Ness campus sits at 4200 Connecticut Avenue, and Howard University’s law school is across the avenue on Upton Street. The Levine School of Music uses the former Carnegie Geophysical Laboratory, one of the neighborhood’s early science buildings.',
+        'Embassies cluster on International Court and Connecticut Avenue, including Austria and the United Arab Emirates. Politics and Prose sits at 5015 Connecticut Avenue, and Hillwood Estate, Museum and Gardens is at 4155 Linnean Avenue.',
+      ],
+    },
+    {
+      title: 'Getting Around Forest Hills',
+      paragraphs: [
+        'The Van Ness-UDC station sits on Connecticut Avenue and puts the Red Line within a short walk of the blocks nearest the avenue. Metrobus routes also run along the avenue, and the Cleveland Park station is the next stop south.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Forest Hills Experience',
+    paragraphs: ['If you want a Forest Hills real estate agent who can tell a co-op from a condo before you tour and who will ask about drainage on a creekside lot, Brandon Wilson can sort both questions out with you.'],
+  },
+  nearby: [
+    { name: 'Cleveland Park', text: 'To the south' },
+    { name: 'Chevy Chase DC', text: 'To the north' },
+  ],
+  faqTitle: 'Forest Hills FAQ',
+  faqs: [
+    { q: 'Is Forest Hills the same as Van Ness?', a: 'They overlap. Van Ness is a nickname tied to the Red Line station and the UDC campus, and many listings use it. The Forest Hills name is the older one for the residential blocks east of the avenue.' },
+    { q: 'What is Van Ness Main Street?', a: 'It is a community group that supports the Connecticut Avenue business corridor. It has commissioned retail studies and organizes events such as a Taste of Van Ness.' },
+    { q: 'Which blocks are closest to the Metro?', a: 'Blocks near Connecticut Avenue are the closest to the Van Ness-UDC station. Blocks beside Rock Creek Park take a longer walk or a bus ride, so measure the route before you decide.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Forest Hills DC Homes for Sale?',
+    text: 'Tell Brandon whether you want a house near the park or a co-op or condo on the avenue, and how close you need to be to the station. He will check the building’s structure or the lot’s drainage before you tour.',
+    button: 'Search Forest Hills Homes',
+  },
+};
+
+export const friendshipHeightsDc: NeighborhoodGuide = {
+  slug: 'friendship-heights-dc',
+  name: 'Friendship Heights',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Friendship Heights DC Real Estate | Friendship Heights DC Guide',
+  description: 'Friendship Heights DC guide: the Red Line, big-name shops and the Maryland line explained. Browse Friendship Heights DC real estate and homes for sale.',
+  ogTitle: 'Friendship Heights, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'A Red Line station, shops and homes on the DC side of Western Avenue, with a licensed DC and Maryland Realtor.',
+  hero: {
+    h1: 'Friendship Heights, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Friendship Heights, DC is the District half of a border downtown, where Wisconsin Avenue meets Western Avenue and the Maryland line, with a Red Line station, major shops and houses and apartments on the blocks around the core. This guide covers Friendship Heights, DC in practical terms. If you are comparing Friendship Heights DC real estate, the sections below explain what sits on the DC side, what is changing and how it differs from the Maryland side.',
+    image: `${ASSETS}/2026/07/friendship-heights-dc-1-AUTOx1150.fit.png`,
+    imageAlt: 'Friendship Heights, Washington, DC, near Wisconsin and Western Avenues',
+    listingsLabel: 'See Friendship Heights Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 3, ANC 3E)' },
+    { label: 'ZIP code', value: '20015' },
+    { label: 'Main streets', value: 'Wisconsin Avenue NW and Western Avenue NW' },
+    { label: 'Metro', value: 'Friendship Heights station (Red Line)' },
+    { label: 'Landmarks', value: 'The former Mazza Gallerie site, the former Lord and Taylor building on Western Avenue, Bloomingdale’s across Wisconsin Avenue' },
+    { label: 'Typical homes', value: 'Houses and townhouses on the side streets, with apartment and condo buildings near the core on both sides of the line' },
+    { label: 'Rules', value: 'DC zoning, and the Wisconsin Avenue Development Framework for the corridor' },
+    { label: 'Edges', value: 'Western Avenue forms the border with Maryland, and Wisconsin Avenue runs south toward Tenleytown' },
+    UPDATED,
+  ],
+  about: {
+    title: 'A Land Grant, a Quaker Farm and Two Department Stores',
+    paragraphs: [
+      'Friendship Heights takes its name from a 1713 land grant called Friendship, according to a local guide. In the 1800s a Quaker family farmed land along what is now Wisconsin Avenue, on both sides of the District line, and by the early 1900s the area was single-family homes reached by streetcar.',
+      'The shopping district arrived in the early 1950s. Woodward and Lothrop opened on the Maryland side of Wisconsin Avenue, and Lord and Taylor opened on the DC side. In the early 1960s, zoning near the future Metro station was changed to allow dense development on the Maryland side.',
+    ],
+  },
+  listings: { title: 'Browse Friendship Heights DC Real Estate', text: VIP, state: 'DC', zips: ['20015', '20016'], viewAllHref: '/properties' },
+  market: {
+    title: 'Friendship Heights Real Estate Market',
+    paragraphs: [
+      'Few homes sit on the DC side, so the market is thin and each sale says more about one building than about the neighborhood. Houses for sale in Friendship Heights, DC and homes on the side streets come up only occasionally.',
+      'For a custom comparison on a specific home, request a Friendship Heights price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'A Border Downtown',
+      paragraphs: [
+        'A 2022 report counted about 540 residents on the DC side, ten times fewer than on the Maryland side, which is the Village of Friendship Heights. Many listings that use the Friendship Heights name are on the Maryland side, so check the state on every result.',
+        'The two sides plan separately, which complicates coordination. That means DC buyers benefit from a Realtor who is licensed in both places, and Brandon holds licenses in DC and Maryland.',
+      ],
+    },
+    {
+      title: 'What Is Changing on Wisconsin Avenue',
+      paragraphs: [
+        'DC’s Office of Planning released the Wisconsin Avenue Development Framework on February 16, 2024, after an 18-month process. It covers the corridor from Friendship Heights to Tenleytown and recommends zoning that would add housing near the Metro stations.',
+        'A 2022 report counted nearly 1,400 multifamily units planned for the area, and the former Mazza Gallerie is under redevelopment. Montgomery County is also updating its Friendship Heights Sector Plan, so the Maryland side may change as well.',
+      ],
+    },
+    {
+      title: 'Getting Around Friendship Heights',
+      paragraphs: [
+        'The Friendship Heights station on the Red Line is the area’s main asset. Metrobus routes, including service toward Georgetown and M Street, and Montgomery County’s Ride On buses connect the station with the surrounding neighborhoods.',
+      ],
+    },
+    {
+      title: 'Living in Friendship Heights',
+      paragraphs: [
+        'Wisconsin Avenue holds the big department stores and shops that draw visitors from across the region. Quieter residential streets begin a block or two off the avenue, and Chevy Chase and Tenleytown are both a short trip away.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Friendship Heights Experience',
+    paragraphs: ['If you want a Friendship Heights real estate agent who can search both sides of Western Avenue and explain which one a listing sits on, Brandon Wilson works in DC and Maryland and can compare the two for you.'],
+  },
+  nearby: [
+    { name: 'Chevy Chase DC', text: 'To the east' },
+    { name: 'Downtown Bethesda', text: 'Up Wisconsin Avenue in Maryland' },
+  ],
+  faqTitle: 'Friendship Heights FAQ',
+  faqs: [
+    { q: 'Are there condo towers on the DC side?', a: 'The tall condo buildings, such as Somerset House, stand on the Maryland side. The DC side has few residents, and new multifamily buildings are the main source of new homes there.' },
+    { q: 'Is Friendship Heights the same as Chevy Chase DC?', a: 'No. They are neighbors, and Chevy Chase DC lies to the east and begins at Reno Road. Friendship Heights is the commercial and Metro hub around Wisconsin and Western Avenues.' },
+    { q: 'Does the Maryland plan update matter to DC buyers?', a: 'It can. Montgomery County’s sector plan update covers shops, traffic and transit that DC residents also use. Brandon tracks both plans when he advises buyers here.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Friendship Heights DC Real Estate?',
+    text: 'Tell Brandon whether you want a house on a side street or a unit near the Metro, and which side of Western Avenue you will consider. He will confirm the jurisdiction and the plans for each address before you tour.',
+    button: 'Search Friendship Heights Homes',
+  },
+};
+
+export const westEndFoggyBottom: NeighborhoodGuide = {
+  slug: 'west-end-foggy-bottom',
+  name: 'West End and Foggy Bottom',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Foggy Bottom DC Real Estate | West End and Foggy Bottom Guide',
+  description: 'Foggy Bottom DC guide: condos, co-ops and historic rowhouses near GWU and the Kennedy Center. Browse Foggy Bottom DC real estate with Brandon Wilson.',
+  ogTitle: 'West End and Foggy Bottom, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Condos, co-ops and historic rowhouses near the Metro, with a licensed DC Realtor.',
+  hero: {
+    h1: 'West End and Foggy Bottom, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Foggy Bottom and the West End sit side by side west of the White House, and their housing is mostly condos and co-ops, with a historic district of brick rowhouses. This guide covers Foggy Bottom, DC in practical terms. If you are comparing Foggy Bottom DC real estate, the sections below explain the two neighborhoods, their historic districts and the university next door.',
+    image: dcPhoto,
+    imageAlt: 'Washington, DC, home to the West End and Foggy Bottom',
+    listingsLabel: 'See Foggy Bottom Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 2, ANC 2A)' },
+    { label: 'ZIP code', value: '20037' },
+    { label: 'Main streets', value: 'Pennsylvania Avenue NW, 23rd Street NW and New Hampshire Avenue NW' },
+    { label: 'Metro', value: 'Foggy Bottom-GWU station (Blue, Orange and Silver lines), the last DC stop before the trains cross to Rosslyn' },
+    { label: 'Landmarks', value: 'The Kennedy Center, the Watergate, George Washington University, Washington Circle' },
+    { label: 'Typical homes', value: 'Mid-rise and high-rise condos and co-ops, plus brick rowhouses in the Foggy Bottom Historic District' },
+    { label: 'Rules', value: 'Two historic districts and a university campus plan' },
+    { label: 'Edges', value: 'Foggy Bottom lies north of the National Mall and east of the Potomac, and the West End lies to its north and east, with Georgetown across Rock Creek' },
+    UPDATED,
+  ],
+  about: {
+    title: 'A West End, a Bottom and a University',
+    paragraphs: [
+      'The West End got its name because it was literally the west end of Pierre L’Enfant’s plan for Washington. Foggy Bottom, west of 23rd Street, grew with humbler housing, and the brick rowhouses of that era are the heart of today’s Foggy Bottom Historic District.',
+      'George Washington University arrived in 1912 and has shaped the area ever since. The Kennedy Center and the Watergate came in the 1960s and 1970s and gave the name new weight, and mid-rise condos and co-ops have been added since then.',
+    ],
+  },
+  listings: { title: 'Browse Foggy Bottom DC Real Estate', text: VIP, state: 'DC', zips: ['20037'], viewAllHref: '/properties' },
+  market: {
+    title: 'Foggy Bottom Real Estate Market',
+    paragraphs: [
+      'Foggy Bottom DC real estate is mostly apartments, so monthly fees matter as much as price. Foggy Bottom DC homes for sale in rowhouse form are rare and trade separately.',
+      'For a custom comparison on a specific building, request a Foggy Bottom price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Two Neighborhoods, Two Historic Districts',
+      paragraphs: [
+        'The Foggy Bottom Historic District covers the modest brick rowhouses of the old neighborhood. A second district, the George Washington University/Old West End Historic District, covers about 125 buildings, mostly the university’s historic core, across portions of 13 blocks between 19th and 23rd Streets.',
+        'The second district exists because of the campus plan. In the 2007 plan, GW agreed to help create it, and the Historic Preservation Review Board adopted it in October 2014. The two districts are separate, so check which one, if either, covers a unit or building.',
+      ],
+    },
+    {
+      title: 'Foggy Bottom DC Condos and Co-ops',
+      paragraphs: [
+        'Mid-rise and high-rise buildings from the 1960s and 1970s hold most of the homes here. The Watergate, a 10-acre complex beside the Potomac, is a co-op development.',
+        'A co-op sale usually needs board approval, while a condo sale follows its bylaws. Ask which structure a building uses, how many units are owner-occupied and whether the building is approved for the loan type you plan to use.',
+      ],
+    },
+    {
+      title: 'Getting Around West End and Foggy Bottom',
+      paragraphs: [
+        'The Foggy Bottom-GWU station opened in 1977 and serves the Blue, Orange and Silver lines. Farragut West and Farragut North are also within reach, and Washington Circle at Pennsylvania Avenue and 23rd Street ties the two neighborhoods together.',
+      ],
+    },
+    {
+      title: 'Living in West End and Foggy Bottom',
+      paragraphs: [
+        'The Kennedy Center and the Watergate sit on the Potomac, and George Washington University fills much of the area with campus buildings and student life. Restaurants and hotels cluster along Pennsylvania Avenue and in the West End.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Foggy Bottom Experience',
+    paragraphs: ['If you want a Foggy Bottom real estate agent who can explain co-op boards and check whether a building is VA-approved before you tour, Brandon Wilson can compare buildings on the same budget.'],
+  },
+  nearby: [
+    { name: 'Georgetown', text: 'To the west across Rock Creek' },
+    { name: 'Dupont Circle', text: 'To the north and east' },
+    { name: 'Rosslyn', text: 'Across the Potomac, one Metro stop away' },
+  ],
+  faqTitle: 'West End and Foggy Bottom FAQ',
+  faqs: [
+    { q: 'Is the West End part of Georgetown?', a: 'No. Georgetown ends at Rock Creek, and the West End lies on the other side. Some hotels and listings borrow the Georgetown name, so check the address.' },
+    { q: 'Does the university’s campus plan affect nearby owners?', a: 'It can. GW’s plan is reviewed by DC’s Zoning Commission, and ANC 2A takes part. Construction, traffic and student housing are recurring topics, so ask about current projects near the building you like.' },
+    { q: 'Are Foggy Bottom and the West End the same place?', a: 'They are neighbors with different histories. Foggy Bottom is the older, lower-scale area west of 23rd Street, and the West End is the denser strip of condos and hotels to its north and east.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Foggy Bottom DC Real Estate?',
+    text: 'Tell Brandon whether you want a condo, a co-op or a rowhouse, and how important a short walk to the Metro is. He will check each building’s structure and rules before you tour.',
+    button: 'Search Foggy Bottom Homes',
   },
 };
