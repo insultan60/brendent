@@ -51,6 +51,8 @@ export const SITE_PAGES: SitePage[] = [
   { path: '/neighborhoods/rosemont', name: 'Rosemont', group: 'Areas' },
   { path: '/neighborhoods/kenwood', name: 'Kenwood', group: 'Areas' },
   { path: '/neighborhoods/edgemoor', name: 'Edgemoor', group: 'Areas' },
+  { path: '/neighborhoods/woodley-park', name: 'Woodley Park', group: 'Areas' },
+  { path: '/neighborhoods/shirlington', name: 'Shirlington', group: 'Areas' },
   { path: '/neighborhoods/old-town-alexandria', name: 'Old Town Alexandria', group: 'Areas' },
   { path: '/washington', name: 'Washington DC', group: 'Areas' },
   { path: '/arlington', name: 'Arlington', group: 'Areas' },

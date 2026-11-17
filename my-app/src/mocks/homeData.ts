@@ -54,6 +54,8 @@ export const navLinks: NavLink[] = [
       { label: 'Rosemont', href: '/neighborhoods/rosemont' },
       { label: 'Kenwood', href: '/neighborhoods/kenwood' },
       { label: 'Edgemoor', href: '/neighborhoods/edgemoor' },
+      { label: 'Woodley Park', href: '/neighborhoods/woodley-park' },
+      { label: 'Shirlington', href: '/neighborhoods/shirlington' },
       { label: 'Old Town Alexandria', href: '/neighborhoods/old-town-alexandria' },
     ],
   },

@@ -1256,3 +1256,195 @@ export const edgemoor: NeighborhoodGuide = {
     button: 'Search Edgemoor Homes',
   },
 };
+
+const dcPhoto = `${ASSETS}/2026/03/Washington-DC-Area-guide-AUTOx1150.fit.jpg`;
+
+export const woodleyPark: NeighborhoodGuide = {
+  slug: 'woodley-park',
+  name: 'Woodley Park',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Woodley Park DC Real Estate | Woodley Park DC Guide',
+  description: 'Woodley Park DC guide: a Red Line village by the National Zoo with rowhouses and apartments. Browse Woodley Park DC real estate and homes for sale.',
+  ogTitle: 'Woodley Park, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'A Red Line village beside the National Zoo, with historic rowhouses and apartments and a licensed DC Realtor.',
+  hero: {
+    h1: 'Woodley Park, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Woodley Park is a Washington, DC neighborhood beside the National Zoo, with a Red Line station, a Connecticut Avenue restaurant strip, historic rowhouses and mid-rise apartment buildings. This guide covers Woodley Park, DC in practical terms. If you are comparing Woodley Park DC real estate, the sections below explain the historic district, the avenue and a hotel site that is about to change.',
+    image: dcPhoto,
+    imageAlt: 'Washington, DC, home to the Woodley Park neighborhood beside the National Zoo',
+    listingsLabel: 'See Woodley Park Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 3, ANC 3C)' },
+    { label: 'ZIP code', value: '20008' },
+    { label: 'Main streets', value: 'Connecticut Avenue NW, Calvert Street NW, Woodley Road NW and Cathedral Avenue NW' },
+    { label: 'Metro', value: 'Woodley Park-Zoo/Adams Morgan station (Red Line), between Dupont Circle and Cleveland Park' },
+    { label: 'Landmarks', value: 'The Smithsonian’s National Zoo, the Taft Bridge, the Omni Shoreham Hotel, the former Marriott Wardman Park site and the Wardman Tower' },
+    { label: 'Typical homes', value: 'Early 1900s rowhouses in the historic district, plus condos, co-ops and rentals in mid-rise apartment buildings on Connecticut Avenue' },
+    { label: 'Rules', value: 'The Old Woodley Park Historic District' },
+    { label: 'Edges', value: 'The historic district is roughly bounded by Rock Creek Park, 24th Street, 29th Street, Woodley Road and Cathedral Avenue' },
+    UPDATED,
+  ],
+  about: {
+    title: 'A Streetcar Stop Beside a Zoo',
+    paragraphs: [
+      'Woodley Park, DC developed between 1905 and 1938, according to the city’s historic district record, and the builder Harry Wardman shaped the look of the Connecticut Avenue corridor. Two large hotels grew up on the edges, the Omni Shoreham on Calvert Street and the Marriott Wardman Park on Woodley Road.',
+      'The Metro station opened in 1982 and turned the neighborhood into a daytime destination. The National Zoo occupies 163 acres along Rock Creek, and about two million people visit it each year.',
+    ],
+  },
+  listings: { title: 'Browse Woodley Park DC Real Estate', text: VIP, state: 'DC', zips: ['20008'], viewAllHref: '/properties' },
+  market: {
+    title: 'Woodley Park Real Estate Market',
+    paragraphs: [
+      'Most Woodley Park DC homes for sale are apartments, so monthly fees and building rules shape value as much as location. Rowhouses in the historic district trade less often and separately.',
+      'For a custom comparison on a specific building, request a Woodley Park price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'The Hotel Site Is Becoming Homes',
+      paragraphs: [
+        'The former Marriott Wardman Park site on Woodley Road is slated for about 900 homes in two new buildings, according to plans filed by a developer affiliated with Carmel Partners. The design by Shalom Baranes Associates would shrink the building footprint, add more than two acres of open space and fold the existing arcade and the Wardman Tower into the new layout.',
+        'Historic review applies to the site, so timing and details can change. If you are buying nearby, ask Brandon for the latest status before you commit.',
+      ],
+    },
+    {
+      title: 'Old Woodley Park Historic District',
+      paragraphs: [
+        'The Old Woodley Park Historic District joined the National Register on June 15, 1990. It covers the rowhouses and streets above Rock Creek between 24th and 29th Streets, and exterior work visible from the street goes through DC’s Historic Preservation Office.',
+        'Connecticut Avenue north of the district looks different. High-rise apartment houses line it, kept to about eight stories by the city’s height limit.',
+      ],
+    },
+    {
+      title: 'Getting Around Woodley Park',
+      paragraphs: [
+        'The Woodley Park-Zoo/Adams Morgan station sits between Dupont Circle and Cleveland Park on the Red Line. The Taft Bridge carries Connecticut Avenue across Rock Creek Park toward Kalorama, and the Calvert Street Bridge leads to Adams Morgan, about a half-mile walk from the station.',
+      ],
+    },
+    {
+      title: 'Living in Woodley Park',
+      paragraphs: [
+        'The Connecticut Avenue strip holds restaurants and shops, and the Smithsonian’s National Zoo is free to enter. Rock Creek Park’s trails start at the neighborhood’s edge, so walkers and runners have green space close to the apartments.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Woodley Park Experience',
+    paragraphs: ['If you want a Woodley Park real estate agent who knows how Connecticut Avenue buildings differ and who tracks the Wardman Park plans, Brandon Wilson can compare buildings with you on the same budget.'],
+  },
+  nearby: [
+    { name: 'Adams Morgan', text: 'To the east across the Calvert Street Bridge' },
+    { name: 'Dupont Circle', text: 'One stop south on the Red Line' },
+  ],
+  faqTitle: 'Woodley Park FAQ',
+  faqs: [
+    { q: 'How is Woodley Park different from Cleveland Park?', a: 'Woodley Park sits south of Cleveland Park and has its own station beside the zoo. Its historic district lies west of the avenue above Rock Creek, while Cleveland Park’s district spreads west toward Wisconsin Avenue.' },
+    { q: 'Is Woodley Park part of Adams Morgan?', a: 'No, though the station carries both names. Adams Morgan is to the east across the Calvert Street Bridge, and listings may use either name, so check the address.' },
+    { q: 'How does the zoo affect parking and traffic?', a: 'Between the zoo and the station, visitors fill nearby streets, and parking has been a recurring topic for the neighborhood commission. Ask about the block’s permit rules and whether a unit comes with a space.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Woodley Park DC Real Estate?',
+    text: 'Tell Brandon whether you want an apartment on the avenue or a rowhouse in the historic district, and how close you need to be to the Metro. He will check the building and the district rules before you tour.',
+    button: 'Search Woodley Park Homes',
+  },
+};
+
+export const shirlington: NeighborhoodGuide = {
+  slug: 'shirlington',
+  name: 'Shirlington',
+  city: 'Arlington, VA',
+  cityHref: '/arlington',
+  title: 'Shirlington VA Real Estate | Shirlington VA Guide',
+  description: 'Shirlington VA guide: an Arlington urban village with a theater, shops and a bus hub. Browse Shirlington VA real estate, condos and homes for sale.',
+  ogTitle: 'Shirlington, VA: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'An Arlington urban village with a theater, shops and a bus hub, with a licensed Virginia Realtor.',
+  hero: {
+    h1: 'Shirlington, VA: Neighborhood Guide and Homes for Sale',
+    text: 'Shirlington is an urban village in southern Arlington, Virginia, built around a theater, a library, a movie house and a bus hub, with condos and townhomes close by. This guide covers Shirlington, VA in practical terms. If you are comparing Shirlington VA real estate, the sections below explain the village, the bus connections and the Virginia rules for buying a condo.',
+    image: arlingtonPhoto,
+    imageAlt: 'Arlington, Virginia, home to the Village at Shirlington',
+    listingsLabel: 'See Shirlington Listings',
+  },
+  facts: [
+    { label: 'County', value: 'Arlington County, Virginia (an unincorporated “urban village”)' },
+    { label: 'ZIP code', value: '22206' },
+    { label: 'Main streets', value: 'Campbell Avenue (formerly South 28th Street), South Quincy Street, South Arlington Mill Drive and Shirley Highway (I-395), with an exit at Shirlington Circle' },
+    { label: 'Metro', value: 'None. The Shirlington Bus Station offers direct service to the Pentagon Metro station' },
+    { label: 'Landmarks', value: 'Signature Theatre, Shirlington Library, AMC Loews Shirlington 7, Four Mile Run' },
+    { label: 'Typical homes', value: 'Condos, including some above shops, plus garden-style condos and townhomes in the West Village' },
+    { label: 'Rules', value: 'Arlington County zoning and the Virginia Condominium Act' },
+    { label: 'Edges', value: 'Shirlington sits in the valley of Four Mile Run, with Fairlington rising to the south and Green Valley to the north' },
+    UPDATED,
+  ],
+  about: {
+    title: 'Named for a Highway, Built as a Village',
+    paragraphs: [
+      'The name Shirlington combines Shirley, for Shirley Highway (I-395), and Arlington. Fairlington, a combination of Fairfax and Arlington, came first, and the area’s first library opened in 1947 as the Fairlington Library, inside the Shirlington Trust Building on South Randolph Street.',
+      'Shirley Highway was rebuilt between 1969 and 1972, which set the traffic circle that exists today. Since the mid-1980s, the shopping center has been known as the Village at Shirlington, and later additions brought a Harris Teeter, a library branch and a new home for Signature Theatre, which opened in March 2007.',
+    ],
+  },
+  listings: { title: 'Browse Shirlington VA Real Estate', text: VIP, state: 'VA', zips: ['22206'], viewAllHref: '/properties' },
+  market: {
+    title: 'Shirlington Real Estate Market',
+    paragraphs: [
+      'Condos and townhomes dominate the market, so fees and association rules matter as much as price. Shirlington VA homes for sale in detached form are rare, and buyers who want a house usually look in nearby Arlington and Alexandria neighborhoods.',
+      'For a custom comparison on a specific building, request a Shirlington price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'A Bus Station That Works Like a Metro Stop',
+      paragraphs: [
+        'Shirlington has no Metro station. The Shirlington Bus Station is the only enclosed public bus station in Arlington and the main transfer point for Metrobus and Arlington Transit in South Arlington. It offers direct service to the Pentagon Metro station, plus rush-hour service to Pentagon City.',
+        'Time the bus, not the train, when you judge the commute, and test the trip at rush hour before you decide.',
+      ],
+    },
+    {
+      title: 'Shirlington VA Condos for Sale and Townhomes',
+      paragraphs: [
+        'Some homes sit above the restaurants and shops in the Village at Shirlington. Across Four Mile Run, the West Village holds garden-style condos, two-bedroom cottages and three-bedroom townhomes, according to local brokers.',
+        'Fairlington, next door, predates Shirlington and has its own historic district and historical society, so check which neighborhood a listing belongs to.',
+      ],
+    },
+    {
+      title: 'Buying a Condo in Virginia',
+      paragraphs: [
+        'Virginia gives condo buyers a clear paper trail. The seller must get a resale certificate from the association, on a standard state form, and deliver it to you, normally within 14 days of your request.',
+        'After you receive it, you can cancel the contract within three days, or up to seven if your contract extends the period. If the certificate never arrives, you can cancel at any time before settlement. Brandon explains how that clock runs on each purchase.',
+      ],
+    },
+    {
+      title: 'Getting Around Shirlington',
+      paragraphs: [
+        'Drivers reach the village from Shirlington Circle on I-395, and the Four Mile Run Trail links with the Washington and Old Dominion Trail and the Mount Vernon Trail. A large dog park sits beside Four Mile Run behind the village.',
+      ],
+    },
+    {
+      title: 'Living in Shirlington',
+      paragraphs: [
+        'Signature Theatre, a Tony Award-winning company, anchors the village, along with Theatre on the Run, the AMC Loews Shirlington 7 and the Harris Teeter. Shirlington Park, Jennie Dean Park and the Fairlington Community Center are close by, and the library branch shares a building with the theater.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Shirlington Experience',
+    paragraphs: ['If you want a Shirlington real estate agent who works in Virginia and can walk you through a resale certificate line by line, Brandon Wilson is licensed across the state and works from an office in Fairfax.'],
+  },
+  nearby: [
+    { name: 'Old Town Alexandria', text: 'To the southeast' },
+    { name: 'Potomac Yard', text: 'To the east' },
+    { name: 'Carlyle', text: 'On the Alexandria city page' },
+  ],
+  faqTitle: 'Shirlington FAQ',
+  faqs: [
+    { q: 'Is Shirlington part of Alexandria?', a: 'No. Shirlington is in Arlington County, next to Fairlington and close to the Alexandria line. Check the county on every listing, since the two jurisdictions have different taxes and rules.' },
+    { q: 'How is Shirlington different from Fairlington?', a: 'Fairlington came first and holds a historic district of its own. Shirlington is the newer commercial village on the valley floor, with the theater, shops and bus hub.' },
+    { q: 'Which Arlington schools serve Shirlington?', a: 'Arlington Public Schools assign students by address and adjust boundaries from time to time. Confirm the assigned schools with the district’s boundary locator before you make an offer.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Shirlington VA Real Estate?',
+    text: 'Tell Brandon whether you want a condo above the shops, a townhome across Four Mile Run or a house nearby, and how you will commute. He will walk you through the resale certificate and the bus options before you tour.',
+    button: 'Search Shirlington Homes',
+  },
+};

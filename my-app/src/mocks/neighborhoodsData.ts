@@ -3,7 +3,7 @@
 // keyword-mapped page briefs; describe homes, transit and places, never the
 // people who live there (fair housing).
 
-import { ballston, clarendon, downtownBethesda, downtownSilverSpring, edgemoor, kenwood, potomacYard, rosemont, rosslyn } from './neighborhoodGuidesVaMd';
+import { ballston, clarendon, downtownBethesda, downtownSilverSpring, edgemoor, kenwood, potomacYard, rosemont, rosslyn, shirlington, woodleyPark } from './neighborhoodGuidesVaMd';
 
 const ASSETS = 'https://assets.agentfire3.com/uploads/sites/2739';
 /** Neighborhood photo from the old site's DC area guide, at card size. */
@@ -26,6 +26,8 @@ export const guideRoutes: Record<string, string> = {
   rosemont: '/neighborhoods/rosemont',
   kenwood: '/neighborhoods/kenwood',
   edgemoor: '/neighborhoods/edgemoor',
+  'woodley-park': '/neighborhoods/woodley-park',
+  shirlington: '/neighborhoods/shirlington',
   carlyle: '/alexandria#carlyle',
   georgetown: '/neighborhoods/georgetown',
   'old-town': '/neighborhoods/old-town-alexandria',
@@ -1710,4 +1712,4 @@ export const columbiaHeights: NeighborhoodGuide = {
   },
 };
 
-export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle, adamsMorgan, nationalLanding, loganCircle, navyYard, delRay, shawUStreet, columbiaHeights, clarendon, potomacYard, rosslyn, ballston, downtownBethesda, downtownSilverSpring, rosemont, kenwood, edgemoor];
+export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle, adamsMorgan, nationalLanding, loganCircle, navyYard, delRay, shawUStreet, columbiaHeights, clarendon, potomacYard, rosslyn, ballston, downtownBethesda, downtownSilverSpring, rosemont, kenwood, edgemoor, woodleyPark, shirlington];

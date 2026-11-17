@@ -36,6 +36,8 @@ const PAGES = [
   '/neighborhoods/rosemont',
   '/neighborhoods/kenwood',
   '/neighborhoods/edgemoor',
+  '/neighborhoods/woodley-park',
+  '/neighborhoods/shirlington',
   '/neighborhoods/old-town-alexandria',
   '/washington',
   '/neighborhoods/shaw-u-street',
