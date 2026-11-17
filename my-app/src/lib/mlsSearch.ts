@@ -57,6 +57,9 @@ const NEIGHBORHOOD_ZIPS: Record<string, string[]> = {
   'national landing': ['22202'],
   'downtown bethesda': ['20814'],
   'downtown silver spring': ['20910'],
+  rosemont: ['22301'],
+  kenwood: ['20816'],
+  edgemoor: ['20814'],
 };
 
 const norm = (s: string) =>

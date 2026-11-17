@@ -1,5 +1,6 @@
 // Arlington, Alexandria and Maryland neighborhood guides (Clarendon, Potomac
-// Yard, Rosslyn, Ballston, Downtown Bethesda, Downtown Silver Spring), plus the
+// Yard, Rosslyn, Ballston, Downtown Bethesda, Downtown Silver Spring, Rosemont,
+// Kenwood, Edgemoor), plus the
 // Carlyle block for the Alexandria city page. Copy comes from the client's
 // keyword-mapped briefs; placeholder price tables and "Brandon's experience"
 // notes are left out until the client supplies them.
@@ -969,4 +970,289 @@ export const carlyle = {
     { q: 'Is Carlyle good for federal and military buyers?', a: 'It is close to the Patent Office, a federal courthouse and the HUD headquarters. We check whether a building is VA-approved before you tour, since an unapproved building can delay a VA loan.' },
   ],
   cta: 'Ready to look at Carlyle Alexandria homes for sale? Tell Brandon whether you want a high-rise or a smaller building, how close you need to be to work, and which Metro station fits your commute.',
+};
+
+export const rosemont: NeighborhoodGuide = {
+  slug: 'rosemont',
+  name: 'Rosemont',
+  city: 'Alexandria, VA',
+  cityHref: '/alexandria',
+  title: 'Rosemont Alexandria Homes for Sale | Rosemont Alexandria Guide',
+  description: 'Rosemont Alexandria guide: bungalows and colonials near King Street Metro and Old Town. Browse Rosemont Alexandria real estate and homes for sale.',
+  ogTitle: 'Rosemont, Alexandria: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Bungalows and colonials near King Street Metro and Old Town, with a licensed Virginia Realtor.',
+  hero: {
+    h1: 'Rosemont, Alexandria: Neighborhood Guide and Homes for Sale',
+    text: 'Rosemont is a northwest Alexandria, Virginia neighborhood of bungalows, colonials and Arts and Crafts houses on tree-lined streets, a few blocks from the King Street Metro. This guide covers Rosemont, Alexandria in practical terms. If you are comparing Rosemont Alexandria homes for sale, the sections below explain what the historic label does and does not mean, the streetcar-era plan and the transit nearby.',
+    image: alexandriaPhoto,
+    imageAlt: 'Tree-lined residential street in Rosemont, Alexandria, Virginia',
+    listingsLabel: 'See Rosemont Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Alexandria, Virginia (an independent city)' },
+    { label: 'ZIP code', value: '22301' },
+    { label: 'Main streets', value: 'King Street, Commonwealth Avenue, Russell Road and Braddock Road' },
+    { label: 'Metro', value: 'King Street-Old Town (Blue and Yellow lines) and Braddock Road are both within walking distance. Alexandria Union Station adds Amtrak and Virginia Railway Express' },
+    { label: 'Landmarks', value: 'The George Washington Masonic National Memorial, Ivy Hill Cemetery, Alexandria Union Station' },
+    { label: 'Typical homes', value: 'Craftsman bungalows, traditional colonials and Arts and Crafts houses' },
+    { label: 'Rules', value: 'A National Register and Virginia Landmarks Register district of about 84 acres, not regulated by the city’s Board of Architectural Review' },
+    { label: 'Edges', value: 'Northwest of Old Town, with King Street on the south and Commonwealth Avenue on the east' },
+    UPDATED,
+  ],
+  about: {
+    title: 'A Streetcar Suburb on Spring Park Land',
+    paragraphs: [
+      'Rosemont, Alexandria dates to 1908. The land was once known as Spring Park before the Alexandria Realty Company and then the Rosemont Development Company acquired it and laid out a planned suburb served by the Washington, Alexandria and Mount Vernon Electric Railway.',
+      'The original street plan is still intact and reflects City Beautiful ideals of the early 1900s. About half a dozen older houses stand near King Street, the old Leesburg Turnpike, including Eastern View at 2525 King Street, built around 1819. The district joined the National Register in 1992.',
+    ],
+  },
+  listings: { title: 'Browse Rosemont Alexandria Homes for Sale', text: VIP, state: 'VA', zips: ['22301'], viewAllHref: '/properties' },
+  market: {
+    title: 'Rosemont Real Estate Market',
+    paragraphs: [
+      'Rosemont Alexandria real estate is a small, mostly single-family market, so one or two sales can move the averages. Bungalows and larger colonials draw different buyers.',
+      'For a custom comparison on a specific house, request a Rosemont price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'A Historic District With No Design Board',
+      paragraphs: [
+        'Rosemont’s National Register listing recognizes its history, but the City of Alexandria says National Register districts are not regulated by its historic preservation staff. The city’s Board of Architectural Review covers only the Old and Historic Alexandria District, the Parker-Gray District and buildings the City Council designates as 100 years old.',
+        'For a Rosemont buyer, a porch or window project usually needs a standard building permit, not a design certificate. Zoning still applies, and Alexandria’s recent zoning changes are covered in our Del Ray guide.',
+      ],
+    },
+    {
+      title: 'Streets Named for Washington’s Circle',
+      paragraphs: [
+        'Most Rosemont streets carry tree names. When the northeast corner was laid out in the 1920s, the Masonic Memorial was under construction, and several streets there were first named for people from George Washington’s circle, including a pallbearer and two of his physicians.',
+      ],
+    },
+    {
+      title: 'A Fourth of July Tradition',
+      paragraphs: [
+        'The Rosemont Citizens Association, founded in 1954, has hosted an old-fashioned Fourth of July celebration since 1967. Neighbors gather on school grounds, and the event reflects the association’s goal of getting people out to meet each other.',
+      ],
+    },
+    {
+      title: 'Getting Around Rosemont',
+      paragraphs: [
+        'The King Street Metro station is a few blocks away and serves the Blue and Yellow lines. Braddock Road station is also within walking distance, and Union Station next to King Street adds Amtrak and Virginia Railway Express service. Nearly every westbound DASH and Metro bus passes along King Street and Braddock Road.',
+      ],
+    },
+    {
+      title: 'Living in Rosemont',
+      paragraphs: [
+        'The George Washington Masonic National Memorial sits at the neighborhood’s edge, and Ivy Hill Cemetery to the northeast is the burial place of rocket scientist Wernher von Braun. Rosemont residents can walk to Old Town and Del Ray, according to the civic association.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Rosemont Experience',
+    paragraphs: ['If you want a Rosemont real estate agent who can explain what the National Register label means for a renovation and compare Rosemont with Old Town and Del Ray, Brandon Wilson is licensed across Virginia and works from an office in Fairfax.'],
+  },
+  nearby: [
+    { name: 'Old Town Alexandria', text: 'To the southeast' },
+    { name: 'Del Ray', text: 'To the north' },
+    { name: 'Carlyle', text: 'On the Alexandria city page' },
+  ],
+  faqTitle: 'Rosemont FAQ',
+  faqs: [
+    { q: 'Can a Rosemont house still have design protections?', a: 'Yes, if the City Council has designated it a 100-year-old building. Those buildings fall under the Board of Architectural Review even outside the local historic districts, so ask the city whether the address is designated.' },
+    { q: 'Is Rosemont part of Old Town?', a: 'No. Rosemont lies northwest of Old Town, within walking distance of both Old Town and Del Ray. Its district rules differ from Old Town’s.' },
+    { q: 'Where does the Rosemont historic district end?', a: 'It is roughly bounded by Commonwealth Avenue, West Walnut Street, Russell Road, Rucker Place and King Street. Check the city’s historic preservation map for a specific address.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Rosemont Alexandria Homes for Sale?',
+    text: 'Tell Brandon whether you want a bungalow or a larger colonial, and how important the walk to the Metro is. He will check the permit rules and any 100-year-old building designation before you tour.',
+    button: 'Search Rosemont Homes',
+  },
+};
+
+export const kenwood: NeighborhoodGuide = {
+  slug: 'kenwood',
+  name: 'Kenwood',
+  city: 'Bethesda, MD',
+  cityHref: '/bethesda',
+  title: 'Kenwood Bethesda Homes for Sale | Kenwood Bethesda Guide',
+  description: 'Kenwood Bethesda guide: the cherry blossom neighborhood off River Road. Browse Kenwood Bethesda real estate and homes for sale with Brandon Wilson.',
+  ogTitle: 'Kenwood, Bethesda: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'The cherry blossom neighborhood off River Road, with a licensed Maryland Realtor.',
+  hero: {
+    h1: 'Kenwood, Bethesda: Neighborhood Guide and Homes for Sale',
+    text: 'Kenwood is a Bethesda, Maryland neighborhood known for about 1,200 cherry trees along its streets, set between River Road and Little Falls Parkway near the DC line. This guide covers Kenwood, Bethesda in practical terms. If you are comparing Kenwood Bethesda homes for sale, the sections below explain life on a blossom street, the layout and the Montgomery County details that matter.',
+    image: bethesdaPhoto,
+    imageAlt: 'Bethesda, Maryland, near the Kenwood neighborhood',
+    listingsLabel: 'See Kenwood Listings',
+  },
+  facts: [
+    { label: 'County', value: 'Montgomery County, Maryland (Bethesda)' },
+    { label: 'ZIP code', value: '20816' },
+    { label: 'Main streets', value: 'River Road, Dorset Avenue, Kennedy Drive, Kenwood Avenue and Little Falls Parkway' },
+    { label: 'Metro', value: 'None inside. Bethesda station (Red Line) is about a mile and a half away by way of the Capital Crescent Trail' },
+    { label: 'Landmarks', value: 'The cherry trees, Kenwood Golf and Country Club (5601 River Road), the Capital Crescent Trail' },
+    { label: 'Typical homes', value: 'Large detached houses on bigger-than-average lots, with new construction mixed in' },
+    { label: 'Rules', value: 'Montgomery County zoning and permits' },
+    { label: 'Edges', value: 'Between Little Falls Parkway and River Road, about two miles east of downtown Bethesda' },
+    UPDATED,
+  ],
+  about: {
+    title: 'A Developer Who Planted Trees',
+    paragraphs: [
+      'Kenwood, Bethesda was planned in 1926 by the developers Edgar Kennedy and Donald Chamberlain, with Charles Jerman, on land they first meant to turn into an amusement park. To draw buyers, the developer planted cherry trees in the 1930s and 1940s, and some of the first trees went in during the 1920s.',
+      'About 1,200 of those trees remain, and some are more than 90 years old. The best viewing is along Kennedy Drive, Dorset Avenue and Kenwood Avenue.',
+    ],
+  },
+  listings: { title: 'Browse Kenwood Bethesda Homes for Sale', text: VIP, state: 'MD', zips: ['20816'], viewAllHref: '/properties' },
+  market: {
+    title: 'Kenwood Real Estate Market',
+    paragraphs: [
+      'Kenwood Bethesda real estate is a market of large houses, often on larger lots than nearby neighborhoods, and new construction competes with older homes. Prices swing with lot size and finish level.',
+      'For a custom comparison on a specific house, request a Kenwood price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Living on a Blossom Street',
+      paragraphs: [
+        'Each spring, thousands of visitors come. Peak bloom arrives about three to four days after the Tidal Basin’s, and Montgomery County bans street parking in Kenwood during peak bloom.',
+        'The streets are narrow and have no sidewalks, so everyone moves slowly. Residents post playful signs and welcome visitors, but a buyer should see the neighborhood once during bloom and once in another season to judge whether the spring crowds suit the way you live.',
+      ],
+    },
+    {
+      title: 'Large Lots, Few Shops',
+      paragraphs: [
+        'People move to Kenwood for larger lots, schools and a short trip to downtown Bethesda, according to local agents. Retail is limited, with a Whole Foods and a Giant on River Road, and Bethesda’s restaurants and shops are about two miles away.',
+        'The members-only Kenwood Golf and Country Club runs through the hilly land from River Road across Goldsboro Road, and parts of the club reach into the neighborhood.',
+      ],
+    },
+    {
+      title: 'Getting Around Kenwood',
+      paragraphs: [
+        'There is no Metro station inside Kenwood. The Capital Crescent Trail runs along the neighborhood, and the walk from the Bethesda Metro station is about a mile and a half. Driving from DC takes 30 to 45 minutes, depending on the hour.',
+      ],
+    },
+    {
+      title: 'Living in Kenwood',
+      paragraphs: [
+        'Jump Park, on the Capital Crescent Trail at Little Falls Parkway, is a popular picnic spot. Students are zoned for Montgomery County Public Schools, and the private Landon School and Holton-Arms School are nearby.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Kenwood Experience',
+    paragraphs: ['If you want a Kenwood real estate agent who can weigh a large lot here against the smaller, more walkable lots around Edgemoor and Chevy Chase, Brandon Wilson holds a Maryland license and can run that comparison for you.'],
+  },
+  nearby: [
+    { name: 'Edgemoor', text: 'To the west' },
+    { name: 'Downtown Bethesda', text: 'To the west' },
+  ],
+  faqTitle: 'Kenwood FAQ',
+  faqs: [
+    { q: 'Is it Kenwood or Kenwood Park?', a: 'Both names appear. Many listing sites use Kenwood Park, and neighbors and visitors use Kenwood, so search both.' },
+    { q: 'How do the cherry trees affect a buyer?', a: 'They are an asset and a maintenance item. Ask which trees sit on the lot and which stand in the county right-of-way, and ask whether an arborist has looked at the older ones.' },
+    { q: 'Is Kenwood in DC or Maryland?', a: 'Kenwood is in Montgomery County, Maryland, close to the DC line, and is considered part of Bethesda and Chevy Chase. Taxes, permits and schools follow Maryland and the county.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Kenwood Bethesda Homes for Sale?',
+    text: 'Tell Brandon what lot size you want and how you feel about the spring crowds. He will help you plan a visit during bloom and check county rules for each address.',
+    button: 'Search Kenwood Homes',
+  },
+};
+
+export const edgemoor: NeighborhoodGuide = {
+  slug: 'edgemoor',
+  name: 'Edgemoor',
+  city: 'Bethesda, MD',
+  cityHref: '/bethesda',
+  title: 'Edgemoor Bethesda Homes for Sale | Edgemoor Bethesda Guide',
+  description: 'Edgemoor Bethesda guide: houses beside Bethesda Row and the Metro. Browse Edgemoor Bethesda real estate and homes for sale with Brandon Wilson.',
+  ogTitle: 'Edgemoor, Bethesda: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Houses beside Bethesda Row and the Metro, with a licensed Maryland Realtor.',
+  hero: {
+    h1: 'Edgemoor, Bethesda: Neighborhood Guide and Homes for Sale',
+    text: 'Edgemoor is a Bethesda, Maryland neighborhood of single-family houses on the edge of downtown, within walking distance of Bethesda Row and about a mile from the Metro. This guide covers Edgemoor, Bethesda in practical terms. If you are comparing Edgemoor Bethesda homes for sale, the sections below explain how the neighborhood began, how downtown growth reaches its borders and which county rules matter.',
+    image: bethesdaPhoto,
+    imageAlt: 'Bethesda Row, a short walk from Edgemoor, Bethesda, Maryland',
+    listingsLabel: 'See Edgemoor Listings',
+  },
+  facts: [
+    { label: 'County', value: 'Montgomery County, Maryland (Bethesda)' },
+    { label: 'ZIP code', value: '20814' },
+    { label: 'Main streets', value: 'Edgemoor Lane, Woodmont Avenue, Old Georgetown Road and Wisconsin Avenue' },
+    { label: 'Metro', value: 'Bethesda station (Red Line), about a mile east' },
+    { label: 'Landmarks', value: 'Bethesda Row, Woodmont Triangle, Sidwell Friends Lower School, the Bethesda-Chevy Chase Regional Services Center, the Capital Crescent Trail' },
+    { label: 'Typical homes', value: 'Single-family houses, many renovated or rebuilt, with apartment and condo buildings toward downtown' },
+    { label: 'Rules', value: 'Montgomery County zoning, with downtown planning rules nearby' },
+    { label: 'Edges', value: 'The Edgemoor Citizens Association covers Edgemoor, Bradley Village and parts of Bradley Hills' },
+    UPDATED,
+  ],
+  about: {
+    title: 'Old Edgemoor: A Farm Becomes the First Streets',
+    paragraphs: [
+      'Edgemoor began when a local landowner, Mr. Tuckerman, known as Tuck, turned his farm into Old Edgemoor, described in a local history collection as the finest residential neighborhood and first commercial center of Bethesda. In his day, he said, you could not buy a cup of coffee in Bethesda.',
+      'Edgemoor Lane started as a trail used by Native Americans and grew into a major street. Early residents remembered walking along its muddy surface to catch the streetcar on Wisconsin Avenue.',
+    ],
+  },
+  listings: { title: 'Browse Edgemoor Bethesda Homes for Sale', text: VIP, state: 'MD', zips: ['20814'], viewAllHref: '/properties' },
+  market: {
+    title: 'Edgemoor Real Estate Market',
+    paragraphs: [
+      'Edgemoor Bethesda real estate is mostly single-family, and the walk to Bethesda Row and the Metro is a large part of the price. Renovated and rebuilt houses compete with original ones on the same streets.',
+      'For a custom comparison on a specific house, request an Edgemoor price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Where Downtown Meets the Neighborhood',
+      paragraphs: [
+        'The Edge, a 15-story tower at Edgemoor Lane and Woodmont Avenue, links the older Woodmont Triangle to the north with Bethesda Row to the south. A 12-story building proposed at 4824 Edgemoor Lane was designed as a transition from the neighborhood to the urban core.',
+        'A 2026 UrbanTurf report counted 16 projects and about 6,500 units in Bethesda’s building pipeline. Before you buy, look at what is planned within a few blocks of the house you like.',
+      ],
+    },
+    {
+      title: 'Montgomery County’s New Housing Rules',
+      paragraphs: [
+        'On July 22, 2025, the Montgomery County Council voted 8 to 3 for Zoning Text Amendment 25-02. It allows duplexes, triplexes, townhouses and small apartment buildings up to 40 feet tall on land zoned for single-family homes along designated corridors, with Planning Board review of each project.',
+        'The measure is narrower than the Planning Board’s earlier Attainable Housing Strategies, which would have allowed duplexes in most single-family zones. Ask whether an address sits on a designated corridor, since that decides whether the rule can apply next door.',
+      ],
+    },
+    {
+      title: 'Schools and Civic Life',
+      paragraphs: [
+        'Sidwell Friends Lower School sits at Edgemoor Lane and Beverly Road, and the Bethesda-Chevy Chase Regional Services Center at 4805 Edgemoor Lane hosts community meetings, including project reviews for downtown Bethesda. Local guides name Bethesda Elementary and Westland Middle School for public school zoning.',
+      ],
+    },
+    {
+      title: 'Getting Around Edgemoor',
+      paragraphs: [
+        'The Bethesda Metro station, built in 1984 on the Red Line, is about a mile east of Edgemoor. The Capital Crescent Trail starts on Bethesda Avenue, and most daily errands are within walking distance of Bethesda Row.',
+      ],
+    },
+    {
+      title: 'Living in Edgemoor',
+      paragraphs: [
+        'Bethesda Row holds shops, restaurants and a fall arts festival, and Woodmont Triangle adds bars and late-night dining. Edgemoor’s own streets are quiet, residential and a short walk from both.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Edgemoor Experience',
+    paragraphs: ['If you want an Edgemoor real estate agent who will read the downtown plans before your offer, Brandon Wilson’s Maryland license covers Montgomery County, and he can check what is proposed near each address.'],
+  },
+  nearby: [
+    { name: 'Downtown Bethesda', text: 'To the east' },
+    { name: 'Kenwood', text: 'To the east' },
+  ],
+  faqTitle: 'Edgemoor FAQ',
+  faqs: [
+    { q: 'Is Edgemoor part of downtown Bethesda?', a: 'It borders downtown. Edgemoor is a single-family neighborhood, and downtown Bethesda begins at Bethesda Row and Woodmont Triangle.' },
+    { q: 'Is The Edgemoor the same as the neighborhood?', a: 'No. The Edgemoor is an apartment building at 4821 Montgomery Lane that shares the name. Searches for the name can return both, so check the address.' },
+    { q: 'What is the Edgemoor Citizens Association?', a: 'It is an all-volunteer civic group for Edgemoor, Bradley Village and parts of Bradley Hills. It follows development proposals and neighborhood issues.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Edgemoor Bethesda Homes for Sale?',
+    text: 'Tell Brandon how close to Bethesda Row you want to be and whether a renovated or original house suits you. He will check nearby projects and county rules for each address before you tour.',
+    button: 'Search Edgemoor Homes',
+  },
 };
