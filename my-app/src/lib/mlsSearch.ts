@@ -62,6 +62,12 @@ const NEIGHBORHOOD_ZIPS: Record<string, string[]> = {
   edgemoor: ['20814'],
   'woodley park': ['20008'],
   shirlington: ['22206'],
+  'mount pleasant': ['20010'],
+  'foxhall': ['20007'],
+  'cleveland park': ['20008'],
+  'kalorama': ['20008', '20009'],
+  'chevy chase dc': ['20015'],
+  'palisades': ['20016', '20007'],
 };
 
 const norm = (s: string) =>

@@ -1146,6 +1146,7 @@ export const kenwood: NeighborhoodGuide = {
   nearby: [
     { name: 'Edgemoor', text: 'To the west' },
     { name: 'Downtown Bethesda', text: 'To the west' },
+    { name: 'Chevy Chase DC', text: 'To the southeast, across the DC line' },
   ],
   faqTitle: 'Kenwood FAQ',
   faqs: [
@@ -1336,6 +1337,8 @@ export const woodleyPark: NeighborhoodGuide = {
   nearby: [
     { name: 'Adams Morgan', text: 'To the east across the Calvert Street Bridge' },
     { name: 'Dupont Circle', text: 'One stop south on the Red Line' },
+    { name: 'Cleveland Park', text: 'To the north' },
+    { name: 'Kalorama', text: 'To the south across the Taft Bridge' },
   ],
   faqTitle: 'Woodley Park FAQ',
   faqs: [
@@ -1446,5 +1449,634 @@ export const shirlington: NeighborhoodGuide = {
     title: 'Ready to Look at Shirlington VA Real Estate?',
     text: 'Tell Brandon whether you want a condo above the shops, a townhome across Four Mile Run or a house nearby, and how you will commute. He will walk you through the resale certificate and the bus options before you tour.',
     button: 'Search Shirlington Homes',
+  },
+};
+
+export const mountPleasant: NeighborhoodGuide = {
+  slug: 'mount-pleasant',
+  name: 'Mount Pleasant',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Mount Pleasant DC Real Estate | Mount Pleasant DC Guide',
+  description: 'Mount Pleasant DC guide: rowhouses, a historic district and a Saturday market. Browse Mount Pleasant DC real estate, condos and homes for sale with Brandon.',
+  ogTitle: 'Mount Pleasant, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Rowhouses, a historic district and a village-style main street, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Mount Pleasant, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Mount Pleasant is a Washington, DC neighborhood built around an old streetcar terminus, with a mix of building types on tree-lined blocks beside Rock Creek Park. This guide covers Mount Pleasant, DC in practical terms. If you are comparing Mount Pleasant DC real estate, the sections below explain the historic district, the main street and what daily life looks like here.',
+    image: dcPhoto,
+    imageAlt: 'Washington, DC, home to the Mount Pleasant neighborhood',
+    listingsLabel: 'See Mount Pleasant Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 1, ANC 1D)' },
+    { label: 'ZIP code', value: '20010' },
+    { label: 'Main streets', value: 'Mount Pleasant Street NW, 16th Street NW, Park Road NW and Lamont Street NW' },
+    { label: 'Metro', value: 'No station inside. Columbia Heights (Green and Yellow lines) is the closest' },
+    { label: 'Landmarks', value: 'Lamont Park and its Saturday farmers market, the 1925 Mount Pleasant Library, Walter-Pierce Park, Rock Creek Park' },
+    { label: 'Typical homes', value: 'Rowhouses, detached houses and small apartment buildings, with some condos' },
+    { label: 'Rules', value: 'The Mount Pleasant Historic District, with design guidelines published by Historic Mount Pleasant' },
+    { label: 'Edges', value: 'North of Adams Morgan and west of Columbia Heights, with Rock Creek Park along the west side. About 10,000 people live here' },
+    UPDATED,
+  ],
+  about: {
+    title: 'A Streetcar Terminus Turned Village',
+    paragraphs: [
+      'Mount Pleasant, DC grew where the streetcar line ended, at what is now Lamont Park. Stores followed the riders, and in 1905 a Capitol Hill druggist built a turreted drugstore at the corner of Park Road that is still standing.',
+      'The Mount Pleasant Library opened in 1925 with Carnegie funds, and it is among the oldest library buildings still in use in the city. The neighborhood joined the National Register of Historic Places as a district in 1987, with nearly 1,000 contributing buildings. Historic Mount Pleasant, formed in 1985, led the nomination.',
+    ],
+  },
+  listings: { title: 'Browse Mount Pleasant DC Real Estate', text: VIP, state: 'DC', zips: ['20010'], viewAllHref: '/properties' },
+  market: {
+    title: 'Mount Pleasant Real Estate Market',
+    paragraphs: [
+      'Houses, rowhouses and condos all trade here, and each follows its own price path, so a single neighborhood median says little. Mount Pleasant DC homes for sale range from small apartments to full rowhouses.',
+      'For a custom comparison on a specific home, request a Mount Pleasant price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Mount Pleasant Street and Lamont Park',
+      paragraphs: [
+        'The commercial corridor along Mount Pleasant Street is the neighborhood’s spine. Lamont Park at its southern end hosts a farmers market every Saturday, plus movie nights and concerts, and Walter-Pierce Park nearby has a community garden, a dog park and chess tables.',
+        'The library at 16th and Lamont Streets and the Saturday market give buyers two easy places to start a first visit.',
+      ],
+    },
+    {
+      title: 'Mount Pleasant DC Condos for Sale in Smaller Buildings',
+      paragraphs: [
+        'Condos here tend to sit in smaller buildings and converted houses. Fewer owners means one decision can move everyone’s monthly cost, so ask what repairs are planned and how the building handles them.',
+      ],
+    },
+    {
+      title: 'Living in a Historic District Here',
+      paragraphs: [
+        'Historic Mount Pleasant publishes the district’s design guidelines, a brochure and maps, and its journal explains building permit rules in plain terms. Read them before you plan exterior work, since much of the neighborhood sits inside the district.',
+      ],
+    },
+    {
+      title: 'Getting Around Mount Pleasant',
+      paragraphs: [
+        'There is no Metro station inside the neighborhood. Columbia Heights is the closest, and Metrobus routes run along 16th Street and Mount Pleasant Street. Adams Morgan and Columbia Heights are both within walking distance of many blocks, and Rock Creek Park trails start at the western edge.',
+      ],
+    },
+    {
+      title: 'Living in Mount Pleasant',
+      paragraphs: [
+        'Bancroft Elementary at 1755 Newton Street and Sacred Heart School at 1625 Park Road anchor the school scene. The western part of the neighborhood is a wooded enclave bounded on two sides by Rock Creek Park, just east of the National Zoo.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Mount Pleasant Experience',
+    paragraphs: ['If you want a Mount Pleasant real estate agent who can explain both rowhouse and small-building purchases, Brandon Wilson can compare the two on the same budget and walk you through the historic district guidelines.'],
+  },
+  nearby: [
+    { name: 'Adams Morgan', text: 'To the south' },
+    { name: 'Columbia Heights', text: 'To the east' },
+    { name: 'Kalorama', text: 'To the southwest' },
+  ],
+  faqTitle: 'Mount Pleasant FAQ',
+  faqs: [
+    { q: 'What is the Mount Pleasant Heritage Trail?', a: 'It is a self-guided walking trail called Village in the City, produced by Cultural Tourism DC, with signs that tell the neighborhood’s story. Walking it is a good way to see the historic blocks before you tour homes.' },
+    { q: 'Which parts of Mount Pleasant are quieter?', a: 'The western blocks beside Rock Creek Park are a wooded residential area, while the commercial strip and the 16th Street edge are busier. Visit at different times of day to compare.' },
+    { q: 'Which schools serve Mount Pleasant?', a: 'Bancroft Elementary is the school named in local sources. Zoned schools at every level depend on the address, so confirm with the DCPS boundary tool before you make an offer.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Mount Pleasant DC Real Estate?',
+    text: 'Tell Brandon whether you want a rowhouse, a detached house or a condo in a smaller building, and how close you need to be to the Metro. He will match the search to the historic district rules before you tour.',
+    button: 'Search Mount Pleasant Homes',
+  },
+};
+
+export const foxhall: NeighborhoodGuide = {
+  slug: 'foxhall',
+  name: 'Foxhall',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Foxhall DC Homes for Sale | Foxhall DC Guide',
+  description: 'Foxhall DC guide: Tudor Revival rowhouses in a planned village near Georgetown. Browse Foxhall DC real estate and homes for sale with Brandon Wilson.',
+  ogTitle: 'Foxhall, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Tudor Revival rowhouses in a planned village near Georgetown, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Foxhall, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Foxhall is a Washington, DC neighborhood best known for Foxhall Village, a planned community of Tudor Revival rowhouses from the 1920s and 1930s, set between Georgetown and the Palisades. This guide covers Foxhall, DC in practical terms. If you are comparing Foxhall DC homes for sale, the sections below explain the village, its design rules and the area around it.',
+    image: dcPhoto,
+    imageAlt: 'Washington, DC, home to Foxhall Village',
+    listingsLabel: 'See Foxhall Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 3, ANC 3D)' },
+    { label: 'ZIP code', value: '20007' },
+    { label: 'Main streets', value: 'Foxhall Road NW, Reservoir Road NW, Q Street NW and P Street NW' },
+    { label: 'Metro', value: 'No station in the neighborhood' },
+    { label: 'Landmarks', value: 'Foxhall Village Historic District, Colony Hill, Glover-Archbold Park, Hardy Recreation Center, the Kreeger Museum' },
+    { label: 'Typical homes', value: 'Tudor Revival rowhouses in the village, Colonial Revival houses in Colony Hill and detached houses elsewhere' },
+    { label: 'Rules', value: 'Exterior alterations in Foxhall Village follow the Historic Preservation Review Board’s design guidelines' },
+    { label: 'Edges', value: 'The village district is bounded by Foxhall Road, Reservoir Road, Glover-Archbold Park and P Street, with a few properties south of P' },
+    UPDATED,
+  ],
+  about: {
+    title: 'From a Cannon Maker to a Tudor Village',
+    paragraphs: [
+      'Foxhall, DC is named for Henry Foxall, a Scottish immigrant and mayor of Georgetown who ran a cannon foundry on Foundry Creek. A spelling error on an early sign turned Foxall into Foxhall.',
+      'The village itself came a century later. After visiting Tewkesbury, England, the builder Harry Boss set out to copy its Tudor houses, and with Herbert Phelps he built 190 rowhouses between 1925 and 1930. A second builder, Waverly Taylor, added more in the same style, and about 310 buildings now make up the district.',
+    ],
+  },
+  listings: { title: 'Browse Foxhall DC Homes for Sale', text: VIP, state: 'DC', zips: ['20007'], viewAllHref: '/properties' },
+  market: {
+    title: 'Foxhall Real Estate Market',
+    paragraphs: [
+      'Foxhall DC real estate is a small market with few listings at a time, and a rowhouse in the village trades differently from a detached house elsewhere in the area.',
+      'For a custom comparison on a specific house, request a Foxhall price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'A Village Planned Around Lanes and Circles',
+      paragraphs: [
+        'Foxhall Village was designed as a village in the city. Winding lanes, small circles and crescent-shaped open spaces replace the usual street grid, and many lots are irregular in size. Rear alleys hold garages that were built with the houses, often in pairs.',
+        'Nearly all of the buildings use the Tudor Revival style, with variety in brick, stucco and wood. The Colony Hill enclave across Foxhall Road, begun in 1931 on about 12 acres, took the opposite approach and used Colonial Revival throughout.',
+      ],
+    },
+    {
+      title: 'Design Review in Foxhall Village',
+      paragraphs: [
+        'DC designated Foxhall Village a historic district in July 2007, and it joined the National Register that November. Because the houses have kept their original details, exterior changes go through design review under guidelines the Review Board published for the district.',
+        'Colony Hill has its own historic district nomination on file. Check which district, if any, covers the address you like, since the two follow different guidelines.',
+        'Georgetown University and its hospital sit nearby, and campus plans and construction are regular topics for the Foxhall Community Citizens Association. Ask about current projects when you tour.',
+      ],
+    },
+    {
+      title: 'Getting Around Foxhall',
+      paragraphs: [
+        'Foxhall has no Metro station. Metrobus links Foxhall Road with Georgetown and Dupont Circle, and Glover-Archbold Park gives walkers and runners a wooded route on the neighborhood’s edge.',
+      ],
+    },
+    {
+      title: 'Living in Foxhall',
+      paragraphs: [
+        'The Hardy Recreation Center at 4500 Q Street hosts the neighborhood association’s meetings, and the lower Q Street circle is the site of a yearly Halloween gathering. The Kreeger Museum on Foxhall Road houses modern art, so check its current visiting hours before you go.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Foxhall Experience',
+    paragraphs: ['If you want a Foxhall real estate agent who can explain what the village’s guidelines mean for a window, a porch or a garage, Brandon Wilson can read them with you before you make an offer.'],
+  },
+  nearby: [
+    { name: 'Palisades', text: 'To the northwest' },
+    { name: 'Georgetown', text: 'To the southeast' },
+  ],
+  faqTitle: 'Foxhall FAQ',
+  faqs: [
+    { q: 'Why is it spelled Foxhall when the namesake spelled it Foxall?', a: 'A spelling error on an early sign added the extra letter, and the new spelling stuck. The southern part of the original subdivision briefly kept the Foxall spelling.' },
+    { q: 'What is the difference between Foxhall Village and Colony Hill?', a: 'Foxhall Village is a Tudor Revival rowhouse district. Colony Hill is a smaller Colonial Revival enclave across Foxhall Road, and it is covered by a separate historic district proposal.' },
+    { q: 'Where can I read the design guidelines?', a: 'The DC Historic Preservation Office publishes the Foxhall Village nomination, a brochure, maps and design guidelines. The neighborhood association also invites city staff to explain permit rules at its meetings.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Foxhall DC Homes for Sale?',
+    text: 'Tell Brandon whether you want a Tudor rowhouse in the village or a detached house nearby. He will read the district guidelines with you and flag what could affect your plans.',
+    button: 'Search Foxhall Homes',
+  },
+};
+
+export const clevelandPark: NeighborhoodGuide = {
+  slug: 'cleveland-park',
+  name: 'Cleveland Park',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Cleveland Park DC Homes for Sale | Cleveland Park DC Guide',
+  description: 'Cleveland Park DC guide: Victorian houses, a historic Connecticut Avenue strip and a Red Line stop. Browse Cleveland Park DC real estate and homes for sale.',
+  ogTitle: 'Cleveland Park, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Historic houses, a Connecticut Avenue main street and a Red Line station, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Cleveland Park, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Cleveland Park is a Washington, DC neighborhood of Victorian and Tudor houses on shaded streets, with a historic shopping strip and a Red Line station on Connecticut Avenue. This guide covers Cleveland Park, DC in practical terms. If you are comparing Cleveland Park DC homes for sale, the sections below explain the historic district, the avenue and the area to the north that shares the name.',
+    image: dcPhoto,
+    imageAlt: 'Washington, DC, home to the Cleveland Park neighborhood',
+    listingsLabel: 'See Cleveland Park Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 3, ANC 3C)' },
+    { label: 'ZIP code', value: '20008' },
+    { label: 'Main streets', value: 'Connecticut Avenue NW and Wisconsin Avenue NW' },
+    { label: 'Metro', value: 'Cleveland Park station (Red Line), on Connecticut Avenue between Ordway and Porter Streets' },
+    { label: 'Landmarks', value: 'Uptown Theater, the Park and Shop, the 1916 firehouse, Rosedale and Tregaron. The National Zoo and Rock Creek Park are close' },
+    { label: 'Typical homes', value: 'Detached houses in Queen Anne, bungalow, Italianate and Tudor styles, plus apartment buildings along Connecticut Avenue' },
+    { label: 'Rules', value: 'The Cleveland Park Historic District, where visible exterior work is reviewed by DC’s Historic Preservation Office' },
+    { label: 'Edges', value: 'The historic district is roughly bounded by Tilden Street, Connecticut Avenue, Klingle Road and Wisconsin Avenue' },
+    UPDATED,
+  ],
+  about: {
+    title: 'A Streetcar Suburb Named for a President',
+    paragraphs: [
+      'Cleveland Park, DC takes its name from President Grover Cleveland, who bought a country house here in 1886. The Connecticut Avenue streetcar, more than the Wisconsin Avenue line, opened the area to development, and builders filled the hillsides with houses over the next few decades.',
+      'The historic district was designated in 1987, with a period of significance from 1880 to 1941. The Cleveland Park Historical Society, founded in 1985, and ANC 3C applied for it together. Rosedale, one of the oldest surviving houses in Washington, still stands inside the neighborhood.',
+    ],
+  },
+  listings: { title: 'Browse Cleveland Park DC Homes for Sale', text: VIP, state: 'DC', zips: ['20008'], viewAllHref: '/properties' },
+  market: {
+    title: 'Cleveland Park Real Estate Market',
+    paragraphs: [
+      'Cleveland Park DC real estate covers two different purchases, a detached house on a side street and an apartment on Connecticut Avenue.',
+      'For a custom comparison on a specific home, request a Cleveland Park price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'A Main Street Built Along the Streetcar',
+      paragraphs: [
+        'The shopping strip grew beside the streetcar line. The 1916 firehouse at 3522 Connecticut Avenue was its first commercial building, and the Park and Shop at 3529, built in 1930, is recognized as a milestone in shopping center design, with parking and a gas station planned in from the start.',
+        'The Uptown Theater opened in 1936. DC designated it a historic landmark on May 26, 2022, and it joined the National Register that December. In 2023, the Cleveland Park Historical Society published design guidelines for the commercial district, which matter if you plan to live above or next to a shop.',
+      ],
+    },
+    {
+      title: 'Living in the Historic District',
+      paragraphs: [
+        'The rules here are about how a block looks from the street. Before you plan a new porch, a rear addition or window replacements, ask the Historic Preservation Office whether the work is reviewed.',
+        'The district has an edge worth knowing. Local reporting notes that the Connecticut Avenue strip is in the district while the west side of Wisconsin Avenue is not, so two nearby commercial streets can follow different rules.',
+      ],
+    },
+    {
+      title: 'North Cleveland Park',
+      paragraphs: [
+        'The area to the north, listed as North Cleveland Park, shares the trees and quiet streets, and Brandon covers it in the same search. In the 1980s, the city set aside 47 acres in North Cleveland Park for embassies, so some blocks have diplomatic neighbors.',
+      ],
+    },
+    {
+      title: 'Getting Around Cleveland Park',
+      paragraphs: [
+        'Cleveland Park has its own Red Line station, which puts Dupont Circle and downtown on one train. Woodley Park and the National Zoo sit just south on Connecticut Avenue, and Wisconsin Avenue has frequent bus service.',
+      ],
+    },
+    {
+      title: 'Living in Cleveland Park',
+      paragraphs: [
+        'Connecticut Avenue holds restaurants, shops and the Uptown, and the Rosedale and Tregaron conservancies protect open land and old houses nearby. The neighborhood sits beside the National Cathedral, the National Zoo, Glover-Archbold Park and Rock Creek Park.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Cleveland Park Experience',
+    paragraphs: ['If you want a Cleveland Park real estate agent who knows which exterior projects need city review before you write an offer, Brandon Wilson can walk you through the district rules and compare the neighborhood with nearby areas.'],
+  },
+  nearby: [
+    { name: 'Woodley Park', text: 'To the south' },
+    { name: 'Chevy Chase DC', text: 'To the north up Connecticut Avenue' },
+  ],
+  faqTitle: 'Cleveland Park FAQ',
+  faqs: [
+    { q: 'Are there condos or co-ops in Cleveland Park?', a: 'Yes, in apartment buildings along Connecticut Avenue, including 1920s buildings such as the Broadmoor and Sedgwick Gardens. Ask whether a unit is a condo or a co-op, since approval and financing rules differ.' },
+    { q: 'Is the whole neighborhood inside the historic district?', a: 'No. Listings use the Cleveland Park name for blocks outside the district boundary. Ask the Historic Preservation Office whether the address sits inside it.' },
+    { q: 'How is Cleveland Park different from Woodley Park?', a: 'They are Red Line neighbors on Connecticut Avenue. Cleveland Park’s historic district runs west from the avenue to Wisconsin Avenue, while Woodley Park sits to the south toward the National Zoo and has its own station. Compare both before you decide.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Cleveland Park DC Homes for Sale?',
+    text: 'Tell Brandon whether you want a house inside the historic district or an apartment on Connecticut Avenue near the Metro. He will check what the district rules mean for your plans before you tour.',
+    button: 'Search Cleveland Park Homes',
+  },
+};
+
+export const kalorama: NeighborhoodGuide = {
+  slug: 'kalorama',
+  name: 'Kalorama',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Kalorama DC Homes for Sale | Kalorama DC Guide',
+  description: 'Kalorama DC guide: row houses, pre-war apartments and large homes near Embassy Row. Browse Kalorama DC real estate and homes for sale with Brandon.',
+  ogTitle: 'Kalorama, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Row houses, historic apartments and large homes near Embassy Row, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Kalorama, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Kalorama is a Washington, DC neighborhood made of two parts, Kalorama Triangle and Sheridan-Kalorama, with housing that runs from row houses and pre-war apartments to large detached houses near Embassy Row. This guide covers Kalorama, DC in practical terms. If you are comparing Kalorama DC homes for sale, the sections below explain the rules and choices that shape the buying process here.',
+    image: dcPhoto,
+    imageAlt: 'Washington, DC, home to Kalorama and Embassy Row',
+    listingsLabel: 'See Kalorama Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Wards 1 and 2)' },
+    { label: 'Advisory Neighborhood Commissions', value: 'ANC 1C covers Kalorama Triangle and ANC 2D covers Sheridan-Kalorama' },
+    { label: 'ZIP codes', value: '20008 and 20009' },
+    { label: 'Main streets', value: 'Connecticut Avenue NW, Massachusetts Avenue NW, Columbia Road NW and Florida Avenue NW' },
+    { label: 'Metro', value: 'No station inside the neighborhood. Dupont Circle and Woodley Park-Zoo/Adams Morgan (both Red Line) are the closest' },
+    { label: 'Landmarks', value: 'Spanish Steps, Sheridan Circle, Mitchell Park, Woodrow Wilson House' },
+    { label: 'Typical homes', value: 'Apartment buildings with condos and co-ops, row houses and large detached houses' },
+    { label: 'Rules', value: 'Exterior work in both historic districts goes through DC’s Historic Preservation Office' },
+    { label: 'Edges', value: 'Kalorama Triangle sits roughly between Connecticut Avenue, Columbia Road and Calvert Street. Sheridan-Kalorama is roughly bounded by Rock Creek Park, P Street, 22nd Street, Florida Avenue and Connecticut Avenue' },
+    UPDATED,
+  ],
+  about: {
+    title: 'A Country Estate Named for a Fine View',
+    paragraphs: [
+      'The name Kalorama means fine view in Greek. The poet Joel Barlow gave it to his country estate in the early 1800s, and the main house stood where Mitchell Park is today. The Union Army used it as a smallpox hospital during the Civil War, and a fire destroyed it in 1865.',
+      'Kalorama, DC grew in two stages after that. Streetcar lines on Connecticut Avenue and Columbia Road pulled development north, and the Triangle filled first with rows of houses and apartment buildings for middle-class buyers. Sheridan-Kalorama followed with larger houses and mansions along Massachusetts Avenue.',
+      'Starting in the Great Depression, many of those mansions were sold to foreign governments. By 1993, more than a quarter of Sheridan-Kalorama’s buildings were foreign-owned. Both areas are now historic districts on the National Register of Historic Places, the Triangle listed in 1987 and Sheridan-Kalorama in 1989.',
+    ],
+  },
+  listings: { title: 'Browse Kalorama DC Homes for Sale', text: VIP, state: 'DC', zips: ['20008', '20009'], viewAllHref: '/properties' },
+  market: {
+    title: 'Kalorama Real Estate Market',
+    paragraphs: [
+      'Kalorama DC real estate depends on the building and the block more than on the neighborhood name. A one-bedroom in an older apartment building and a detached house near Sheridan Circle can sit a few blocks apart and sell in very different price ranges.',
+      'For a custom comparison on a specific building, request a Kalorama price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Kalorama Triangle or Sheridan-Kalorama: Which Fits?',
+      paragraphs: [
+        'Many buyers search for Kalorama without knowing it holds two separate neighborhoods. Connecticut Avenue divides them, and the differences shape what you can buy.',
+      ],
+      table: {
+        headers: ['', 'Kalorama Triangle', 'Sheridan-Kalorama'],
+        rows: [
+          ['Location', 'East of Connecticut Avenue, toward Columbia Road and Adams Morgan', 'West and south of Connecticut Avenue, along Rock Creek Park'],
+          ['Typical homes', 'Row houses and apartment buildings', 'Apartment buildings, large detached houses, larger row houses and embassies'],
+          ['Built for', 'Mostly middle-class buyers', 'Mostly wealthier residents'],
+          ['Historic district', 'Kalorama Triangle Historic District (1987)', 'Sheridan-Kalorama Historic District (1989)'],
+          ['ANC', 'ANC 1C', 'ANC 2D'],
+        ],
+      },
+      points: [
+        { title: 'Kalorama Triangle', text: 'The Triangle is roughly bounded by Connecticut Avenue, Columbia Road and Calvert Street. Its blocks hold narrower row houses and apartment buildings, and Adams Morgan’s restaurant strip is a short walk away, depending on the block.' },
+        { title: 'Sheridan-Kalorama', text: 'This part is larger in scale, with mansions along Massachusetts Avenue, apartment buildings near Connecticut Avenue and dozens of embassies and ambassadors’ residences.' },
+      ],
+    },
+    {
+      title: 'Kalorama DC Condos for Sale in Older Apartment Buildings',
+      paragraphs: [
+        'By World War I, most Sheridan-Kalorama residents lived in apartment buildings, and the neighborhood had about 30 of them by 1940. Several still stand, including The Dresden on Connecticut Avenue and The Westmoreland on California Street.',
+        'Units in these buildings may be condos or co-ops, and the approval process and financing differ between the two. Older buildings also carry older systems, so the FAQ below lists what to ask before you make an offer.',
+      ],
+    },
+    {
+      title: 'Buying in Kalorama’s Historic Districts',
+      paragraphs: [
+        'Kalorama is protected in layers. The Kalorama Triangle district covers 352 contributing buildings, and the Sheridan-Kalorama district covers more than 600, including four National Historic Landmarks. Massachusetts Avenue has its own district on top of that, overlapping part of Sheridan-Kalorama.',
+        'Before DC issues a permit for visible exterior work, such as new windows, an addition or a demolition, the Historic Preservation Office reviews the plans. Larger projects go to the Historic Preservation Review Board for a vote.',
+        'Neighbors can comment too. ANC 1C and ANC 2D both send written views to the Board, and those views carry weight, so a controversial project can take longer to clear.',
+        'In an apartment building, the association’s rules and the city’s review are separate steps, and you need both for work that shows from the street. Ask the Historic Preservation Office which district or districts cover the address you like.',
+      ],
+    },
+    {
+      title: 'Getting Around Kalorama',
+      paragraphs: [
+        'Kalorama has no Metro station of its own. The closest are Dupont Circle and Woodley Park-Zoo/Adams Morgan on the Red Line, and the walk depends on your block. Riders heading for the Blue, Orange or Silver lines transfer at Metro Center.',
+        'Connecticut Avenue carries Metrobus service and crosses Rock Creek Park on the Taft Bridge toward Woodley Park. Ask whether a unit includes a parking space, and look up the block’s permit zone if you would rely on street parking.',
+      ],
+    },
+    {
+      title: 'Living in Kalorama',
+      paragraphs: [
+        'Sheridan Circle holds the equestrian statue of General Philip Sheridan, and Mitchell Park, the neighborhood’s largest park, sits on its highest ground. The Spanish Steps stand at 22nd Street and Decatur Place.',
+        'The Woodrow Wilson House is one of four National Historic Landmarks in Sheridan-Kalorama. The Islamic Center of Washington stands on Massachusetts Avenue, along the stretch known as Embassy Row.',
+        'Dozens of embassies and ambassadors’ residences share the streets with homes, so visit a block on a weekday and on a weekend before you decide. Adams Morgan and Dupont Circle are both close for dining and shops.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Kalorama Experience',
+    paragraphs: ['If you want a Kalorama real estate agent who can explain historic-district rules and condo or co-op paperwork before you tour, Brandon Wilson can help you compare the Triangle and Sheridan-Kalorama on the same budget.'],
+  },
+  nearby: [
+    { name: 'Dupont Circle', text: 'To the south and east' },
+    { name: 'Adams Morgan', text: 'To the northeast' },
+    { name: 'Georgetown', text: 'To the southwest across Rock Creek Park' },
+    { name: 'Woodley Park', text: 'To the north across the Taft Bridge' },
+  ],
+  faqTitle: 'Kalorama FAQ',
+  faqs: [
+    { q: 'Why do some listings say Kalorama Heights?', a: 'Some sources apply Kalorama Heights to both neighborhoods, and others use it for Sheridan-Kalorama alone. Search both names, because listing sites and MLS area labels do not always match.' },
+    { q: 'Do embassies affect daily life in Kalorama?', a: 'Embassies and ambassadors’ residences occupy many buildings, especially near Massachusetts Avenue and Sheridan Circle. Visit the block at different times of day to see how traffic and street activity feel.' },
+    { q: 'Are condos in the older apartment buildings harder to finance?', a: 'Some buildings are co-ops, and co-op loans follow narrower lender rules than standard condo mortgages. For a VA loan, the condo project must meet VA requirements, so Brandon checks building status before you tour.' },
+    { q: 'What should I ask before buying in a pre-war building?', a: 'Ask how the building pays for major repairs and when the elevator, boiler and roof were last replaced. Request the last two years of budgets and any engineering report, since older systems can mean larger bills.' },
+    { q: 'What is the Massachusetts Avenue Historic District?', a: 'It covers the avenue’s mansions and embassies and overlaps part of Sheridan-Kalorama, so one property can sit inside two districts. Ask the Historic Preservation Office which guidelines apply before you plan any exterior work.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Kalorama DC Homes for Sale?',
+    text: 'Tell Brandon whether you lean toward the Triangle or Sheridan-Kalorama, and what you need from a home. He will start with the building, district and permit questions that apply to your pick.',
+    button: 'Search Kalorama Homes',
+  },
+};
+
+export const chevyChaseDc: NeighborhoodGuide = {
+  slug: 'chevy-chase-dc',
+  name: 'Chevy Chase DC',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Chevy Chase DC Homes for Sale | Chevy Chase DC Guide',
+  description: 'Chevy Chase DC guide: houses, Connecticut Avenue and the Maryland line explained. Browse Chevy Chase DC real estate and homes for sale with Brandon.',
+  ogTitle: 'Chevy Chase, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Houses on tree-lined streets and apartments on Connecticut Avenue, with a licensed DC and Maryland Realtor.',
+  hero: {
+    h1: 'Chevy Chase, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Chevy Chase, DC is a Washington neighborhood on the Maryland line, built around Connecticut Avenue and Chevy Chase Circle, with detached houses on tree-lined side streets and apartments along the avenue. This guide covers Chevy Chase, DC in practical terms. If you are comparing Chevy Chase DC homes for sale, the sections below explain the line with Maryland, the plans for Connecticut Avenue and the rules that shape buying here.',
+    image: `${ASSETS}/2026/07/chevy-chase-dc-1-AUTOx1150.fit.png`,
+    imageAlt: 'Chevy Chase, Washington, DC, near the Maryland line',
+    listingsLabel: 'See Chevy Chase Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 3, ANC 3/4G)' },
+    { label: 'ZIP code', value: '20015' },
+    { label: 'Main streets', value: 'Connecticut Avenue NW, Nebraska Avenue NW, Military Road NW, Reno Road NW and Western Avenue NW' },
+    { label: 'Metro', value: 'No station inside the neighborhood. Friendship Heights (Red Line) is the closest, and Metrobus routes run along Connecticut Avenue' },
+    { label: 'Landmarks', value: 'Chevy Chase Circle and the Newlands Memorial Fountain, Chevy Chase Neighborhood Library, Avalon Theatre, Chevy Chase Arcade' },
+    { label: 'Typical homes', value: 'Detached houses of many styles on side streets, plus apartment buildings along Connecticut Avenue' },
+    { label: 'Rules', value: 'Standard DC permit and zoning rules. The neighborhood is not a historic district today' },
+    { label: 'Edges', value: 'Rock Creek Park to the east, Western Avenue and Tennyson Street to the north and Reno Road to the west. The southern edge is debated, and many residents place it at Broad Branch Road' },
+    UPDATED,
+  ],
+  about: {
+    title: 'A Land Company, a Streetcar and an Avenue',
+    paragraphs: [
+      'Chevy Chase, DC began with the Chevy Chase Land Company, founded in 1890 by Francis Newlands and partners who bought several thousand acres along what would become Connecticut Avenue. The company extended the avenue north from Calvert Street, ran a streetcar line along it and took the name Chevy Chase from the Belt family estate it absorbed.',
+      'The company set minimum house prices of $5,000 on Connecticut Avenue and $3,000 on a side street, which limited who could buy. It later attached racial covenants to its houses, and local groups and city planners now address that history in their work.',
+      'Builders filled the neighborhood over about six decades. A 2023 historic district application counted roughly 150 architects, and the housing includes mail-order kit houses.',
+    ],
+  },
+  listings: { title: 'Browse Chevy Chase DC Homes for Sale', text: VIP, state: 'DC', zips: ['20015'], viewAllHref: '/properties' },
+  market: {
+    title: 'Chevy Chase Real Estate Market',
+    paragraphs: [
+      'Chevy Chase DC real estate splits into two markets. Detached houses on the side streets and apartments along Connecticut Avenue draw different buyers and carry different monthly costs.',
+      'For a custom comparison on a specific street, request a Chevy Chase price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Chevy Chase, DC or Chevy Chase, MD?',
+      paragraphs: [
+        'Two places share the name, and Western Avenue divides them. Chevy Chase, DC sits on the District side, and Chevy Chase, Maryland is a separate group of communities in Montgomery County.',
+        'The line matters when you buy. Taxes, permit rules and public schools follow the jurisdiction, so two houses a few blocks apart can sit under different governments. Brandon is licensed in DC, Virginia and Maryland, so he can compare homes on both sides of Western Avenue on the same budget.',
+        'Listings may say Chevy Chase DC, Chevy Chase MD or just Chevy Chase, so check the address and the jurisdiction on every result.',
+      ],
+    },
+    {
+      title: 'Houses on Side Streets, Apartments on the Avenue',
+      paragraphs: [],
+      points: [
+        { title: 'Houses', text: 'The side streets hold detached houses from many eras, from kit houses to newer builds. With so many architects at work, one block can mix very different styles, so judge each house on its own condition and lot.' },
+        { title: 'Apartments', text: 'Apartment buildings line Connecticut Avenue, and some units may be condos or co-ops. Ask which one a unit is before you tour, since approval rules and financing differ between the two.' },
+      ],
+    },
+    {
+      title: 'Not a Historic District, at Least for Now',
+      paragraphs: [
+        'In late 2023, a group called the Chevy Chase DC Conservancy applied to turn a large part of the neighborhood into a historic district. On April 8, 2024, DC’s Historic Preservation Office said it was not prepared to recommend the proposal to the Review Board, citing a lack of community consensus and concerns about the boundaries.',
+        'The office said it would study historic resources across the District before judging future proposals. Individual landmarks still exist, such as the Chevy Chase Savings Bank at 5530 Connecticut Avenue, which the Review Board designated in January 2023.',
+        'For a buyer, standard DC permit rules apply to most houses today. Check the address on the Historic Preservation Office map and ask whether any new proposal is pending, because the status could change.',
+      ],
+    },
+    {
+      title: 'Connecticut Avenue Is Changing',
+      paragraphs: [
+        'DC’s Council approved the Chevy Chase Small Area Plan on July 12, 2022. The plan covers Connecticut Avenue between Military Road and Western Avenue and calls for more housing, including affordable housing, and more retail along the avenue.',
+        'The Zoning Commission followed on January 30, 2025, approving new mixed-use zones that allow more height and density at the civic core and on several commercial blocks on either side of the avenue. The civic core holds the Chevy Chase library and community center, and the city has sought redevelopment proposals with housing planned above them.',
+        'If a house backs onto the avenue or sits within a block or two of it, look at the zoning map and the redevelopment plans before you buy.',
+      ],
+    },
+    {
+      title: 'Getting Around Chevy Chase',
+      paragraphs: [
+        'Chevy Chase DC has no Metro station of its own. Friendship Heights on the Red Line is the closest, and Metrobus routes run along Connecticut Avenue.',
+        'Connecticut Avenue leads south to Dupont Circle and downtown, and Military Road connects east and west. Rock Creek Park lines the eastern edge, with trails close to the neighborhood.',
+      ],
+    },
+    {
+      title: 'Living in Chevy Chase',
+      paragraphs: [
+        'Chevy Chase Circle, at the Maryland line, holds the Newlands Memorial Fountain. The Chevy Chase Neighborhood Library and a community center sit along Connecticut Avenue, and both are part of the redevelopment plans.',
+        'The Avalon Theatre began as the Chevy Chase Theater and is one of the avenue’s early landmarks. The Chevy Chase Arcade is listed on the National Register of Historic Places, and a Main Street group works to support the shops and restaurants along the corridor.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Chevy Chase Experience',
+    paragraphs: ['If you want a Chevy Chase real estate agent who can compare both sides of Western Avenue and read the Connecticut Avenue plans for you, Brandon Wilson works in DC and Maryland and can walk you through both.'],
+  },
+  nearby: [
+    { name: 'Cleveland Park', text: 'To the south down Connecticut Avenue' },
+    { name: 'Kenwood', text: 'Across the Maryland line in Bethesda' },
+  ],
+  faqTitle: 'Chevy Chase DC FAQ',
+  faqs: [
+    { q: 'Does the Connecticut Avenue rezoning reach the side streets?', a: 'The approved zones cover the civic core and several commercial blocks on either side of the avenue, not the whole neighborhood. Look up the zone for the exact address on the DC zoning map, and ask about plans for any nearby site.' },
+    { q: 'Which schools serve Chevy Chase DC?', a: 'Local sources name Lafayette Elementary. Zoned schools at each level depend on the address and boundaries change, so confirm all three with the DCPS boundary tool before you make an offer.' },
+    { q: 'Is Chevy Chase DC in Ward 3 or Ward 4?', a: 'The neighborhood is mostly in Ward 3, but ANC 3/4G is the only ANC in DC that spans two wards, so a few addresses fall in Ward 4. Confirm the ward and commission district for the address, since they decide your councilmember and your commissioner.' },
+    { q: 'Do I pay DC or Maryland taxes if I live in Chevy Chase DC?', a: 'Property taxes follow the side of Western Avenue where the home sits, so a Chevy Chase DC address is taxed by the District. Income tax depends on where you live and work, so ask a tax professional how your own situation works.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Chevy Chase DC Homes for Sale?',
+    text: 'Tell Brandon whether you want a house on a side street or an apartment on Connecticut Avenue, and which side of Western Avenue you will consider. He will pull the zoning and permit facts for each address before you tour.',
+    button: 'Search Chevy Chase Homes',
+  },
+};
+
+export const palisades: NeighborhoodGuide = {
+  slug: 'palisades',
+  name: 'Palisades',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Palisades DC Homes for Sale | Palisades DC Guide',
+  description: 'Palisades DC guide: bungalows, colonials and townhouses along the Potomac. Browse Palisades DC real estate and homes for sale with Brandon Wilson.',
+  ogTitle: 'Palisades, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Bungalows, colonials and townhouses along the Potomac, near the C&O Canal, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Palisades, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Palisades is a Washington, DC neighborhood that runs in a long, narrow strip along the Potomac River, with mostly single-family homes, from 1920s bungalows to newer builds, plus a few townhouses and condos. This guide covers Palisades, DC in practical terms. If you are comparing Palisades DC homes for sale, the sections below explain what the housing, the rules and the commute look like here.',
+    image: dcPhoto,
+    imageAlt: 'Washington, DC, home to the Palisades neighborhood along the Potomac',
+    listingsLabel: 'See Palisades Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 3, ANC 3D)' },
+    { label: 'ZIP codes', value: '20007 and 20016' },
+    { label: 'Main streets', value: 'MacArthur Boulevard NW (once called Conduit Road), Chain Bridge Road NW, Arizona Avenue NW and Loughboro Road NW' },
+    { label: 'Metro', value: 'No station in the neighborhood. Buses, driving and the Capital Crescent Trail fill the gap' },
+    { label: 'Landmarks', value: 'Fletcher’s Cove, Battery Kemble Park, Palisades Firehouse, Capital Crescent Trail, the former MacArthur Theater' },
+    { label: 'Typical homes', value: 'Detached houses from 1920s bungalows to newer builds, plus some townhouses and a few condos and apartments' },
+    { label: 'Rules', value: 'DC building permits, zoning and tree-protection rules apply. Check the address on the DC Historic Preservation Office map, since a few individual landmarks and nearby Foxhall Village have their own status' },
+    { label: 'Edges', value: 'From Foxhall Road near Georgetown University to the DC-Maryland line near Sibley Hospital, hugging MacArthur Boulevard and the river. The Potomac Heights area sits between MacArthur, Loughboro Road, Arizona Avenue and the Potomac' },
+    UPDATED,
+  ],
+  about: {
+    title: 'A Streetcar Suburb on the Potomac',
+    paragraphs: [
+      'Palisades, DC began as a planned suburb. The Palisades Improvement Company laid out the subdivision in 1893, and streetcar service reached it two years later on a line that ran from Georgetown to Glen Echo. In 1909, the Potomac Heights Land Company offered 800 lots at $450 to $500 each, with a rule that no house could cost less than $2,500.',
+      'The old routes still shape the area. The Glen Echo trolley stopped running in 1968, and after the B&O Georgetown Branch rail line closed in 1985, its path became part of the Capital Crescent Trail.',
+      'Residents organized early. The Palisades Community Association began in 1916 as the Conduit Road Citizens Association, and the Palisades Playground was dedicated in 1936. A July 4 parade with local bands, fire engines and decorated bicycles is still a high point of the year.',
+    ],
+  },
+  listings: { title: 'Browse Palisades DC Homes for Sale', text: VIP, state: 'DC', zips: ['20016', '20007'], viewAllHref: '/properties' },
+  market: {
+    title: 'Palisades Real Estate Market',
+    paragraphs: [
+      'Palisades DC real estate is mostly single-family, so the number of listings at any one time is usually small and condos are rare. When a house does list, the lot, the level of renovation and the street matter as much as the neighborhood name.',
+      'For a custom comparison on a specific street, request a Palisades price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Houses, Townhouses and the Few Condos',
+      paragraphs: ['Palisades is one of the lesser-known DC neighborhoods, and its housing is easy to sort into two groups.'],
+      table: {
+        headers: ['', 'Houses', 'Townhouses, condos and apartments'],
+        rows: [
+          ['What you find', '1920s bungalows, colonials and modern homes, often on generous lots', 'A small number, many of them along or near MacArthur Boulevard'],
+          ['Why it matters', 'Lot size and trees decide what you can add or change', 'Fees, reserves and building rules decide the monthly cost'],
+          ['Ask about', 'Permits for past work, drainage, trees, off-street parking', 'Condo fee, reserve study, rental rules, parking'],
+        ],
+      },
+      points: [
+        { title: 'Houses', text: 'Over the years, some older houses have been replaced with larger new ones, so a single street can mix very different sizes. Homes on the bluff above the river can have broad views, and an inspector should check drainage and retaining walls on any sloped lot.' },
+        { title: 'Palisades DC condos for sale', text: 'Condos are few and far between here, so they are worth watching when they list. If you plan to use a VA loan, Brandon checks whether the building is VA-approved before you tour, since an unapproved building can delay or end a deal.' },
+      ],
+    },
+    {
+      title: 'Trees, Lots and Renovation Rules',
+      paragraphs: [
+        'Many Palisades lots hold mature trees, and DC protects the biggest ones, even on private property. Removing a tree with a circumference of 44 inches or more needs a Special Tree Removal Permit from DDOT’s Urban Forestry Division, and a healthy tree of 100 inches or more generally cannot be removed. The permit can carry a fee based on the tree’s size.',
+        'This matters if you want an addition, a new driveway or a teardown. A protected tree can change where you build, and the plans may need to be redrawn around it.',
+        'DC building permits and zoning limits on lot coverage and height also apply to additions and new construction. ANC 3D can weigh in when a project needs zoning relief, so ask before you buy whether a house has the room for the project you have in mind.',
+      ],
+    },
+    {
+      title: 'Getting Around Palisades',
+      paragraphs: [
+        'Palisades has no Metro station. Metrobus serves MacArthur Boulevard with routes toward Georgetown and Dupont Circle, and many residents drive. The nearest Red Line station, Tenleytown-AU, is about 3 miles from the main commercial strip.',
+        'The Capital Crescent Trail, built on the old rail line, gives walkers and bikers a car-free route toward Georgetown. The C&O Canal towpath runs along the river at the neighborhood’s edge.',
+        'MacArthur Boulevard is the main route in and out by car. Check whether a house has a driveway or garage, since street parking varies by block.',
+      ],
+    },
+    {
+      title: 'Living in Palisades',
+      paragraphs: [
+        'The small commercial strip on MacArthur Boulevard has a Safeway, shops and restaurants. The CVS there sits in the former MacArthur Theater, which showed movies from 1946 to 1997. A weekly farmers market also runs along the boulevard.',
+        'Fletcher’s Cove, on the Potomac inside the C&O Canal National Historical Park, has been a fishing and boating spot since the 1850s. The nearby Abner Cloud House, built in 1802, is the oldest building on the canal. Battery Kemble Park, once a Civil War gun position above Chain Bridge, is now a park for walks and picnics.',
+        'The Palisades Neighborhood Library, renovated in 2018, and the Palisades Recreation Center anchor daily life. The Palisades Firehouse at 4811 MacArthur Boulevard, built in 1925, is listed on the National Register of Historic Places.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Palisades Experience',
+    paragraphs: ['If you want a Palisades real estate agent who can explain DC permit and tree rules before you make an offer on a house you plan to expand, Brandon Wilson can help you compare Palisades with nearby neighborhoods on the same budget.'],
+  },
+  nearby: [
+    { name: 'Georgetown', text: 'To the south' },
+    { name: 'Foxhall', text: 'To the southeast' },
+  ],
+  faqTitle: 'Palisades FAQ',
+  faqs: [
+    { q: 'Why do some listings say Palisades-Kent or Foxhall-Palisades?', a: 'Listing sites group neighborhoods in different ways, and some combine Palisades with Kent or Foxhall. Search by street and address as well as by name, since area labels do not always match.' },
+    { q: 'Which schools serve Palisades?', a: 'Local sources list Key and Mann elementary schools and Hardy Middle School for the neighborhood. Since fall 2023, MacArthur High School at 4530 MacArthur Boulevard has been the in-boundary high school for students in the Hardy boundary, which eased crowding at Jackson-Reed. Zoned schools depend on the address, so confirm with the DCPS boundary tool before you make an offer.' },
+    { q: 'Is flood risk a concern near the river?', a: 'It depends on the address. Ask your lender and insurer whether the property sits in a FEMA flood zone, and ask the seller about any water history. A block near the river or canal is not the same as one uphill.' },
+    { q: 'Is there a homeowners association?', a: 'The Palisades Community Association is a civic group that dates to 1916, and ANC 3D is the elected advisory body. Neither is an HOA, so check each property’s documents for an association, and expect one in a condo building.' },
+    { q: 'Can I rent out a Palisades home or condo?', a: 'Condo documents can limit rentals and set minimum lease terms, and DC adds licensing and tenant rules on top. Read the documents and the District’s requirements before you count on rental income.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Palisades DC Homes for Sale?',
+    text: 'House, townhouse or one of the few condos: tell Brandon which you lean toward and he will start with the questions that go with it.',
+    button: 'Search Palisades Homes',
   },
 };
