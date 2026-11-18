@@ -173,6 +173,15 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             </Script>
           </>
         ) : null}
+
+        {/* Google Tag Manager (GTM-PZVQVVKT) */}
+        <Script
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-PZVQVVKT"
+          strategy="afterInteractive"
+        />
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});`}
+        </Script>
       </body>
     </html>
   );
