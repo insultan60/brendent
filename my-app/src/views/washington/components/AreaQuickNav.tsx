@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, MapPin, Search } from 'lucide-react';
 import { areaOptions, quickLinks } from '@/mocks/washingtonData';
+import { routeForName } from '@/mocks/neighborhoodsData';
 
 interface AreaQuickNavProps {
   areas?: string[];
@@ -66,6 +67,9 @@ export default function AreaQuickNav({ areas = areaOptions, defaultLabel = 'Neig
                   onClick={() => {
                     setSelected(area);
                     setOpen(false);
+                    // Areas with their own guide open it.
+                    const href = routeForName(area);
+                    if (href) window.location.href = href;
                   }}
                   className={`block w-full rounded-xl px-4 py-2.5 text-left text-[13px] transition-colors duration-200 ${
                     area === selected

@@ -1,6 +1,7 @@
 import { ArrowUpRight } from 'lucide-react';
 import Reveal from '@/components/base/Reveal';
 import { neighborhoods } from '@/mocks/washingtonData';
+import { routeForName } from '@/mocks/neighborhoodsData';
 import { Eyebrow } from '@/views/home-v2/components/shared';
 
 export default function Neighborhoods() {
@@ -29,7 +30,7 @@ export default function Neighborhoods() {
           {neighborhoods.map((area, index) => (
             <Reveal key={area.name} delay={(index % 4) * 60}>
               <a
-                href={area.href ?? '#featured-listings'}
+                href={area.href ?? routeForName(area.name) ?? '#featured-listings'}
                 aria-label={`Explore ${area.name}`}
                 className="group relative block h-[240px] w-full overflow-hidden rounded-[22px] border border-background-200 bg-foreground-950"
               >
