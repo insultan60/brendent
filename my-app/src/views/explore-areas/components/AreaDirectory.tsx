@@ -112,10 +112,13 @@ export default function AreaDirectory() {
           </aside>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {visible.map((area, index) => (
-              <Reveal key={area.id} delay={index * 60}>
+            {/* Plain wrappers, not <Reveal>: the jump links and filters scroll or
+                re-mount cards, and a card that missed the scroll observer stayed
+                at opacity 0, leaving a blank column. */}
+            {visible.map((area) => (
+              <div key={area.id}>
                 <AreaCard area={area} />
-              </Reveal>
+              </div>
             ))}
           </div>
         </div>
