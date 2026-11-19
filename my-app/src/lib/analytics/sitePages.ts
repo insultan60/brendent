@@ -59,6 +59,7 @@ export const SITE_PAGES: SitePage[] = [
   { path: '/neighborhoods/kalorama', name: 'Kalorama', group: 'Areas' },
   { path: '/neighborhoods/chevy-chase-dc', name: 'Chevy Chase DC', group: 'Areas' },
   { path: '/neighborhoods/palisades', name: 'Palisades', group: 'Areas' },
+  { path: '/neighborhoods/spring-valley', name: 'Spring Valley', group: 'Areas' },
   { path: '/neighborhoods/forest-hills', name: 'Forest Hills', group: 'Areas' },
   { path: '/neighborhoods/friendship-heights-dc', name: 'Friendship Heights', group: 'Areas' },
   { path: '/neighborhoods/west-end-foggy-bottom', name: 'West End and Foggy Bottom', group: 'Areas' },

@@ -44,6 +44,7 @@ const PAGES = [
   '/neighborhoods/kalorama',
   '/neighborhoods/chevy-chase-dc',
   '/neighborhoods/palisades',
+  '/neighborhoods/spring-valley',
   '/neighborhoods/forest-hills',
   '/neighborhoods/friendship-heights-dc',
   '/neighborhoods/west-end-foggy-bottom',

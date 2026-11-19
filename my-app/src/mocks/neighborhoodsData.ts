@@ -3,7 +3,7 @@
 // keyword-mapped page briefs; describe homes, transit and places, never the
 // people who live there (fair housing).
 
-import { ballston, clarendon, downtownBethesda, downtownSilverSpring, edgemoor, kenwood, potomacYard, rosemont, rosslyn, shirlington, woodleyPark, mountPleasant, foxhall, clevelandPark, kalorama, chevyChaseDc, palisades, forestHills, friendshipHeightsDc, westEndFoggyBottom } from './neighborhoodGuidesVaMd';
+import { ballston, clarendon, downtownBethesda, downtownSilverSpring, edgemoor, kenwood, potomacYard, rosemont, rosslyn, shirlington, woodleyPark, mountPleasant, foxhall, clevelandPark, kalorama, chevyChaseDc, palisades, forestHills, friendshipHeightsDc, westEndFoggyBottom, springValley } from './neighborhoodGuidesVaMd';
 
 const ASSETS = 'https://assets.agentfire3.com/uploads/sites/2739';
 /** Neighborhood photo from the old site's DC area guide, at card size. */
@@ -34,6 +34,7 @@ export const guideRoutes: Record<string, string> = {
   'kalorama': '/neighborhoods/kalorama',
   'chevy-chase-dc': '/neighborhoods/chevy-chase-dc',
   'palisades': '/neighborhoods/palisades',
+  'spring-valley': '/neighborhoods/spring-valley',
   'forest-hills': '/neighborhoods/forest-hills',
   'van-ness': '/neighborhoods/forest-hills',
   'friendship-heights': '/neighborhoods/friendship-heights-dc',
@@ -1729,4 +1730,4 @@ export const columbiaHeights: NeighborhoodGuide = {
   },
 };
 
-export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle, adamsMorgan, nationalLanding, loganCircle, navyYard, delRay, shawUStreet, columbiaHeights, clarendon, potomacYard, rosslyn, ballston, downtownBethesda, downtownSilverSpring, rosemont, kenwood, edgemoor, woodleyPark, shirlington, mountPleasant, foxhall, clevelandPark, kalorama, chevyChaseDc, palisades, forestHills, friendshipHeightsDc, westEndFoggyBottom];
+export const neighborhoodGuides: NeighborhoodGuide[] = [capitolHill, georgetown, oldTownAlexandria, dupontCircle, adamsMorgan, nationalLanding, loganCircle, navyYard, delRay, shawUStreet, columbiaHeights, clarendon, potomacYard, rosslyn, ballston, downtownBethesda, downtownSilverSpring, rosemont, kenwood, edgemoor, woodleyPark, shirlington, mountPleasant, foxhall, clevelandPark, kalorama, chevyChaseDc, palisades, forestHills, friendshipHeightsDc, westEndFoggyBottom, springValley];

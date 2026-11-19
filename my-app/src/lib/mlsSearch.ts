@@ -68,6 +68,7 @@ const NEIGHBORHOOD_ZIPS: Record<string, string[]> = {
   'kalorama': ['20008', '20009'],
   'chevy chase dc': ['20015'],
   'palisades': ['20016', '20007'],
+  'spring valley': ['20016'],
   'forest hills': ['20008'],
   'friendship heights': ['20015', '20016'],
   'foggy bottom': ['20037'],

@@ -62,6 +62,7 @@ export const navLinks: NavLink[] = [
       { label: 'Kalorama', href: '/neighborhoods/kalorama' },
       { label: 'Chevy Chase DC', href: '/neighborhoods/chevy-chase-dc' },
       { label: 'Palisades', href: '/neighborhoods/palisades' },
+      { label: 'Spring Valley', href: '/neighborhoods/spring-valley' },
       { label: 'Forest Hills', href: '/neighborhoods/forest-hills' },
       { label: 'Friendship Heights', href: '/neighborhoods/friendship-heights-dc' },
       { label: 'West End and Foggy Bottom', href: '/neighborhoods/west-end-foggy-bottom' },

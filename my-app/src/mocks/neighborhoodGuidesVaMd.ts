@@ -2068,6 +2068,7 @@ export const palisades: NeighborhoodGuide = {
   nearby: [
     { name: 'Georgetown', text: 'To the south' },
     { name: 'Foxhall', text: 'To the southeast' },
+    { name: 'Spring Valley', text: 'To the northeast' },
   ],
   faqTitle: 'Palisades FAQ',
   faqs: [
@@ -2356,5 +2357,116 @@ export const westEndFoggyBottom: NeighborhoodGuide = {
     title: 'Ready to Look at Foggy Bottom DC Real Estate?',
     text: 'Tell Brandon whether you want a condo, a co-op or a rowhouse, and how important a short walk to the Metro is. He will check each building’s structure and rules before you tour.',
     button: 'Search Foggy Bottom Homes',
+  },
+};
+
+export const springValley: NeighborhoodGuide = {
+  slug: 'spring-valley',
+  name: 'Spring Valley',
+  city: 'Washington, DC',
+  cityHref: '/washington',
+  title: 'Spring Valley DC Homes for Sale | Spring Valley DC Guide',
+  description: 'Spring Valley DC guide: houses on curving streets beside American University. Browse Spring Valley DC real estate and homes for sale with Brandon.',
+  ogTitle: 'Spring Valley, DC: Neighborhood Guide and Homes for Sale',
+  ogDescription: 'Custom houses on curving streets near American University, with a licensed DC Realtor.',
+  hero: {
+    h1: 'Spring Valley, DC: Neighborhood Guide and Homes for Sale',
+    text: 'Spring Valley is a Washington, DC neighborhood of custom-built houses on curving streets, set beside American University in northwest DC. This guide covers Spring Valley, DC in practical terms. If you are comparing Spring Valley DC homes for sale, the sections below explain the neighborhood’s history, its World War I cleanup record and what daily life looks like here.',
+    image: dcPhoto,
+    imageAlt: 'Washington, DC, home to the Spring Valley neighborhood beside American University',
+    listingsLabel: 'See Spring Valley Listings',
+  },
+  facts: [
+    { label: 'City', value: 'Washington, DC (Ward 3, ANC 3D)' },
+    { label: 'ZIP code', value: '20016' },
+    { label: 'Main streets', value: 'Massachusetts Avenue NW, Nebraska Avenue NW, Loughboro Road NW and Dalecarlia Parkway NW' },
+    { label: 'Metro', value: 'No station in the neighborhood. Metrobus stops line Massachusetts Avenue' },
+    { label: 'Landmarks', value: 'American University’s main campus (4400 Massachusetts Avenue), Wesley Theological Seminary (4500 Massachusetts Avenue), Westmoreland Circle' },
+    { label: 'Typical homes', value: 'Custom-built detached houses, some townhouses and a few embassy-owned properties' },
+    { label: 'Records worth reading', value: 'The Army Corps of Engineers’ Spring Valley cleanup files (see the section below)' },
+    { label: 'Edges', value: 'Nebraska Avenue and Loughboro Road to the south, Dalecarlia Parkway to the west and Massachusetts Avenue to the northeast. Dalecarlia Parkway and Massachusetts Avenue meet at Westmoreland Circle on the Maryland line' },
+    UPDATED,
+  ],
+  about: {
+    title: 'Curving Streets on Former University Land',
+    paragraphs: [
+      'Spring Valley, DC sits on land that American University once owned. Builders laid out custom houses along curving streets that depart from the city’s street grid, which gives the neighborhood a different feel from the rowhouse areas downtown.',
+      'Massachusetts Avenue is the main commercial corridor, with two retail strips and medical offices on its eastern end. The avenue runs northwest to Westmoreland Circle, where the neighborhood meets the Maryland line.',
+      'Spring Valley has housed well-known residents. Richard Nixon lived on Tilden Street from 1951 to 1957, first as a senator and then as vice president, before moving to nearby Wesley Heights.',
+    ],
+  },
+  listings: { title: 'Browse Spring Valley DC Homes for Sale', text: VIP, state: 'DC', zips: ['20016'], viewAllHref: '/properties' },
+  market: {
+    title: 'Spring Valley Real Estate Market',
+    paragraphs: [
+      'Spring Valley DC real estate is mostly single-family houses with a handful of townhouses, so prices swing with lot size, age and how recently a house was renovated. An updated custom house and an original one on the same street can sell at very different prices.',
+      'For a custom comparison on a specific street, request a Spring Valley price check.',
+    ],
+  },
+  sections: [
+    {
+      title: 'Houses, Townhouses and Embassy Neighbors',
+      paragraphs: [
+        'Land use here is mostly low-density residential, with detached houses and some townhouses. The Army Corps of Engineers counts about 1,600 homes and lots inside the Spring Valley area, which also holds several embassy-owned properties, American University and Wesley Theological Seminary.',
+        'Many houses were custom-built, so floor plans vary a great deal from one address to the next. Ask for the permit history on any addition, and ask when the roof, mechanical systems and windows were last replaced.',
+      ],
+    },
+    {
+      title: 'The World War I Cleanup: What Buyers Should Know',
+      paragraphs: [
+        'From 1917 to 1920, the U.S. Army ran the American University Experiment Station here, where it researched and tested chemical agents and munitions. When the war ended, much of that material was buried, and the land was later built over.',
+        'Workers digging a utility trench found buried munitions on January 5, 1993. The Army Corps of Engineers began a long investigation and cleanup, with the Environmental Protection Agency and DC’s environmental agency as regulators.',
+      ],
+      table: {
+        headers: ['What the Corps reports', 'Figure'],
+        rows: [
+          ['Size of the site', 'About 661 acres in northwest DC'],
+          ['Homes and lots in the area', 'About 1,600'],
+          ['Properties and lots sampled for arsenic', '1,632'],
+          ['Properties and lots that needed soil cleanup', '177'],
+          ['Main contaminant of concern', 'Arsenic'],
+          ['Lead agency', 'U.S. Army Corps of Engineers, Baltimore District'],
+          ['Status', 'The Corps described the 30-year project as concluded in a January 2026 release'],
+        ],
+      },
+      points: [
+        { title: 'What it means when you buy', text: 'The cleanup is public record, so you can check it for a specific address. Ask the seller whether the property was sampled or had soil removed, request any related paperwork, and ask your title company whether any recorded notices or use restrictions apply. Brandon builds these requests into every Spring Valley offer and points you to the Corps’ records for the technical details.' },
+      ],
+    },
+    {
+      title: 'Living Beside American University',
+      paragraphs: [
+        'American University’s main campus sits at 4400 Massachusetts Avenue, and Wesley Theological Seminary is next door at 4500. Visit the street you like at different times, including a weekday afternoon, to see how campus activity affects traffic and parking.',
+        'Campus and nearby development projects go to the DC Zoning Commission, where ANC 3D and the Spring Valley-Wesley Heights Citizens Association have taken part. Ask the seller or the ANC about any project near the house you want.',
+        'The university also adds things to do. The Katzen Arts Center brings visual and performing arts to campus, and Massachusetts Avenue has restaurants, a pharmacy and everyday shops within a short drive.',
+      ],
+    },
+    {
+      title: 'Getting Around Spring Valley',
+      paragraphs: [
+        'Spring Valley has no Metro station. Metrobus stops line Massachusetts Avenue, and the closest Red Line station is Tenleytown-AU, a bus ride or short drive away depending on the block.',
+        'Massachusetts Avenue leads northwest to the Maryland line and southeast toward downtown. Blocks near campus can have parking limits, so confirm the rules for the exact street.',
+      ],
+    },
+  ],
+  agent: {
+    title: 'Brandon’s Spring Valley Experience',
+    paragraphs: ['If you want a Spring Valley real estate agent who will walk you through the Corps’ records before you tour a house, Brandon Wilson can pull that paperwork and compare the neighborhood with Palisades and other areas on the same budget.'],
+  },
+  nearby: [
+    { name: 'Palisades', text: 'To the southwest' },
+    { name: 'Chevy Chase DC', text: 'To the east' },
+  ],
+  faqTitle: 'Spring Valley FAQ',
+  faqs: [
+    { q: 'Is Spring Valley the same as American University Park?', a: 'No, they are neighboring areas, and the names confuse many buyers. American University Park lies to the northeast, even though most of American University’s main campus sits inside Spring Valley.' },
+    { q: 'Where can I find records for a specific property?', a: 'The Army Corps of Engineers’ Baltimore District led the cleanup, so start there for work done on a given address. The seller and the title company may also hold sampling results or recorded notices.' },
+    { q: 'Which schools serve Spring Valley?', a: 'Local guides point to Horace Mann Elementary in nearby Wesley Heights, but zoned schools depend on the address. DC opened MacArthur High School in 2023 and adjusted some boundaries, so check all three levels with the DCPS boundary tool before you make an offer.' },
+    { q: 'Are there condos in Spring Valley?', a: 'Very few. The neighborhood is mostly single-family houses with some townhouses, so buyers who want a condo usually look in nearby areas. Brandon can compare those options on the same budget.' },
+  ],
+  cta: {
+    title: 'Ready to Look at Spring Valley DC Homes for Sale?',
+    text: 'Tell Brandon your budget, your commute and how close you want to be to campus. He will line up the Spring Valley houses that fit and pull the available records on each one before you tour.',
+    button: 'Search Spring Valley Homes',
   },
 };
